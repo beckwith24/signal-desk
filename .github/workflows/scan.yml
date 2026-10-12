@@ -1,0 +1,61 @@
+# Runs the scanner in GitHub's cloud on a schedule and sends Telegram alerts — no laptop needed.
+# Setup: repo Settings → Secrets and variables → Actions → add TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID.
+name: Signal scan
+
+on:
+  schedule:
+    - cron: "*/30 13-21 * * 1-5"   # stocks: every 30 min on weekdays (UTC); the code skips closed-market runs
+    - cron: "15 * * * *"           # crypto: every hour, 24/7
+  workflow_dispatch:               # "Run workflow" button for a manual scan
+    inputs:
+      only:
+        description: "What to scan"
+        type: choice
+        options: [all, stocks, crypto]
+        default: all
+
+permissions:
+  contents: write                  # to save signals.db (history + alert de-duplication) back to the repo
+
+concurrency:
+  group: signal-scan
+  cancel-in-progress: false
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install
+        run: pip install -r requirements.txt
+
+      - name: Scan
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            python runner.py --once --only "${{ inputs.only }}" --force
+          elif [ "${{ github.event.schedule }}" = "15 * * * *" ]; then
+            python runner.py --once --only crypto
+          else
+            python runner.py --once --only stocks
+          fi
+
+      - name: Save signal history
+        run: |
+          git config user.name "signal-desk-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add signals.db
+          if ! git diff --cached --quiet; then
+            git commit -m "Update signal history"
+            for i in 1 2 3; do git pull --rebase && git push && break; sleep 5; done
+          fi

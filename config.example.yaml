@@ -1,0 +1,53 @@
+# Copy to config.yaml (or just change settings in the dashboard and press Save).
+# Anything you leave out falls back to the defaults in config.py.
+
+watchlist:
+  stocks: [NVDA, AMD, AVGO, PLTR, TSLA, MRVL, MU, GOOGL, AAPL, MSFT, META, QQQ, SPY]
+  crypto: [BTC-USD, ETH-USD, SOL-USD, LINK-USD, AVAX-USD]
+
+timeframes: ["1d", "4h", "1h"]   # also: 1wk. Turn each on/off from Telegram with /settings
+
+crypto:
+  source: ccxt                  # ccxt (exchange data) or yfinance
+  exchange: kraken              # kraken or coinbase work from the US; binance.com does not
+  quote: USD
+  funding_exchange: ""          # e.g. okx or bybit to add perp funding-rate notes (may be geo-blocked)
+
+models:
+  trend:          {fast_ema: 21, slow_ema: 55, long_ma: 200, supertrend_period: 10, supertrend_mult: 3.0}
+  mean_reversion: {lookback: 20, sd_threshold: 2.0}
+  confluence:     {rsi_period: 14, rsi_low: 35, rsi_high: 65, stoch_k: 14, stoch_d: 3,
+                   volume_lookback: 20, volume_spike: 1.5}
+  atr_layers:     {atr_period: 14, anchor_ma: 50, layer_step: 1.0, max_layers: 4, zone_layer: 2}
+  momentum:       {roc_period: 20, swing_lookback: 10, roc_full_strength: 0.20}
+
+ensemble:
+  min_agree: 3          # models that must point the same way for Buy/Sell
+  strong_score: 75      # score needed for Strong Buy (Strong Sell = 100 - this)
+  watch_score: 58
+  knife_guard: true     # no Buy while trend AND momentum are both still down (and vice versa)
+
+notifications:
+  min_action: Buy               # Watch | Buy | Strong Buy  (same level for sells)
+  alert_on_first_scan: false
+  console: true
+  telegram:
+    enabled: true
+    bot_token: ""               # better: set TELEGRAM_BOT_TOKEN env var
+    chat_id: ""                 # or TELEGRAM_CHAT_ID
+  ntfy:
+    enabled: false
+    topic: ""                   # pick something unguessable, e.g. signal-desk-7f3k29
+    server: https://ntfy.sh
+  email:
+    enabled: false
+    smtp_host: smtp.gmail.com
+    smtp_port: 587
+    username: ""
+    password: ""                # Gmail app password; or SMTP_PASSWORD env var
+    to: ""
+
+scheduler:
+  stock_interval_min: 30
+  crypto_interval_min: 60
+  market_hours_only: true
