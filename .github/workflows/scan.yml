@@ -62,7 +62,7 @@ jobs:
           git add signals.db
           if ! git diff --cached --quiet; then
             git commit -m "Update signal history"
-            for i in 1 2 3; do git pull --rebase && git push && break; sleep 5; done
+            ok=0; for i in 1 2 3; do git pull --rebase && git push && ok=1 && break; sleep 5; done; [ "$ok" = 1 ]
           fi
 
       - name: Build chart site

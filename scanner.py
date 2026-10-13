@@ -49,7 +49,8 @@ def should_alert(res: dict, prev: dict | None, cfg: dict) -> bool:
 def handle_result(res: dict, cfg: dict, notify: bool = True) -> bool:
     prev = storage.get_state(res["ticker"], res["timeframe"])
     sent = False
-    if notify and should_alert(res, prev, cfg):
+    tf_alerts = res["timeframe"] in cfg.get("alert_timeframes", cfg["timeframes"])
+    if notify and tf_alerts and should_alert(res, prev, cfg):
         sent = bool(send_all(format_message(res), cfg, subject=f"{res['action']}: {res['ticker']}"))
     # Layer-in / layer-out alerts are separate from the Buy/Sell signal (always checked, so the
     # saved ladder position stays current even when alerts are off).

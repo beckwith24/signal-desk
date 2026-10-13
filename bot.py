@@ -45,7 +45,7 @@ def settings_text(cfg: dict, s: dict) -> str:
     on = [LABEL.get(tf, tf) for tf in cfg["timeframes"] if s["timeframes"].get(tf, True)]
     return "\n".join([
         "⚙️ Signal Desk settings",
-        f"Timeframes on: {', '.join(on) or 'none'}",
+        f"Alerts for: {', '.join(on) or 'no timeframes (charts still update)'}",
         f"Alert level: {s['min_action']} and stronger (sells too)",
         f"Layer-in / layer-out alerts: {'on' if s.get('ladder', True) else 'off'} (daily)",
         "Status: ⏸ alerts paused" if s["paused"] else "Status: ▶️ alerts on",

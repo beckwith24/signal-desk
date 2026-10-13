@@ -41,18 +41,12 @@ def job_stocks(force: bool = False) -> None:
     if not force and cfg["scheduler"]["market_hours_only"] and not us_market_open():
         log.info("Market closed, skipping stock scan")
         return
-    if not cfg["timeframes"]:
-        log.info("All timeframes switched off")
-        return
     res, errs = run_scan(cfg, tickers=cfg["watchlist"]["stocks"], notify=notify)
     log.info("Stock scan: %d results, %d errors, %d charts", len(res), len(errs), export_results(res, cfg))
 
 
 def job_crypto() -> None:
     cfg, notify = _config_with_switches()
-    if not cfg["timeframes"]:
-        log.info("All timeframes switched off")
-        return
     res, errs = run_scan(cfg, tickers=cfg["watchlist"]["crypto"], notify=notify)
     log.info("Crypto scan: %d results, %d errors, %d charts", len(res), len(errs), export_results(res, cfg))
 

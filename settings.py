@@ -34,8 +34,12 @@ def save(s: dict) -> None:
 
 
 def apply(cfg: dict, s: dict) -> dict:
-    """Return cfg with the Telegram switches applied (timeframes switched off are not scanned)."""
-    cfg["timeframes"] = [tf for tf in cfg["timeframes"] if s["timeframes"].get(tf, True)]
+    """Return cfg with the Telegram switches applied.
+
+    Switching a timeframe off only silences its alerts: every timeframe is still scanned, so the
+    charts and the signal history stay up to date.
+    """
+    cfg["alert_timeframes"] = [tf for tf in cfg["timeframes"] if s["timeframes"].get(tf, True)]
     cfg["notifications"]["min_action"] = s["min_action"]
     cfg["ladder"]["enabled"] = bool(s.get("ladder", True))
     return cfg

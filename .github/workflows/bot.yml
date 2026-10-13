@@ -45,5 +45,5 @@ jobs:
           git add settings.json
           if ! git diff --cached --quiet; then
             git commit -m "Update settings from Telegram"
-            for i in 1 2 3; do git pull --rebase && git push && break; sleep 5; done
+            ok=0; for i in 1 2 3; do git pull --rebase && git push && ok=1 && break; sleep 5; done; [ "$ok" = 1 ]
           fi
