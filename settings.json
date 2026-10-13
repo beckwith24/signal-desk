@@ -1,0 +1,10 @@
+{
+  "timeframes": {
+    "1d": true,
+    "4h": true,
+    "1h": true
+  },
+  "paused": false,
+  "min_action": "Buy",
+  "tg_offset": 498513477
+}
