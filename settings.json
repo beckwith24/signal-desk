@@ -1,10 +1,10 @@
 {
   "timeframes": {
-    "1d": true,
-    "4h": true,
-    "1h": true
+    "1d": false,
+    "4h": false,
+    "1h": false
   },
   "paused": false,
-  "min_action": "Buy",
-  "tg_offset": 498513477
+  "min_action": "Strong Buy",
+  "tg_offset": 498513483
 }
