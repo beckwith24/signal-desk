@@ -1,0 +1,19 @@
+# One-time helper: downloads the chart library into web/ so the site has no outside dependency.
+name: Fetch chart library
+on: workflow_dispatch
+permissions:
+  contents: write
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          mkdir -p web
+          curl -fsSL https://cdn.jsdelivr.net/npm/lightweight-charts@4.2.0/dist/lightweight-charts.standalone.production.js -o web/lightweight-charts.js
+          head -c 200 web/lightweight-charts.js
+          git config user.name "signal-desk-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add web/lightweight-charts.js
+          git commit -m "Add chart library (lightweight-charts 4.2.0, Apache-2.0)"
+          for i in 1 2 3; do git pull --rebase && git push && break; sleep 5; done
