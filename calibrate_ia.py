@@ -577,8 +577,25 @@ def stage2(data, charts, cb_t, bar_of, synthetic) -> dict:
     # the screenshot's own triangles, priced the same ways
     cbt = charts[0]["targets"]
     out["cbrs_markers_accounting"] = accounting(cb, [i for sd, i in cbt if sd == "buy"], [i for sd, i in cbt if sd == "sell"])
-    out["_best_signals"] = {ch["name"]: rows[0]["_bs_" + ch["name"]] for ch in charts}
-    out["_best_rule"] = (rows[0]["family"], rows[0]["params"])
+    # CBRS again without the IPO day (Yahoo's first bars include a 185 -> 385 spike that inflates the ATR
+    # for weeks; TradingView's data may not have it)
+    ch = dict(charts[0]); drop = 2
+    ch["df"] = cb.iloc[drop:]
+    ch["targets"] = [(sd, i - drop) for sd, i in ch["targets"] if i >= drop]
+    ch["window"] = (0, len(ch["df"]) - 1)
+    rows2 = []
+    for fam, prm in grids:
+        up = supertrend_tv(ch["df"], *prm) if fam == "supertrend" else ut_bot(ch["df"], *prm)
+        b, s = alternate(*flips(up))
+        pred = sorted([("buy", i) for i in b] + [("sell", i) for i in s], key=lambda p: p[1])
+        rows2.append({"family": fam, "params": list(map(str, prm)), **score(pred, ch["targets"], ch["tol"])})
+    rows2.sort(key=lambda r: -r["f1"])
+    lookup = {(r["family"], tuple(r["params"])): r for r in rows2}
+    out["cbrs_no_ipo_day_top"] = rows2[:8]
+    out["cbrs_no_ipo_day_for_overall_top"] = [lookup[(x["family"], tuple(x["params"]))] for x in top[:8]]
+    pick = max(rows, key=lambda r: r[charts[1]["name"]]["f1"])
+    out["_best_signals"] = {c["name"]: pick["_bs_" + c["name"]] for c in charts}
+    out["_best_rule"] = (pick["family"], tuple(map(str, pick["params"])))
     return out
 
 
@@ -752,7 +769,14 @@ def report(r: dict) -> str:
         L += ["", "Screenshot's own CBRS triangles priced the same ways:"]
         for way, v in st["cbrs_markers_accounting"].items():
             L.append(f"- {way}: {v}")
-        L += ["", f"CBRS all-time high check: {st['cbrs_ath']}", ""]
+        L += ["", f"CBRS all-time high check: {st['cbrs_ath']}", "",
+              "CBRS without the IPO day — best rules:", ""]
+        L += [f"- {x['family']} {', '.join(x['params'])}: F1 {x['f1']} ({x['hits']}/{x['targets']}, {x['signals']} signals)"
+              for x in st["cbrs_no_ipo_day_top"]]
+        L += ["", "CBRS without the IPO day — the overall top rules:", ""]
+        L += [f"- {x['family']} {', '.join(x['params'])}: F1 {x['f1']} ({x['hits']}/{x['targets']}, {x['signals']} signals)"
+              for x in st["cbrs_no_ipo_day_for_overall_top"]]
+        L.append("")
     return "\n".join(L)
 
 
