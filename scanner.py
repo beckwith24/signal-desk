@@ -5,6 +5,7 @@ import logging
 import time
 from datetime import datetime, timezone
 
+import ladder
 import storage
 from data import fetch_funding_rate, fetch_ohlcv, is_crypto
 from notify import format_message, send_all
@@ -50,6 +51,11 @@ def handle_result(res: dict, cfg: dict, notify: bool = True) -> bool:
     sent = False
     if notify and should_alert(res, prev, cfg):
         sent = bool(send_all(format_message(res), cfg, subject=f"{res['action']}: {res['ticker']}"))
+    # Layer-in / layer-out alerts are separate from the Buy/Sell signal (always checked, so the
+    # saved ladder position stays current even when alerts are off).
+    for msg in ladder.check_alerts(res, cfg):
+        if notify:
+            sent = bool(send_all(msg, cfg, subject=f"Layer alert: {res['ticker']}")) or sent
     if prev is None or prev["action"] != res["action"]:
         storage.log_signal(res, sent)
     storage.set_state(res)

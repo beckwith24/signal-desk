@@ -47,6 +47,7 @@ def settings_text(cfg: dict, s: dict) -> str:
         "⚙️ Signal Desk settings",
         f"Timeframes on: {', '.join(on) or 'none'}",
         f"Alert level: {s['min_action']} and stronger (sells too)",
+        f"Layer-in / layer-out alerts: {'on' if s.get('ladder', True) else 'off'} (daily)",
         "Status: ⏸ alerts paused" if s["paused"] else "Status: ▶️ alerts on",
         "",
         "Tap to change. Taps are picked up within about 5–15 minutes.",
@@ -59,6 +60,7 @@ def keyboard(cfg: dict, s: dict) -> dict:
     return {"inline_keyboard": [
         tf_row,
         [{"text": f"🔔 Alert level: {s['min_action']}", "callback_data": "level"}],
+        [{"text": f"🪜 Layer alerts: {'On' if s.get('ladder', True) else 'Off'}", "callback_data": "ladder"}],
         [{"text": "▶️ Resume alerts" if s["paused"] else "⏸ Pause all alerts", "callback_data": "pause"}],
     ]}
 
@@ -86,6 +88,9 @@ def handle_callback(data: str, cfg: dict, s: dict) -> str:
         i = S.LEVELS.index(s["min_action"]) if s["min_action"] in S.LEVELS else 1
         s["min_action"] = S.LEVELS[(i + 1) % len(S.LEVELS)]
         return f"Alert level: {s['min_action']}"
+    elif data == "ladder":
+        s["ladder"] = not s.get("ladder", True)
+        return f"Layer alerts turned {'on' if s['ladder'] else 'off'}"
     elif data == "pause":
         s["paused"] = not s["paused"]
         return "Alerts paused" if s["paused"] else "Alerts resumed"

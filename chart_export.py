@@ -13,6 +13,7 @@ from pathlib import Path
 
 import pandas as pd
 
+import ladder
 import storage
 from data import is_crypto
 
@@ -28,7 +29,7 @@ def file_id(ticker: str, tf: str) -> str:
 def _decimals(price: float) -> int:
     if not price or price <= 0 or math.isnan(price):
         return 2
-    return max(2, 5 - math.floor(math.log10(price)))
+    return max(2, 4 - math.floor(math.log10(price)))
 
 
 def _num(x, nd: int):
@@ -56,7 +57,12 @@ def build_payload(res: dict, cfg: dict) -> dict:
         return [_num(v, nd) for v in s.reindex(idx).values]
 
     p = cfg["models"]
+    lp = ladder.plan(res, cfg)
+    for tier in lp["buys"] + lp["sells"]:
+        tier["price"] = _num(tier["price"], nd)
+    lp["anchor"], lp["step"], lp["distance"] = _num(lp["anchor"], nd), _num(lp["step"], nd), round(lp["distance"], 2)
     return {
+        "ladder": lp,
         "ticker": res["ticker"],
         "tf": res["timeframe"],
         "asset": "crypto" if is_crypto(res["ticker"], cfg) else "stock",

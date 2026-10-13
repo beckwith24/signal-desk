@@ -1,19 +1,24 @@
-# Manual backtest: Actions tab → "Backtest" → Run workflow. Takes ~15–25 minutes.
+# Manual backtest: Actions tab → "Backtest" → Run workflow. Signals take ~15–25 minutes, the ladder ~3.
 # Results are saved in the backtest/ folder (summary.md is the readable one).
 name: Backtest
 
 on:
   workflow_dispatch:
     inputs:
+      run:
+        description: "Which backtest"
+        type: choice
+        options: [both, signals, ladder]
+        default: both
       timeframes:
-        description: "Timeframes (space separated)"
+        description: "Timeframes for the signal backtest (space separated)"
         default: "1d 4h 1h"
 
 permissions:
   contents: write
 
 concurrency:
-  group: backtest
+  group: backtest-${{ inputs.run }}
   cancel-in-progress: true
 
 jobs:
@@ -31,8 +36,13 @@ jobs:
       - name: Install
         run: pip install -r requirements.txt
 
-      - name: Run backtest
+      - name: Signal backtest
+        if: inputs.run != 'ladder'
         run: python backtest.py --tf ${{ inputs.timeframes }}
+
+      - name: Layer-in / layer-out backtest
+        if: inputs.run != 'signals'
+        run: python backtest_ladder.py
 
       - name: Save results
         run: |

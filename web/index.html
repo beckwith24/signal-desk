@@ -172,6 +172,20 @@ h3.sec { font: 700 13px var(--f-display); text-transform: uppercase; letter-spac
 .foot { color: var(--faint); font-size: 12px; margin-top: 28px; line-height: 1.5; }
 .disclaimer { color: var(--muted); font-size: 12px; padding: 10px 12px; border: 1px dashed var(--line); border-radius: 8px; margin-top: 18px; }
 .err { color: var(--down); }
+.ladder-now { color: var(--muted); font-size: 14px; margin: 0 0 12px; }
+.ladder-now strong { color: var(--ink); font-weight: 600; }
+.ladder { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.rung-col h4 { margin: 0 0 6px; font: 600 12px var(--f-body); text-transform: uppercase; letter-spacing: .08em; }
+.rung-col.in h4 { color: var(--up); } .rung-col.out h4 { color: var(--down); }
+.rung { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 2px 10px; padding: 9px 10px;
+  border: 1px solid var(--line); border-radius: 9px; background: var(--surface); margin-bottom: 6px; }
+.rung .lv { font: 600 13px var(--f-mono); grid-row: span 2; align-self: center; }
+.rung .pr { font: 500 14px var(--f-mono); text-align: right; }
+.rung .st { font-size: 12px; color: var(--muted); text-align: right; }
+.rung.hit.in { border-color: var(--up); background: var(--up-soft); }
+.rung.hit.out { border-color: var(--down); background: var(--down-soft); }
+.rung.hit .st { color: var(--ink); font-weight: 600; }
+@media (max-width: 380px) { .ladder { grid-template-columns: 1fr; } }
 
 @media (max-width: 420px) {
   .sig { min-width: 92px; }
@@ -223,6 +237,9 @@ h3.sec { font: 700 13px var(--f-display); text-transform: uppercase; letter-spac
     </div>
     <h3 class="sec">Why</h3>
     <ul class="reasons" id="dReasons"></ul>
+    <h3 class="sec">Layer plan</h3>
+    <p class="ladder-now" id="dLadderNow"></p>
+    <div class="ladder" id="dLadder"></div>
     <h3 class="sec">The five models</h3>
     <table class="models"><tbody id="dModels"></tbody></table>
     <h3 class="sec">Signal history</h3>
@@ -266,7 +283,7 @@ h3.sec { font: 700 13px var(--f-display); text-transform: uppercase; letter-spac
   function fmtPrice(p, nd) {
     if (p == null) return "–";
     const d = nd != null ? Math.min(nd, p >= 1000 ? 2 : nd) : 2;
-    return p.toLocaleString(LOC, { minimumFractionDigits: Math.min(d, 2), maximumFractionDigits: d });
+    return p.toLocaleString(LOC, { minimumFractionDigits: d, maximumFractionDigits: d });
   }
   function fmtChg(c) {
     const span = el("span", "chg " + (c > 0 ? "up" : c < 0 ? "down" : "flat"), (c > 0 ? "+" : "") + c.toFixed(2) + "%");
@@ -381,6 +398,7 @@ h3.sec { font: 700 13px var(--f-display); text-transform: uppercase; letter-spac
     const rs = $("dReasons"); rs.textContent = "";
     for (const r of d.reasons) rs.append(el("li", null, r));
     for (const n of d.notes || []) rs.append(el("li", "note", n));
+    renderLadder(d);
     const mt = $("dModels"); mt.textContent = "";
     for (const m of d.models) {
       const tr = el("tr");
@@ -401,12 +419,33 @@ h3.sec { font: 700 13px var(--f-display); text-transform: uppercase; letter-spac
     window.scrollTo(0, 0);
   }
 
+  function renderLadder(d) {
+    const box = $("dLadder"), now = $("dLadderNow"); box.textContent = ""; now.textContent = "";
+    const L = d.ladder; if (!L) { now.textContent = "No layer plan in this data yet."; return; }
+    const side = L.distance < 0 ? "below" : "above";
+    now.append("Price is ", el("strong", null, Math.abs(L.distance).toFixed(1) + " ATR " + side),
+      " the " + L.anchor_ma + "-bar average (" + fmtPrice(L.anchor, d.decimals) + "), layer ",
+      el("strong", null, (L.layer > 0 ? "+" : "") + L.layer), ". Each layer is " + fmtPrice(L.step, d.decimals) + ".");
+    const col = (cls, title, tiers, verb) => {
+      const c = el("div", "rung-col " + cls); c.append(el("h4", null, title));
+      for (const r of tiers) {
+        const row = el("div", "rung " + cls + (r.reached ? " hit" : ""));
+        const away = (r.price / d.price - 1) * 100;
+        row.append(el("span", "lv", "L" + (r.layer > 0 ? "+" : "") + r.layer), el("span", "pr", fmtPrice(r.price, d.decimals)),
+          el("span", "st", r.reached ? "✓ " + verb + " " + r.pct + "%" : verb + " " + r.pct + "% · " + (away > 0 ? "+" : "") + away.toFixed(1) + "%"));
+        c.append(row);
+      }
+      return c;
+    };
+    box.append(col("in", "Layer in", L.buys, "add"), col("out", "Layer out", L.sells, "trim"));
+  }
+
   function showDetailError(ticker, tf) {
     state.detail = { ticker }; $("listView").hidden = true; $("detailView").hidden = false;
     $("back").hidden = false; $("brand").hidden = true; renderControls();
     $("dTitle").textContent = ticker.replace("-USD", "");
     $("dAsset").innerHTML = ""; $("dAsset").append(el("span", "err", "No " + (TF_LABEL[tf] || tf) + " chart for this ticker yet."));
-    for (const id of ["dPrice", "dChg", "dStats", "dReasons", "dModels", "dHist", "dFoot", "legend"]) $(id).textContent = "";
+    for (const id of ["dPrice", "dChg", "dStats", "dReasons", "dLadder", "dLadderNow", "dModels", "dHist", "dFoot", "legend"]) $(id).textContent = "";
     if (state.chart) { state.chart.remove(); state.chart = null; }
   }
 

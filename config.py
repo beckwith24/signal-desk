@@ -32,6 +32,9 @@ DEFAULTS = {
                        "max_layers": 4, "zone_layer": 2},
         "momentum": {"roc_period": 20, "swing_lookback": 10, "roc_full_strength": 0.20},
     },
+    # Layer-in / layer-out plan (see ladder.py). Percentages are of the position you plan to build / hold.
+    "ladder": {"enabled": True, "timeframes": ["1d"], "buy_layers": [-2, -3, -4], "buy_pct": [33, 33, 34],
+               "sell_layers": [2, 3, 4], "sell_pct": [33, 33, 34]},
     "ensemble": {"min_agree": 3, "strong_score": 75, "watch_score": 58, "knife_guard": True},
     "notifications": {
         "min_action": "Buy",            # Watch, Buy or Strong Buy (applies to sells too)

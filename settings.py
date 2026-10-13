@@ -14,13 +14,14 @@ LEVELS = ["Watch", "Buy", "Strong Buy"]
 
 def load(cfg: dict) -> dict:
     s = {"timeframes": {tf: True for tf in cfg["timeframes"]}, "paused": False,
+         "ladder": bool(cfg["ladder"].get("enabled", True)),
          "min_action": cfg["notifications"]["min_action"], "tg_offset": 0}
     try:
         saved = json.loads(SETTINGS_PATH.read_text())
     except (FileNotFoundError, ValueError):
         saved = {}
     s["timeframes"].update({k: bool(v) for k, v in saved.get("timeframes", {}).items() if k in s["timeframes"]})
-    for key in ("paused", "tg_offset"):
+    for key in ("paused", "tg_offset", "ladder"):
         if key in saved:
             s[key] = saved[key]
     if saved.get("min_action") in LEVELS:
@@ -36,4 +37,5 @@ def apply(cfg: dict, s: dict) -> dict:
     """Return cfg with the Telegram switches applied (timeframes switched off are not scanned)."""
     cfg["timeframes"] = [tf for tf in cfg["timeframes"] if s["timeframes"].get(tf, True)]
     cfg["notifications"]["min_action"] = s["min_action"]
+    cfg["ladder"]["enabled"] = bool(s.get("ladder", True))
     return cfg

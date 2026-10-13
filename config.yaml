@@ -21,6 +21,14 @@ models:
   atr_layers:     {atr_period: 14, anchor_ma: 50, layer_step: 1.0, max_layers: 4, zone_layer: 2}
   momentum:       {roc_period: 20, swing_lookback: 10, roc_full_strength: 0.20}
 
+ladder:                 # layer-in / layer-out plan (ATR layers around the 50-bar average)
+  enabled: true         # Telegram /settings can switch layer alerts on and off
+  timeframes: ["1d"]
+  buy_layers: [-2, -3, -4]
+  buy_pct: [33, 33, 34]   # % of the position you plan to build, added at each layer
+  sell_layers: [2, 3, 4]
+  sell_pct: [33, 33, 34]  # % of your position trimmed at each layer
+
 ensemble:
   min_agree: 3          # models that must point the same way for Buy/Sell
   strong_score: 75      # score needed for Strong Buy (Strong Sell = 100 - this)
