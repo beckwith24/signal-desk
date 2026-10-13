@@ -112,25 +112,37 @@ def _load_cache() -> dict:
         return {}
 
 
-def known_ath(ticker: str, refresh_days: int = 1) -> tuple[float, str] | None:
-    """(ATH, month it happened) from Yahoo's full monthly history; cached in ath.json, refreshed daily."""
+def known_ath(ticker: str, price: float | None = None, refresh_days: int = 1) -> tuple[float, str] | None:
+    """(ATH, month it happened) from Yahoo's full monthly history; cached in ath.json, refreshed daily.
+
+    Pass the current price from the app's own data: if Yahoo's latest price is far off, Yahoo's symbol is
+    probably a different coin (common for newer crypto tokens), so its high is ignored.
+    """
     cache = _load_cache()
     hit = cache.get(ticker)
     today = date.today().isoformat()
-    if hit and (date.fromisoformat(hit["checked"]) - date.today()).days > -refresh_days:
-        return hit["ath"], hit["date"]
+
+    def checked(rec):
+        if price and rec.get("last") and abs(rec["last"] / price - 1) > 0.25:
+            log.info("Ignoring Yahoo high for %s: its price %.6g vs ours %.6g", ticker, rec["last"], price)
+            return None
+        return rec["ath"], rec["date"]
+
+    if hit and "last" in hit and (date.fromisoformat(hit["checked"]) - date.today()).days > -refresh_days:
+        return checked(hit)
     try:
         import yfinance as yf
         m = yf.Ticker(ticker).history(period="max", interval="1mo", auto_adjust=True)
         if m is None or m.empty:
             raise ValueError("no monthly history")
         i = m["High"].idxmax()
-        rec = {"ath": float(m["High"].max()), "date": str(pd.Timestamp(i).date()), "checked": today}
+        rec = {"ath": float(m["High"].max()), "date": str(pd.Timestamp(i).date()), "checked": today,
+               "last": float(m["Close"].iloc[-1])}
         if hit and hit["ath"] > rec["ath"] and hit["date"] >= rec["date"]:
             rec.update(ath=hit["ath"], date=hit["date"])   # keep a higher high seen by the scans
         cache[ticker] = rec
         ATH_CACHE.write_text(json.dumps(cache, indent=1, sort_keys=True) + "\n")
-        return rec["ath"], rec["date"]
+        return checked(rec)
     except Exception as e:
         log.info("ATH lookup failed for %s: %s", ticker, e)
-        return (hit["ath"], hit["date"]) if hit else None
+        return checked(hit) if hit else None

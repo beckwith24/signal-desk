@@ -33,7 +33,7 @@ def daily_context(asset: str, cfg: dict) -> dict:
 def scan_one(ticker: str, tf: str, cfg: dict) -> dict:
     df = fetch_ohlcv(ticker, tf, cfg)
     asset = "crypto" if is_crypto(ticker, cfg) else "stock"
-    ath_known = ia.known_ath(ticker)          # full-history all-time high (cached in ath.json, daily refresh)
+    ath_known = ia.known_ath(ticker, float(df["close"].iat[-1]))   # full-history high (cached in ath.json)
     if cfg.get("engine", "v2") == "v2":
         ctx = context.align(daily_context(asset, cfg), df.index, asset, tf)
         ctx["ath_known"] = ath_known
