@@ -111,7 +111,10 @@ if (window.top !== window.self) { document.documentElement.style.display = "none
       }
     };
     s.append(addBtn);
-    $("tfNote").hidden = true;
+    const key = $("tfNote"); key.hidden = false;      // what Buy / Strong Buy mean
+    key.textContent = "Stocks: Buy = 1 of 3 dip signals, Strong Buy = 2 or more. " +
+      "Crypto: Buy = 3 of 4 trend signals with none against, Strong Buy = all 4. " +
+      "Tested over 10 years: Strong Buys did clearly better; single-signal Buys were close to random.";
     if (state.filter === "signals") items = items.filter((i) => i.rank !== 0);
     else if (state.filter !== "all") items = items.filter((i) => i.asset === state.filter);
     items.sort((a, b) => Math.abs(b.rank) - Math.abs(a.rank) || Math.abs(b.score - 50) - Math.abs(a.score - 50) || a.ticker.localeCompare(b.ticker));
@@ -127,6 +130,16 @@ if (window.top !== window.self) { document.documentElement.style.display = "none
       const px = el("div", "px"); px.append(el("div", "p", fmtPrice(i.price, i.decimals)), fmtChg(i.change_pct));
       const sig = el("div", "sig"); sig.append(pill(i.action), meter(i.score));
       b.append(left, px, sig);
+      if (i.models && i.models.length) {          // one chip per model: what each one says today
+        const mods = el("div", "mods");
+        const on = i.models.filter((m) => m.v > 0).length;
+        mods.append(el("span", "mods-n", on + "/" + i.models.length + " buy"));
+        for (const m of i.models) {
+          const c = el("span", "mod " + (m.v > 0 ? "up" : m.v < 0 ? "down" : "flat"), (m.v > 0 ? "▲ " : m.v < 0 ? "▼ " : "· ") + m.s);
+          c.title = m.r; mods.append(c);
+        }
+        b.append(mods);
+      }
       b.onclick = () => { state.fromList = true; location.hash = (i.ticker + "_" + i.tf).replace(/[^A-Za-z0-9_.-]/g, "_"); };
       li.append(b); list.append(li);
     }

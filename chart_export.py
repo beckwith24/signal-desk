@@ -14,6 +14,7 @@ from pathlib import Path
 import pandas as pd
 
 import ladder
+import models
 import storage
 from data import is_crypto
 
@@ -86,8 +87,8 @@ def build_payload(res: dict, cfg: dict) -> dict:
         "bear": res["bear"],
         "reasons": res["reasons"],
         "notes": res.get("notes", []),
-        "models": [{"name": m.name, "vote": m.vote, "strength": m.strength, "reason": m.reason}
-                   for m in res["models"].values()],
+        "models": [{"key": k, "short": models.SHORT.get(k, m.name), "name": m.name, "vote": m.vote,
+                    "strength": m.strength, "reason": m.reason} for k, m in res["models"].items()],
         "layer": ov["layer"],
         "levels": {str(k): _num(v, nd) for k, v in ov["levels"].items()},
         "z": round(ov["z"], 2),

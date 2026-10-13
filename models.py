@@ -453,6 +453,14 @@ MODELS: dict[str, Model] = {m.key: m for m in [
 ]}
 
 
+# Short labels for the home page (one chip per model)
+SHORT = {"rsi2_pullback": "RSI dip", "ibs_reversal": "Low close", "vix_backwardation": "VIX panic",
+         "tsmom28": "Momentum", "sma_ensemble": "MAs", "donchian_ensemble": "Breakout",
+         "btc_trend_gate": "BTC", "turn_of_month": "Month turn", "market_regime": "Market",
+         "high_breakout_trail": "New high", "ia_ribbon": "IA ribbon", "ia_atr_stop": "IA ATR",
+         "ia_ath_discount": "IA levels"}
+
+
 def params(key: str, overrides: dict | None = None) -> dict:
     return {**MODELS[key].defaults, **((overrides or {}).get(key, {}))}
 

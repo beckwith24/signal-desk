@@ -60,7 +60,11 @@ def main() -> None:
                     log.info("No previous chart for %s %s: %s", t, tf, e)
             if path.exists():
                 d = json.loads(path.read_text())
-                items.append({k: d.get(k) for k in SUMMARY_KEYS})
+                item = {k: d.get(k) for k in SUMMARY_KEYS}
+                if tf == "1d":                    # one chip per model on the home page
+                    item["models"] = [{"s": m.get("short") or m["name"], "v": m["vote"], "r": m["reason"]}
+                                      for m in d.get("models", [])]
+                items.append(item)
     bot_name = ""
     token = os.environ.get("TELEGRAM_BOT_TOKEN", "")
     if token:   # the bot's @username, so the site can open it to add/remove tickers

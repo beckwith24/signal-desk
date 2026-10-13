@@ -189,6 +189,12 @@ per-segment sets and Buy/Sell rules in `engine.py`.
 | **Stocks · daily** | RSI(2) < 10 above the 200-day MA (exit on close above 5-day MA) · close in bottom 20% of the day's range in an uptrend (IBS) · VIX above 3-month VIX | **Buy** when one fires, **Strong Buy** when two or more; no sell signals | Connors & Alvarez; Pagonidis / arXiv 2306.12434; Fassas & Hourvouliades. Our test: positive in both halves but weak (+0.04% to +0.13% per day above normal, not statistically significant). Best used to time additions, not to be in or out |
 | **4-hour and hourly** (both) | none | no Buy/Sell. The site's list is daily only; 4H/1H charts are on each ticker page | Large studies (e.g., Marshall, Cahan & Cahan 2008) find intraday rules don't survive costs; our tests agreed |
 
+**Strong Buy vs Buy** (`strength_research.py`, results in `research/strength.md`, ~10 years): on stocks,
+Strong Buy days (2+ dip signals) beat the stock's normal next day by 0.44% (t 2.8) and its normal 5 days by
+0.76%; single-signal Buys were close to random (+0.01% next day). On crypto, all-4 Strong Buys beat normal
+by 0.44% next day (t 3.6) and 1.9% over 5 days, in both halves of the data; 3-of-4 Buys were weak and
+inconsistent. So "Strong Buy" is the level worth alerting on.
+
 **Waiting for the 4H and 1H to line up before buying doesn't help** (`mtf_research.py`, results in
 `research/mtf.md`). Over ~2 years of daily Buy signals, entering only once the 4H and 1H had turned up
 (ATR model on the buy side, ribbon blue, or both) gave up about a third of the stock profit (1,820 trades:
