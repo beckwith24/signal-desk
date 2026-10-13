@@ -1,0 +1,1362 @@
+{
+ "meta": {
+  "generated": "2026-10-13 02:24 UTC",
+  "fee": 0.001,
+  "ladder": {
+   "enabled": true,
+   "timeframes": [
+    "1d"
+   ],
+   "buy_layers": [
+    -2,
+    -3,
+    -4
+   ],
+   "buy_pct": [
+    33,
+    33,
+    34
+   ],
+   "sell_layers": [
+    2,
+    3,
+    4
+   ],
+   "sell_pct": [
+    33,
+    33,
+    34
+   ]
+  },
+  "anchor_ma": 50,
+  "failed": []
+ },
+ "summary": {
+  "1d": {
+   "crypto": {
+    "tickers": 5,
+    "median_return": {
+     "ladder": 13.4,
+     "lump": 23.3,
+     "hold": 2936.4
+    },
+    "median_max_drawdown": {
+     "ladder": -78.1,
+     "lump": -83.4,
+     "hold": -90.2
+    },
+    "median_avg_invested": {
+     "ladder": 43.1,
+     "lump": 46.5,
+     "hold": 100.0
+    },
+    "ladder_beats_lump": 4,
+    "ladder_beats_hold": 0,
+    "ladder_smaller_drawdown_than_lump": 4,
+    "ladder_smaller_drawdown_than_hold": 5
+   },
+   "stock": {
+    "tickers": 13,
+    "median_return": {
+     "ladder": 131.9,
+     "lump": 146.2,
+     "hold": 835.0
+    },
+    "median_max_drawdown": {
+     "ladder": -45.0,
+     "lump": -48.3,
+     "hold": -57.6
+    },
+    "median_avg_invested": {
+     "ladder": 34.6,
+     "lump": 36.8,
+     "hold": 100.0
+    },
+    "ladder_beats_lump": 7,
+    "ladder_beats_hold": 0,
+    "ladder_smaller_drawdown_than_lump": 10,
+    "ladder_smaller_drawdown_than_hold": 13
+   },
+   "all": {
+    "tickers": 18,
+    "median_return": {
+     "ladder": 131.45,
+     "lump": 132.1,
+     "hold": 1124.6
+    },
+    "median_max_drawdown": {
+     "ladder": -47.85,
+     "lump": -49.25,
+     "hold": -65.85
+    },
+    "median_avg_invested": {
+     "ladder": 36.85,
+     "lump": 39.599999999999994,
+     "hold": 100.0
+    },
+    "ladder_beats_lump": 11,
+    "ladder_beats_hold": 0,
+    "ladder_smaller_drawdown_than_lump": 14,
+    "ladder_smaller_drawdown_than_hold": 18
+   }
+  },
+  "4h": {
+   "crypto": {
+    "tickers": 5,
+    "median_return": {
+     "ladder": -38.8,
+     "lump": -25.5,
+     "hold": -28.7
+    },
+    "median_max_drawdown": {
+     "ladder": -57.3,
+     "lump": -61.9,
+     "hold": -76.5
+    },
+    "median_avg_invested": {
+     "ladder": 47.7,
+     "lump": 50.9,
+     "hold": 100.0
+    },
+    "ladder_beats_lump": 4,
+    "ladder_beats_hold": 4,
+    "ladder_smaller_drawdown_than_lump": 3,
+    "ladder_smaller_drawdown_than_hold": 5
+   },
+   "stock": {
+    "tickers": 13,
+    "median_return": {
+     "ladder": 60.0,
+     "lump": 49.5,
+     "hold": 138.8
+    },
+    "median_max_drawdown": {
+     "ladder": -28.8,
+     "lump": -29.5,
+     "hold": -38.2
+    },
+    "median_avg_invested": {
+     "ladder": 37.5,
+     "lump": 39.8,
+     "hold": 100.0
+    },
+    "ladder_beats_lump": 8,
+    "ladder_beats_hold": 2,
+    "ladder_smaller_drawdown_than_lump": 10,
+    "ladder_smaller_drawdown_than_hold": 13
+   },
+   "all": {
+    "tickers": 18,
+    "median_return": {
+     "ladder": 36.0,
+     "lump": 28.9,
+     "hold": 81.5
+    },
+    "median_max_drawdown": {
+     "ladder": -31.200000000000003,
+     "lump": -35.25,
+     "hold": -50.9
+    },
+    "median_avg_invested": {
+     "ladder": 40.65,
+     "lump": 44.55,
+     "hold": 100.0
+    },
+    "ladder_beats_lump": 12,
+    "ladder_beats_hold": 6,
+    "ladder_smaller_drawdown_than_lump": 13,
+    "ladder_smaller_drawdown_than_hold": 18
+   }
+  }
+ },
+ "rows": [
+  {
+   "ticker": "NVDA",
+   "tf": "1d",
+   "asset": "stock",
+   "start": "2017-10-11",
+   "end": "2026-10-12",
+   "years": 9.0,
+   "ladder": {
+    "return": 149.1,
+    "max_drawdown": -46.5,
+    "avg_invested": 25.1,
+    "trades": 76,
+    "return_per_invested": 594.0
+   },
+   "lump": {
+    "return": 146.7,
+    "max_drawdown": -48.4,
+    "avg_invested": 30.1,
+    "trades": 28,
+    "return_per_invested": 487.4
+   },
+   "hold": {
+    "return": 4704.0,
+    "max_drawdown": -66.3,
+    "avg_invested": 100.0,
+    "trades": 1
+   },
+   "dip_cycles": {
+    "reached_L-2": 22,
+    "reached_L-3": 9,
+    "reached_L-4": 6
+   }
+  },
+  {
+   "ticker": "AMD",
+   "tf": "1d",
+   "asset": "stock",
+   "start": "2017-10-11",
+   "end": "2026-10-12",
+   "years": 9.0,
+   "ladder": {
+    "return": 364.9,
+    "max_drawdown": -49.0,
+    "avg_invested": 37.2,
+    "trades": 90,
+    "return_per_invested": 980.9
+   },
+   "lump": {
+    "return": 281.7,
+    "max_drawdown": -48.0,
+    "avg_invested": 40.0,
+    "trades": 34,
+    "return_per_invested": 704.2
+   },
+   "hold": {
+    "return": 4177.0,
+    "max_drawdown": -65.4,
+    "avg_invested": 100.0,
+    "trades": 1
+   },
+   "dip_cycles": {
+    "reached_L-2": 25,
+    "reached_L-3": 15,
+    "reached_L-4": 10
+   }
+  },
+  {
+   "ticker": "AVGO",
+   "tf": "1d",
+   "asset": "stock",
+   "start": "2017-10-11",
+   "end": "2026-10-12",
+   "years": 9.0,
+   "ladder": {
+    "return": 337.2,
+    "max_drawdown": -43.3,
+    "avg_invested": 29.6,
+    "trades": 92,
+    "return_per_invested": 1139.2
+   },
+   "lump": {
+    "return": 357.8,
+    "max_drawdown": -48.3,
+    "avg_invested": 33.9,
+    "trades": 31,
+    "return_per_invested": 1055.5
+   },
+   "hold": {
+    "return": 1710.1,
+    "max_drawdown": -48.3,
+    "avg_invested": 100.0,
+    "trades": 1
+   },
+   "dip_cycles": {
+    "reached_L-2": 24,
+    "reached_L-3": 11,
+    "reached_L-4": 7
+   }
+  },
+  {
+   "ticker": "PLTR",
+   "tf": "1d",
+   "asset": "stock",
+   "start": "2021-09-28",
+   "end": "2026-10-12",
+   "years": 5.0,
+   "ladder": {
+    "return": 50.7,
+    "max_drawdown": -62.8,
+    "avg_invested": 38.0,
+    "trades": 50,
+    "return_per_invested": 133.4
+   },
+   "lump": {
+    "return": 182.6,
+    "max_drawdown": -60.4,
+    "avg_invested": 39.8,
+    "trades": 20,
+    "return_per_invested": 458.8
+   },
+   "hold": {
+    "return": 724.0,
+    "max_drawdown": -77.6,
+    "avg_invested": 100.0,
+    "trades": 1
+   },
+   "dip_cycles": {
+    "reached_L-2": 15,
+    "reached_L-3": 8,
+    "reached_L-4": 5
+   }
+  },
+  {
+   "ticker": "TSLA",
+   "tf": "1d",
+   "asset": "stock",
+   "start": "2017-10-11",
+   "end": "2026-10-12",
+   "years": 9.0,
+   "ladder": {
+    "return": 401.7,
+    "max_drawdown": -55.0,
+    "avg_invested": 43.8,
+    "trades": 90,
+    "return_per_invested": 917.1
+   },
+   "lump": {
+    "return": 146.2,
+    "max_drawdown": -56.7,
+    "avg_invested": 44.3,
+    "trades": 34,
+    "return_per_invested": 330.0
+   },
+   "hold": {
+    "return": 1497.5,
+    "max_drawdown": -73.6,
+    "avg_invested": 100.0,
+    "trades": 1
+   },
+   "dip_cycles": {
+    "reached_L-2": 21,
+    "reached_L-3": 17,
+    "reached_L-4": 13
+   }
+  },
+  {
+   "ticker": "MRVL",
+   "tf": "1d",
+   "asset": "stock",
+   "start": "2017-10-11",
+   "end": "2026-10-12",
+   "years": 9.0,
+   "ladder": {
+    "return": 255.4,
+    "max_drawdown": -46.7,
+    "avg_invested": 37.4,
+    "trades": 94,
+    "return_per_invested": 682.9
+   },
+   "lump": {
+    "return": 351.2,
+    "max_drawdown": -49.6,
+    "avg_invested": 41.0,
+    "trades": 36,
+    "return_per_invested": 856.6
+   },
+   "hold": {
+    "return": 1414.2,
+    "max_drawdown": -61.9,
+    "avg_invested": 100.0,
+    "trades": 1
+   },
+   "dip_cycles": {
+    "reached_L-2": 26,
+    "reached_L-3": 16,
+    "reached_L-4": 7
+   }
+  },
+  {
+   "ticker": "MU",
+   "tf": "1d",
+   "asset": "stock",
+   "start": "2017-10-11",
+   "end": "2026-10-12",
+   "years": 9.0,
+   "ladder": {
+    "return": 323.6,
+    "max_drawdown": -45.0,
+    "avg_invested": 36.1,
+    "trades": 98,
+    "return_per_invested": 896.4
+   },
+   "lump": {
+    "return": 608.1,
+    "max_drawdown": -48.9,
+    "avg_invested": 37.2,
+    "trades": 36,
+    "return_per_invested": 1634.7
+   },
+   "hold": {
+    "return": 2335.1,
+    "max_drawdown": -57.6,
+    "avg_invested": 100.0,
+    "trades": 1
+   },
+   "dip_cycles": {
+    "reached_L-2": 24,
+    "reached_L-3": 15,
+    "reached_L-4": 8
+   }
+  },
+  {
+   "ticker": "GOOGL",
+   "tf": "1d",
+   "asset": "stock",
+   "start": "2017-10-11",
+   "end": "2026-10-12",
+   "years": 9.0,
+   "ladder": {
+    "return": 121.5,
+    "max_drawdown": -36.8,
+    "avg_invested": 34.6,
+    "trades": 78,
+    "return_per_invested": 351.2
+   },
+   "lump": {
+    "return": 99.8,
+    "max_drawdown": -29.9,
+    "avg_invested": 36.8,
+    "trades": 31,
+    "return_per_invested": 271.2
+   },
+   "hold": {
+    "return": 607.4,
+    "max_drawdown": -44.3,
+    "avg_invested": 100.0,
+    "trades": 1
+   },
+   "dip_cycles": {
+    "reached_L-2": 20,
+    "reached_L-3": 15,
+    "reached_L-4": 9
+   }
+  },
+  {
+   "ticker": "AAPL",
+   "tf": "1d",
+   "asset": "stock",
+   "start": "2017-10-11",
+   "end": "2026-10-12",
+   "years": 9.0,
+   "ladder": {
+    "return": 131.0,
+    "max_drawdown": -27.7,
+    "avg_invested": 33.6,
+    "trades": 86,
+    "return_per_invested": 389.9
+   },
+   "lump": {
+    "return": 70.7,
+    "max_drawdown": -32.0,
+    "avg_invested": 34.2,
+    "trades": 30,
+    "return_per_invested": 206.7
+   },
+   "hold": {
+    "return": 835.0,
+    "max_drawdown": -38.5,
+    "avg_invested": 100.0,
+    "trades": 1
+   },
+   "dip_cycles": {
+    "reached_L-2": 25,
+    "reached_L-3": 16,
+    "reached_L-4": 10
+   }
+  },
+  {
+   "ticker": "MSFT",
+   "tf": "1d",
+   "asset": "stock",
+   "start": "2017-10-11",
+   "end": "2026-10-12",
+   "years": 9.0,
+   "ladder": {
+    "return": 121.4,
+    "max_drawdown": -25.8,
+    "avg_invested": 25.3,
+    "trades": 70,
+    "return_per_invested": 479.8
+   },
+   "lump": {
+    "return": 133.0,
+    "max_drawdown": -27.3,
+    "avg_invested": 29.8,
+    "trades": 28,
+    "return_per_invested": 446.3
+   },
+   "hold": {
+    "return": 677.9,
+    "max_drawdown": -37.1,
+    "avg_invested": 100.0,
+    "trades": 1
+   },
+   "dip_cycles": {
+    "reached_L-2": 18,
+    "reached_L-3": 10,
+    "reached_L-4": 6
+   }
+  },
+  {
+   "ticker": "META",
+   "tf": "1d",
+   "asset": "stock",
+   "start": "2017-10-11",
+   "end": "2026-10-12",
+   "years": 9.0,
+   "ladder": {
+    "return": 18.2,
+    "max_drawdown": -74.4,
+    "avg_invested": 36.5,
+    "trades": 74,
+    "return_per_invested": 49.9
+   },
+   "lump": {
+    "return": 3.4,
+    "max_drawdown": -74.9,
+    "avg_invested": 39.4,
+    "trades": 28,
+    "return_per_invested": 8.6
+   },
+   "hold": {
+    "return": 333.8,
+    "max_drawdown": -76.7,
+    "avg_invested": 100.0,
+    "trades": 1
+   },
+   "dip_cycles": {
+    "reached_L-2": 23,
+    "reached_L-3": 15,
+    "reached_L-4": 9
+   }
+  },
+  {
+   "ticker": "QQQ",
+   "tf": "1d",
+   "asset": "stock",
+   "start": "2017-10-11",
+   "end": "2026-10-12",
+   "years": 9.0,
+   "ladder": {
+    "return": 131.9,
+    "max_drawdown": -22.2,
+    "avg_invested": 26.8,
+    "trades": 91,
+    "return_per_invested": 492.2
+   },
+   "lump": {
+    "return": 131.2,
+    "max_drawdown": -22.4,
+    "avg_invested": 29.9,
+    "trades": 34,
+    "return_per_invested": 438.8
+   },
+   "hold": {
+    "return": 433.4,
+    "max_drawdown": -35.1,
+    "avg_invested": 100.0,
+    "trades": 1
+   },
+   "dip_cycles": {
+    "reached_L-2": 21,
+    "reached_L-3": 14,
+    "reached_L-4": 8
+   }
+  },
+  {
+   "ticker": "SPY",
+   "tf": "1d",
+   "asset": "stock",
+   "start": "2017-10-11",
+   "end": "2026-10-12",
+   "years": 9.0,
+   "ladder": {
+    "return": 62.8,
+    "max_drawdown": -28.3,
+    "avg_invested": 23.9,
+    "trades": 84,
+    "return_per_invested": 262.8
+   },
+   "lump": {
+    "return": 69.5,
+    "max_drawdown": -28.5,
+    "avg_invested": 26.1,
+    "trades": 32,
+    "return_per_invested": 266.3
+   },
+   "hold": {
+    "return": 249.8,
+    "max_drawdown": -33.7,
+    "avg_invested": 100.0,
+    "trades": 1
+   },
+   "dip_cycles": {
+    "reached_L-2": 19,
+    "reached_L-3": 12,
+    "reached_L-4": 8
+   }
+  },
+  {
+   "ticker": "BTC-USD",
+   "tf": "1d",
+   "asset": "crypto",
+   "start": "2017-06-20",
+   "end": "2026-10-13",
+   "years": 9.3,
+   "ladder": {
+    "return": 13.4,
+    "max_drawdown": -71.7,
+    "avg_invested": 43.1,
+    "trades": 134,
+    "return_per_invested": 31.1
+   },
+   "lump": {
+    "return": 23.3,
+    "max_drawdown": -83.5,
+    "avg_invested": 46.9,
+    "trades": 52,
+    "return_per_invested": 49.7
+   },
+   "hold": {
+    "return": 2936.4,
+    "max_drawdown": -83.4,
+    "avg_invested": 100.0,
+    "trades": 1
+   },
+   "dip_cycles": {
+    "reached_L-2": 38,
+    "reached_L-3": 23,
+    "reached_L-4": 17
+   }
+  },
+  {
+   "ticker": "ETH-USD",
+   "tf": "1d",
+   "asset": "crypto",
+   "start": "2018-07-17",
+   "end": "2026-10-13",
+   "years": 8.2,
+   "ladder": {
+    "return": -24.6,
+    "max_drawdown": -78.1,
+    "avg_invested": 42.3,
+    "trades": 110,
+    "return_per_invested": -58.2
+   },
+   "lump": {
+    "return": -44.8,
+    "max_drawdown": -80.0,
+    "avg_invested": 44.7,
+    "trades": 42,
+    "return_per_invested": -100.2
+   },
+   "hold": {
+    "return": 394.5,
+    "max_drawdown": -83.2,
+    "avg_invested": 100.0,
+    "trades": 1
+   },
+   "dip_cycles": {
+    "reached_L-2": 28,
+    "reached_L-3": 21,
+    "reached_L-4": 15
+   }
+  },
+  {
+   "ticker": "SOL-USD",
+   "tf": "1d",
+   "asset": "crypto",
+   "start": "2020-12-16",
+   "end": "2026-10-13",
+   "years": 5.8,
+   "ladder": {
+    "return": 186.9,
+    "max_drawdown": -84.7,
+    "avg_invested": 45.5,
+    "trades": 92,
+    "return_per_invested": 410.8
+   },
+   "lump": {
+    "return": 79.6,
+    "max_drawdown": -87.2,
+    "avg_invested": 46.5,
+    "trades": 36,
+    "return_per_invested": 171.2
+   },
+   "hold": {
+    "return": 5853.3,
+    "max_drawdown": -96.3,
+    "avg_invested": 100.0,
+    "trades": 1
+   },
+   "dip_cycles": {
+    "reached_L-2": 21,
+    "reached_L-3": 17,
+    "reached_L-4": 10
+   }
+  },
+  {
+   "ticker": "LINK-USD",
+   "tf": "1d",
+   "asset": "crypto",
+   "start": "2018-07-17",
+   "end": "2026-10-13",
+   "years": 8.2,
+   "ladder": {
+    "return": 2543.0,
+    "max_drawdown": -65.6,
+    "avg_invested": 39.6,
+    "trades": 119,
+    "return_per_invested": 6421.7
+   },
+   "lump": {
+    "return": 305.6,
+    "max_drawdown": -67.8,
+    "avg_invested": 42.8,
+    "trades": 42,
+    "return_per_invested": 714.0
+   },
+   "hold": {
+    "return": 5035.3,
+    "max_drawdown": -90.2,
+    "avg_invested": 100.0,
+    "trades": 1
+   },
+   "dip_cycles": {
+    "reached_L-2": 28,
+    "reached_L-3": 22,
+    "reached_L-4": 19
+   }
+  },
+  {
+   "ticker": "AVAX-USD",
+   "tf": "1d",
+   "asset": "crypto",
+   "start": "2021-05-28",
+   "end": "2026-10-13",
+   "years": 5.4,
+   "ladder": {
+    "return": -71.6,
+    "max_drawdown": -85.4,
+    "avg_invested": 56.1,
+    "trades": 88,
+    "return_per_invested": -127.6
+   },
+   "lump": {
+    "return": -74.9,
+    "max_drawdown": -83.4,
+    "avg_invested": 54.6,
+    "trades": 34,
+    "return_per_invested": -137.2
+   },
+   "hold": {
+    "return": -38.4,
+    "max_drawdown": -95.6,
+    "avg_invested": 100.0,
+    "trades": 1
+   },
+   "dip_cycles": {
+    "reached_L-2": 21,
+    "reached_L-3": 18,
+    "reached_L-4": 12
+   }
+  },
+  {
+   "ticker": "NVDA",
+   "tf": "4h",
+   "asset": "stock",
+   "start": "2024-03-20",
+   "end": "2026-10-12",
+   "years": 2.6,
+   "ladder": {
+    "return": 167.5,
+    "max_drawdown": -22.9,
+    "avg_invested": 37.5,
+    "trades": 75,
+    "return_per_invested": 446.7
+   },
+   "lump": {
+    "return": 162.0,
+    "max_drawdown": -25.0,
+    "avg_invested": 43.8,
+    "trades": 28,
+    "return_per_invested": 369.9
+   },
+   "hold": {
+    "return": 155.5,
+    "max_drawdown": -38.2,
+    "avg_invested": 100.0,
+    "trades": 1
+   },
+   "dip_cycles": {
+    "reached_L-2": 22,
+    "reached_L-3": 14,
+    "reached_L-4": 6
+   }
+  },
+  {
+   "ticker": "AMD",
+   "tf": "4h",
+   "asset": "stock",
+   "start": "2024-03-20",
+   "end": "2026-10-12",
+   "years": 2.6,
+   "ladder": {
+    "return": 77.6,
+    "max_drawdown": -31.8,
+    "avg_invested": 52.0,
+    "trades": 72,
+    "return_per_invested": 149.2
+   },
+   "lump": {
+    "return": 49.6,
+    "max_drawdown": -35.3,
+    "avg_invested": 52.8,
+    "trades": 26,
+    "return_per_invested": 93.9
+   },
+   "hold": {
+    "return": 239.8,
+    "max_drawdown": -57.7,
+    "avg_invested": 100.0,
+    "trades": 1
+   },
+   "dip_cycles": {
+    "reached_L-2": 21,
+    "reached_L-3": 16,
+    "reached_L-4": 10
+   }
+  },
+  {
+   "ticker": "AVGO",
+   "tf": "4h",
+   "asset": "stock",
+   "start": "2024-03-20",
+   "end": "2026-10-12",
+   "years": 2.6,
+   "ladder": {
+    "return": 75.3,
+    "max_drawdown": -37.7,
+    "avg_invested": 40.9,
+    "trades": 62,
+    "return_per_invested": 184.1
+   },
+   "lump": {
+    "return": 177.8,
+    "max_drawdown": -35.2,
+    "avg_invested": 43.8,
+    "trades": 28,
+    "return_per_invested": 405.9
+   },
+   "hold": {
+    "return": 177.6,
+    "max_drawdown": -43.2,
+    "avg_invested": 100.0,
+    "trades": 1
+   },
+   "dip_cycles": {
+    "reached_L-2": 17,
+    "reached_L-3": 11,
+    "reached_L-4": 5
+   }
+  },
+  {
+   "ticker": "PLTR",
+   "tf": "4h",
+   "asset": "stock",
+   "start": "2024-03-20",
+   "end": "2026-10-12",
+   "years": 2.6,
+   "ladder": {
+    "return": 145.6,
+    "max_drawdown": -30.6,
+    "avg_invested": 32.2,
+    "trades": 58,
+    "return_per_invested": 452.2
+   },
+   "lump": {
+    "return": 134.0,
+    "max_drawdown": -35.4,
+    "avg_invested": 35.9,
+    "trades": 22,
+    "return_per_invested": 373.3
+   },
+   "hold": {
+    "return": 772.7,
+    "max_drawdown": -48.3,
+    "avg_invested": 100.0,
+    "trades": 1
+   },
+   "dip_cycles": {
+    "reached_L-2": 13,
+    "reached_L-3": 7,
+    "reached_L-4": 7
+   }
+  },
+  {
+   "ticker": "TSLA",
+   "tf": "4h",
+   "asset": "stock",
+   "start": "2024-03-20",
+   "end": "2026-10-12",
+   "years": 2.6,
+   "ladder": {
+    "return": 60.0,
+    "max_drawdown": -46.3,
+    "avg_invested": 47.2,
+    "trades": 62,
+    "return_per_invested": 127.1
+   },
+   "lump": {
+    "return": 27.2,
+    "max_drawdown": -48.8,
+    "avg_invested": 49.3,
+    "trades": 18,
+    "return_per_invested": 55.2
+   },
+   "hold": {
+    "return": 119.7,
+    "max_drawdown": -53.9,
+    "avg_invested": 100.0,
+    "trades": 1
+   },
+   "dip_cycles": {
+    "reached_L-2": 19,
+    "reached_L-3": 13,
+    "reached_L-4": 8
+   }
+  },
+  {
+   "ticker": "MRVL",
+   "tf": "4h",
+   "asset": "stock",
+   "start": "2024-03-20",
+   "end": "2026-10-12",
+   "years": 2.6,
+   "ladder": {
+    "return": 43.7,
+    "max_drawdown": -59.3,
+    "avg_invested": 36.8,
+    "trades": 57,
+    "return_per_invested": 118.8
+   },
+   "lump": {
+    "return": 3.6,
+    "max_drawdown": -59.3,
+    "avg_invested": 38.3,
+    "trades": 18,
+    "return_per_invested": 9.4
+   },
+   "hold": {
+    "return": 308.1,
+    "max_drawdown": -61.6,
+    "avg_invested": 100.0,
+    "trades": 1
+   },
+   "dip_cycles": {
+    "reached_L-2": 15,
+    "reached_L-3": 12,
+    "reached_L-4": 7
+   }
+  },
+  {
+   "ticker": "MU",
+   "tf": "4h",
+   "asset": "stock",
+   "start": "2024-03-20",
+   "end": "2026-10-12",
+   "years": 2.6,
+   "ladder": {
+    "return": 265.5,
+    "max_drawdown": -30.6,
+    "avg_invested": 34.2,
+    "trades": 73,
+    "return_per_invested": 776.3
+   },
+   "lump": {
+    "return": 242.7,
+    "max_drawdown": -33.6,
+    "avg_invested": 35.5,
+    "trades": 28,
+    "return_per_invested": 683.7
+   },
+   "hold": {
+    "return": 940.6,
+    "max_drawdown": -58.0,
+    "avg_invested": 100.0,
+    "trades": 1
+   },
+   "dip_cycles": {
+    "reached_L-2": 16,
+    "reached_L-3": 12,
+    "reached_L-4": 9
+   }
+  },
+  {
+   "ticker": "GOOGL",
+   "tf": "4h",
+   "asset": "stock",
+   "start": "2024-03-20",
+   "end": "2026-10-12",
+   "years": 2.6,
+   "ladder": {
+    "return": 29.6,
+    "max_drawdown": -22.3,
+    "avg_invested": 39.5,
+    "trades": 53,
+    "return_per_invested": 74.9
+   },
+   "lump": {
+    "return": 35.0,
+    "max_drawdown": -25.6,
+    "avg_invested": 37.2,
+    "trades": 20,
+    "return_per_invested": 94.1
+   },
+   "hold": {
+    "return": 138.8,
+    "max_drawdown": -29.8,
+    "avg_invested": 100.0,
+    "trades": 1
+   },
+   "dip_cycles": {
+    "reached_L-2": 14,
+    "reached_L-3": 11,
+    "reached_L-4": 10
+   }
+  },
+  {
+   "ticker": "AAPL",
+   "tf": "4h",
+   "asset": "stock",
+   "start": "2024-03-20",
+   "end": "2026-10-12",
+   "years": 2.6,
+   "ladder": {
+    "return": 42.4,
+    "max_drawdown": -24.1,
+    "avg_invested": 32.9,
+    "trades": 58,
+    "return_per_invested": 128.9
+   },
+   "lump": {
+    "return": 60.9,
+    "max_drawdown": -27.7,
+    "avg_invested": 39.8,
+    "trades": 24,
+    "return_per_invested": 153.0
+   },
+   "hold": {
+    "return": 93.2,
+    "max_drawdown": -33.3,
+    "avg_invested": 100.0,
+    "trades": 1
+   },
+   "dip_cycles": {
+    "reached_L-2": 15,
+    "reached_L-3": 7,
+    "reached_L-4": 6
+   }
+  },
+  {
+   "ticker": "MSFT",
+   "tf": "4h",
+   "asset": "stock",
+   "start": "2024-03-20",
+   "end": "2026-10-12",
+   "years": 2.6,
+   "ladder": {
+    "return": 14.3,
+    "max_drawdown": -23.9,
+    "avg_invested": 50.6,
+    "trades": 57,
+    "return_per_invested": 28.3
+   },
+   "lump": {
+    "return": 2.2,
+    "max_drawdown": -21.7,
+    "avg_invested": 52.3,
+    "trades": 22,
+    "return_per_invested": 4.2
+   },
+   "hold": {
+    "return": 27.8,
+    "max_drawdown": -35.0,
+    "avg_invested": 100.0,
+    "trades": 1
+   },
+   "dip_cycles": {
+    "reached_L-2": 16,
+    "reached_L-3": 12,
+    "reached_L-4": 10
+   }
+  },
+  {
+   "ticker": "META",
+   "tf": "4h",
+   "asset": "stock",
+   "start": "2024-03-20",
+   "end": "2026-10-12",
+   "years": 2.6,
+   "ladder": {
+    "return": 79.3,
+    "max_drawdown": -28.8,
+    "avg_invested": 40.4,
+    "trades": 73,
+    "return_per_invested": 196.3
+   },
+   "lump": {
+    "return": 49.5,
+    "max_drawdown": -29.5,
+    "avg_invested": 45.3,
+    "trades": 26,
+    "return_per_invested": 109.3
+   },
+   "hold": {
+    "return": 49.4,
+    "max_drawdown": -34.7,
+    "avg_invested": 100.0,
+    "trades": 1
+   },
+   "dip_cycles": {
+    "reached_L-2": 16,
+    "reached_L-3": 12,
+    "reached_L-4": 8
+   }
+  },
+  {
+   "ticker": "QQQ",
+   "tf": "4h",
+   "asset": "stock",
+   "start": "2024-03-20",
+   "end": "2026-10-12",
+   "years": 2.6,
+   "ladder": {
+    "return": 25.2,
+    "max_drawdown": -19.7,
+    "avg_invested": 35.4,
+    "trades": 63,
+    "return_per_invested": 71.2
+   },
+   "lump": {
+    "return": 30.6,
+    "max_drawdown": -20.0,
+    "avg_invested": 37.8,
+    "trades": 24,
+    "return_per_invested": 81.0
+   },
+   "hold": {
+    "return": 69.8,
+    "max_drawdown": -22.9,
+    "avg_invested": 100.0,
+    "trades": 1
+   },
+   "dip_cycles": {
+    "reached_L-2": 17,
+    "reached_L-3": 11,
+    "reached_L-4": 7
+   }
+  },
+  {
+   "ticker": "SPY",
+   "tf": "4h",
+   "asset": "stock",
+   "start": "2024-03-20",
+   "end": "2026-10-12",
+   "years": 2.6,
+   "ladder": {
+    "return": 19.9,
+    "max_drawdown": -16.4,
+    "avg_invested": 31.2,
+    "trades": 61,
+    "return_per_invested": 63.8
+   },
+   "lump": {
+    "return": 24.9,
+    "max_drawdown": -17.1,
+    "avg_invested": 36.9,
+    "trades": 24,
+    "return_per_invested": 67.5
+   },
+   "hold": {
+    "return": 50.7,
+    "max_drawdown": -19.0,
+    "avg_invested": 100.0,
+    "trades": 1
+   },
+   "dip_cycles": {
+    "reached_L-2": 17,
+    "reached_L-3": 9,
+    "reached_L-4": 6
+   }
+  },
+  {
+   "ticker": "BTC-USD",
+   "tf": "4h",
+   "asset": "crypto",
+   "start": "2024-11-25",
+   "end": "2026-10-13",
+   "years": 1.9,
+   "ladder": {
+    "return": -2.7,
+    "max_drawdown": -41.0,
+    "avg_invested": 47.7,
+    "trades": 166,
+    "return_per_invested": -5.7
+   },
+   "lump": {
+    "return": -10.9,
+    "max_drawdown": -40.5,
+    "avg_invested": 48.9,
+    "trades": 57,
+    "return_per_invested": -22.3
+   },
+   "hold": {
+    "return": -12.8,
+    "max_drawdown": -53.5,
+    "avg_invested": 100.0,
+    "trades": 1
+   },
+   "dip_cycles": {
+    "reached_L-2": 49,
+    "reached_L-3": 33,
+    "reached_L-4": 23
+   }
+  },
+  {
+   "ticker": "ETH-USD",
+   "tf": "4h",
+   "asset": "crypto",
+   "start": "2024-11-25",
+   "end": "2026-10-13",
+   "years": 1.9,
+   "ladder": {
+    "return": -42.9,
+    "max_drawdown": -57.6,
+    "avg_invested": 46.8,
+    "trades": 144,
+    "return_per_invested": -91.7
+   },
+   "lump": {
+    "return": -50.9,
+    "max_drawdown": -65.6,
+    "avg_invested": 48.1,
+    "trades": 51,
+    "return_per_invested": -105.8
+   },
+   "hold": {
+    "return": -28.6,
+    "max_drawdown": -68.2,
+    "avg_invested": 100.0,
+    "trades": 1
+   },
+   "dip_cycles": {
+    "reached_L-2": 37,
+    "reached_L-3": 28,
+    "reached_L-4": 21
+   }
+  },
+  {
+   "ticker": "SOL-USD",
+   "tf": "4h",
+   "asset": "crypto",
+   "start": "2024-11-25",
+   "end": "2026-10-13",
+   "years": 1.9,
+   "ladder": {
+    "return": -38.8,
+    "max_drawdown": -57.3,
+    "avg_invested": 50.3,
+    "trades": 173,
+    "return_per_invested": -77.1
+   },
+   "lump": {
+    "return": -47.3,
+    "max_drawdown": -65.9,
+    "avg_invested": 53.8,
+    "trades": 61,
+    "return_per_invested": -87.9
+   },
+   "hold": {
+    "return": -55.7,
+    "max_drawdown": -78.6,
+    "avg_invested": 100.0,
+    "trades": 1
+   },
+   "dip_cycles": {
+    "reached_L-2": 51,
+    "reached_L-3": 32,
+    "reached_L-4": 22
+   }
+  },
+  {
+   "ticker": "LINK-USD",
+   "tf": "4h",
+   "asset": "crypto",
+   "start": "2024-11-25",
+   "end": "2026-10-13",
+   "years": 1.9,
+   "ladder": {
+    "return": -14.7,
+    "max_drawdown": -50.1,
+    "avg_invested": 47.7,
+    "trades": 171,
+    "return_per_invested": -30.8
+   },
+   "lump": {
+    "return": -25.5,
+    "max_drawdown": -59.4,
+    "avg_invested": 50.9,
+    "trades": 59,
+    "return_per_invested": -50.1
+   },
+   "hold": {
+    "return": -28.7,
+    "max_drawdown": -76.5,
+    "avg_invested": 100.0,
+    "trades": 1
+   },
+   "dip_cycles": {
+    "reached_L-2": 45,
+    "reached_L-3": 32,
+    "reached_L-4": 24
+   }
+  },
+  {
+   "ticker": "AVAX-USD",
+   "tf": "4h",
+   "asset": "crypto",
+   "start": "2024-11-25",
+   "end": "2026-10-13",
+   "years": 1.9,
+   "ladder": {
+    "return": -41.2,
+    "max_drawdown": -64.0,
+    "avg_invested": 54.6,
+    "trades": 190,
+    "return_per_invested": -75.5
+   },
+   "lump": {
+    "return": -4.4,
+    "max_drawdown": -61.9,
+    "avg_invested": 56.0,
+    "trades": 73,
+    "return_per_invested": -7.9
+   },
+   "hold": {
+    "return": -75.6,
+    "max_drawdown": -89.4,
+    "avg_invested": 100.0,
+    "trades": 1
+   },
+   "dip_cycles": {
+    "reached_L-2": 52,
+    "reached_L-3": 36,
+    "reached_L-4": 23
+   }
+  }
+ ]
+}
