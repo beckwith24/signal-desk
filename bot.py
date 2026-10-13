@@ -5,13 +5,18 @@ Telegram controls. In your bot chat send:
     /signals    the current Buy and Sell signals
     /help       this list
 
-GitHub Actions runs `python bot.py` every few minutes, so taps take effect within about 5-15 minutes.
+GitHub Actions keeps `python bot.py --listen 50` running (a new 50-minute session starts as soon as the
+previous one ends), long-polling Telegram so taps take effect within seconds. Setting changes are
+committed to settings.json right away so the next scan uses them.
 Only messages from your own chat (TELEGRAM_CHAT_ID) are obeyed.
 """
 from __future__ import annotations
 
+import argparse
 import logging
 import os
+import subprocess
+import time
 
 import requests
 
@@ -26,12 +31,14 @@ HELP = ("Signal Desk commands:\n"
         "/settings — turn timeframes on or off, change the alert level, pause alerts\n"
         "/signals — current Buy and Sell signals\n"
         "/chart — link to your charts\n\n"
-        "Button taps are picked up within about 5–15 minutes.")
+        "Taps usually take effect within seconds. If the bot doesn't answer, GitHub is restarting it; "
+        "try again in a few minutes.")
 
 
 def call(token: str, method: str, **params) -> dict:
     try:
-        r = requests.post(f"https://api.telegram.org/bot{token}/{method}", json=params, timeout=20)
+        r = requests.post(f"https://api.telegram.org/bot{token}/{method}", json=params,
+                          timeout=params.get("timeout", 0) + 20)
         data = r.json()
     except Exception as e:
         log.error("%s failed: %s", method, e)
@@ -50,7 +57,7 @@ def settings_text(cfg: dict, s: dict) -> str:
         f"Layer-in / layer-out alerts: {'on' if s.get('ladder', True) else 'off'} (daily)",
         "Status: ⏸ alerts paused" if s["paused"] else "Status: ▶️ alerts on",
         "",
-        "Tap to change. Taps are picked up within about 5–15 minutes.",
+        "Tap to change. Changes apply to the next scan.",
     ])
 
 
@@ -59,7 +66,7 @@ def keyboard(cfg: dict, s: dict) -> dict:
                "callback_data": f"tf:{tf}"} for tf in cfg["timeframes"]]
     return {"inline_keyboard": [
         tf_row,
-        [{"text": f"🔔 Alert level: {s['min_action']}", "callback_data": "level"}],
+        [{"text": f"{'🔔 ' if s['min_action'] == lv else ''}{lv}", "callback_data": f"level:{lv}"} for lv in S.LEVELS],
         [{"text": f"🪜 Layer alerts: {'On' if s.get('ladder', True) else 'Off'}", "callback_data": "ladder"}],
         [{"text": "▶️ Resume alerts" if s["paused"] else "⏸ Pause all alerts", "callback_data": "pause"}],
     ]}
@@ -84,6 +91,9 @@ def handle_callback(data: str, cfg: dict, s: dict) -> str:
         if tf in s["timeframes"]:
             s["timeframes"][tf] = not s["timeframes"][tf]
             return f"{LABEL.get(tf, tf)} turned {'on' if s['timeframes'][tf] else 'off'}"
+    elif data.startswith("level:") and data[6:] in S.LEVELS:
+        s["min_action"] = data[6:]
+        return f"Alert level: {s['min_action']} and stronger"
     elif data == "level":
         i = S.LEVELS.index(s["min_action"]) if s["min_action"] in S.LEVELS else 1
         s["min_action"] = S.LEVELS[(i + 1) % len(S.LEVELS)]
@@ -97,23 +107,48 @@ def handle_callback(data: str, cfg: dict, s: dict) -> str:
     return "Unknown button"
 
 
-def process(cfg: dict | None = None) -> bool:
-    """Handle new messages and button taps. Returns True if settings.json changed."""
+def commit_settings(reason: str) -> None:
+    """In GitHub Actions (BOT_COMMIT=1), save settings.json to the repo right away."""
+    if os.environ.get("BOT_COMMIT") != "1":
+        return
+    run = lambda *a: subprocess.run(["git", *a], capture_output=True, text=True)
+    run("add", "settings.json")
+    if run("diff", "--cached", "--quiet").returncode == 0:
+        return
+    run("commit", "-m", f"Settings from Telegram: {reason}")
+    for _ in range(3):
+        if run("pull", "--rebase").returncode == 0 and run("push").returncode == 0:
+            log.info("Settings pushed (%s)", reason)
+            return
+        time.sleep(3)
+    log.error("Could not push settings")
+
+
+def refresh_repo() -> None:
+    """Pull the latest scan results before answering /signals during a long session."""
+    if os.environ.get("BOT_COMMIT") == "1":
+        subprocess.run(["git", "pull", "--rebase"], capture_output=True)
+
+
+def process(cfg: dict | None = None, poll: int = 0, s: dict | None = None) -> tuple[dict, list[str]]:
+    """Handle new messages and button taps (waiting up to `poll` seconds for them).
+
+    Returns the (possibly updated) settings and a list of setting changes made.
+    """
     cfg = cfg or load_config()
     tg = cfg["notifications"]["telegram"]
     token, chat = tg["bot_token"], str(tg["chat_id"])
+    s = s if s is not None else S.load(cfg)
     if not (token and chat):
         log.info("Telegram not configured; nothing to do")
-        return False
-    s = S.load(cfg)
-    params = {"timeout": 0, "allowed_updates": ["message", "callback_query"]}
+        return s, []
+    params = {"timeout": poll, "allowed_updates": ["message", "callback_query"]}
     if s["tg_offset"]:
         params["offset"] = s["tg_offset"] + 1
     updates = call(token, "getUpdates", **params).get("result", [])
-    changed = False
+    changes = []
     for u in updates:
         s["tg_offset"] = u["update_id"]
-        changed = True
         if (msg := u.get("message")) and str(msg["chat"]["id"]) == chat:
             text = (msg.get("text") or "").strip().lower()
             if text.startswith(("/settings", "/start", "settings")):
@@ -123,21 +158,43 @@ def process(cfg: dict | None = None) -> bool:
                 call(token, "sendMessage", chat_id=chat,
                      text=f"📈 Your charts: {url}" if url else "Charts aren't published yet.")
             elif text.startswith(("/signals", "signals")):
+                refresh_repo()
                 call(token, "sendMessage", chat_id=chat, text=signals_text())
             else:
                 call(token, "sendMessage", chat_id=chat, text=HELP)
         elif (cq := u.get("callback_query")) and str(cq["message"]["chat"]["id"]) == chat:
             note = handle_callback(cq.get("data", ""), cfg, s)
-            call(token, "answerCallbackQuery", callback_query_id=cq["id"], text=note)  # may be too old; harmless
+            changes.append(note)
+            call(token, "answerCallbackQuery", callback_query_id=cq["id"], text=note)
             call(token, "editMessageText", chat_id=chat, message_id=cq["message"]["message_id"],
                  text=settings_text(cfg, s), reply_markup=keyboard(cfg, s))
             call(token, "sendMessage", chat_id=chat, text=f"✅ {note}")
-    if changed:
+    if updates:
         S.save(s)
+    if changes:
+        commit_settings("; ".join(changes))
     log.info("Processed %d Telegram updates", len(updates))
-    return changed
+    return s, changes
+
+
+def listen(minutes: float) -> None:
+    """Long-poll Telegram for `minutes`, answering instantly; save the read position at the end."""
+    cfg = load_config()
+    s = S.load(cfg)
+    end = time.time() + minutes * 60
+    while time.time() < end - 5:
+        poll = int(max(1, min(25, end - time.time() - 5)))
+        s, _ = process(cfg, poll=poll, s=s)
+    S.save(s)
+    commit_settings("read position")
 
 
 if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(name)s: %(message)s")
-    process()
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--listen", type=float, default=0, help="minutes to keep listening (0 = check once)")
+    a = ap.parse_args()
+    if a.listen:
+        listen(a.listen)
+    else:
+        process()
