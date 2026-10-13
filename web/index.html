@@ -412,7 +412,9 @@ h3.sec { font: 700 13px var(--f-display); text-transform: uppercase; letter-spac
   function renderControls() {
     const seg = $("tfSeg"); seg.textContent = "";
     const tfs = state.index ? state.index.timeframes : ["1d", "4h", "1h"];
+    if (!state.detail) state.tf = "1d";                 // the list is daily only
     if (!tfs.includes(state.tf)) state.tf = tfs[0];
+    seg.hidden = !state.detail || tfs.length < 2;
     for (const tf of tfs) {
       const b = el("button", null, TF_LABEL[tf] || tf);
       b.type = "button"; b.setAttribute("aria-pressed", String(tf === state.tf));
@@ -438,7 +440,7 @@ h3.sec { font: 700 13px var(--f-display); text-transform: uppercase; letter-spac
       e.append(el("h2", null, "No charts yet"), el("div", null, "Charts appear after the next scan publishes them."));
       list.append(e); $("summary").textContent = ""; return;
     }
-    let items = idx.items.filter((i) => i.tf === state.tf);
+    let items = idx.items.filter((i) => i.tf === "1d");
     const buys = items.filter((i) => i.rank >= 2).length, sells = items.filter((i) => i.rank <= -2).length;
     const watch = items.filter((i) => Math.abs(i.rank) === 1).length;
     const s = $("summary"); s.textContent = "";
@@ -458,16 +460,12 @@ h3.sec { font: 700 13px var(--f-display); text-transform: uppercase; letter-spac
       }
     };
     s.append(addBtn);
-    const note = $("tfNote");
-    const stockAbout = (idx.items.find((i) => i.tf === state.tf && i.asset === "stock") || {}).segment_about || "";
-    note.hidden = state.tf === "1d" || !stockAbout;
-    if (!note.hidden) note.textContent = "No model showed a tested edge on " + (TF_LABEL[state.tf] || state.tf) +
-      " bars after costs, so this timeframe has no Buy/Sell of its own. Use it to time entries on daily signals.";
+    $("tfNote").hidden = true;
     if (state.filter === "signals") items = items.filter((i) => i.rank !== 0);
     else if (state.filter !== "all") items = items.filter((i) => i.asset === state.filter);
     items.sort((a, b) => Math.abs(b.rank) - Math.abs(a.rank) || Math.abs(b.score - 50) - Math.abs(a.score - 50) || a.ticker.localeCompare(b.ticker));
     if (!items.length) {
-      const e = el("li", "empty"); e.append(el("h2", null, "Nothing here"), el("div", null, state.filter === "signals" ? "Every ticker is on Hold for this timeframe." : "No tickers match this filter."));
+      const e = el("li", "empty"); e.append(el("h2", null, "Nothing here"), el("div", null, state.filter === "signals" ? "Every ticker is on Hold today." : "No tickers match this filter."));
       list.append(e); return;
     }
     for (const i of items) {
@@ -507,9 +505,16 @@ h3.sec { font: 700 13px var(--f-display); text-transform: uppercase; letter-spac
     chg.textContent = (d.change_pct > 0 ? "+" : "") + d.change_pct.toFixed(2) + "% last bar";
     const stats = $("dStats"); stats.textContent = "";
     const statBox = (k, node) => { const s = el("div", "stat"); const v = el("div", "val"); v.append(node); s.append(el("div", "k", k), v); stats.append(s); };
-    statBox("Signal", pill(d.action));
-    statBox("Score", document.createTextNode(d.score + " / 100"));
-    statBox("Models", document.createTextNode(d.bull + "▲  " + d.bear + "▼"));
+    if (d.tf === "1d") {
+      statBox("Signal", pill(d.action));
+      statBox("Score", document.createTextNode(d.score + " / 100"));
+      statBox("Models", document.createTextNode(d.bull + "▲  " + d.bear + "▼"));
+    } else {
+      const daily = ((state.index && state.index.items) || []).find((i) => i.ticker === d.ticker && i.tf === "1d");
+      statBox("Daily signal", daily ? pill(daily.action) : document.createTextNode("–"));
+      statBox("This chart", document.createTextNode((TF_LABEL[d.tf] || d.tf) + " view only"));
+      statBox("IA view", document.createTextNode(d.ia ? (d.ia.trend === "up" ? "Blue" : "Orange") + " · ATR " + d.ia.stop_side : "–"));
+    }
     statBox("ATR layer", document.createTextNode((d.layer > 0 ? "+" : "") + d.layer + (d.rsi != null ? " · RSI " + Math.round(d.rsi) : "")));
     const rs = $("dReasons"); rs.textContent = "";
     for (const r of d.reasons) rs.append(el("li", null, r));
