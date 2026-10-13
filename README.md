@@ -207,6 +207,15 @@ not just the watchlist):
 - Bonus check: the app's crypto trend rule, run on all 29 coins, beat holding them equally after 2021
   (Sharpe 1.40 vs 0.71, worst drop −44% vs −81%).
 
+**Copying Congress** (`congress_research.py`, results in `research/congress.md`): 22,821 stock trades by 266
+members from the official House Clerk and Senate eFD filings, 2018 on (median 28 days from trade to report).
+Buying the day after a buy was reported trailed the S&P 500 by 1.3% over the next 6 months since 2021
+(t −2.7) and beat it over 3 months only 45% of the time. Buys by 2+ members within 30 days were the one
+group ahead in both halves (+0.75% over 20 trading days; t 1.5 before 2021, 2.6 after), fading after that.
+The copy-Congress ETFs since Feb 2023: NANC +110%, GOP +82%, SPY +99%. Reported trades are shown on stock
+pages and as a 🏛 tag on the list (last 30 days) but never trigger a signal. The daily `Congress trades` job
+adds new filings.
+
 **Strong Buy vs Buy** (`strength_research.py`, results in `research/strength.md`, ~10 years): on stocks,
 Strong Buy days (2+ dip signals) beat the stock's normal next day by 0.44% (t 2.8) and its normal 5 days by
 0.76%; single-signal Buys were close to random (+0.01% next day). On crypto, all-4 Strong Buys beat normal

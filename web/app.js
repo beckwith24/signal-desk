@@ -312,8 +312,9 @@ if (window.top !== window.self) { document.documentElement.style.display = "none
         " · " + c.member + " (" + c.chamber + ")" + amt(c.amount_low) + " · traded " + fmtD(c.traded) + ", reported " + fmtD(c.disclosed));
       list.append(li);
     }
-    note.textContent = "From official House and Senate filings, updated daily. Tested on 16,000 trades since 2018: " +
-      "buying after they were reported didn't beat the S&P 500, so these never trigger a signal.";
+    note.textContent = "From official House and Senate filings, updated daily. Tested on 22,800 trades since 2018: " +
+      "once a buy was made public, the stock trailed the S&P 500 by about 1% over the next 6 months, so these " +
+      "never trigger a signal.";
   }
 
   function renderSize(d) {

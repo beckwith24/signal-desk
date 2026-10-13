@@ -89,9 +89,10 @@ def prices(tickers: list[str], start: str = "2017-12-01") -> pd.DataFrame:
                 frames.append(d); got |= set(d.columns)
             except Exception as e:
                 log.warning("price batch %d failed: %s", i, e)
-            todo = [t for t in todo if t not in got]
-            if len(todo) < 10:          # the rest are mostly delisted or renamed symbols
+            missing = [t for t in todo if t not in got]
+            if len(missing) <= max(10, len(todo) // 3):   # the rest are mostly delisted or renamed symbols
                 break
+            todo = missing
             time.sleep(10 * (attempt + 1))
         time.sleep(1)
     px = pd.concat(frames, axis=1)
