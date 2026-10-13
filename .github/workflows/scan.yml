@@ -16,6 +16,8 @@ on:
 
 permissions:
   contents: write                  # to save signals.db (history + alert de-duplication) back to the repo
+  pages: write                     # to publish the chart site
+  id-token: write
 
 concurrency:
   group: signal-scan
@@ -27,6 +29,9 @@ jobs:
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
+
+      - name: Chart site address
+        run: echo "PAGES_URL=https://${GITHUB_REPOSITORY_OWNER}.github.io/${GITHUB_REPOSITORY#*/}" >> "$GITHUB_ENV"
 
       - uses: actions/setup-python@v5
         with:
@@ -59,3 +64,23 @@ jobs:
             git commit -m "Update signal history"
             for i in 1 2 3; do git pull --rebase && git push && break; sleep 5; done
           fi
+
+      - name: Build chart site
+        run: python build_site.py
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+  # Publishes the chart site to https://<you>.github.io/signal-desk
+  # (needs Settings → Pages → Source: GitHub Actions, switched on once).
+  publish:
+    needs: scan
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

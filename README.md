@@ -89,6 +89,14 @@ to switch **Daily / 4-hour / Hourly** on or off, change the **alert level** (Wat
 the chat every 5 minutes, so a tap takes effect within about 5–15 minutes, and the bot confirms it. Only your
 own chat ID is obeyed. The switches are saved in `settings.json` in the repo.
 
+**Charts on your phone:** every scan publishes a small website at
+`https://<your-github-username>.github.io/signal-desk`. It lists every ticker with its current signal and score.
+Tap a ticker for a candlestick chart with the Bollinger bands, ATR layers, EMAs, volume and past signal arrows,
+plus each model's reading. Switch Daily / 4H / 1H at the top. In Safari, use Share → **Add to Home Screen**
+to make it open like an app. Telegram alerts include a direct link to that ticker's chart, and `/chart` in the
+bot chat sends the link. One-time setup: repo **Settings → Pages → Source: GitHub Actions**. The site is
+public, as the repo is, but only shows prices and signals.
+
 **Changing things later:** to change the watchlist or thresholds for good, edit `config.yaml` in the repo
 (the GitHub app on your phone can do it). The dashboard sidebar lets you experiment, but changes made there
 reset when the cloud app restarts. The dashboard sleeps after a few days unused, so tap "wake up" if you see

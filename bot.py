@@ -11,6 +11,7 @@ Only messages from your own chat (TELEGRAM_CHAT_ID) are obeyed.
 from __future__ import annotations
 
 import logging
+import os
 
 import requests
 
@@ -23,7 +24,8 @@ log = logging.getLogger("bot")
 LABEL = {"1d": "Daily", "4h": "4-hour", "1h": "Hourly", "1wk": "Weekly"}
 HELP = ("Signal Desk commands:\n"
         "/settings — turn timeframes on or off, change the alert level, pause alerts\n"
-        "/signals — current Buy and Sell signals\n\n"
+        "/signals — current Buy and Sell signals\n"
+        "/chart — link to your charts\n\n"
         "Button taps are picked up within about 5–15 minutes.")
 
 
@@ -111,6 +113,10 @@ def process(cfg: dict | None = None) -> bool:
             text = (msg.get("text") or "").strip().lower()
             if text.startswith(("/settings", "/start", "settings")):
                 call(token, "sendMessage", chat_id=chat, text=settings_text(cfg, s), reply_markup=keyboard(cfg, s))
+            elif text.startswith(("/chart", "chart")):
+                url = os.environ.get("PAGES_URL", "")
+                call(token, "sendMessage", chat_id=chat,
+                     text=f"📈 Your charts: {url}" if url else "Charts aren't published yet.")
             elif text.startswith(("/signals", "signals")):
                 call(token, "sendMessage", chat_id=chat, text=signals_text())
             else:

@@ -77,6 +77,14 @@ def history(limit: int = 1000) -> pd.DataFrame:
     return df
 
 
+def signals_for(ticker: str, tf: str, limit: int = 60) -> list[dict]:
+    """Past action changes for one ticker/timeframe, oldest first (for chart markers)."""
+    with _conn() as c:
+        rows = c.execute("SELECT ts, action, rank, score, price FROM signals WHERE ticker=? AND timeframe=? "
+                         "ORDER BY id DESC LIMIT ?", (ticker, tf, limit)).fetchall()
+    return [dict(zip(["ts", "action", "rank", "score", "price"], r)) for r in reversed(rows)]
+
+
 def latest_states() -> pd.DataFrame:
     with _conn() as c:
         return pd.read_sql_query("SELECT * FROM state ORDER BY abs(rank) DESC, score DESC", c)

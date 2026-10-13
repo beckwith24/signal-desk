@@ -14,6 +14,7 @@ from datetime import datetime, time
 from zoneinfo import ZoneInfo
 
 import settings
+from chart_export import export_results
 from config import load_config
 from scanner import run_scan
 
@@ -44,7 +45,7 @@ def job_stocks(force: bool = False) -> None:
         log.info("All timeframes switched off")
         return
     res, errs = run_scan(cfg, tickers=cfg["watchlist"]["stocks"], notify=notify)
-    log.info("Stock scan: %d results, %d errors", len(res), len(errs))
+    log.info("Stock scan: %d results, %d errors, %d charts", len(res), len(errs), export_results(res, cfg))
 
 
 def job_crypto() -> None:
@@ -53,7 +54,7 @@ def job_crypto() -> None:
         log.info("All timeframes switched off")
         return
     res, errs = run_scan(cfg, tickers=cfg["watchlist"]["crypto"], notify=notify)
-    log.info("Crypto scan: %d results, %d errors", len(res), len(errs))
+    log.info("Crypto scan: %d results, %d errors, %d charts", len(res), len(errs), export_results(res, cfg))
 
 
 def add_jobs(scheduler, cfg: dict) -> None:

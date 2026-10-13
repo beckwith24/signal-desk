@@ -2,6 +2,8 @@
 from __future__ import annotations
 
 import logging
+import os
+import re
 import smtplib
 from email.message import EmailMessage
 
@@ -14,7 +16,16 @@ ICONS = {"Strong Buy": "🟢🟢", "Buy": "🟢", "Watch ↑": "👀", "Hold": "
          "Watch ↓": "👀", "Sell": "🔴", "Strong Sell": "🔴🔴"}
 
 
+def chart_link(r: dict) -> str | None:
+    """Link to this ticker's chart on the GitHub Pages site (PAGES_URL is set by the workflow)."""
+    base = os.environ.get("PAGES_URL", "").rstrip("/")
+    if not base:
+        return None
+    return f"{base}/#{re.sub(r'[^A-Za-z0-9_.-]', '_', r['ticker'] + '_' + r['timeframe'])}"
+
+
 def format_message(r: dict) -> str:
+    link = chart_link(r)
     lines = [
         f"{ICONS.get(r['action'], '')} {r['action'].upper()} — {r['ticker']} ({r['timeframe']})",
         f"Price: {r['price']:,.4g}  ({r['change_pct']:+.2f}% last bar)",
@@ -23,6 +34,7 @@ def format_message(r: dict) -> str:
         *[f"• {x}" for x in r["reasons"]],
         *[f"ℹ️ {x}" for x in r.get("notes", [])],
         f"🕒 {r['ts']}",
+        *([f"📈 Chart: {link}"] if link else []),
         "Change alerts: /settings",
         "",
         f"⚠️ {DISCLAIMER}",
