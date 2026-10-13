@@ -1,7 +1,8 @@
-# Congressional trades test (2026-10-13 22:42 UTC)
+# Congressional trades test (2026-10-13 23:48 UTC)
 
 22,821 stock trades by 266 members, disclosed 2018-01-04 to 2026-10-12. Median 28 days from trade to disclosure.
-Sources: {"house": {"filings": 5397, "parsed": 4320, "no_text": 1077, "errors": 0}, "senate": {"filings": 1454, "paper": 235, "parsed": 391, "errors": 0}}
+Sources: {"house": {"filings": 5397, "parsed": 4320, "no_text": 1077, "errors": 0}, "senate": {"filings": 1454, "paper": 235, "parsed": 389, "errors": 0}}
+Prices: {"tickers": 2365, "with_prices": 2003, "days": 2227, "from": "2017-12-01", "to": "2026-10-13"}
 
 Return = stock minus SPY over the next 20/60/120 trading days. t clustered by week.
 
@@ -11,37 +12,37 @@ Return = stock minus SPY over the next 20/60/120 trading days. t clustered by we
 
 | Group | Trades | 20d % | t | 60d % | t | 120d % | t | 60d beat SPY % |
 |---|---|---|---|---|---|---|---|---|
-| All buys | 1039 | – | – | – | – | – | – | – |
-| All sells | 1116 | – | – | – | – | – | – | – |
-| Buys of $50k or more | 152 | – | – | – | – | – | – | – |
-| Buys reported within 7 days | 106 | – | – | – | – | – | – | – |
-| Buys by 2+ members within 30 days | 152 | – | – | – | – | – | – | – |
-| House buys | 272 | – | – | – | – | – | – | – |
-| Senate buys | 767 | – | – | – | – | – | – | – |
+| All buys | 1253 | 0.24 | 0.7 | 0.45 | 0.83 | 0.63 | 0.87 | 47.9 |
+| All sells | 1379 | 0.5 | 0.67 | 0.45 | 0.67 | 0.96 | 1.18 | 48.4 |
+| Buys of $50k or more | 183 | 0.27 | 0.4 | 1.33 | 1.23 | 0.83 | 0.48 | 48.1 |
+| Buys reported within 7 days | 126 | -0.42 | -0.56 | 1.37 | 1.11 | 0.98 | 0.53 | 47.6 |
+| Buys by 2+ members within 30 days | 196 | 0.76 | 1.52 | 0.78 | 1.06 | 2.25 | 2.09 | 50.5 |
+| House buys | 300 | 0.17 | 0.3 | 1.91 | 1.27 | 1.28 | 0.76 | 50.3 |
+| Senate buys | 953 | 0.26 | 0.65 | -0.01 | -0.02 | 0.43 | 0.55 | 47.1 |
 
 **test**
 
 | Group | Trades | 20d % | t | 60d % | t | 120d % | t | 60d beat SPY % |
 |---|---|---|---|---|---|---|---|---|
-| All buys | 5890 | – | – | – | – | – | – | – |
-| All sells | 6716 | – | – | – | – | – | – | – |
-| Buys of $50k or more | 287 | – | – | – | – | – | – | – |
-| Buys reported within 7 days | 447 | – | – | – | – | – | – | – |
-| Buys by 2+ members within 30 days | 1473 | – | – | – | – | – | – | – |
-| House buys | 4604 | – | – | – | – | – | – | – |
-| Senate buys | 1286 | – | – | – | – | – | – | – |
+| All buys | 7239 | 0.17 | 0.93 | -0.34 | -0.92 | -1.34 | -2.71 | 44.8 |
+| All sells | 8341 | 0.01 | 0.07 | -0.49 | -1.43 | -1.0 | -1.85 | 44.0 |
+| Buys of $50k or more | 328 | 0.46 | 0.8 | 0.88 | 1.01 | -0.87 | -0.64 | 50.6 |
+| Buys reported within 7 days | 529 | -0.1 | -0.24 | 0.24 | 0.24 | 0.02 | 0.01 | 47.6 |
+| Buys by 2+ members within 30 days | 1760 | 0.75 | 2.59 | 0.44 | 0.72 | 0.28 | 0.34 | 45.9 |
+| House buys | 5652 | -0.13 | -0.66 | -0.58 | -1.4 | -1.7 | -2.95 | 44.4 |
+| Senate buys | 1587 | 1.24 | 3.29 | 0.72 | 1.29 | 0.17 | 0.22 | 46.4 |
 
 **all**
 
 | Group | Trades | 20d % | t | 60d % | t | 120d % | t | 60d beat SPY % |
 |---|---|---|---|---|---|---|---|---|
-| All buys | 6929 | – | – | – | – | – | – | – |
-| All sells | 7832 | – | – | – | – | – | – | – |
-| Buys of $50k or more | 439 | – | – | – | – | – | – | – |
-| Buys reported within 7 days | 553 | – | – | – | – | – | – | – |
-| Buys by 2+ members within 30 days | 1626 | – | – | – | – | – | – | – |
-| House buys | 4876 | – | – | – | – | – | – | – |
-| Senate buys | 2053 | – | – | – | – | – | – | – |
+| All buys | 8492 | 0.18 | 1.1 | -0.22 | -0.66 | -1.02 | -2.37 | 45.3 |
+| All sells | 9720 | 0.08 | 0.41 | -0.35 | -1.12 | -0.7 | -1.45 | 44.6 |
+| Buys of $50k or more | 511 | 0.39 | 0.89 | 1.04 | 1.54 | -0.25 | -0.22 | 49.7 |
+| Buys reported within 7 days | 655 | -0.16 | -0.44 | 0.46 | 0.55 | 0.21 | 0.21 | 47.6 |
+| Buys by 2+ members within 30 days | 1957 | 0.75 | 2.83 | 0.47 | 0.85 | 0.49 | 0.65 | 46.4 |
+| House buys | 5952 | -0.11 | -0.61 | -0.45 | -1.11 | -1.54 | -2.8 | 44.7 |
+| Senate buys | 2540 | 0.87 | 3.12 | 0.4 | 1.02 | 0.29 | 0.51 | 46.7 |
 
 ## Buying trade date (NOT copyable)
 
@@ -49,37 +50,37 @@ Return = stock minus SPY over the next 20/60/120 trading days. t clustered by we
 
 | Group | Trades | 20d % | t | 60d % | t | 120d % | t | 60d beat SPY % |
 |---|---|---|---|---|---|---|---|---|
-| All buys | 1328 | – | – | – | – | – | – | – |
-| All sells | 1340 | – | – | – | – | – | – | – |
-| Buys of $50k or more | 167 | – | – | – | – | – | – | – |
-| Buys reported within 7 days | 152 | – | – | – | – | – | – | – |
-| Buys by 2+ members within 30 days | 222 | – | – | – | – | – | – | – |
-| House buys | 349 | – | – | – | – | – | – | – |
-| Senate buys | 979 | – | – | – | – | – | – | – |
+| All buys | 1596 | -0.18 | -0.5 | 0.32 | 0.68 | 0.18 | 0.26 | 46.9 |
+| All sells | 1654 | -0.02 | -0.07 | 0.52 | 1.09 | 1.25 | 1.56 | 47.8 |
+| Buys of $50k or more | 202 | 0.05 | 0.06 | 1.77 | 1.48 | 1.16 | 0.61 | 49.5 |
+| Buys reported within 7 days | 175 | -1.22 | -1.27 | 0.21 | 0.17 | 0.29 | 0.15 | 50.3 |
+| Buys by 2+ members within 30 days | 276 | -0.26 | -0.49 | 1.11 | 1.33 | 2.92 | 1.88 | 47.5 |
+| House buys | 391 | -0.41 | -0.72 | 0.56 | 0.55 | 1.18 | 0.75 | 48.8 |
+| Senate buys | 1205 | -0.1 | -0.26 | 0.24 | 0.43 | -0.15 | -0.2 | 46.2 |
 
 **test**
 
 | Group | Trades | 20d % | t | 60d % | t | 120d % | t | 60d beat SPY % |
 |---|---|---|---|---|---|---|---|---|
-| All buys | 6392 | – | – | – | – | – | – | – |
-| All sells | 6932 | – | – | – | – | – | – | – |
-| Buys of $50k or more | 329 | – | – | – | – | – | – | – |
-| Buys reported within 7 days | 516 | – | – | – | – | – | – | – |
-| Buys by 2+ members within 30 days | 1665 | – | – | – | – | – | – | – |
-| House buys | 5138 | – | – | – | – | – | – | – |
-| Senate buys | 1254 | – | – | – | – | – | – | – |
+| All buys | 7839 | -0.31 | -1.53 | -0.29 | -1.12 | -1.11 | -2.85 | 44.4 |
+| All sells | 8649 | -0.29 | -1.82 | -0.65 | -1.87 | -0.92 | -2.06 | 44.0 |
+| Buys of $50k or more | 370 | 1.14 | 2.24 | 0.8 | 0.84 | -0.17 | -0.13 | 46.0 |
+| Buys reported within 7 days | 609 | -0.07 | -0.17 | 0.58 | 0.61 | 1.09 | 0.88 | 48.7 |
+| Buys by 2+ members within 30 days | 1971 | 0.06 | 0.29 | 1.38 | 2.67 | 1.05 | 1.56 | 48.3 |
+| House buys | 6302 | -0.16 | -1.11 | -0.48 | -1.65 | -1.22 | -2.97 | 44.5 |
+| Senate buys | 1537 | -0.92 | -1.41 | 0.46 | 0.93 | -0.66 | -0.71 | 43.8 |
 
 **all**
 
 | Group | Trades | 20d % | t | 60d % | t | 120d % | t | 60d beat SPY % |
 |---|---|---|---|---|---|---|---|---|
-| All buys | 7720 | – | – | – | – | – | – | – |
-| All sells | 8272 | – | – | – | – | – | – | – |
-| Buys of $50k or more | 496 | – | – | – | – | – | – | – |
-| Buys reported within 7 days | 668 | – | – | – | – | – | – | – |
-| Buys by 2+ members within 30 days | 1888 | – | – | – | – | – | – | – |
-| House buys | 5487 | – | – | – | – | – | – | – |
-| Senate buys | 2233 | – | – | – | – | – | – | – |
+| All buys | 9435 | -0.29 | -1.61 | -0.18 | -0.81 | -0.88 | -2.55 | 44.8 |
+| All sells | 10303 | -0.25 | -1.74 | -0.46 | -1.51 | -0.55 | -1.41 | 44.6 |
+| Buys of $50k or more | 572 | 0.76 | 1.76 | 1.14 | 1.53 | 0.31 | 0.29 | 47.3 |
+| Buys reported within 7 days | 784 | -0.33 | -0.86 | 0.5 | 0.63 | 0.9 | 0.86 | 49.1 |
+| Buys by 2+ members within 30 days | 2248 | 0.02 | 0.11 | 1.34 | 2.9 | 1.28 | 2.08 | 48.1 |
+| House buys | 6693 | -0.17 | -1.25 | -0.41 | -1.49 | -1.07 | -2.7 | 44.8 |
+| Senate buys | 2742 | -0.56 | -1.28 | 0.36 | 0.97 | -0.43 | -0.69 | 44.9 |
 
 ## Congress-copying ETFs vs SPY
 
