@@ -101,14 +101,28 @@ ROW = re.compile(
     r"(\d{2}/\d{2}/\d{4})\s+(\d{2}/\d{2}/\d{4})\s+(\$[\d,]+(?:\s*-\s*\$[\d,]+)?|Over \$[\d,]+)")
 
 
+TYPE_DATES = re.compile(r"(?:^|\s)(P|S \(partial\)|S|E)\s+(\d{2}/\d{2}/\d{4})\s+(\d{2}/\d{2}/\d{4})\s+(\$[\d,]+|Over \$[\d,]+)")
+TICKER = re.compile(r"\(([A-Z][A-Z0-9.\-]{0,6})\)\s*\[([A-Z]{2})\]")
+BLOCK_END = re.compile(r"F\s+S\s*:\s*[A-Za-z]+")
+
+
 def parse_house_ptr(text: str) -> list[dict]:
-    """Transactions from an electronic House PTR's text. Stocks ([ST]) only."""
-    t = re.sub(r"\s+", " ", text.replace("\x00", " "))
+    """Transactions from an electronic House PTR's text. Stocks ([ST]) only.
+
+    Each transaction ends with a "Filing Status: New" line. Inside a block the ticker can come before
+    the type/dates (older layout) or after them on the next line (layout used since 2024).
+    """
+    t = text.replace("\x00", " ")
     out = []
-    for tk, kind, typ, tdate, _notified, amt in ROW.findall(t):
-        if kind != "ST":
+    blocks = BLOCK_END.split(t) if BLOCK_END.search(t) else [t]
+    for b in blocks:
+        b1 = re.sub(r"\s+", " ", b)
+        m, k = TYPE_DATES.search(b1), TICKER.search(b1)
+        if not (m and k) or k.group(2) != "ST":
             continue
-        out.append({"ticker": _clean_ticker(tk), "side": "buy" if typ == "P" else ("sell" if typ.startswith("S") else None),
+        typ, tdate, _notified, amt = m.groups()
+        out.append({"ticker": _clean_ticker(k.group(1)),
+                    "side": "buy" if typ == "P" else ("sell" if typ.startswith("S") else None),
                     "traded": _date(tdate), "amount_low": _amount_low(amt)})
     return out
 

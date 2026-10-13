@@ -33,6 +33,8 @@ H = (20, 60, 120)
 
 def fetch_all() -> tuple[pd.DataFrame, dict]:
     old = pd.read_csv(CACHE, parse_dates=["traded", "disclosed"]) if CACHE.exists() else pd.DataFrame()
+    if len(old):                      # re-read every House report with the current parser
+        old = old[old["chamber"] != "House"]
     seen = set(old["doc"].astype(str)) if len(old) else set()
     stats = {}
     house, stats["house"] = congress.house_ptrs(list(range(2018, datetime.now().year + 1)), skip_docs=seen)
