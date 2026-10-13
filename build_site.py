@@ -12,7 +12,7 @@ import logging
 import os
 import shutil
 import time
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 import requests
@@ -64,6 +64,11 @@ def main() -> None:
                 if tf == "1d":                    # one chip per model on the home page
                     item["models"] = [{"s": m.get("short") or m["name"], "v": m["vote"], "r": m["reason"]}
                                       for m in d.get("models", [])]
+                    cut = (datetime.now(timezone.utc) - timedelta(days=30)).date().isoformat()
+                    recent = [c for c in (d.get("congress") or []) if c["disclosed"] >= cut]
+                    if recent:                    # congressional trades reported in the last 30 days
+                        item["congress"] = {"buys": sum(c["side"] == "buy" for c in recent),
+                                            "sells": sum(c["side"] == "sell" for c in recent)}
                 items.append(item)
     bot_name = ""
     token = os.environ.get("TELEGRAM_BOT_TOKEN", "")

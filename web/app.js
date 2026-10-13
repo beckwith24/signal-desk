@@ -140,6 +140,14 @@ if (window.top !== window.self) { document.documentElement.style.display = "none
         }
         b.append(mods);
       }
+      if (i.congress) {                           // congressional trades reported in the last 30 days
+        const c = i.congress, parts = [];
+        if (c.buys) parts.push(c.buys + " buy" + (c.buys > 1 ? "s" : ""));
+        if (c.sells) parts.push(c.sells + " sell" + (c.sells > 1 ? "s" : ""));
+        const tag = el("span", "mod flat", "🏛 Congress: " + parts.join(", "));
+        tag.title = "Reported by members of Congress in the last 30 days (information only)";
+        (b.querySelector(".mods") || b.appendChild(el("div", "mods"))).append(tag);
+      }
       b.onclick = () => { state.fromList = true; location.hash = (i.ticker + "_" + i.tf).replace(/[^A-Za-z0-9_.-]/g, "_"); };
       li.append(b); list.append(li);
     }
@@ -186,6 +194,7 @@ if (window.top !== window.self) { document.documentElement.style.display = "none
     renderLadder(d);
     renderIA(d);
     renderSize(d);
+    renderCongress(d);
     $("dAbout").textContent = d.segment_about ? d.segment_about + "." : "";
     const mt = $("dModels"); mt.textContent = "";
     for (const m of d.models) {
@@ -242,6 +251,24 @@ if (window.top !== window.self) { document.documentElement.style.display = "none
     box.append(col("in", "Layer in", L.buys, "add"), col("out", "Layer out", L.sells, "trim"));
   }
 
+  function renderCongress(d) {
+    const boxWrap = $("dCongressBox"), list = $("dCongress"), note = $("dCongressNote");
+    list.textContent = ""; note.textContent = "";
+    boxWrap.hidden = d.asset === "crypto" || d.congress == null;
+    if (boxWrap.hidden) return;
+    const fmtD = (x) => x ? new Date(x + "T12:00:00").toLocaleDateString(LOC, { month: "short", day: "numeric", year: "2-digit" }) : "?";
+    const amt = (a) => a == null ? "" : " · $" + (a >= 1e6 ? Math.round(a / 1e6) + "M" : Math.round(a / 1000) + "k") + "+";
+    if (!d.congress.length) list.append(el("li", null, "No trades in this stock reported in the last 12 months."));
+    for (const c of d.congress) {
+      const li = el("li");
+      li.append(el("strong", null, c.side === "buy" ? "Buy" : "Sell"),
+        " · " + c.member + " (" + c.chamber + ")" + amt(c.amount_low) + " · traded " + fmtD(c.traded) + ", reported " + fmtD(c.disclosed));
+      list.append(li);
+    }
+    note.textContent = "From official House and Senate filings, updated daily. Tested on 16,000 trades since 2018: " +
+      "buying after they were reported didn't beat the S&P 500, so these never trigger a signal.";
+  }
+
   function renderSize(d) {
     const box = $("dSize"); box.textContent = "";
     const r = d.risk;
@@ -278,7 +305,7 @@ if (window.top !== window.self) { document.documentElement.style.display = "none
     $("back").hidden = false; $("brand").hidden = true; renderControls();
     $("dTitle").textContent = ticker.replace("-USD", "");
     $("dAsset").innerHTML = ""; $("dAsset").append(el("span", "err", "No " + (TF_LABEL[tf] || tf) + " chart for this ticker yet."));
-    for (const id of ["dPrice", "dChg", "dStats", "dReasons", "dSize", "dIA", "dIANote", "dLadder", "dLadderNow", "dAbout", "dModels", "dHist", "dFoot", "legend"]) $(id).textContent = "";
+    for (const id of ["dPrice", "dChg", "dStats", "dReasons", "dSize", "dCongress", "dCongressNote", "dIA", "dIANote", "dLadder", "dLadderNow", "dAbout", "dModels", "dHist", "dFoot", "legend"]) $(id).textContent = "";
     if (state.chart) { state.chart.remove(); state.chart = null; }
   }
 

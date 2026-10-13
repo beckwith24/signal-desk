@@ -137,9 +137,9 @@ def groups(ev: pd.DataFrame) -> dict:
 
 
 def etfs() -> dict:
-    px = prices(["NANC", "KRUZ", "SPY"], start="2023-02-01")
+    px = prices(["NANC", "GOP", "SPY"], start="2023-02-01")       # KRUZ became GOP in March 2025
     out = {}
-    for t in ("NANC", "KRUZ", "SPY"):
+    for t in ("NANC", "GOP", "SPY"):
         s = px[t].dropna()
         if len(s) < 50:
             continue

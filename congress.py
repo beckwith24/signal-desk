@@ -239,6 +239,58 @@ def load_trades() -> tuple[pd.DataFrame, dict]:
     return df, status
 
 
+# ----------------------------------------------------------------------------- cache used by the app
+from functools import lru_cache
+from pathlib import Path
+
+CACHE = Path(__file__).with_name("research") / "congress_trades.csv.gz"
+
+
+def update() -> dict:
+    """Add newly filed reports to the cache (daily job). Only new filings are downloaded."""
+    old = pd.read_csv(CACHE, parse_dates=["traded", "disclosed"]) if CACHE.exists() else pd.DataFrame()
+    seen = set(old["doc"].astype(str)) if len(old) else set()
+    now = datetime.now()
+    years = [now.year - 1, now.year] if now.month <= 2 else [now.year]
+    stats = {}
+    house, stats["house"] = house_ptrs(years, skip_docs=seen)
+    since = (old["disclosed"].max() - pd.Timedelta(days=20)).strftime("%m/%d/%Y") if len(old) else "01/01/2018"
+    try:
+        senate, stats["senate"] = senate_ptrs(since, skip_docs=seen)
+    except Exception as e:
+        senate, stats["senate"] = pd.DataFrame(), {"error": str(e)[:150]}
+    df = pd.concat([x for x in (old, house, senate) if len(x)], ignore_index=True)
+    df = df.dropna(subset=["ticker", "side", "disclosed"])
+    df["disclosed"] = pd.to_datetime(df["disclosed"])
+    df["traded"] = pd.to_datetime(df["traded"], errors="coerce")
+    df = df.drop_duplicates(subset=["chamber", "member", "ticker", "side", "traded", "disclosed", "amount_low"])
+    CACHE.parent.mkdir(exist_ok=True)
+    df.sort_values("disclosed").to_csv(CACHE, index=False, compression="gzip")
+    stats.update(total=int(len(df)), added=int(len(df) - len(old)), latest=str(df["disclosed"].max().date()))
+    return stats
+
+
+@lru_cache(maxsize=1)
+def _cached() -> pd.DataFrame:
+    try:
+        return pd.read_csv(CACHE, parse_dates=["traded", "disclosed"])
+    except Exception:
+        return pd.DataFrame(columns=["ticker", "side", "traded", "disclosed", "amount_low", "member", "chamber"])
+
+
+def recent_for(ticker: str, days: int = 365, limit: int = 12) -> list[dict]:
+    """Disclosed congressional trades in this stock over the last `days`, newest first."""
+    df = _cached()
+    if df.empty:
+        return []
+    t = ticker.upper()
+    cut = pd.Timestamp.now().normalize() - pd.Timedelta(days=days)
+    sub = df[(df["ticker"] == t) & (df["disclosed"] >= cut)].sort_values("disclosed", ascending=False).head(limit)
+    return [{"member": str(r.member), "chamber": str(r.chamber), "side": str(r.side),
+             "traded": None if pd.isna(r.traded) else str(r.traded.date()), "disclosed": str(r.disclosed.date()),
+             "amount_low": None if pd.isna(r.amount_low) else float(r.amount_low)} for r in sub.itertuples()]
+
+
 def probe() -> dict:
     trades, status = load_trades()
     for year in (2025, 2026):
@@ -263,7 +315,25 @@ if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO)
     ap = argparse.ArgumentParser()
     ap.add_argument("--probe", action="store_true")
+    ap.add_argument("--update", action="store_true")
+    ap.add_argument("--debug", action="store_true")
     a = ap.parse_args()
+    if a.update:
+        print(json.dumps(update(), indent=1))
+    if a.debug:                     # save raw text of a few recent House PTRs to tune the parser
+        import pdfplumber
+        out = []
+        for y in (2024, 2026):
+            idx = clerk_index(y)
+            for _, r in idx[idx["FilingType"] == "P"].tail(4).iterrows():
+                doc = str(r["DocID"]).strip()
+                b = requests.get(PTR_PDF.format(year=y, doc=doc), headers=UA, timeout=40).content
+                with pdfplumber.open(io.BytesIO(b)) as pdf:
+                    text = "\n".join((pg.extract_text() or "") for pg in pdf.pages)
+                out.append(f"===== {y} {doc} ({len(text)} chars, parsed {len(parse_house_ptr(text))} rows)\n{text[:2500]}")
+        from pathlib import Path as _P
+        _P("research").mkdir(exist_ok=True)
+        _P("research/congress_debug.txt").write_text("\n\n".join(out))
     if a.probe:
         res = probe()
         print(json.dumps(res, indent=1))

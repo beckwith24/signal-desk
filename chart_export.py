@@ -13,6 +13,7 @@ from pathlib import Path
 
 import pandas as pd
 
+import congress
 import ladder
 import models
 import storage
@@ -117,6 +118,7 @@ def build_payload(res: dict, cfg: dict) -> dict:
         },
         "ia": ia_out,
         "risk": ov.get("risk"),
+        "congress": congress.recent_for(res["ticker"]) if not is_crypto(res["ticker"], cfg) else None,
         "signals": [{"t": _ts(s["ts"]), "ts": s["ts"], "action": s["action"], "rank": s["rank"],
                      "score": s["score"], "price": _num(s["price"], nd)}
                     for s in storage.signals_for(res["ticker"], res["timeframe"])],

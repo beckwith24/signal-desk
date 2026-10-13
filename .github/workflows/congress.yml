@@ -3,13 +3,15 @@
 name: Congress trades
 
 on:
+  schedule:
+    - cron: "23 11 * * *"          # daily: add newly filed reports (shown on the chart site)
   workflow_dispatch:
     inputs:
       mode:
-        description: "probe = check data sources; test = full test"
+        description: "update = add new filings; probe = check data sources; test = full test"
         type: choice
-        options: [probe, test]
-        default: probe
+        options: [update, probe, test, debug]
+        default: update
 
 permissions:
   contents: write
@@ -37,8 +39,10 @@ jobs:
         env:
           MODE: ${{ inputs.mode }}
         run: |
-          case "$MODE" in
+          case "${MODE:-update}" in
+            update) python congress.py --update ;;
             probe) python congress.py --probe ;;
+            debug) python congress.py --debug ;;
             test) python congress_research.py ;;
             *) echo "::error::unknown mode"; exit 1 ;;
           esac
