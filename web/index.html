@@ -182,6 +182,29 @@ h3.sec { font: 700 13px var(--f-display); text-transform: uppercase; letter-spac
 .btn.danger { background: transparent; color: var(--down); border: 1px solid var(--line); }
 .hint { font-size: 12px; color: var(--muted); flex-basis: 100%; }
 .summary .spacer { flex: 1; }
+.gear { border: 1px solid var(--line); background: transparent; color: var(--ink); border-radius: 9px;
+  width: 36px; height: 36px; display: inline-grid; place-items: center; cursor: pointer; font-size: 18px; flex: none; }
+#settingsView h2 { font: 800 28px/1 var(--f-display); font-stretch: 78%; margin: 14px 0 4px; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 14px; }
+.steps { margin: 8px 0 12px; padding-left: 20px; display: grid; gap: 6px; }
+.steps code { font: 500 13px var(--f-mono); background: var(--flat-soft); padding: 1px 5px; border-radius: 4px; }
+.status { font-size: 13px; margin: 8px 0 0; min-height: 18px; color: var(--muted); }
+.status.ok { color: var(--up); } .status.bad { color: var(--down); }
+.wl-group { margin: 10px 0 4px; font-size: 12px; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
+.wl { display: flex; flex-wrap: wrap; gap: 6px; }
+.tk-chip { display: inline-flex; align-items: center; gap: 6px; border: 1px solid var(--line); background: var(--surface);
+  border-radius: 999px; padding: 4px 6px 4px 11px; font: 500 13px var(--f-mono); }
+.tk-chip .x { border: 0; background: var(--flat-soft); color: var(--muted); width: 22px; height: 22px; border-radius: 50%;
+  cursor: pointer; font-size: 13px; line-height: 1; }
+.tk-chip.confirm { border-color: var(--down); }
+.tk-chip.confirm .x { background: var(--down); color: var(--surface); width: auto; padding: 0 8px; border-radius: 999px; font-family: var(--f-body); font-weight: 600; }
+.tk-chip .tag { font: 500 10px var(--f-body); color: var(--watch); text-transform: uppercase; letter-spacing: .05em; }
+.setrow { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--line); flex-wrap: wrap; }
+.setrow .lbl { font-weight: 500; } .setrow .sub2 { font-size: 12px; color: var(--muted); }
+.switch { border: 1px solid var(--line); border-radius: 999px; width: 50px; height: 30px; position: relative; cursor: pointer; background: var(--flat-soft); flex: none; }
+.switch::after { content: ""; position: absolute; top: 3px; left: 3px; width: 22px; height: 22px; border-radius: 50%; background: var(--surface); box-shadow: 0 1px 2px rgba(0,0,0,.25); transition: left .15s; }
+.switch[aria-checked="true"] { background: var(--accent); border-color: var(--accent); }
+.switch[aria-checked="true"]::after { left: 23px; }
 .tf-note { font-size: 13px; color: var(--muted); background: var(--flat-soft); border-radius: 8px; padding: 9px 11px; margin: 4px 0 8px; }
 .ladder-now { color: var(--muted); font-size: 14px; margin: 0 0 12px; }
 .ladder-now strong { color: var(--ink); font-weight: 600; }
@@ -215,8 +238,9 @@ h3.sec { font: 700 13px var(--f-display); text-transform: uppercase; letter-spac
       <button class="back" id="back" hidden aria-label="Back to all tickers">‹ All tickers</button>
       <h1 class="brand" id="brand">Signal <b>Desk</b></h1>
       <div class="updated" id="updated">Loading…</div>
+      <button class="gear" id="gear" type="button" aria-label="Settings" title="Settings">⚙︎</button>
     </div>
-    <div class="controls">
+    <div class="controls" id="controls">
       <div class="seg" id="tfSeg" role="group" aria-label="Timeframe"></div>
       <div class="chips" id="filters" role="group" aria-label="Filter"></div>
     </div>
@@ -228,8 +252,8 @@ h3.sec { font: 700 13px var(--f-display); text-transform: uppercase; letter-spac
     <div class="summary" id="summary"></div>
     <form class="addrow" id="addForm" hidden autocomplete="off">
       <input id="addInput" placeholder="e.g. TSM or DOGE-USD" aria-label="Ticker to add" maxlength="20">
-      <button class="btn" type="submit">Add in Telegram</button>
-      <span class="hint" id="addHint">Opens your Signal Desk bot. Tap <b>Start</b> there to confirm. Crypto ends in -USD.</span>
+      <button class="btn" type="submit" id="addSubmit">Add</button>
+      <span class="hint" id="addHint"></span>
     </form>
     <p class="tf-note" id="tfNote" hidden></p>
     <ul class="list" id="list"></ul>
@@ -264,6 +288,57 @@ h3.sec { font: 700 13px var(--f-display); text-transform: uppercase; letter-spac
     <ul class="hist" id="dHist"></ul>
     <p class="foot" id="dFoot"></p>
     <p><a class="btn danger" id="dRemove" hidden target="_blank" rel="noopener">Remove from watchlist</a></p>
+  </section>
+
+  <section id="settingsView" hidden>
+    <h2>Settings</h2>
+    <div id="sConnect">
+      <p class="ladder-now">Changes here save straight to your GitHub project. Connect once with a key that can only
+        change this one project. It stays in this browser only.</p>
+      <div class="card">
+        <strong>Create your key (about 3 minutes)</strong>
+        <ol class="steps">
+          <li>Open <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">GitHub → New fine-grained token</a> (sign in if asked).</li>
+          <li>Name: <code>Signal Desk website</code>. Expiration: your choice (e.g. 1 year).</li>
+          <li>Repository access: <b>Only select repositories</b> → <code id="repoName">signal-desk</code>.</li>
+          <li>Permissions → Repository permissions: <b>Contents: Read and write</b> and <b>Actions: Read and write</b>.</li>
+          <li>Tap <b>Generate token</b>, copy it, and paste it below.</li>
+        </ol>
+        <form class="addrow" id="connectForm" autocomplete="off">
+          <input id="tokenInput" type="password" placeholder="github_pat_…" aria-label="GitHub key" style="text-transform:none">
+          <button class="btn" type="submit">Connect</button>
+        </form>
+        <p class="status" id="connectStatus"></p>
+      </div>
+    </div>
+    <div id="sMain" hidden>
+      <p class="ladder-now">Connected to <strong id="sRepo"></strong> ·
+        <button class="btn ghost" id="disconnect" type="button" style="padding:4px 10px;font-size:13px">Forget key on this device</button></p>
+      <h3 class="sec">Watchlist</h3>
+      <form class="addrow" id="sAddForm" autocomplete="off">
+        <div class="seg" id="sKind" role="group" aria-label="Type">
+          <button type="button" data-kind="stocks" aria-pressed="true">Stock</button>
+          <button type="button" data-kind="crypto" aria-pressed="false">Crypto</button>
+        </div>
+        <input id="sAddInput" placeholder="e.g. TSM" aria-label="Ticker to add" maxlength="20">
+        <button class="btn" type="submit">Add</button>
+      </form>
+      <p class="status" id="sAddStatus"></p>
+      <div class="wl-group">Stocks &amp; ETFs</div><div class="wl" id="wlStocks"></div>
+      <div class="wl-group">Crypto</div><div class="wl" id="wlCrypto"></div>
+      <h3 class="sec">Alerts</h3>
+      <div class="setrow"><div><div class="lbl">Alert me for</div><div class="sub2">4H and 1H have no Buy/Sell signals of their own</div></div>
+        <div class="chips" id="sTfs"></div></div>
+      <div class="setrow"><div class="lbl">Alert level</div><div class="seg" id="sLevel"></div></div>
+      <div class="setrow"><div><div class="lbl">Layer-in / layer-out alerts</div><div class="sub2">Daily charts</div></div>
+        <button class="switch" id="sLadder" role="switch" type="button" aria-label="Layer alerts"></button></div>
+      <div class="setrow"><div><div class="lbl">Pause all alerts</div><div class="sub2">Scans and charts keep running</div></div>
+        <button class="switch" id="sPause" role="switch" type="button" aria-label="Pause alerts"></button></div>
+      <h3 class="sec">Scans</h3>
+      <div class="addrow"><button class="btn ghost" id="scanNow" type="button">Run a scan now</button>
+        <span class="hint" style="flex-basis:auto">Takes about 2 minutes; charts update when it finishes.</span></div>
+      <p class="status" id="sStatus"></p>
+    </div>
   </section>
 
   <p class="disclaimer" id="disclaimer">Personal research tool only. Not financial advice. Signals can be wrong. Do your own research.</p>
@@ -370,7 +445,15 @@ h3.sec { font: 700 13px var(--f-display); text-transform: uppercase; letter-spac
     s.append(el("span", "spacer"));
     const addBtn = el("button", "btn ghost", $("addForm").hidden ? "＋ Add ticker" : "Close");
     addBtn.type = "button";
-    addBtn.onclick = () => { $("addForm").hidden = !$("addForm").hidden; render(); if (!$("addForm").hidden) $("addInput").focus(); };
+    addBtn.onclick = () => {
+      $("addForm").hidden = !$("addForm").hidden; render();
+      if (!$("addForm").hidden) {
+        $("addSubmit").textContent = GH.token ? "Add" : "Add in Telegram";
+        $("addHint").textContent = GH.token ? "Crypto: add -USD (e.g. DOGE-USD)." :
+          "Opens your bot; tap Start there. Tip: connect GitHub in ⚙︎ Settings to add tickers right here.";
+        $("addInput").focus();
+      }
+    };
     s.append(addBtn);
     const note = $("tfNote");
     const stockAbout = (idx.items.find((i) => i.tf === state.tf && i.asset === "stock") || {}).segment_about || "";
@@ -410,6 +493,7 @@ h3.sec { font: 700 13px var(--f-display); text-transform: uppercase; letter-spac
       showDetailError(ticker, tf); return;
     }
     state.detail = d; state.tf = tf; store.set("tf", tf);
+    leaveSettings();
     $("listView").hidden = true; $("detailView").hidden = false;
     $("back").hidden = false; $("brand").hidden = true;
     renderControls();
@@ -445,7 +529,19 @@ h3.sec { font: 700 13px var(--f-display); text-transform: uppercase; letter-spac
       h.append(li);
     }
     const rm = $("dRemove"), rmLink = botLink("rm", d.ticker);
-    rm.hidden = !rmLink; if (rmLink) { rm.href = rmLink; rm.textContent = "Remove " + d.ticker.replace("-USD", "") + " from watchlist"; }
+    const rmName = "Remove " + d.ticker.replace("-USD", "") + " from watchlist";
+    if (GH.token) {
+      rm.hidden = false; rm.removeAttribute("href"); rm.textContent = rmName; rm.dataset.armed = "";
+      rm.onclick = async (ev) => {
+        ev.preventDefault();
+        if (!rm.dataset.armed) { rm.dataset.armed = "1"; rm.textContent = "Tap again to remove " + d.ticker.replace("-USD", ""); return; }
+        rm.textContent = "Removing…";
+        await removeTicker(d.ticker);
+        rm.textContent = $("sAddStatus").textContent || "Removed";
+      };
+    } else {
+      rm.onclick = null; rm.hidden = !rmLink; if (rmLink) { rm.href = rmLink; rm.textContent = rmName; }
+    }
     $("dFoot").textContent = "Latest bar " + d.bar_time.replace("+00:00", " UTC") + " · scanned " + since(d.updated) + ". Prices from Yahoo Finance (stocks) and Kraken (crypto).";
     drawChart();
     window.scrollTo(0, 0);
@@ -595,9 +691,18 @@ h3.sec { font: 700 13px var(--f-display); text-transform: uppercase; letter-spac
     if (!bot || !/^[A-Z0-9-]{1,20}$/.test(clean)) return null;
     return "https://t.me/" + bot + "?start=" + cmd + "_" + clean;
   }
-  $("addForm").addEventListener("submit", (e) => {
+  $("addForm").addEventListener("submit", async (e) => {
     e.preventDefault();
     const sym = $("addInput").value;
+    if (GH.token) {                          // connected: save directly, no Telegram
+      const isCrypto = /-USDT?$/i.test(sym.trim());
+      for (const x of $("sKind").children) x.setAttribute("aria-pressed", String((x.dataset.kind === "crypto") === isCrypto));
+      if (!state.settings) { try { state.settings = (await loadSettings()).s; } catch (err) { if (!authFail(err)) { $("addHint").textContent = err.message; return; } } }
+      await addTicker(sym);
+      $("addHint").textContent = $("sAddStatus").textContent;
+      $("addInput").value = "";
+      return;
+    }
     const link = botLink("add", sym);
     if (!state.index || !state.index.bot) { $("addHint").textContent = "Send /add " + sym.toUpperCase() + " to your Signal Desk bot in Telegram."; return; }
     if (!link) { $("addHint").textContent = "Use letters, numbers and - only (e.g. TSM, DOGE-USD). For other symbols send /add in Telegram."; return; }
@@ -606,9 +711,212 @@ h3.sec { font: 700 13px var(--f-display); text-transform: uppercase; letter-spac
     $("addInput").value = "";
   });
 
+  // ---------------------------------------------------------------- settings saved to GitHub
+  const GH = {
+    token: store.get("gh", null),
+    repo() {
+      if (state.index && state.index.repo) return state.index.repo;
+      const seg = location.pathname.split("/").filter(Boolean)[0] || "signal-desk";
+      return location.hostname.split(".")[0] + "/" + seg;
+    },
+    async req(method, path, body) {
+      const r = await fetch("https://api.github.com/repos/" + this.repo() + path, {
+        method, cache: "no-store",
+        headers: Object.assign({ Authorization: "Bearer " + this.token, Accept: "application/vnd.github+json",
+                                 "X-GitHub-Api-Version": "2022-11-28" }, body ? { "Content-Type": "application/json" } : {}),
+        body: body ? JSON.stringify(body) : undefined,
+      });
+      if (r.status === 401 || r.status === 403) { const e = new Error("auth"); e.status = r.status; throw e; }
+      return r;
+    },
+  };
+  const b64enc = (s) => { const b = new TextEncoder().encode(s); let x = ""; b.forEach((c) => x += String.fromCharCode(c)); return btoa(x); };
+  const b64dec = (s) => new TextDecoder().decode(Uint8Array.from(atob(s.replace(/\n/g, "")), (c) => c.charCodeAt(0)));
+
+  function normalize(s) {
+    const idx = state.index || {};
+    const tfs = idx.timeframes || ["1d", "4h", "1h"];
+    s.timeframes = Object.assign(Object.fromEntries(tfs.map((t) => [t, true])), s.timeframes || {});
+    if (!["Watch", "Buy", "Strong Buy"].includes(s.min_action)) s.min_action = "Buy";
+    if (typeof s.ladder !== "boolean") s.ladder = true;
+    if (typeof s.paused !== "boolean") s.paused = false;
+    if (!s.watchlist) {
+      const w = idx.watchlist || { stocks: [], crypto: [] };
+      s.watchlist = { stocks: [...w.stocks], crypto: [...w.crypto] };
+    }
+    return s;
+  }
+  async function loadSettings() {
+    const r = await GH.req("GET", "/contents/settings.json?ref=main&t=" + Date.now());
+    if (r.status === 404) return { s: normalize({}), sha: null };
+    if (!r.ok) throw new Error("Couldn't read settings (" + r.status + ")");
+    const j = await r.json();
+    return { s: normalize(JSON.parse(b64dec(j.content))), sha: j.sha };
+  }
+  async function saveSettings(label, mutate) {
+    for (let attempt = 0; attempt < 3; attempt++) {
+      const { s, sha } = await loadSettings();          // always start from the latest saved copy
+      const result = mutate(s);
+      if (result === false) { state.settings = s; return false; }
+      const body = { message: "Settings from website: " + label, content: b64enc(JSON.stringify(s, null, 2) + "\n"), branch: "main" };
+      if (sha) body.sha = sha;
+      const r = await GH.req("PUT", "/contents/settings.json", body);
+      if (r.ok) { state.settings = s; return true; }
+      if (r.status !== 409 && r.status !== 422) throw new Error("Save failed (" + r.status + ")");
+    }
+    throw new Error("Save failed: the file kept changing. Try again.");
+  }
+  async function startScan() {
+    const r = await GH.req("POST", "/actions/workflows/scan.yml/dispatches", { ref: "main", inputs: { only: "all" } });
+    if (r.status !== 204) throw new Error("Couldn't start a scan (" + r.status + ")");
+  }
+  function say(id, text, kind) { const e = $(id); e.textContent = text; e.className = "status" + (kind ? " " + kind : ""); }
+  function authFail(e) {
+    if (e && e.status) {
+      GH.token = null; store.set("gh", null); renderSettings();
+      say("connectStatus", "GitHub rejected the key (expired or missing a permission). Create a new one and connect again.", "bad");
+      return true;
+    }
+    return false;
+  }
+
+  function cleanSymbol(raw, kind) {
+    let t = String(raw || "").trim().toUpperCase().replace(/^\$/, "").replace("/", "-");
+    if (!t) return null;
+    if (kind === "crypto" && !/-USDT?$/.test(t)) t = t + "-USD";
+    return /^[A-Z0-9.=^-]{1,20}$/.test(t) ? t : null;
+  }
+  async function addTicker(raw) {
+    const kind = $("sKind").querySelector('[aria-pressed="true"]').dataset.kind;
+    const t = cleanSymbol(raw, kind);
+    if (!t) { say("sAddStatus", "Use letters and numbers (e.g. TSM, or DOGE for crypto).", "bad"); return; }
+    const k = /-USDT?$/.test(t) ? "crypto" : "stocks";
+    say("sAddStatus", "Saving " + t + "…");
+    try {
+      const saved = await saveSettings("add " + t, (s) => {
+        const w = s.watchlist;
+        if (w.stocks.includes(t) || w.crypto.includes(t)) return false;
+        if (w.stocks.length + w.crypto.length >= 40) throw new Error("Your list is full (40). Remove a ticker first.");
+        w[k].push(t);
+      });
+      if (!saved) { say("sAddStatus", t + " is already on your list."); renderSettings(); return; }
+      $("sAddInput").value = "";
+      renderSettings();
+      await startScan();
+      say("sAddStatus", "Added " + t + ". A scan has started; its chart appears in about 3 minutes. Alerts start from the scan after that.", "ok");
+    } catch (e) { if (!authFail(e)) say("sAddStatus", e.message, "bad"); }
+  }
+  async function removeTicker(t) {
+    say("sAddStatus", "Removing " + t + "…");
+    try {
+      await saveSettings("remove " + t, (s) => {
+        const w = s.watchlist;
+        const before = w.stocks.length + w.crypto.length;
+        w.stocks = w.stocks.filter((x) => x !== t); w.crypto = w.crypto.filter((x) => x !== t);
+        if (w.stocks.length + w.crypto.length === before) return false;
+      });
+      renderSettings();
+      say("sAddStatus", "Removed " + t + ". It leaves the charts after the next scan.", "ok");
+    } catch (e) { if (!authFail(e)) say("sAddStatus", e.message, "bad"); }
+  }
+  async function setOption(label, fn) {
+    say("sStatus", "Saving…");
+    try { await saveSettings(label, fn); renderSettings(); say("sStatus", "Saved. Applies from the next scan.", "ok"); }
+    catch (e) { if (!authFail(e)) say("sStatus", e.message, "bad"); }
+  }
+
+  function chip(t, list) {
+    const c = el("span", "tk-chip");
+    const have = new Set(((state.index || {}).items || []).map((i) => i.ticker));
+    const missing = new Set((state.index || {}).missing || []);
+    c.append(t.replace(/-USD$/, ""));
+    if (!have.has(t)) c.append(el("span", "tag", missing.has(t) ? "no data" : "waiting for scan"));
+    const x = el("button", "x", "✕"); x.type = "button"; x.setAttribute("aria-label", "Remove " + t);
+    x.onclick = () => {
+      if (!c.classList.contains("confirm")) { c.classList.add("confirm"); x.textContent = "Remove"; setTimeout(() => { c.classList.remove("confirm"); x.textContent = "✕"; }, 4000); return; }
+      removeTicker(t);
+    };
+    c.append(x); list.append(c);
+  }
+  function renderSettings() {
+    const connected = !!GH.token;
+    $("sConnect").hidden = connected; $("sMain").hidden = !connected;
+    $("repoName").textContent = GH.repo().split("/")[1] || "signal-desk";
+    if (!connected) return;
+    $("sRepo").textContent = GH.repo();
+    const s = state.settings;
+    if (!s) { say("sStatus", "Loading your settings…"); return; }
+    const ws = $("wlStocks"), wc = $("wlCrypto"); ws.textContent = ""; wc.textContent = "";
+    s.watchlist.stocks.forEach((t) => chip(t, ws)); s.watchlist.crypto.forEach((t) => chip(t, wc));
+    if (!s.watchlist.stocks.length) ws.append(el("span", "hint", "None"));
+    if (!s.watchlist.crypto.length) wc.append(el("span", "hint", "None"));
+    const tfBox = $("sTfs"); tfBox.textContent = "";
+    for (const tf of Object.keys(s.timeframes)) {
+      const b = el("button", "chip", TF_LABEL[tf] || tf); b.type = "button"; b.setAttribute("aria-pressed", String(!!s.timeframes[tf]));
+      b.onclick = () => setOption((TF_LABEL[tf] || tf) + " alerts", (x) => { x.timeframes[tf] = !x.timeframes[tf]; });
+      tfBox.append(b);
+    }
+    const lv = $("sLevel"); lv.textContent = "";
+    for (const L of ["Watch", "Buy", "Strong Buy"]) {
+      const b = el("button", null, L); b.type = "button"; b.setAttribute("aria-pressed", String(s.min_action === L));
+      b.onclick = () => setOption("alert level " + L, (x) => { x.min_action = L; });
+      lv.append(b);
+    }
+    $("sLadder").setAttribute("aria-checked", String(!!s.ladder));
+    $("sPause").setAttribute("aria-checked", String(!!s.paused));
+  }
+  $("sLadder").onclick = () => setOption("layer alerts", (x) => { x.ladder = !x.ladder; });
+  $("sPause").onclick = () => setOption("pause", (x) => { x.paused = !x.paused; });
+  $("sKind").addEventListener("click", (e) => {
+    const b = e.target.closest("button"); if (!b) return;
+    for (const x of $("sKind").children) x.setAttribute("aria-pressed", String(x === b));
+    $("sAddInput").placeholder = b.dataset.kind === "crypto" ? "e.g. DOGE" : "e.g. TSM";
+  });
+  $("sAddForm").addEventListener("submit", (e) => { e.preventDefault(); addTicker($("sAddInput").value); });
+  $("scanNow").onclick = async () => {
+    say("sStatus", "Starting a scan…");
+    try { await startScan(); say("sStatus", "Scan started. Charts update in about 2–3 minutes.", "ok"); }
+    catch (e) { if (!authFail(e)) say("sStatus", e.message, "bad"); }
+  };
+  $("disconnect").onclick = () => { GH.token = null; store.set("gh", null); state.settings = null; renderSettings(); };
+  $("connectForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const tok = $("tokenInput").value.trim();
+    if (!tok) return;
+    GH.token = tok; say("connectStatus", "Checking the key…");
+    try {
+      const r = await GH.req("GET", "");
+      if (!r.ok) throw new Error(r.status === 404 ? "This key can't see " + GH.repo() + ". Check step 3." : "GitHub said " + r.status);
+      const j = await r.json();
+      if (j.permissions && j.permissions.push === false) throw new Error("The key can read but not write. Check step 4 (Contents: Read and write).");
+      const { s } = await loadSettings();
+      store.set("gh", tok); state.settings = s; $("tokenInput").value = "";
+      say("connectStatus", ""); renderSettings(); say("sStatus", "Connected.", "ok");
+    } catch (err) {
+      GH.token = null;
+      say("connectStatus", err.status ? "GitHub rejected this key. Copy it again, or create a new one." : err.message, "bad");
+    }
+  });
+  async function openSettings() {
+    state.detail = null; if (state.chart) { state.chart.remove(); state.chart = null; }
+    $("listView").hidden = true; $("detailView").hidden = true; $("settingsView").hidden = false;
+    $("controls").hidden = true; $("back").hidden = false; $("brand").hidden = true; $("gear").hidden = true;
+    renderSettings(); window.scrollTo(0, 0);
+    if (GH.token) {
+      try { state.settings = (await loadSettings()).s; renderSettings(); say("sStatus", ""); }
+      catch (e) { if (!authFail(e)) say("sStatus", e.message, "bad"); }
+    }
+  }
+  function leaveSettings() {
+    $("settingsView").hidden = true; $("controls").hidden = false; $("gear").hidden = false;
+  }
+  $("gear").onclick = () => { state.fromList = true; location.hash = "settings"; };
+
   // ---------------------------------------------------------------- routing & data
   function route() {
     const h = decodeURIComponent(location.hash.slice(1));
+    if (h === "settings") { openSettings(); return; }
+    if (!$("settingsView").hidden) { leaveSettings(); if (!h) { $("listView").hidden = false; $("back").hidden = true; $("brand").hidden = false; renderControls(); render(); return; } }
     const m = h.match(/^(.+)_(1d|4h|1h|1wk)$/);
     if (m) openDetail(m[1], m[2], false); else if (state.detail) closeDetail(); else { renderControls(); render(); }
   }
@@ -625,7 +933,9 @@ h3.sec { font: 700 13px var(--f-display); text-transform: uppercase; letter-spac
   }
   $("back").onclick = () => {
     if (state.fromList) { state.fromList = false; history.back(); }
-    else { history.replaceState(null, "", location.pathname + location.search); closeDetail(); }
+    else { history.replaceState(null, "", location.pathname + location.search);
+           if (!$("settingsView").hidden) { leaveSettings(); $("listView").hidden = false; $("back").hidden = true; $("brand").hidden = false; renderControls(); render(); }
+           else closeDetail(); }
   };
   window.addEventListener("hashchange", route);
   matchMedia("(prefers-color-scheme: dark)").addEventListener?.("change", () => { if (state.detail) drawChart(); });

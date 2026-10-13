@@ -62,9 +62,13 @@ def main() -> None:
             bot_name = requests.get(f"https://api.telegram.org/bot{token}/getMe", timeout=10).json()["result"]["username"]
         except Exception as e:
             log.info("Bot name unavailable: %s", e)
+    have = {(i["ticker"]) for i in items}
     index = {
         "generated": datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC"),
         "bot": bot_name,
+        "repo": os.environ.get("GITHUB_REPOSITORY", ""),
+        "watchlist": cfg["watchlist"],
+        "missing": [t for t in tickers if t not in have],   # on the list but no chart yet (new or bad symbol)
         "timeframes": cfg["timeframes"],
         "disclaimer": DISCLAIMER,
         "items": items,

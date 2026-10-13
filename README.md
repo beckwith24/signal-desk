@@ -89,7 +89,13 @@ to switch **Daily / 4-hour / Hourly** on or off, change the **alert level** (Wat
 the chat every 5 minutes, so a tap takes effect within about 5–15 minutes, and the bot confirms it. Only your
 own chat ID is obeyed. The switches are saved in `settings.json` in the repo.
 
-**Adding and removing tickers:** in your bot chat send `/add TSM AMZN` (crypto must end in `-USD`, e.g.
+**Settings on the website (recommended):** tap **⚙︎** on the chart site and connect once with a GitHub
+fine-grained token limited to this repository (Contents: read & write, Actions: read & write); the page shows
+the exact steps. The key is kept only in that browser. From then on you can add/remove tickers, choose alert
+timeframes and level, switch layer alerts, pause alerts and start a scan, all saved straight to
+`settings.json`. The Telegram bot re-reads that file before every change, so the two never overwrite each other.
+
+**Adding and removing tickers from Telegram (also works):** in your bot chat send `/add TSM AMZN` (crypto must end in `-USD`, e.g.
 `/add DOGE-USD`), `/remove TSLA`, or `/list` to see your tickers as tap-to-remove buttons. The bot checks the
 symbol exists on Yahoo, saves the list to `settings.json` (it overrides the watchlist in `config.yaml`) and
 starts a scan so the new chart appears within minutes. The chart site has the same controls: **＋ Add ticker**

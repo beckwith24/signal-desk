@@ -258,6 +258,12 @@ def process(cfg: dict | None = None, poll: int = 0, s: dict | None = None) -> tu
         params["offset"] = s["tg_offset"] + 1
     updates = call(token, "getUpdates", **params).get("result", [])
     changes = []
+    if updates:
+        # Settings may have changed on the website since we last looked: start from the saved file.
+        offset = s["tg_offset"]
+        refresh_repo()
+        s = S.load(cfg)
+        s["tg_offset"] = max(offset, s.get("tg_offset") or 0)
     for u in updates:
         s["tg_offset"] = u["update_id"]
         if (msg := u.get("message")) and str(msg["chat"]["id"]) == chat:
@@ -331,7 +337,10 @@ def listen(minutes: float) -> None:
     while time.time() < end - 5:
         poll = int(max(1, min(25, end - time.time() - 5)))
         s, _ = process(cfg, poll=poll, s=s)
-    S.save(s)
+    refresh_repo()
+    fresh = S.load(cfg)                    # keep any website edits; only update our read position
+    fresh["tg_offset"] = max(s["tg_offset"], fresh.get("tg_offset") or 0)
+    S.save(fresh)
     commit_settings("read position")
 
 
