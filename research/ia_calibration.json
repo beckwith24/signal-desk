@@ -1,11 +1,11 @@
 {
- "generated": "2026-10-13 12:41 UTC",
+ "generated": "2026-10-13 12:44 UTC",
  "synthetic": false,
  "data": {
   "CBRS": [
    "2026-05-14 09:30:00-04:00",
    "2026-10-12 13:30:00-04:00",
-   203
+   208
   ],
   "BTC-USD": [
    "2014-09-17 00:00:00+00:00",
@@ -24,46 +24,46 @@
   ]
  },
  "cbrs_alignment": {
-  "corr": 0.8369155852535338,
-  "shift": -6,
-  "step": 9.039999999999997,
+  "corr": 0.9146082446374093,
+  "shift": 0,
+  "step": 9.099999999999996,
   "i0": 22,
   "price_fix": [
-   8.090306875283131,
-   0.9729263024969829
+   13.358402103429945,
+   0.9401719037969047
   ],
-  "median_err_pct": 2.3852272658229867,
+  "median_err_pct": 1.254699027175965,
   "first_bar": "2026-05-14 09:30:00-04:00",
-  "x_first_bar": 228.36000000000004
+  "x_first_bar": 172.8000000000001
  },
  "cbrs_levels": {
   "ath": 385.0,
   "seen": [
-   259.58,
-   211.61,
-   172.69
+   256.38,
+   210.02,
+   172.42
   ],
   "fraction_of_ath": [
-   0.6742,
-   0.5496,
-   0.4485
+   0.6659,
+   0.5455,
+   0.4478
   ],
   "fib_err_pct": [
+   7.2,
    8.34,
-   9.03,
-   11.47
+   11.65
   ],
   "geometric_err_pct": [
-   2.91,
-   3.65,
-   4.47
+   1.7,
+   2.92,
+   4.32
   ]
  },
  "cbrs_marker_trades": {
   "trades": 16,
-  "win_pct": 56.2,
-  "roi_pct": 60.3,
-  "sum_pct": 56.0,
+  "win_pct": 62.5,
+  "roi_pct": 31.3,
+  "sum_pct": 32.2,
   "open": false
  },
  "btc_levels": {
@@ -107,9 +107,9 @@
  "ribbon": {
   "000660.KS": {
    "alignment": {
-    "corr": 0.999022526408584,
+    "corr": 0.9990225265051113,
     "shift": 0,
-    "px_per_day": 4.637049634112233,
+    "px_per_day": 4.637049634112232,
     "month_resid_px": [
      1.0,
      0.6,
@@ -123,10 +123,10 @@
      3.3
     ],
     "price_fix": [
-     -3790.2221229677316,
-     1.0045210390145205
+     -3790.2331884523496,
+     1.004521043226344
     ],
-    "line_err_pct": 0.7960127032326181
+    "line_err_pct": 0.7960124722798279
    },
    "bars": 181,
    "blue_share": 0.79,
@@ -321,7 +321,7 @@
   },
   "005930.KS": {
    "alignment": {
-    "corr": 0.9957450231813142,
+    "corr": 0.9957450219637428,
     "shift": 0,
     "px_per_day": 5.535755957853054,
     "month_resid_px": [
@@ -337,10 +337,10 @@
      2.0
     ],
     "price_fix": [
-     -2165.776570980777,
-     1.0098749648913545
+     -2165.775608837778,
+     1.0098749615182405
     ],
-    "line_err_pct": 0.8638722586884695
+    "line_err_pct": 0.8638723045190755
    },
    "bars": 185,
    "blue_share": 0.773,
@@ -537,59 +537,21 @@
  "rules_top": [
   {
    "family": "supertrend",
-   "rule": "Supertrend 20,1 flips",
-   "CBRS_4h": {
-    "f1": 0.44,
-    "precision": 0.611,
-    "recall": 0.344,
-    "hits": 11,
-    "signals": 18,
-    "targets": 32,
-    "mean_lag": 0.55
-   },
-   "CBRS_4h_stats": {
-    "trades": 9,
-    "win_pct": 33.3,
-    "roi_pct": -28.0,
-    "sum_pct": -28.9,
-    "open": false
-   },
-   "BTC_1d": {
-    "f1": 0.8,
-    "precision": 0.778,
-    "recall": 0.824,
-    "hits": 28,
-    "signals": 36,
-    "targets": 34,
-    "mean_lag": 0.18
-   },
-   "BTC_1d_stats": {
-    "trades": 225,
-    "win_pct": 41.8,
-    "roi_pct": 16411.8,
-    "sum_pct": 736.4,
-    "open": false
-   },
-   "mean_f1": 0.62,
-   "placebo_f1": 0.206
-  },
-  {
-   "family": "supertrend",
    "rule": "Supertrend 14,1 flips",
    "CBRS_4h": {
-    "f1": 0.48,
-    "precision": 0.667,
-    "recall": 0.375,
-    "hits": 12,
+    "f1": 0.6,
+    "precision": 0.833,
+    "recall": 0.469,
+    "hits": 15,
     "signals": 18,
     "targets": 32,
-    "mean_lag": 0.58
+    "mean_lag": 0.4
    },
    "CBRS_4h_stats": {
     "trades": 9,
     "win_pct": 33.3,
-    "roi_pct": -21.1,
-    "sum_pct": -20.0,
+    "roi_pct": -15.4,
+    "sum_pct": -13.4,
     "open": false
    },
    "BTC_1d": {
@@ -608,1472 +570,26 @@
     "sum_pct": 756.5,
     "open": false
    },
-   "mean_f1": 0.603,
-   "placebo_f1": 0.18
-  },
-  {
-   "family": "supertrend",
-   "rule": "Supertrend 7,1 flips",
-   "CBRS_4h": {
-    "f1": 0.444,
-    "precision": 0.545,
-    "recall": 0.375,
-    "hits": 12,
-    "signals": 22,
-    "targets": 32,
-    "mean_lag": 0.5
-   },
-   "CBRS_4h_stats": {
-    "trades": 11,
-    "win_pct": 27.3,
-    "roi_pct": -41.2,
-    "sum_pct": -47.0,
-    "open": false
-   },
-   "BTC_1d": {
-    "f1": 0.667,
-    "precision": 0.688,
-    "recall": 0.647,
-    "hits": 22,
-    "signals": 32,
-    "targets": 34,
-    "mean_lag": 0.0
-   },
-   "BTC_1d_stats": {
-    "trades": 231,
-    "win_pct": 42.4,
-    "roi_pct": 16744.0,
-    "sum_pct": 749.5,
-    "open": false
-   },
-   "mean_f1": 0.555,
-   "placebo_f1": 0.182
-  },
-  {
-   "family": "supertrend",
-   "rule": "Supertrend 10,1 flips",
-   "CBRS_4h": {
-    "f1": 0.444,
-    "precision": 0.545,
-    "recall": 0.375,
-    "hits": 12,
-    "signals": 22,
-    "targets": 32,
-    "mean_lag": 0.5
-   },
-   "CBRS_4h_stats": {
-    "trades": 11,
-    "win_pct": 27.3,
-    "roi_pct": -41.2,
-    "sum_pct": -47.0,
-    "open": false
-   },
-   "BTC_1d": {
-    "f1": 0.656,
-    "precision": 0.7,
-    "recall": 0.618,
-    "hits": 21,
-    "signals": 30,
-    "targets": 34,
-    "mean_lag": 0.14
-   },
-   "BTC_1d_stats": {
-    "trades": 228,
-    "win_pct": 41.7,
-    "roi_pct": 14705.2,
-    "sum_pct": 751.5,
-    "open": false
-   },
-   "mean_f1": 0.55,
-   "placebo_f1": 0.185
-  },
-  {
-   "family": "supertrend",
-   "rule": "Supertrend 14,1.5 flips",
-   "CBRS_4h": {
-    "f1": 0.333,
-    "precision": 0.5,
-    "recall": 0.25,
-    "hits": 8,
-    "signals": 16,
-    "targets": 32,
-    "mean_lag": 0.5
-   },
-   "CBRS_4h_stats": {
-    "trades": 8,
-    "win_pct": 37.5,
-    "roi_pct": -33.2,
-    "sum_pct": -35.8,
-    "open": false
-   },
-   "BTC_1d": {
-    "f1": 0.582,
-    "precision": 0.762,
-    "recall": 0.471,
-    "hits": 16,
-    "signals": 21,
-    "targets": 34,
-    "mean_lag": 0.38
-   },
-   "BTC_1d_stats": {
-    "trades": 138,
-    "win_pct": 48.6,
-    "roi_pct": 30132.3,
-    "sum_pct": 836.5,
-    "open": false
-   },
-   "mean_f1": 0.458,
-   "placebo_f1": 0.133
-  },
-  {
-   "family": "supertrend",
-   "rule": "Supertrend 10,1.5 flips",
-   "CBRS_4h": {
-    "f1": 0.32,
-    "precision": 0.444,
-    "recall": 0.25,
-    "hits": 8,
-    "signals": 18,
-    "targets": 32,
-    "mean_lag": 0.5
-   },
-   "CBRS_4h_stats": {
-    "trades": 9,
-    "win_pct": 33.3,
-    "roi_pct": -36.6,
-    "sum_pct": -40.9,
-    "open": false
-   },
-   "BTC_1d": {
-    "f1": 0.582,
-    "precision": 0.762,
-    "recall": 0.471,
-    "hits": 16,
-    "signals": 21,
-    "targets": 34,
-    "mean_lag": 0.31
-   },
-   "BTC_1d_stats": {
-    "trades": 138,
-    "win_pct": 48.6,
-    "roi_pct": 59360.8,
-    "sum_pct": 899.6,
-    "open": false
-   },
-   "mean_f1": 0.451,
-   "placebo_f1": 0.151
-  },
-  {
-   "family": "rsi",
-   "rule": "RSI5 45/55 back out",
-   "CBRS_4h": {
-    "f1": 0.4,
-    "precision": 0.478,
-    "recall": 0.344,
-    "hits": 11,
-    "signals": 23,
-    "targets": 32,
-    "mean_lag": 0.27
-   },
-   "CBRS_4h_stats": {
-    "trades": 11,
-    "win_pct": 27.3,
-    "roi_pct": -45.2,
-    "sum_pct": -52.0,
-    "open": true
-   },
-   "BTC_1d": {
-    "f1": 0.5,
-    "precision": 0.435,
-    "recall": 0.588,
-    "hits": 20,
-    "signals": 46,
-    "targets": 34,
-    "mean_lag": -0.65
-   },
-   "BTC_1d_stats": {
-    "trades": 250,
-    "win_pct": 45.6,
-    "roi_pct": 1519.8,
-    "sum_pct": 500.6,
-    "open": true
-   },
-   "mean_f1": 0.45,
-   "placebo_f1": 0.207
-  },
-  {
-   "family": "supertrend",
-   "rule": "Supertrend 7,1.5 flips",
-   "CBRS_4h": {
-    "f1": 0.259,
-    "precision": 0.318,
-    "recall": 0.219,
-    "hits": 7,
-    "signals": 22,
-    "targets": 32,
-    "mean_lag": 0.43
-   },
-   "CBRS_4h_stats": {
-    "trades": 11,
-    "win_pct": 27.3,
-    "roi_pct": -58.9,
-    "sum_pct": -80.4,
-    "open": false
-   },
-   "BTC_1d": {
-    "f1": 0.632,
-    "precision": 0.783,
-    "recall": 0.529,
-    "hits": 18,
-    "signals": 23,
-    "targets": 34,
-    "mean_lag": 0.39
-   },
-   "BTC_1d_stats": {
-    "trades": 141,
-    "win_pct": 46.8,
-    "roi_pct": 45678.3,
-    "sum_pct": 873.0,
-    "open": false
-   },
-   "mean_f1": 0.446,
-   "placebo_f1": 0.154
-  },
-  {
-   "family": "rsi",
-   "rule": "RSI4 45/55 back out",
-   "CBRS_4h": {
-    "f1": 0.433,
-    "precision": 0.464,
-    "recall": 0.406,
-    "hits": 13,
-    "signals": 28,
-    "targets": 32,
-    "mean_lag": 0.38
-   },
-   "CBRS_4h_stats": {
-    "trades": 14,
-    "win_pct": 28.6,
-    "roi_pct": -43.5,
-    "sum_pct": -51.2,
-    "open": false
-   },
-   "BTC_1d": {
-    "f1": 0.457,
-    "precision": 0.362,
-    "recall": 0.618,
-    "hits": 21,
-    "signals": 58,
-    "targets": 34,
-    "mean_lag": -0.67
-   },
-   "BTC_1d_stats": {
-    "trades": 327,
-    "win_pct": 41.6,
-    "roi_pct": 650.9,
-    "sum_pct": 426.1,
-    "open": true
-   },
-   "mean_f1": 0.445,
-   "placebo_f1": 0.236
-  },
-  {
-   "family": "rsi",
-   "rule": "RSI2 45/55 back out",
-   "CBRS_4h": {
-    "f1": 0.458,
-    "precision": 0.373,
-    "recall": 0.594,
-    "hits": 19,
-    "signals": 51,
-    "targets": 32,
-    "mean_lag": 0.05
-   },
-   "CBRS_4h_stats": {
-    "trades": 25,
-    "win_pct": 36.0,
-    "roi_pct": -18.1,
-    "sum_pct": -13.9,
-    "open": true
-   },
-   "BTC_1d": {
-    "f1": 0.385,
-    "precision": 0.26,
-    "recall": 0.735,
-    "hits": 25,
-    "signals": 96,
-    "targets": 34,
-    "mean_lag": -0.68
-   },
-   "BTC_1d_stats": {
-    "trades": 591,
-    "win_pct": 39.4,
-    "roi_pct": 30696.7,
-    "sum_pct": 745.6,
-    "open": true
-   },
-   "mean_f1": 0.421,
-   "placebo_f1": 0.29
-  },
-  {
-   "family": "rsi",
-   "rule": "RSI3 45/55 back out",
-   "CBRS_4h": {
-    "f1": 0.411,
-    "precision": 0.366,
-    "recall": 0.469,
-    "hits": 15,
-    "signals": 41,
-    "targets": 32,
-    "mean_lag": 0.2
-   },
-   "CBRS_4h_stats": {
-    "trades": 20,
-    "win_pct": 35.0,
-    "roi_pct": -19.2,
-    "sum_pct": -15.8,
-    "open": true
-   },
-   "BTC_1d": {
-    "f1": 0.43,
-    "precision": 0.315,
-    "recall": 0.676,
-    "hits": 23,
-    "signals": 73,
-    "targets": 34,
-    "mean_lag": -0.35
-   },
-   "BTC_1d_stats": {
-    "trades": 423,
-    "win_pct": 39.5,
-    "roi_pct": 2379.7,
-    "sum_pct": 460.3,
-    "open": true
-   },
-   "mean_f1": 0.42,
-   "placebo_f1": 0.267
-  },
-  {
-   "family": "supertrend",
-   "rule": "Supertrend 20,1.5 flips",
-   "CBRS_4h": {
-    "f1": 0.174,
-    "precision": 0.286,
-    "recall": 0.125,
-    "hits": 4,
-    "signals": 14,
-    "targets": 32,
-    "mean_lag": 0.5
-   },
-   "CBRS_4h_stats": {
-    "trades": 7,
-    "win_pct": 28.6,
-    "roi_pct": -31.1,
-    "sum_pct": -33.1,
-    "open": false
-   },
-   "BTC_1d": {
-    "f1": 0.655,
-    "precision": 0.857,
-    "recall": 0.529,
-    "hits": 18,
-    "signals": 21,
-    "targets": 34,
-    "mean_lag": 0.39
-   },
-   "BTC_1d_stats": {
-    "trades": 140,
-    "win_pct": 46.4,
-    "roi_pct": 20286.9,
-    "sum_pct": 779.9,
-    "open": false
-   },
-   "mean_f1": 0.414,
-   "placebo_f1": 0.112
-  },
-  {
-   "family": "pivot (look-ahead)",
-   "rule": "pivots L5 R1 drawn on the pivot bar",
-   "CBRS_4h": {
-    "f1": 0.545,
-    "precision": 0.652,
-    "recall": 0.469,
-    "hits": 15,
-    "signals": 23,
-    "targets": 32,
-    "mean_lag": 0.0
-   },
-   "CBRS_4h_stats": {
-    "trades": 11,
-    "win_pct": 72.7,
-    "roi_pct": -6.6,
-    "sum_pct": -1.4,
-    "open": true
-   },
-   "BTC_1d": {
-    "f1": 0.242,
-    "precision": 0.25,
-    "recall": 0.235,
-    "hits": 8,
-    "signals": 32,
-    "targets": 34,
-    "mean_lag": 0.5
-   },
-   "BTC_1d_stats": {
-    "trades": 231,
-    "win_pct": 74.5,
-    "roi_pct": 34552.6,
-    "sum_pct": 699.2,
-    "open": true
-   },
-   "mean_f1": 0.394,
-   "placebo_f1": 0.252
-  },
-  {
-   "family": "atr_band",
-   "rule": "sma8 \u00b1 0.5\u00d7ATR14 reenter",
-   "CBRS_4h": {
-    "f1": 0.385,
-    "precision": 0.5,
-    "recall": 0.312,
-    "hits": 10,
-    "signals": 20,
-    "targets": 32,
-    "mean_lag": 0.4
-   },
-   "CBRS_4h_stats": {
-    "trades": 10,
-    "win_pct": 50.0,
-    "roi_pct": 7.4,
-    "sum_pct": 11.0,
-    "open": false
-   },
-   "BTC_1d": {
-    "f1": 0.388,
-    "precision": 0.394,
-    "recall": 0.382,
-    "hits": 13,
-    "signals": 33,
-    "targets": 34,
-    "mean_lag": -0.77
-   },
-   "BTC_1d_stats": {
-    "trades": 198,
-    "win_pct": 63.1,
-    "roi_pct": 2751.0,
-    "sum_pct": 451.7,
-    "open": true
-   },
-   "mean_f1": 0.387,
-   "placebo_f1": 0.201
-  },
-  {
-   "family": "stoch",
-   "rule": "Stoch9,1 30/70 back out",
-   "CBRS_4h": {
-    "f1": 0.4,
-    "precision": 0.478,
-    "recall": 0.344,
-    "hits": 11,
-    "signals": 23,
-    "targets": 32,
-    "mean_lag": 0.0
-   },
-   "CBRS_4h_stats": {
-    "trades": 11,
-    "win_pct": 45.5,
-    "roi_pct": -11.3,
-    "sum_pct": -5.7,
-    "open": true
-   },
-   "BTC_1d": {
-    "f1": 0.371,
-    "precision": 0.361,
-    "recall": 0.382,
-    "hits": 13,
-    "signals": 36,
-    "targets": 34,
-    "mean_lag": -0.77
-   },
-   "BTC_1d_stats": {
-    "trades": 194,
-    "win_pct": 57.7,
-    "roi_pct": 4693.2,
-    "sum_pct": 527.6,
-    "open": true
-   },
-   "mean_f1": 0.386,
-   "placebo_f1": 0.207
-  },
-  {
-   "family": "stoch",
-   "rule": "Stoch5,3 30/70 back out",
-   "CBRS_4h": {
-    "f1": 0.367,
-    "precision": 0.529,
-    "recall": 0.281,
-    "hits": 9,
-    "signals": 17,
-    "targets": 32,
-    "mean_lag": 0.33
-   },
-   "CBRS_4h_stats": {
-    "trades": 8,
-    "win_pct": 50.0,
-    "roi_pct": -8.7,
-    "sum_pct": -2.0,
-    "open": true
-   },
-   "BTC_1d": {
-    "f1": 0.4,
-    "precision": 0.419,
-    "recall": 0.382,
-    "hits": 13,
-    "signals": 31,
-    "targets": 34,
-    "mean_lag": -0.77
-   },
-   "BTC_1d_stats": {
-    "trades": 189,
-    "win_pct": 60.8,
-    "roi_pct": 2993.2,
-    "sum_pct": 468.8,
-    "open": true
-   },
-   "mean_f1": 0.384,
+   "mean_f1": 0.663,
    "placebo_f1": 0.187
   },
-  {
-   "family": "atr_band",
-   "rule": "sma8 \u00b1 0.5\u00d7ATR10 reenter",
-   "CBRS_4h": {
-    "f1": 0.37,
-    "precision": 0.455,
-    "recall": 0.312,
-    "hits": 10,
-    "signals": 22,
-    "targets": 32,
-    "mean_lag": 0.4
-   },
-   "CBRS_4h_stats": {
-    "trades": 11,
-    "win_pct": 45.5,
-    "roi_pct": -4.5,
-    "sum_pct": -1.3,
-    "open": false
-   },
-   "BTC_1d": {
-    "f1": 0.388,
-    "precision": 0.394,
-    "recall": 0.382,
-    "hits": 13,
-    "signals": 33,
-    "targets": 34,
-    "mean_lag": -0.77
-   },
-   "BTC_1d_stats": {
-    "trades": 200,
-    "win_pct": 64.5,
-    "roi_pct": 2678.8,
-    "sum_pct": 438.3,
-    "open": true
-   },
-   "mean_f1": 0.379,
-   "placebo_f1": 0.207
-  },
-  {
-   "family": "atr_band",
-   "rule": "sma14 \u00b1 0.75\u00d7ATR10 reenter",
-   "CBRS_4h": {
-    "f1": 0.327,
-    "precision": 0.471,
-    "recall": 0.25,
-    "hits": 8,
-    "signals": 17,
-    "targets": 32,
-    "mean_lag": 0.38
-   },
-   "CBRS_4h_stats": {
-    "trades": 8,
-    "win_pct": 75.0,
-    "roi_pct": -1.1,
-    "sum_pct": 0.7,
-    "open": true
-   },
-   "BTC_1d": {
-    "f1": 0.429,
-    "precision": 0.545,
-    "recall": 0.353,
-    "hits": 12,
-    "signals": 22,
-    "targets": 34,
-    "mean_lag": -0.42
-   },
-   "BTC_1d_stats": {
-    "trades": 109,
-    "win_pct": 62.4,
-    "roi_pct": 2691.1,
-    "sum_pct": 537.4,
-    "open": true
-   },
-   "mean_f1": 0.378,
-   "placebo_f1": 0.166
-  },
-  {
-   "family": "atr_band",
-   "rule": "sma10 \u00b1 0.5\u00d7ATR20 reenter",
-   "CBRS_4h": {
-    "f1": 0.34,
-    "precision": 0.533,
-    "recall": 0.25,
-    "hits": 8,
-    "signals": 15,
-    "targets": 32,
-    "mean_lag": 0.25
-   },
-   "CBRS_4h_stats": {
-    "trades": 7,
-    "win_pct": 57.1,
-    "roi_pct": 3.2,
-    "sum_pct": 5.9,
-    "open": true
-   },
-   "BTC_1d": {
-    "f1": 0.413,
-    "precision": 0.448,
-    "recall": 0.382,
-    "hits": 13,
-    "signals": 29,
-    "targets": 34,
-    "mean_lag": -0.62
-   },
-   "BTC_1d_stats": {
-    "trades": 176,
-    "win_pct": 58.0,
-    "roi_pct": 2976.6,
-    "sum_pct": 559.2,
-    "open": true
-   },
-   "mean_f1": 0.377,
-   "placebo_f1": 0.179
-  },
-  {
-   "family": "atr_band",
-   "rule": "sma10 \u00b1 0.5\u00d7ATR14 reenter",
-   "CBRS_4h": {
-    "f1": 0.353,
-    "precision": 0.474,
-    "recall": 0.281,
-    "hits": 9,
-    "signals": 19,
-    "targets": 32,
-    "mean_lag": 0.44
-   },
-   "CBRS_4h_stats": {
-    "trades": 9,
-    "win_pct": 55.6,
-    "roi_pct": -3.6,
-    "sum_pct": -1.4,
-    "open": true
-   },
-   "BTC_1d": {
-    "f1": 0.393,
-    "precision": 0.444,
-    "recall": 0.353,
-    "hits": 12,
-    "signals": 27,
-    "targets": 34,
-    "mean_lag": -0.58
-   },
-   "BTC_1d_stats": {
-    "trades": 176,
-    "win_pct": 59.1,
-    "roi_pct": 3698.3,
-    "sum_pct": 569.2,
-    "open": true
-   },
-   "mean_f1": 0.373,
-   "placebo_f1": 0.183
-  },
-  {
-   "family": "rsi",
-   "rule": "RSI2 40/60 back out",
-   "CBRS_4h": {
-    "f1": 0.43,
-    "precision": 0.362,
-    "recall": 0.531,
-    "hits": 17,
-    "signals": 47,
-    "targets": 32,
-    "mean_lag": 0.06
-   },
-   "CBRS_4h_stats": {
-    "trades": 23,
-    "win_pct": 39.1,
-    "roi_pct": -40.0,
-    "sum_pct": -44.4,
-    "open": true
-   },
-   "BTC_1d": {
-    "f1": 0.314,
-    "precision": 0.218,
-    "recall": 0.559,
-    "hits": 19,
-    "signals": 87,
-    "targets": 34,
-    "mean_lag": -0.84
-   },
-   "BTC_1d_stats": {
-    "trades": 518,
-    "win_pct": 43.4,
-    "roi_pct": 16791.8,
-    "sum_pct": 669.7,
-    "open": true
-   },
-   "mean_f1": 0.372,
-   "placebo_f1": 0.289
-  },
-  {
-   "family": "atr_band",
-   "rule": "sma14 \u00b1 0.75\u00d7ATR14 reenter",
-   "CBRS_4h": {
-    "f1": 0.311,
-    "precision": 0.538,
-    "recall": 0.219,
-    "hits": 7,
-    "signals": 13,
-    "targets": 32,
-    "mean_lag": 0.29
-   },
-   "CBRS_4h_stats": {
-    "trades": 6,
-    "win_pct": 66.7,
-    "roi_pct": -5.8,
-    "sum_pct": -4.3,
-    "open": true
-   },
-   "BTC_1d": {
-    "f1": 0.429,
-    "precision": 0.545,
-    "recall": 0.353,
-    "hits": 12,
-    "signals": 22,
-    "targets": 34,
-    "mean_lag": -0.42
-   },
-   "BTC_1d_stats": {
-    "trades": 109,
-    "win_pct": 61.5,
-    "roi_pct": 2608.9,
-    "sum_pct": 542.0,
-    "open": true
-   },
-   "mean_f1": 0.37,
-   "placebo_f1": 0.148
-  },
-  {
-   "family": "atr_band",
-   "rule": "sma14 \u00b1 0.75\u00d7ATR20 reenter",
-   "CBRS_4h": {
-    "f1": 0.311,
-    "precision": 0.538,
-    "recall": 0.219,
-    "hits": 7,
-    "signals": 13,
-    "targets": 32,
-    "mean_lag": 0.29
-   },
-   "CBRS_4h_stats": {
-    "trades": 6,
-    "win_pct": 66.7,
-    "roi_pct": -0.0,
-    "sum_pct": 2.0,
-    "open": true
-   },
-   "BTC_1d": {
-    "f1": 0.429,
-    "precision": 0.545,
-    "recall": 0.353,
-    "hits": 12,
-    "signals": 22,
-    "targets": 34,
-    "mean_lag": -0.42
-   },
-   "BTC_1d_stats": {
-    "trades": 110,
-    "win_pct": 64.5,
-    "roi_pct": 3058.5,
-    "sum_pct": 553.9,
-    "open": true
-   },
-   "mean_f1": 0.37,
-   "placebo_f1": 0.137
-  },
-  {
-   "family": "atr_band",
-   "rule": "sma8 \u00b1 0.5\u00d7ATR20 reenter",
-   "CBRS_4h": {
-    "f1": 0.4,
-    "precision": 0.556,
-    "recall": 0.312,
-    "hits": 10,
-    "signals": 18,
-    "targets": 32,
-    "mean_lag": 0.3
-   },
-   "CBRS_4h_stats": {
-    "trades": 9,
-    "win_pct": 66.7,
-    "roi_pct": 24.4,
-    "sum_pct": 25.6,
-    "open": false
-   },
-   "BTC_1d": {
-    "f1": 0.338,
-    "precision": 0.355,
-    "recall": 0.324,
-    "hits": 11,
-    "signals": 31,
-    "targets": 34,
-    "mean_lag": -0.73
-   },
-   "BTC_1d_stats": {
-    "trades": 196,
-    "win_pct": 64.3,
-    "roi_pct": 2426.7,
-    "sum_pct": 439.1,
-    "open": true
-   },
-   "mean_f1": 0.369,
-   "placebo_f1": 0.197
-  },
-  {
-   "family": "atr_band",
-   "rule": "sma14 \u00b1 0.5\u00d7ATR14 reenter",
-   "CBRS_4h": {
-    "f1": 0.314,
-    "precision": 0.421,
-    "recall": 0.25,
-    "hits": 8,
-    "signals": 19,
-    "targets": 32,
-    "mean_lag": 0.5
-   },
-   "CBRS_4h_stats": {
-    "trades": 9,
-    "win_pct": 66.7,
-    "roi_pct": 1.2,
-    "sum_pct": 3.6,
-    "open": true
-   },
-   "BTC_1d": {
-    "f1": 0.421,
-    "precision": 0.522,
-    "recall": 0.353,
-    "hits": 12,
-    "signals": 23,
-    "targets": 34,
-    "mean_lag": 0.0
-   },
-   "BTC_1d_stats": {
-    "trades": 137,
-    "win_pct": 58.4,
-    "roi_pct": 2643.0,
-    "sum_pct": 520.4,
-    "open": true
-   },
-   "mean_f1": 0.367,
-   "placebo_f1": 0.177
-  },
-  {
-   "family": "atr_band",
-   "rule": "ema8 \u00b1 0.5\u00d7ATR14 touch",
-   "CBRS_4h": {
-    "f1": 0.508,
-    "precision": 0.516,
-    "recall": 0.5,
-    "hits": 16,
-    "signals": 31,
-    "targets": 32,
-    "mean_lag": 0.06
-   },
-   "CBRS_4h_stats": {
-    "trades": 15,
-    "win_pct": 80.0,
-    "roi_pct": 57.2,
-    "sum_pct": 51.3,
-    "open": true
-   },
-   "BTC_1d": {
-    "f1": 0.224,
-    "precision": 0.172,
-    "recall": 0.324,
-    "hits": 11,
-    "signals": 64,
-    "targets": 34,
-    "mean_lag": 0.45
-   },
-   "BTC_1d_stats": {
-    "trades": 324,
-    "win_pct": 65.7,
-    "roi_pct": -52.7,
-    "sum_pct": 23.4,
-    "open": true
-   },
-   "mean_f1": 0.366,
-   "placebo_f1": 0.275
-  },
-  {
-   "family": "pivot (confirmed)",
-   "rule": "pivots L4 R1 drawn when confirmed",
-   "CBRS_4h": {
-    "f1": 0.476,
-    "precision": 0.484,
-    "recall": 0.469,
-    "hits": 15,
-    "signals": 31,
-    "targets": 32,
-    "mean_lag": 0.27
-   },
-   "CBRS_4h_stats": {
-    "trades": 15,
-    "win_pct": 53.3,
-    "roi_pct": -5.7,
-    "sum_pct": -1.0,
-    "open": true
-   },
-   "BTC_1d": {
-    "f1": 0.256,
-    "precision": 0.227,
-    "recall": 0.294,
-    "hits": 10,
-    "signals": 44,
-    "targets": 34,
-    "mean_lag": -0.7
-   },
-   "BTC_1d_stats": {
-    "trades": 284,
-    "win_pct": 60.2,
-    "roi_pct": 557.5,
-    "sum_pct": 282.8,
-    "open": false
-   },
-   "mean_f1": 0.366,
-   "placebo_f1": 0.253
-  },
-  {
-   "family": "atr_band",
-   "rule": "sma13 \u00b1 0.75\u00d7ATR10 reenter",
-   "CBRS_4h": {
-    "f1": 0.298,
-    "precision": 0.467,
-    "recall": 0.219,
-    "hits": 7,
-    "signals": 15,
-    "targets": 32,
-    "mean_lag": 0.43
-   },
-   "CBRS_4h_stats": {
-    "trades": 7,
-    "win_pct": 71.4,
-    "roi_pct": 2.4,
-    "sum_pct": 4.7,
-    "open": true
-   },
-   "BTC_1d": {
-    "f1": 0.429,
-    "precision": 0.545,
-    "recall": 0.353,
-    "hits": 12,
-    "signals": 22,
-    "targets": 34,
-    "mean_lag": -0.58
-   },
-   "BTC_1d_stats": {
-    "trades": 115,
-    "win_pct": 64.3,
-    "roi_pct": 3145.4,
-    "sum_pct": 551.8,
-    "open": true
-   },
-   "mean_f1": 0.363,
-   "placebo_f1": 0.16
-  },
-  {
-   "family": "pivot (confirmed)",
-   "rule": "pivots L1 R3 drawn when confirmed",
-   "CBRS_4h": {
-    "f1": 0.27,
-    "precision": 0.238,
-    "recall": 0.312,
-    "hits": 10,
-    "signals": 42,
-    "targets": 32,
-    "mean_lag": 0.0
-   },
-   "CBRS_4h_stats": {
-    "trades": 21,
-    "win_pct": 42.9,
-    "roi_pct": -25.8,
-    "sum_pct": -22.9,
-    "open": false
-   },
-   "BTC_1d": {
-    "f1": 0.449,
-    "precision": 0.329,
-    "recall": 0.706,
-    "hits": 24,
-    "signals": 73,
-    "targets": 34,
-    "mean_lag": -0.42
-   },
-   "BTC_1d_stats": {
-    "trades": 463,
-    "win_pct": 44.1,
-    "roi_pct": 2154.3,
-    "sum_pct": 504.1,
-    "open": true
-   },
-   "mean_f1": 0.36,
-   "placebo_f1": 0.264
-  },
-  {
-   "family": "rsi",
-   "rule": "RSI3 40/60 back out",
-   "CBRS_4h": {
-    "f1": 0.388,
-    "precision": 0.371,
-    "recall": 0.406,
-    "hits": 13,
-    "signals": 35,
-    "targets": 32,
-    "mean_lag": 0.23
-   },
-   "CBRS_4h_stats": {
-    "trades": 17,
-    "win_pct": 35.3,
-    "roi_pct": -23.9,
-    "sum_pct": -21.8,
-    "open": true
-   },
-   "BTC_1d": {
-    "f1": 0.323,
-    "precision": 0.254,
-    "recall": 0.441,
-    "hits": 15,
-    "signals": 59,
-    "targets": 34,
-    "mean_lag": -0.87
-   },
-   "BTC_1d_stats": {
-    "trades": 333,
-    "win_pct": 50.2,
-    "roi_pct": 3520.9,
-    "sum_pct": 491.0,
-    "open": true
-   },
-   "mean_f1": 0.356,
-   "placebo_f1": 0.253
-  },
-  {
-   "family": "stoch",
-   "rule": "Stoch9,3 30/70 back out",
-   "CBRS_4h": {
-    "f1": 0.222,
-    "precision": 0.385,
-    "recall": 0.156,
-    "hits": 5,
-    "signals": 13,
-    "targets": 32,
-    "mean_lag": 0.6
-   },
-   "CBRS_4h_stats": {
-    "trades": 6,
-    "win_pct": 50.0,
-    "roi_pct": -15.4,
-    "sum_pct": -12.1,
-    "open": true
-   },
-   "BTC_1d": {
-    "f1": 0.491,
-    "precision": 0.609,
-    "recall": 0.412,
-    "hits": 14,
-    "signals": 23,
-    "targets": 34,
-    "mean_lag": -0.43
-   },
-   "BTC_1d_stats": {
-    "trades": 134,
-    "win_pct": 58.2,
-    "roi_pct": 3655.5,
-    "sum_pct": 509.6,
-    "open": true
-   },
-   "mean_f1": 0.356,
-   "placebo_f1": 0.16
-  },
-  {
-   "family": "pivot (confirmed)",
-   "rule": "pivots L1 R4 drawn when confirmed",
-   "CBRS_4h": {
-    "f1": 0.207,
-    "precision": 0.231,
-    "recall": 0.188,
-    "hits": 6,
-    "signals": 26,
-    "targets": 32,
-    "mean_lag": 0.5
-   },
-   "CBRS_4h_stats": {
-    "trades": 13,
-    "win_pct": 30.8,
-    "roi_pct": -33.8,
-    "sum_pct": -38.2,
-    "open": false
-   },
-   "BTC_1d": {
-    "f1": 0.506,
-    "precision": 0.429,
-    "recall": 0.618,
-    "hits": 21,
-    "signals": 49,
-    "targets": 34,
-    "mean_lag": 0.0
-   },
-   "BTC_1d_stats": {
-    "trades": 372,
-    "win_pct": 45.7,
-    "roi_pct": 6429.4,
-    "sum_pct": 619.3,
-    "open": true
-   },
-   "mean_f1": 0.356,
-   "placebo_f1": 0.214
-  },
-  {
-   "family": "pivot (confirmed)",
-   "rule": "pivots L2 R1 drawn when confirmed",
-   "CBRS_4h": {
-    "f1": 0.494,
-    "precision": 0.408,
-    "recall": 0.625,
-    "hits": 20,
-    "signals": 49,
-    "targets": 32,
-    "mean_lag": 0.0
-   },
-   "CBRS_4h_stats": {
-    "trades": 24,
-    "win_pct": 45.8,
-    "roi_pct": -28.0,
-    "sum_pct": -22.5,
-    "open": true
-   },
-   "BTC_1d": {
-    "f1": 0.218,
-    "precision": 0.158,
-    "recall": 0.353,
-    "hits": 12,
-    "signals": 76,
-    "targets": 34,
-    "mean_lag": -0.83
-   },
-   "BTC_1d_stats": {
-    "trades": 499,
-    "win_pct": 54.7,
-    "roi_pct": 460.4,
-    "sum_pct": 286.3,
-    "open": false
-   },
-   "mean_f1": 0.356,
-   "placebo_f1": 0.296
-  },
-  {
-   "family": "pivot (look-ahead)",
-   "rule": "pivots L4 R1 drawn on the pivot bar",
-   "CBRS_4h": {
-    "f1": 0.508,
-    "precision": 0.516,
-    "recall": 0.5,
-    "hits": 16,
-    "signals": 31,
-    "targets": 32,
-    "mean_lag": -0.06
-   },
-   "CBRS_4h_stats": {
-    "trades": 15,
-    "win_pct": 73.3,
-    "roi_pct": 50.4,
-    "sum_pct": 45.2,
-    "open": true
-   },
-   "BTC_1d": {
-    "f1": 0.203,
-    "precision": 0.178,
-    "recall": 0.235,
-    "hits": 8,
-    "signals": 45,
-    "targets": 34,
-    "mean_lag": 0.5
-   },
-   "BTC_1d_stats": {
-    "trades": 284,
-    "win_pct": 74.6,
-    "roi_pct": 409875.1,
-    "sum_pct": 947.4,
-    "open": false
-   },
-   "mean_f1": 0.356,
-   "placebo_f1": 0.27
-  },
-  {
-   "family": "atr_band",
-   "rule": "sma20 \u00b1 0.5\u00d7ATR10 reenter",
-   "CBRS_4h": {
-    "f1": 0.333,
-    "precision": 0.5,
-    "recall": 0.25,
-    "hits": 8,
-    "signals": 16,
-    "targets": 32,
-    "mean_lag": 0.25
-   },
-   "CBRS_4h_stats": {
-    "trades": 8,
-    "win_pct": 50.0,
-    "roi_pct": -18.1,
-    "sum_pct": -18.0,
-    "open": false
-   },
-   "BTC_1d": {
-    "f1": 0.377,
-    "precision": 0.526,
-    "recall": 0.294,
-    "hits": 10,
-    "signals": 19,
-    "targets": 34,
-    "mean_lag": 0.3
-   },
-   "BTC_1d_stats": {
-    "trades": 105,
-    "win_pct": 58.1,
-    "roi_pct": 15460.1,
-    "sum_pct": 734.6,
-    "open": true
-   },
-   "mean_f1": 0.355,
-   "placebo_f1": 0.178
-  },
-  {
-   "family": "atr_band",
-   "rule": "sma10 \u00b1 0.5\u00d7ATR10 reenter",
-   "CBRS_4h": {
-    "f1": 0.314,
-    "precision": 0.421,
-    "recall": 0.25,
-    "hits": 8,
-    "signals": 19,
-    "targets": 32,
-    "mean_lag": 0.38
-   },
-   "CBRS_4h_stats": {
-    "trades": 9,
-    "win_pct": 44.4,
-    "roi_pct": -20.8,
-    "sum_pct": -20.3,
-    "open": true
-   },
-   "BTC_1d": {
-    "f1": 0.393,
-    "precision": 0.444,
-    "recall": 0.353,
-    "hits": 12,
-    "signals": 27,
-    "targets": 34,
-    "mean_lag": -0.58
-   },
-   "BTC_1d_stats": {
-    "trades": 180,
-    "win_pct": 59.4,
-    "roi_pct": 5152.1,
-    "sum_pct": 603.2,
-    "open": true
-   },
-   "mean_f1": 0.354,
-   "placebo_f1": 0.18
-  },
-  {
-   "family": "pivot (look-ahead)",
-   "rule": "pivots L6 R1 drawn on the pivot bar",
-   "CBRS_4h": {
-    "f1": 0.453,
-    "precision": 0.571,
-    "recall": 0.375,
-    "hits": 12,
-    "signals": 21,
-    "targets": 32,
-    "mean_lag": 0.08
-   },
-   "CBRS_4h_stats": {
-    "trades": 10,
-    "win_pct": 80.0,
-    "roi_pct": 38.9,
-    "sum_pct": 40.0,
-    "open": true
-   },
-   "BTC_1d": {
-    "f1": 0.25,
-    "precision": 0.267,
-    "recall": 0.235,
-    "hits": 8,
-    "signals": 30,
-    "targets": 34,
-    "mean_lag": 0.5
-   },
-   "BTC_1d_stats": {
-    "trades": 201,
-    "win_pct": 76.1,
-    "roi_pct": 24180.9,
-    "sum_pct": 658.1,
-    "open": true
-   },
-   "mean_f1": 0.352,
-   "placebo_f1": 0.237
-  },
-  {
-   "family": "atr_band",
-   "rule": "ema5 \u00b1 0.75\u00d7ATR10 touch",
-   "CBRS_4h": {
-    "f1": 0.508,
-    "precision": 0.556,
-    "recall": 0.469,
-    "hits": 15,
-    "signals": 27,
-    "targets": 32,
-    "mean_lag": 0.13
-   },
-   "CBRS_4h_stats": {
-    "trades": 13,
-    "win_pct": 76.9,
-    "roi_pct": 39.0,
-    "sum_pct": 35.9,
-    "open": true
-   },
-   "BTC_1d": {
-    "f1": 0.194,
-    "precision": 0.184,
-    "recall": 0.206,
-    "hits": 7,
-    "signals": 38,
-    "targets": 34,
-    "mean_lag": 0.0
-   },
-   "BTC_1d_stats": {
-    "trades": 236,
-    "win_pct": 61.0,
-    "roi_pct": -73.7,
-    "sum_pct": -37.2,
-    "open": true
-   },
-   "mean_f1": 0.351,
-   "placebo_f1": 0.244
-  },
-  {
-   "family": "rsi",
-   "rule": "RSI4 40/60 back out",
-   "CBRS_4h": {
-    "f1": 0.364,
-    "precision": 0.435,
-    "recall": 0.312,
-    "hits": 10,
-    "signals": 23,
-    "targets": 32,
-    "mean_lag": 0.6
-   },
-   "CBRS_4h_stats": {
-    "trades": 11,
-    "win_pct": 36.4,
-    "roi_pct": -28.4,
-    "sum_pct": -26.1,
-    "open": true
-   },
-   "BTC_1d": {
-    "f1": 0.338,
-    "precision": 0.355,
-    "recall": 0.324,
-    "hits": 11,
-    "signals": 31,
-    "targets": 34,
-    "mean_lag": -0.64
-   },
-   "BTC_1d_stats": {
-    "trades": 226,
-    "win_pct": 56.2,
-    "roi_pct": 979.3,
-    "sum_pct": 375.3,
-    "open": true
-   },
-   "mean_f1": 0.351,
-   "placebo_f1": 0.205
-  },
-  {
-   "family": "stoch",
-   "rule": "Stoch14,1 30/70 back out",
-   "CBRS_4h": {
-    "f1": 0.286,
-    "precision": 0.412,
-    "recall": 0.219,
-    "hits": 7,
-    "signals": 17,
-    "targets": 32,
-    "mean_lag": -0.14
-   },
-   "CBRS_4h_stats": {
-    "trades": 8,
-    "win_pct": 37.5,
-    "roi_pct": -6.4,
-    "sum_pct": -3.3,
-    "open": true
-   },
-   "BTC_1d": {
-    "f1": 0.414,
-    "precision": 0.5,
-    "recall": 0.353,
-    "hits": 12,
-    "signals": 24,
-    "targets": 34,
-    "mean_lag": -0.25
-   },
-   "BTC_1d_stats": {
-    "trades": 118,
-    "win_pct": 53.4,
-    "roi_pct": 486.8,
-    "sum_pct": 291.3,
-    "open": true
-   },
-   "mean_f1": 0.35,
-   "placebo_f1": 0.185
-  }
- ],
- "rules_best_by_family": [
   {
    "family": "supertrend",
    "rule": "Supertrend 20,1 flips",
    "CBRS_4h": {
-    "f1": 0.44,
-    "precision": 0.611,
-    "recall": 0.344,
-    "hits": 11,
+    "f1": 0.48,
+    "precision": 0.667,
+    "recall": 0.375,
+    "hits": 12,
     "signals": 18,
     "targets": 32,
-    "mean_lag": 0.55
+    "mean_lag": 0.33
    },
    "CBRS_4h_stats": {
     "trades": 9,
     "win_pct": 33.3,
-    "roi_pct": -28.0,
-    "sum_pct": -28.9,
+    "roi_pct": -24.7,
+    "sum_pct": -24.8,
     "open": false
    },
    "BTC_1d": {
@@ -2092,26 +608,140 @@
     "sum_pct": 736.4,
     "open": false
    },
-   "mean_f1": 0.62,
-   "placebo_f1": 0.206
+   "mean_f1": 0.64,
+   "placebo_f1": 0.209
+  },
+  {
+   "family": "supertrend",
+   "rule": "Supertrend 7,1 flips",
+   "CBRS_4h": {
+    "f1": 0.556,
+    "precision": 0.682,
+    "recall": 0.469,
+    "hits": 15,
+    "signals": 22,
+    "targets": 32,
+    "mean_lag": 0.33
+   },
+   "CBRS_4h_stats": {
+    "trades": 11,
+    "win_pct": 27.3,
+    "roi_pct": -37.0,
+    "sum_pct": -40.4,
+    "open": false
+   },
+   "BTC_1d": {
+    "f1": 0.667,
+    "precision": 0.688,
+    "recall": 0.647,
+    "hits": 22,
+    "signals": 32,
+    "targets": 34,
+    "mean_lag": 0.0
+   },
+   "BTC_1d_stats": {
+    "trades": 231,
+    "win_pct": 42.4,
+    "roi_pct": 16744.0,
+    "sum_pct": 749.5,
+    "open": false
+   },
+   "mean_f1": 0.612,
+   "placebo_f1": 0.194
+  },
+  {
+   "family": "supertrend",
+   "rule": "Supertrend 10,1 flips",
+   "CBRS_4h": {
+    "f1": 0.556,
+    "precision": 0.682,
+    "recall": 0.469,
+    "hits": 15,
+    "signals": 22,
+    "targets": 32,
+    "mean_lag": 0.33
+   },
+   "CBRS_4h_stats": {
+    "trades": 11,
+    "win_pct": 27.3,
+    "roi_pct": -37.0,
+    "sum_pct": -40.4,
+    "open": false
+   },
+   "BTC_1d": {
+    "f1": 0.656,
+    "precision": 0.7,
+    "recall": 0.618,
+    "hits": 21,
+    "signals": 30,
+    "targets": 34,
+    "mean_lag": 0.14
+   },
+   "BTC_1d_stats": {
+    "trades": 228,
+    "win_pct": 41.7,
+    "roi_pct": 14705.2,
+    "sum_pct": 751.5,
+    "open": false
+   },
+   "mean_f1": 0.606,
+   "placebo_f1": 0.197
+  },
+  {
+   "family": "rsi",
+   "rule": "RSI4 45/55 back out",
+   "CBRS_4h": {
+    "f1": 0.533,
+    "precision": 0.571,
+    "recall": 0.5,
+    "hits": 16,
+    "signals": 28,
+    "targets": 32,
+    "mean_lag": 0.06
+   },
+   "CBRS_4h_stats": {
+    "trades": 14,
+    "win_pct": 35.7,
+    "roi_pct": -38.2,
+    "sum_pct": -42.5,
+    "open": false
+   },
+   "BTC_1d": {
+    "f1": 0.457,
+    "precision": 0.362,
+    "recall": 0.618,
+    "hits": 21,
+    "signals": 58,
+    "targets": 34,
+    "mean_lag": -0.67
+   },
+   "BTC_1d_stats": {
+    "trades": 327,
+    "win_pct": 41.6,
+    "roi_pct": 650.9,
+    "sum_pct": 426.1,
+    "open": true
+   },
+   "mean_f1": 0.495,
+   "placebo_f1": 0.225
   },
   {
    "family": "rsi",
    "rule": "RSI5 45/55 back out",
    "CBRS_4h": {
-    "f1": 0.4,
-    "precision": 0.478,
-    "recall": 0.344,
-    "hits": 11,
+    "f1": 0.473,
+    "precision": 0.565,
+    "recall": 0.406,
+    "hits": 13,
     "signals": 23,
     "targets": 32,
-    "mean_lag": 0.27
+    "mean_lag": 0.15
    },
    "CBRS_4h_stats": {
     "trades": 11,
     "win_pct": 27.3,
-    "roi_pct": -45.2,
-    "sum_pct": -52.0,
+    "roi_pct": -42.2,
+    "sum_pct": -47.0,
     "open": true
    },
    "BTC_1d": {
@@ -2130,64 +760,26 @@
     "sum_pct": 500.6,
     "open": true
    },
-   "mean_f1": 0.45,
-   "placebo_f1": 0.207
-  },
-  {
-   "family": "pivot (look-ahead)",
-   "rule": "pivots L5 R1 drawn on the pivot bar",
-   "CBRS_4h": {
-    "f1": 0.545,
-    "precision": 0.652,
-    "recall": 0.469,
-    "hits": 15,
-    "signals": 23,
-    "targets": 32,
-    "mean_lag": 0.0
-   },
-   "CBRS_4h_stats": {
-    "trades": 11,
-    "win_pct": 72.7,
-    "roi_pct": -6.6,
-    "sum_pct": -1.4,
-    "open": true
-   },
-   "BTC_1d": {
-    "f1": 0.242,
-    "precision": 0.25,
-    "recall": 0.235,
-    "hits": 8,
-    "signals": 32,
-    "targets": 34,
-    "mean_lag": 0.5
-   },
-   "BTC_1d_stats": {
-    "trades": 231,
-    "win_pct": 74.5,
-    "roi_pct": 34552.6,
-    "sum_pct": 699.2,
-    "open": true
-   },
-   "mean_f1": 0.394,
-   "placebo_f1": 0.252
+   "mean_f1": 0.486,
+   "placebo_f1": 0.2
   },
   {
    "family": "atr_band",
    "rule": "sma8 \u00b1 0.5\u00d7ATR14 reenter",
    "CBRS_4h": {
-    "f1": 0.385,
-    "precision": 0.5,
-    "recall": 0.312,
-    "hits": 10,
+    "f1": 0.577,
+    "precision": 0.75,
+    "recall": 0.469,
+    "hits": 15,
     "signals": 20,
     "targets": 32,
-    "mean_lag": 0.4
+    "mean_lag": 0.13
    },
    "CBRS_4h_stats": {
     "trades": 10,
-    "win_pct": 50.0,
-    "roi_pct": 7.4,
-    "sum_pct": 11.0,
+    "win_pct": 60.0,
+    "roi_pct": 16.7,
+    "sum_pct": 19.1,
     "open": false
    },
    "BTC_1d": {
@@ -2206,26 +798,64 @@
     "sum_pct": 451.7,
     "open": true
    },
-   "mean_f1": 0.387,
-   "placebo_f1": 0.201
+   "mean_f1": 0.482,
+   "placebo_f1": 0.189
+  },
+  {
+   "family": "rsi",
+   "rule": "RSI3 45/55 back out",
+   "CBRS_4h": {
+    "f1": 0.521,
+    "precision": 0.463,
+    "recall": 0.594,
+    "hits": 19,
+    "signals": 41,
+    "targets": 32,
+    "mean_lag": 0.0
+   },
+   "CBRS_4h_stats": {
+    "trades": 20,
+    "win_pct": 35.0,
+    "roi_pct": -23.3,
+    "sum_pct": -22.0,
+    "open": true
+   },
+   "BTC_1d": {
+    "f1": 0.43,
+    "precision": 0.315,
+    "recall": 0.676,
+    "hits": 23,
+    "signals": 73,
+    "targets": 34,
+    "mean_lag": -0.35
+   },
+   "BTC_1d_stats": {
+    "trades": 423,
+    "win_pct": 39.5,
+    "roi_pct": 2379.7,
+    "sum_pct": 460.3,
+    "open": true
+   },
+   "mean_f1": 0.476,
+   "placebo_f1": 0.254
   },
   {
    "family": "stoch",
    "rule": "Stoch9,1 30/70 back out",
    "CBRS_4h": {
-    "f1": 0.4,
-    "precision": 0.478,
-    "recall": 0.344,
-    "hits": 11,
+    "f1": 0.582,
+    "precision": 0.696,
+    "recall": 0.5,
+    "hits": 16,
     "signals": 23,
     "targets": 32,
-    "mean_lag": 0.0
+    "mean_lag": -0.06
    },
    "CBRS_4h_stats": {
     "trades": 11,
     "win_pct": 45.5,
-    "roi_pct": -11.3,
-    "sum_pct": -5.7,
+    "roi_pct": -7.2,
+    "sum_pct": -1.3,
     "open": true
    },
    "BTC_1d": {
@@ -2244,64 +874,1510 @@
     "sum_pct": 527.6,
     "open": true
    },
-   "mean_f1": 0.386,
-   "placebo_f1": 0.207
+   "mean_f1": 0.476,
+   "placebo_f1": 0.201
+  },
+  {
+   "family": "rsi",
+   "rule": "RSI2 45/55 back out",
+   "CBRS_4h": {
+    "f1": 0.565,
+    "precision": 0.453,
+    "recall": 0.75,
+    "hits": 24,
+    "signals": 53,
+    "targets": 32,
+    "mean_lag": -0.08
+   },
+   "CBRS_4h_stats": {
+    "trades": 26,
+    "win_pct": 38.5,
+    "roi_pct": -17.1,
+    "sum_pct": -12.5,
+    "open": true
+   },
+   "BTC_1d": {
+    "f1": 0.385,
+    "precision": 0.26,
+    "recall": 0.735,
+    "hits": 25,
+    "signals": 96,
+    "targets": 34,
+    "mean_lag": -0.68
+   },
+   "BTC_1d_stats": {
+    "trades": 591,
+    "win_pct": 39.4,
+    "roi_pct": 30696.7,
+    "sum_pct": 745.6,
+    "open": true
+   },
+   "mean_f1": 0.475,
+   "placebo_f1": 0.288
+  },
+  {
+   "family": "atr_band",
+   "rule": "sma8 \u00b1 0.5\u00d7ATR10 reenter",
+   "CBRS_4h": {
+    "f1": 0.556,
+    "precision": 0.682,
+    "recall": 0.469,
+    "hits": 15,
+    "signals": 22,
+    "targets": 32,
+    "mean_lag": 0.0
+   },
+   "CBRS_4h_stats": {
+    "trades": 11,
+    "win_pct": 54.5,
+    "roi_pct": 3.7,
+    "sum_pct": 6.9,
+    "open": false
+   },
+   "BTC_1d": {
+    "f1": 0.388,
+    "precision": 0.394,
+    "recall": 0.382,
+    "hits": 13,
+    "signals": 33,
+    "targets": 34,
+    "mean_lag": -0.77
+   },
+   "BTC_1d_stats": {
+    "trades": 200,
+    "win_pct": 64.5,
+    "roi_pct": 2678.8,
+    "sum_pct": 438.3,
+    "open": true
+   },
+   "mean_f1": 0.472,
+   "placebo_f1": 0.201
+  },
+  {
+   "family": "supertrend",
+   "rule": "Supertrend 10,1.5 flips",
+   "CBRS_4h": {
+    "f1": 0.36,
+    "precision": 0.5,
+    "recall": 0.281,
+    "hits": 9,
+    "signals": 18,
+    "targets": 32,
+    "mean_lag": 0.22
+   },
+   "CBRS_4h_stats": {
+    "trades": 9,
+    "win_pct": 33.3,
+    "roi_pct": -33.7,
+    "sum_pct": -36.7,
+    "open": false
+   },
+   "BTC_1d": {
+    "f1": 0.582,
+    "precision": 0.762,
+    "recall": 0.471,
+    "hits": 16,
+    "signals": 21,
+    "targets": 34,
+    "mean_lag": 0.31
+   },
+   "BTC_1d_stats": {
+    "trades": 138,
+    "win_pct": 48.6,
+    "roi_pct": 59360.8,
+    "sum_pct": 899.6,
+    "open": false
+   },
+   "mean_f1": 0.471,
+   "placebo_f1": 0.151
+  },
+  {
+   "family": "atr_band",
+   "rule": "sma14 \u00b1 0.75\u00d7ATR10 reenter",
+   "CBRS_4h": {
+    "f1": 0.51,
+    "precision": 0.684,
+    "recall": 0.406,
+    "hits": 13,
+    "signals": 19,
+    "targets": 32,
+    "mean_lag": -0.15
+   },
+   "CBRS_4h_stats": {
+    "trades": 9,
+    "win_pct": 66.7,
+    "roi_pct": -0.5,
+    "sum_pct": 1.3,
+    "open": true
+   },
+   "BTC_1d": {
+    "f1": 0.429,
+    "precision": 0.545,
+    "recall": 0.353,
+    "hits": 12,
+    "signals": 22,
+    "targets": 34,
+    "mean_lag": -0.42
+   },
+   "BTC_1d_stats": {
+    "trades": 109,
+    "win_pct": 62.4,
+    "roi_pct": 2691.1,
+    "sum_pct": 537.4,
+    "open": true
+   },
+   "mean_f1": 0.47,
+   "placebo_f1": 0.172
+  },
+  {
+   "family": "atr_band",
+   "rule": "sma8 \u00b1 0.5\u00d7ATR20 reenter",
+   "CBRS_4h": {
+    "f1": 0.6,
+    "precision": 0.833,
+    "recall": 0.469,
+    "hits": 15,
+    "signals": 18,
+    "targets": 32,
+    "mean_lag": 0.07
+   },
+   "CBRS_4h_stats": {
+    "trades": 9,
+    "win_pct": 66.7,
+    "roi_pct": 33.6,
+    "sum_pct": 33.3,
+    "open": false
+   },
+   "BTC_1d": {
+    "f1": 0.338,
+    "precision": 0.355,
+    "recall": 0.324,
+    "hits": 11,
+    "signals": 31,
+    "targets": 34,
+    "mean_lag": -0.73
+   },
+   "BTC_1d_stats": {
+    "trades": 196,
+    "win_pct": 64.3,
+    "roi_pct": 2426.7,
+    "sum_pct": 439.1,
+    "open": true
+   },
+   "mean_f1": 0.469,
+   "placebo_f1": 0.194
+  },
+  {
+   "family": "supertrend",
+   "rule": "Supertrend 7,1.5 flips",
+   "CBRS_4h": {
+    "f1": 0.296,
+    "precision": 0.364,
+    "recall": 0.25,
+    "hits": 8,
+    "signals": 22,
+    "targets": 32,
+    "mean_lag": 0.25
+   },
+   "CBRS_4h_stats": {
+    "trades": 11,
+    "win_pct": 27.3,
+    "roi_pct": -57.0,
+    "sum_pct": -76.3,
+    "open": false
+   },
+   "BTC_1d": {
+    "f1": 0.632,
+    "precision": 0.783,
+    "recall": 0.529,
+    "hits": 18,
+    "signals": 23,
+    "targets": 34,
+    "mean_lag": 0.39
+   },
+   "BTC_1d_stats": {
+    "trades": 141,
+    "win_pct": 46.8,
+    "roi_pct": 45678.3,
+    "sum_pct": 873.0,
+    "open": false
+   },
+   "mean_f1": 0.464,
+   "placebo_f1": 0.163
+  },
+  {
+   "family": "stoch",
+   "rule": "Stoch9,3 30/70 back out",
+   "CBRS_4h": {
+    "f1": 0.426,
+    "precision": 0.667,
+    "recall": 0.312,
+    "hits": 10,
+    "signals": 15,
+    "targets": 32,
+    "mean_lag": 0.6
+   },
+   "CBRS_4h_stats": {
+    "trades": 7,
+    "win_pct": 42.9,
+    "roi_pct": -18.6,
+    "sum_pct": -16.3,
+    "open": true
+   },
+   "BTC_1d": {
+    "f1": 0.491,
+    "precision": 0.609,
+    "recall": 0.412,
+    "hits": 14,
+    "signals": 23,
+    "targets": 34,
+    "mean_lag": -0.43
+   },
+   "BTC_1d_stats": {
+    "trades": 134,
+    "win_pct": 58.2,
+    "roi_pct": 3655.5,
+    "sum_pct": 509.6,
+    "open": true
+   },
+   "mean_f1": 0.459,
+   "placebo_f1": 0.167
+  },
+  {
+   "family": "supertrend",
+   "rule": "Supertrend 14,1.5 flips",
+   "CBRS_4h": {
+    "f1": 0.32,
+    "precision": 0.444,
+    "recall": 0.25,
+    "hits": 8,
+    "signals": 18,
+    "targets": 32,
+    "mean_lag": 0.25
+   },
+   "CBRS_4h_stats": {
+    "trades": 9,
+    "win_pct": 33.3,
+    "roi_pct": -40.0,
+    "sum_pct": -46.1,
+    "open": false
+   },
+   "BTC_1d": {
+    "f1": 0.582,
+    "precision": 0.762,
+    "recall": 0.471,
+    "hits": 16,
+    "signals": 21,
+    "targets": 34,
+    "mean_lag": 0.38
+   },
+   "BTC_1d_stats": {
+    "trades": 138,
+    "win_pct": 48.6,
+    "roi_pct": 30132.3,
+    "sum_pct": 836.5,
+    "open": false
+   },
+   "mean_f1": 0.451,
+   "placebo_f1": 0.147
+  },
+  {
+   "family": "atr_band",
+   "rule": "sma14 \u00b1 0.75\u00d7ATR14 reenter",
+   "CBRS_4h": {
+    "f1": 0.468,
+    "precision": 0.733,
+    "recall": 0.344,
+    "hits": 11,
+    "signals": 15,
+    "targets": 32,
+    "mean_lag": -0.09
+   },
+   "CBRS_4h_stats": {
+    "trades": 7,
+    "win_pct": 57.1,
+    "roi_pct": -5.3,
+    "sum_pct": -3.7,
+    "open": true
+   },
+   "BTC_1d": {
+    "f1": 0.429,
+    "precision": 0.545,
+    "recall": 0.353,
+    "hits": 12,
+    "signals": 22,
+    "targets": 34,
+    "mean_lag": -0.42
+   },
+   "BTC_1d_stats": {
+    "trades": 109,
+    "win_pct": 61.5,
+    "roi_pct": 2608.9,
+    "sum_pct": 542.0,
+    "open": true
+   },
+   "mean_f1": 0.449,
+   "placebo_f1": 0.163
+  },
+  {
+   "family": "atr_band",
+   "rule": "sma14 \u00b1 0.75\u00d7ATR20 reenter",
+   "CBRS_4h": {
+    "f1": 0.468,
+    "precision": 0.733,
+    "recall": 0.344,
+    "hits": 11,
+    "signals": 15,
+    "targets": 32,
+    "mean_lag": -0.09
+   },
+   "CBRS_4h_stats": {
+    "trades": 7,
+    "win_pct": 57.1,
+    "roi_pct": 0.5,
+    "sum_pct": 2.7,
+    "open": true
+   },
+   "BTC_1d": {
+    "f1": 0.429,
+    "precision": 0.545,
+    "recall": 0.353,
+    "hits": 12,
+    "signals": 22,
+    "targets": 34,
+    "mean_lag": -0.42
+   },
+   "BTC_1d_stats": {
+    "trades": 110,
+    "win_pct": 64.5,
+    "roi_pct": 3058.5,
+    "sum_pct": 553.9,
+    "open": true
+   },
+   "mean_f1": 0.449,
+   "placebo_f1": 0.152
+  },
+  {
+   "family": "atr_band",
+   "rule": "sma20 \u00b1 0.5\u00d7ATR10 reenter",
+   "CBRS_4h": {
+    "f1": 0.52,
+    "precision": 0.722,
+    "recall": 0.406,
+    "hits": 13,
+    "signals": 18,
+    "targets": 32,
+    "mean_lag": -0.08
+   },
+   "CBRS_4h_stats": {
+    "trades": 9,
+    "win_pct": 44.4,
+    "roi_pct": -17.7,
+    "sum_pct": -17.4,
+    "open": false
+   },
+   "BTC_1d": {
+    "f1": 0.377,
+    "precision": 0.526,
+    "recall": 0.294,
+    "hits": 10,
+    "signals": 19,
+    "targets": 34,
+    "mean_lag": 0.3
+   },
+   "BTC_1d_stats": {
+    "trades": 105,
+    "win_pct": 58.1,
+    "roi_pct": 15460.1,
+    "sum_pct": 734.6,
+    "open": true
+   },
+   "mean_f1": 0.449,
+   "placebo_f1": 0.181
+  },
+  {
+   "family": "stoch",
+   "rule": "Stoch14,1 30/70 back out",
+   "CBRS_4h": {
+    "f1": 0.471,
+    "precision": 0.632,
+    "recall": 0.375,
+    "hits": 12,
+    "signals": 19,
+    "targets": 32,
+    "mean_lag": -0.17
+   },
+   "CBRS_4h_stats": {
+    "trades": 9,
+    "win_pct": 44.4,
+    "roi_pct": -5.8,
+    "sum_pct": -2.8,
+    "open": true
+   },
+   "BTC_1d": {
+    "f1": 0.414,
+    "precision": 0.5,
+    "recall": 0.353,
+    "hits": 12,
+    "signals": 24,
+    "targets": 34,
+    "mean_lag": -0.25
+   },
+   "BTC_1d_stats": {
+    "trades": 118,
+    "win_pct": 53.4,
+    "roi_pct": 486.8,
+    "sum_pct": 291.3,
+    "open": true
+   },
+   "mean_f1": 0.443,
+   "placebo_f1": 0.174
   },
   {
    "family": "pivot (confirmed)",
-   "rule": "pivots L4 R1 drawn when confirmed",
+   "rule": "pivots L1 R4 drawn when confirmed",
    "CBRS_4h": {
-    "f1": 0.476,
-    "precision": 0.484,
-    "recall": 0.469,
-    "hits": 15,
-    "signals": 31,
+    "f1": 0.379,
+    "precision": 0.423,
+    "recall": 0.344,
+    "hits": 11,
+    "signals": 26,
     "targets": 32,
     "mean_lag": 0.27
    },
    "CBRS_4h_stats": {
-    "trades": 15,
-    "win_pct": 53.3,
-    "roi_pct": -5.7,
-    "sum_pct": -1.0,
+    "trades": 13,
+    "win_pct": 30.8,
+    "roi_pct": -27.6,
+    "sum_pct": -29.7,
+    "open": false
+   },
+   "BTC_1d": {
+    "f1": 0.506,
+    "precision": 0.429,
+    "recall": 0.618,
+    "hits": 21,
+    "signals": 49,
+    "targets": 34,
+    "mean_lag": 0.0
+   },
+   "BTC_1d_stats": {
+    "trades": 372,
+    "win_pct": 45.7,
+    "roi_pct": 6429.4,
+    "sum_pct": 619.3,
+    "open": true
+   },
+   "mean_f1": 0.443,
+   "placebo_f1": 0.217
+  },
+  {
+   "family": "atr_band",
+   "rule": "sma10 \u00b1 0.5\u00d7ATR20 reenter",
+   "CBRS_4h": {
+    "f1": 0.468,
+    "precision": 0.733,
+    "recall": 0.344,
+    "hits": 11,
+    "signals": 15,
+    "targets": 32,
+    "mean_lag": 0.0
+   },
+   "CBRS_4h_stats": {
+    "trades": 7,
+    "win_pct": 57.1,
+    "roi_pct": 8.0,
+    "sum_pct": 10.3,
     "open": true
    },
    "BTC_1d": {
-    "f1": 0.256,
-    "precision": 0.227,
+    "f1": 0.413,
+    "precision": 0.448,
+    "recall": 0.382,
+    "hits": 13,
+    "signals": 29,
+    "targets": 34,
+    "mean_lag": -0.62
+   },
+   "BTC_1d_stats": {
+    "trades": 176,
+    "win_pct": 58.0,
+    "roi_pct": 2976.6,
+    "sum_pct": 559.2,
+    "open": true
+   },
+   "mean_f1": 0.441,
+   "placebo_f1": 0.178
+  },
+  {
+   "family": "atr_band",
+   "rule": "sma26 \u00b1 0.5\u00d7ATR10 reenter",
+   "CBRS_4h": {
+    "f1": 0.391,
+    "precision": 0.643,
+    "recall": 0.281,
+    "hits": 9,
+    "signals": 14,
+    "targets": 32,
+    "mean_lag": 0.22
+   },
+   "CBRS_4h_stats": {
+    "trades": 7,
+    "win_pct": 42.9,
+    "roi_pct": -3.8,
+    "sum_pct": -3.3,
+    "open": false
+   },
+   "BTC_1d": {
+    "f1": 0.48,
+    "precision": 0.75,
+    "recall": 0.353,
+    "hits": 12,
+    "signals": 16,
+    "targets": 34,
+    "mean_lag": 0.42
+   },
+   "BTC_1d_stats": {
+    "trades": 100,
+    "win_pct": 60.0,
+    "roi_pct": 4759.4,
+    "sum_pct": 593.5,
+    "open": true
+   },
+   "mean_f1": 0.435,
+   "placebo_f1": 0.154
+  },
+  {
+   "family": "atr_band",
+   "rule": "sma10 \u00b1 0.5\u00d7ATR10 reenter",
+   "CBRS_4h": {
+    "f1": 0.471,
+    "precision": 0.632,
+    "recall": 0.375,
+    "hits": 12,
+    "signals": 19,
+    "targets": 32,
+    "mean_lag": 0.08
+   },
+   "CBRS_4h_stats": {
+    "trades": 9,
+    "win_pct": 44.4,
+    "roi_pct": -17.1,
+    "sum_pct": -15.9,
+    "open": true
+   },
+   "BTC_1d": {
+    "f1": 0.393,
+    "precision": 0.444,
+    "recall": 0.353,
+    "hits": 12,
+    "signals": 27,
+    "targets": 34,
+    "mean_lag": -0.58
+   },
+   "BTC_1d_stats": {
+    "trades": 180,
+    "win_pct": 59.4,
+    "roi_pct": 5152.1,
+    "sum_pct": 603.2,
+    "open": true
+   },
+   "mean_f1": 0.432,
+   "placebo_f1": 0.18
+  },
+  {
+   "family": "atr_band",
+   "rule": "sma10 \u00b1 0.5\u00d7ATR14 reenter",
+   "CBRS_4h": {
+    "f1": 0.471,
+    "precision": 0.632,
+    "recall": 0.375,
+    "hits": 12,
+    "signals": 19,
+    "targets": 32,
+    "mean_lag": 0.0
+   },
+   "CBRS_4h_stats": {
+    "trades": 9,
+    "win_pct": 55.6,
+    "roi_pct": 0.9,
+    "sum_pct": 3.0,
+    "open": true
+   },
+   "BTC_1d": {
+    "f1": 0.393,
+    "precision": 0.444,
+    "recall": 0.353,
+    "hits": 12,
+    "signals": 27,
+    "targets": 34,
+    "mean_lag": -0.58
+   },
+   "BTC_1d_stats": {
+    "trades": 176,
+    "win_pct": 59.1,
+    "roi_pct": 3698.3,
+    "sum_pct": 569.2,
+    "open": true
+   },
+   "mean_f1": 0.432,
+   "placebo_f1": 0.187
+  },
+  {
+   "family": "supertrend",
+   "rule": "Supertrend 20,1.5 flips",
+   "CBRS_4h": {
+    "f1": 0.208,
+    "precision": 0.312,
+    "recall": 0.156,
+    "hits": 5,
+    "signals": 16,
+    "targets": 32,
+    "mean_lag": 0.0
+   },
+   "CBRS_4h_stats": {
+    "trades": 8,
+    "win_pct": 25.0,
+    "roi_pct": -38.7,
+    "sum_pct": -43.7,
+    "open": false
+   },
+   "BTC_1d": {
+    "f1": 0.655,
+    "precision": 0.857,
+    "recall": 0.529,
+    "hits": 18,
+    "signals": 21,
+    "targets": 34,
+    "mean_lag": 0.39
+   },
+   "BTC_1d_stats": {
+    "trades": 140,
+    "win_pct": 46.4,
+    "roi_pct": 20286.9,
+    "sum_pct": 779.9,
+    "open": false
+   },
+   "mean_f1": 0.431,
+   "placebo_f1": 0.13
+  },
+  {
+   "family": "pivot (confirmed)",
+   "rule": "pivots L2 R4 drawn when confirmed",
+   "CBRS_4h": {
+    "f1": 0.379,
+    "precision": 0.423,
+    "recall": 0.344,
+    "hits": 11,
+    "signals": 26,
+    "targets": 32,
+    "mean_lag": 0.27
+   },
+   "CBRS_4h_stats": {
+    "trades": 13,
+    "win_pct": 30.8,
+    "roi_pct": -27.6,
+    "sum_pct": -29.7,
+    "open": false
+   },
+   "BTC_1d": {
+    "f1": 0.482,
+    "precision": 0.408,
+    "recall": 0.588,
+    "hits": 20,
+    "signals": 49,
+    "targets": 34,
+    "mean_lag": 0.0
+   },
+   "BTC_1d_stats": {
+    "trades": 350,
+    "win_pct": 45.7,
+    "roi_pct": 2835.3,
+    "sum_pct": 532.1,
+    "open": true
+   },
+   "mean_f1": 0.43,
+   "placebo_f1": 0.223
+  },
+  {
+   "family": "atr_band",
+   "rule": "sma13 \u00b1 0.75\u00d7ATR14 reenter",
+   "CBRS_4h": {
+    "f1": 0.426,
+    "precision": 0.667,
+    "recall": 0.312,
+    "hits": 10,
+    "signals": 15,
+    "targets": 32,
+    "mean_lag": -0.1
+   },
+   "CBRS_4h_stats": {
+    "trades": 7,
+    "win_pct": 57.1,
+    "roi_pct": 1.7,
+    "sum_pct": 4.2,
+    "open": true
+   },
+   "BTC_1d": {
+    "f1": 0.429,
+    "precision": 0.545,
+    "recall": 0.353,
+    "hits": 12,
+    "signals": 22,
+    "targets": 34,
+    "mean_lag": -0.58
+   },
+   "BTC_1d_stats": {
+    "trades": 114,
+    "win_pct": 65.8,
+    "roi_pct": 3725.6,
+    "sum_pct": 569.8,
+    "open": true
+   },
+   "mean_f1": 0.427,
+   "placebo_f1": 0.153
+  },
+  {
+   "family": "atr_band",
+   "rule": "sma13 \u00b1 0.75\u00d7ATR20 reenter",
+   "CBRS_4h": {
+    "f1": 0.426,
+    "precision": 0.667,
+    "recall": 0.312,
+    "hits": 10,
+    "signals": 15,
+    "targets": 32,
+    "mean_lag": -0.1
+   },
+   "CBRS_4h_stats": {
+    "trades": 7,
+    "win_pct": 57.1,
+    "roi_pct": 1.7,
+    "sum_pct": 4.2,
+    "open": true
+   },
+   "BTC_1d": {
+    "f1": 0.429,
+    "precision": 0.545,
+    "recall": 0.353,
+    "hits": 12,
+    "signals": 22,
+    "targets": 34,
+    "mean_lag": -0.58
+   },
+   "BTC_1d_stats": {
+    "trades": 112,
+    "win_pct": 67.9,
+    "roi_pct": 3762.8,
+    "sum_pct": 567.2,
+    "open": true
+   },
+   "mean_f1": 0.427,
+   "placebo_f1": 0.15
+  },
+  {
+   "family": "stoch",
+   "rule": "Stoch5,3 30/70 back out",
+   "CBRS_4h": {
+    "f1": 0.449,
+    "precision": 0.647,
+    "recall": 0.344,
+    "hits": 11,
+    "signals": 17,
+    "targets": 32,
+    "mean_lag": 0.27
+   },
+   "CBRS_4h_stats": {
+    "trades": 8,
+    "win_pct": 50.0,
+    "roi_pct": -4.5,
+    "sum_pct": 2.4,
+    "open": true
+   },
+   "BTC_1d": {
+    "f1": 0.4,
+    "precision": 0.419,
+    "recall": 0.382,
+    "hits": 13,
+    "signals": 31,
+    "targets": 34,
+    "mean_lag": -0.77
+   },
+   "BTC_1d_stats": {
+    "trades": 189,
+    "win_pct": 60.8,
+    "roi_pct": 2993.2,
+    "sum_pct": 468.8,
+    "open": true
+   },
+   "mean_f1": 0.424,
+   "placebo_f1": 0.191
+  },
+  {
+   "family": "rsi",
+   "rule": "RSI4 40/60 back out",
+   "CBRS_4h": {
+    "f1": 0.509,
+    "precision": 0.609,
+    "recall": 0.438,
+    "hits": 14,
+    "signals": 23,
+    "targets": 32,
+    "mean_lag": 0.21
+   },
+   "CBRS_4h_stats": {
+    "trades": 11,
+    "win_pct": 45.5,
+    "roi_pct": -21.1,
+    "sum_pct": -16.6,
+    "open": true
+   },
+   "BTC_1d": {
+    "f1": 0.338,
+    "precision": 0.355,
+    "recall": 0.324,
+    "hits": 11,
+    "signals": 31,
+    "targets": 34,
+    "mean_lag": -0.64
+   },
+   "BTC_1d_stats": {
+    "trades": 226,
+    "win_pct": 56.2,
+    "roi_pct": 979.3,
+    "sum_pct": 375.3,
+    "open": true
+   },
+   "mean_f1": 0.423,
+   "placebo_f1": 0.192
+  },
+  {
+   "family": "rsi",
+   "rule": "RSI7 45/55 back out",
+   "CBRS_4h": {
+    "f1": 0.528,
+    "precision": 0.667,
+    "recall": 0.438,
+    "hits": 14,
+    "signals": 21,
+    "targets": 32,
+    "mean_lag": 0.21
+   },
+   "CBRS_4h_stats": {
+    "trades": 10,
+    "win_pct": 40.0,
+    "roi_pct": -21.3,
+    "sum_pct": -21.7,
+    "open": true
+   },
+   "BTC_1d": {
+    "f1": 0.317,
+    "precision": 0.345,
     "recall": 0.294,
     "hits": 10,
-    "signals": 44,
+    "signals": 29,
     "targets": 34,
     "mean_lag": -0.7
    },
    "BTC_1d_stats": {
-    "trades": 284,
-    "win_pct": 60.2,
-    "roi_pct": 557.5,
-    "sum_pct": 282.8,
+    "trades": 166,
+    "win_pct": 50.6,
+    "roi_pct": 946.7,
+    "sum_pct": 453.4,
+    "open": true
+   },
+   "mean_f1": 0.422,
+   "placebo_f1": 0.192
+  },
+  {
+   "family": "atr_band",
+   "rule": "sma13 \u00b1 0.75\u00d7ATR10 reenter",
+   "CBRS_4h": {
+    "f1": 0.408,
+    "precision": 0.588,
+    "recall": 0.312,
+    "hits": 10,
+    "signals": 17,
+    "targets": 32,
+    "mean_lag": 0.0
+   },
+   "CBRS_4h_stats": {
+    "trades": 8,
+    "win_pct": 62.5,
+    "roi_pct": 2.2,
+    "sum_pct": 4.6,
+    "open": true
+   },
+   "BTC_1d": {
+    "f1": 0.429,
+    "precision": 0.545,
+    "recall": 0.353,
+    "hits": 12,
+    "signals": 22,
+    "targets": 34,
+    "mean_lag": -0.58
+   },
+   "BTC_1d_stats": {
+    "trades": 115,
+    "win_pct": 64.3,
+    "roi_pct": 3145.4,
+    "sum_pct": 551.8,
+    "open": true
+   },
+   "mean_f1": 0.418,
+   "placebo_f1": 0.149
+  },
+  {
+   "family": "atr_band",
+   "rule": "sma13 \u00b1 1\u00d7ATR10 reenter",
+   "CBRS_4h": {
+    "f1": 0.444,
+    "precision": 0.769,
+    "recall": 0.312,
+    "hits": 10,
+    "signals": 13,
+    "targets": 32,
+    "mean_lag": -0.1
+   },
+   "CBRS_4h_stats": {
+    "trades": 6,
+    "win_pct": 50.0,
+    "roi_pct": -8.0,
+    "sum_pct": -6.3,
+    "open": true
+   },
+   "BTC_1d": {
+    "f1": 0.393,
+    "precision": 0.5,
+    "recall": 0.324,
+    "hits": 11,
+    "signals": 22,
+    "targets": 34,
+    "mean_lag": -0.73
+   },
+   "BTC_1d_stats": {
+    "trades": 96,
+    "win_pct": 64.6,
+    "roi_pct": 1313.3,
+    "sum_pct": 430.3,
+    "open": true
+   },
+   "mean_f1": 0.418,
+   "placebo_f1": 0.154
+  },
+  {
+   "family": "atr_band",
+   "rule": "sma13 \u00b1 1\u00d7ATR14 reenter",
+   "CBRS_4h": {
+    "f1": 0.444,
+    "precision": 0.769,
+    "recall": 0.312,
+    "hits": 10,
+    "signals": 13,
+    "targets": 32,
+    "mean_lag": -0.1
+   },
+   "CBRS_4h_stats": {
+    "trades": 6,
+    "win_pct": 50.0,
+    "roi_pct": -0.0,
+    "sum_pct": 1.3,
+    "open": true
+   },
+   "BTC_1d": {
+    "f1": 0.393,
+    "precision": 0.5,
+    "recall": 0.324,
+    "hits": 11,
+    "signals": 22,
+    "targets": 34,
+    "mean_lag": -0.91
+   },
+   "BTC_1d_stats": {
+    "trades": 95,
+    "win_pct": 65.3,
+    "roi_pct": 1116.0,
+    "sum_pct": 416.4,
+    "open": true
+   },
+   "mean_f1": 0.418,
+   "placebo_f1": 0.157
+  },
+  {
+   "family": "atr_band",
+   "rule": "sma14 \u00b1 1\u00d7ATR10 reenter",
+   "CBRS_4h": {
+    "f1": 0.444,
+    "precision": 0.769,
+    "recall": 0.312,
+    "hits": 10,
+    "signals": 13,
+    "targets": 32,
+    "mean_lag": -0.1
+   },
+   "CBRS_4h_stats": {
+    "trades": 6,
+    "win_pct": 50.0,
+    "roi_pct": -8.0,
+    "sum_pct": -6.3,
+    "open": true
+   },
+   "BTC_1d": {
+    "f1": 0.393,
+    "precision": 0.5,
+    "recall": 0.324,
+    "hits": 11,
+    "signals": 22,
+    "targets": 34,
+    "mean_lag": -0.73
+   },
+   "BTC_1d_stats": {
+    "trades": 93,
+    "win_pct": 62.4,
+    "roi_pct": 700.6,
+    "sum_pct": 369.7,
+    "open": true
+   },
+   "mean_f1": 0.418,
+   "placebo_f1": 0.151
+  },
+  {
+   "family": "atr_band",
+   "rule": "sma14 \u00b1 0.5\u00d7ATR14 reenter",
+   "CBRS_4h": {
+    "f1": 0.415,
+    "precision": 0.524,
+    "recall": 0.344,
+    "hits": 11,
+    "signals": 21,
+    "targets": 32,
+    "mean_lag": 0.09
+   },
+   "CBRS_4h_stats": {
+    "trades": 10,
+    "win_pct": 50.0,
+    "roi_pct": -2.7,
+    "sum_pct": -0.3,
+    "open": true
+   },
+   "BTC_1d": {
+    "f1": 0.421,
+    "precision": 0.522,
+    "recall": 0.353,
+    "hits": 12,
+    "signals": 23,
+    "targets": 34,
+    "mean_lag": 0.0
+   },
+   "BTC_1d_stats": {
+    "trades": 137,
+    "win_pct": 58.4,
+    "roi_pct": 2643.0,
+    "sum_pct": 520.4,
+    "open": true
+   },
+   "mean_f1": 0.418,
+   "placebo_f1": 0.17
+  },
+  {
+   "family": "atr_band",
+   "rule": "sma14 \u00b1 1\u00d7ATR14 reenter",
+   "CBRS_4h": {
+    "f1": 0.444,
+    "precision": 0.769,
+    "recall": 0.312,
+    "hits": 10,
+    "signals": 13,
+    "targets": 32,
+    "mean_lag": -0.1
+   },
+   "CBRS_4h_stats": {
+    "trades": 6,
+    "win_pct": 50.0,
+    "roi_pct": -0.0,
+    "sum_pct": 1.3,
+    "open": true
+   },
+   "BTC_1d": {
+    "f1": 0.393,
+    "precision": 0.5,
+    "recall": 0.324,
+    "hits": 11,
+    "signals": 22,
+    "targets": 34,
+    "mean_lag": -0.73
+   },
+   "BTC_1d_stats": {
+    "trades": 92,
+    "win_pct": 62.0,
+    "roi_pct": 696.5,
+    "sum_pct": 365.8,
+    "open": true
+   },
+   "mean_f1": 0.418,
+   "placebo_f1": 0.154
+  },
+  {
+   "family": "atr_band",
+   "rule": "sma20 \u00b1 0.5\u00d7ATR14 reenter",
+   "CBRS_4h": {
+    "f1": 0.458,
+    "precision": 0.688,
+    "recall": 0.344,
+    "hits": 11,
+    "signals": 16,
+    "targets": 32,
+    "mean_lag": -0.09
+   },
+   "CBRS_4h_stats": {
+    "trades": 8,
+    "win_pct": 50.0,
+    "roi_pct": -9.6,
+    "sum_pct": -8.3,
     "open": false
    },
-   "mean_f1": 0.366,
-   "placebo_f1": 0.253
+   "BTC_1d": {
+    "f1": 0.377,
+    "precision": 0.526,
+    "recall": 0.294,
+    "hits": 10,
+    "signals": 19,
+    "targets": 34,
+    "mean_lag": 0.3
+   },
+   "BTC_1d_stats": {
+    "trades": 106,
+    "win_pct": 54.7,
+    "roi_pct": 9143.0,
+    "sum_pct": 674.6,
+    "open": true
+   },
+   "mean_f1": 0.417,
+   "placebo_f1": 0.175
+  }
+ ],
+ "rules_best_by_family": [
+  {
+   "family": "supertrend",
+   "rule": "Supertrend 14,1 flips",
+   "CBRS_4h": {
+    "f1": 0.6,
+    "precision": 0.833,
+    "recall": 0.469,
+    "hits": 15,
+    "signals": 18,
+    "targets": 32,
+    "mean_lag": 0.4
+   },
+   "CBRS_4h_stats": {
+    "trades": 9,
+    "win_pct": 33.3,
+    "roi_pct": -15.4,
+    "sum_pct": -13.4,
+    "open": false
+   },
+   "BTC_1d": {
+    "f1": 0.727,
+    "precision": 0.75,
+    "recall": 0.706,
+    "hits": 24,
+    "signals": 32,
+    "targets": 34,
+    "mean_lag": 0.12
+   },
+   "BTC_1d_stats": {
+    "trades": 227,
+    "win_pct": 41.4,
+    "roi_pct": 14489.5,
+    "sum_pct": 756.5,
+    "open": false
+   },
+   "mean_f1": 0.663,
+   "placebo_f1": 0.187
+  },
+  {
+   "family": "rsi",
+   "rule": "RSI4 45/55 back out",
+   "CBRS_4h": {
+    "f1": 0.533,
+    "precision": 0.571,
+    "recall": 0.5,
+    "hits": 16,
+    "signals": 28,
+    "targets": 32,
+    "mean_lag": 0.06
+   },
+   "CBRS_4h_stats": {
+    "trades": 14,
+    "win_pct": 35.7,
+    "roi_pct": -38.2,
+    "sum_pct": -42.5,
+    "open": false
+   },
+   "BTC_1d": {
+    "f1": 0.457,
+    "precision": 0.362,
+    "recall": 0.618,
+    "hits": 21,
+    "signals": 58,
+    "targets": 34,
+    "mean_lag": -0.67
+   },
+   "BTC_1d_stats": {
+    "trades": 327,
+    "win_pct": 41.6,
+    "roi_pct": 650.9,
+    "sum_pct": 426.1,
+    "open": true
+   },
+   "mean_f1": 0.495,
+   "placebo_f1": 0.225
+  },
+  {
+   "family": "atr_band",
+   "rule": "sma8 \u00b1 0.5\u00d7ATR14 reenter",
+   "CBRS_4h": {
+    "f1": 0.577,
+    "precision": 0.75,
+    "recall": 0.469,
+    "hits": 15,
+    "signals": 20,
+    "targets": 32,
+    "mean_lag": 0.13
+   },
+   "CBRS_4h_stats": {
+    "trades": 10,
+    "win_pct": 60.0,
+    "roi_pct": 16.7,
+    "sum_pct": 19.1,
+    "open": false
+   },
+   "BTC_1d": {
+    "f1": 0.388,
+    "precision": 0.394,
+    "recall": 0.382,
+    "hits": 13,
+    "signals": 33,
+    "targets": 34,
+    "mean_lag": -0.77
+   },
+   "BTC_1d_stats": {
+    "trades": 198,
+    "win_pct": 63.1,
+    "roi_pct": 2751.0,
+    "sum_pct": 451.7,
+    "open": true
+   },
+   "mean_f1": 0.482,
+   "placebo_f1": 0.189
+  },
+  {
+   "family": "stoch",
+   "rule": "Stoch9,1 30/70 back out",
+   "CBRS_4h": {
+    "f1": 0.582,
+    "precision": 0.696,
+    "recall": 0.5,
+    "hits": 16,
+    "signals": 23,
+    "targets": 32,
+    "mean_lag": -0.06
+   },
+   "CBRS_4h_stats": {
+    "trades": 11,
+    "win_pct": 45.5,
+    "roi_pct": -7.2,
+    "sum_pct": -1.3,
+    "open": true
+   },
+   "BTC_1d": {
+    "f1": 0.371,
+    "precision": 0.361,
+    "recall": 0.382,
+    "hits": 13,
+    "signals": 36,
+    "targets": 34,
+    "mean_lag": -0.77
+   },
+   "BTC_1d_stats": {
+    "trades": 194,
+    "win_pct": 57.7,
+    "roi_pct": 4693.2,
+    "sum_pct": 527.6,
+    "open": true
+   },
+   "mean_f1": 0.476,
+   "placebo_f1": 0.201
+  },
+  {
+   "family": "pivot (confirmed)",
+   "rule": "pivots L1 R4 drawn when confirmed",
+   "CBRS_4h": {
+    "f1": 0.379,
+    "precision": 0.423,
+    "recall": 0.344,
+    "hits": 11,
+    "signals": 26,
+    "targets": 32,
+    "mean_lag": 0.27
+   },
+   "CBRS_4h_stats": {
+    "trades": 13,
+    "win_pct": 30.8,
+    "roi_pct": -27.6,
+    "sum_pct": -29.7,
+    "open": false
+   },
+   "BTC_1d": {
+    "f1": 0.506,
+    "precision": 0.429,
+    "recall": 0.618,
+    "hits": 21,
+    "signals": 49,
+    "targets": 34,
+    "mean_lag": 0.0
+   },
+   "BTC_1d_stats": {
+    "trades": 372,
+    "win_pct": 45.7,
+    "roi_pct": 6429.4,
+    "sum_pct": 619.3,
+    "open": true
+   },
+   "mean_f1": 0.443,
+   "placebo_f1": 0.217
+  },
+  {
+   "family": "bollinger",
+   "rule": "sma14 \u00b1 1\u03c3 reenter",
+   "CBRS_4h": {
+    "f1": 0.468,
+    "precision": 0.733,
+    "recall": 0.344,
+    "hits": 11,
+    "signals": 15,
+    "targets": 32,
+    "mean_lag": -0.09
+   },
+   "CBRS_4h_stats": {
+    "trades": 7,
+    "win_pct": 71.4,
+    "roi_pct": 15.4,
+    "sum_pct": 17.6,
+    "open": true
+   },
+   "BTC_1d": {
+    "f1": 0.31,
+    "precision": 0.375,
+    "recall": 0.265,
+    "hits": 9,
+    "signals": 24,
+    "targets": 34,
+    "mean_lag": -0.56
+   },
+   "BTC_1d_stats": {
+    "trades": 119,
+    "win_pct": 63.0,
+    "roi_pct": 192.0,
+    "sum_pct": 197.4,
+    "open": true
+   },
+   "mean_f1": 0.389,
+   "placebo_f1": 0.177
+  },
+  {
+   "family": "pivot (look-ahead)",
+   "rule": "pivots L6 R3 drawn on the pivot bar",
+   "CBRS_4h": {
+    "f1": 0.415,
+    "precision": 0.524,
+    "recall": 0.344,
+    "hits": 11,
+    "signals": 21,
+    "targets": 32,
+    "mean_lag": -0.36
+   },
+   "CBRS_4h_stats": {
+    "trades": 10,
+    "win_pct": 80.0,
+    "roi_pct": 184.0,
+    "sum_pct": 116.0,
+    "open": true
+   },
+   "BTC_1d": {
+    "f1": 0.212,
+    "precision": 0.219,
+    "recall": 0.206,
+    "hits": 7,
+    "signals": 32,
+    "targets": 34,
+    "mean_lag": 0.29
+   },
+   "BTC_1d_stats": {
+    "trades": 197,
+    "win_pct": 84.3,
+    "roi_pct": 102849620.3,
+    "sum_pct": 1574.3,
+    "open": true
+   },
+   "mean_f1": 0.314,
+   "placebo_f1": 0.226
+  },
+  {
+   "family": "ma_cross",
+   "rule": "sma20/21 cross",
+   "CBRS_4h": {
+    "f1": 0.333,
+    "precision": 0.5,
+    "recall": 0.25,
+    "hits": 8,
+    "signals": 16,
+    "targets": 32,
+    "mean_lag": 0.38
+   },
+   "CBRS_4h_stats": {
+    "trades": 8,
+    "win_pct": 50.0,
+    "roi_pct": -0.9,
+    "sum_pct": 4.7,
+    "open": false
+   },
+   "BTC_1d": {
+    "f1": 0.25,
+    "precision": 0.217,
+    "recall": 0.294,
+    "hits": 10,
+    "signals": 46,
+    "targets": 34,
+    "mean_lag": 0.3
+   },
+   "BTC_1d_stats": {
+    "trades": 272,
+    "win_pct": 51.8,
+    "roi_pct": 13330.1,
+    "sum_pct": 789.3,
+    "open": false
+   },
+   "mean_f1": 0.291,
+   "placebo_f1": 0.265
   },
   {
    "family": "donchian",
    "rule": "new 5-bar low / high",
    "CBRS_4h": {
-    "f1": 0.436,
-    "precision": 0.522,
-    "recall": 0.375,
-    "hits": 12,
+    "f1": 0.145,
+    "precision": 0.174,
+    "recall": 0.125,
+    "hits": 4,
     "signals": 23,
     "targets": 32,
-    "mean_lag": -0.08
+    "mean_lag": -0.25
    },
    "CBRS_4h_stats": {
     "trades": 11,
     "win_pct": 63.6,
-    "roi_pct": -18.5,
-    "sum_pct": -16.2,
+    "roi_pct": -24.5,
+    "sum_pct": -24.5,
     "open": true
    },
    "BTC_1d": {
@@ -2320,84 +2396,8 @@
     "sum_pct": 54.8,
     "open": true
    },
-   "mean_f1": 0.324,
-   "placebo_f1": 0.248
-  },
-  {
-   "family": "bollinger",
-   "rule": "sma10 \u00b1 1\u03c3 touch",
-   "CBRS_4h": {
-    "f1": 0.393,
-    "precision": 0.414,
-    "recall": 0.375,
-    "hits": 12,
-    "signals": 29,
-    "targets": 32,
-    "mean_lag": -0.08
-   },
-   "CBRS_4h_stats": {
-    "trades": 14,
-    "win_pct": 78.6,
-    "roi_pct": 36.1,
-    "sum_pct": 37.3,
-    "open": true
-   },
-   "BTC_1d": {
-    "f1": 0.186,
-    "precision": 0.154,
-    "recall": 0.235,
-    "hits": 8,
-    "signals": 52,
-    "targets": 34,
-    "mean_lag": 0.62
-   },
-   "BTC_1d_stats": {
-    "trades": 264,
-    "win_pct": 63.6,
-    "roi_pct": -61.6,
-    "sum_pct": -3.1,
-    "open": true
-   },
-   "mean_f1": 0.289,
-   "placebo_f1": 0.242
-  },
-  {
-   "family": "ma_cross",
-   "rule": "ema5/20 cross",
-   "CBRS_4h": {
-    "f1": 0.091,
-    "precision": 0.167,
-    "recall": 0.062,
-    "hits": 2,
-    "signals": 12,
-    "targets": 32,
-    "mean_lag": -0.5
-   },
-   "CBRS_4h_stats": {
-    "trades": 6,
-    "win_pct": 33.3,
-    "roi_pct": -39.1,
-    "sum_pct": -45.5,
-    "open": false
-   },
-   "BTC_1d": {
-    "f1": 0.433,
-    "precision": 0.5,
-    "recall": 0.382,
-    "hits": 13,
-    "signals": 26,
-    "targets": 34,
-    "mean_lag": 0.46
-   },
-   "BTC_1d_stats": {
-    "trades": 119,
-    "win_pct": 31.9,
-    "roi_pct": 27291.2,
-    "sum_pct": 870.4,
-    "open": false
-   },
-   "mean_f1": 0.262,
-   "placebo_f1": 0.139
+   "mean_f1": 0.178,
+   "placebo_f1": 0.263
   }
  ],
  "stage2": {
@@ -2486,37 +2486,37 @@
      "hl2",
      "rma"
     ],
-    "mean_f1": 0.661,
-    "placebo_f1": 0.218,
+    "mean_f1": 0.712,
+    "placebo_f1": 0.224,
     "CBRS_4h": {
-     "f1": 0.552,
-     "precision": 0.615,
-     "recall": 0.5,
-     "hits": 16,
+     "f1": 0.655,
+     "precision": 0.731,
+     "recall": 0.594,
+     "hits": 19,
      "signals": 26,
      "targets": 32,
-     "mean_lag": 0.19
+     "mean_lag": 0.21
     },
     "CBRS_4h_accounting": {
      "close_to_close": {
       "trades": 13,
       "win_pct": 30.8,
-      "sum_pct": -39.4,
-      "compound_pct": -36.7,
+      "sum_pct": -35.0,
+      "compound_pct": -33.8,
       "open": false
      },
      "next_open": {
       "trades": 13,
       "win_pct": 30.8,
-      "sum_pct": -46.9,
-      "compound_pct": -41.6,
+      "sum_pct": -42.4,
+      "compound_pct": -38.8,
       "open": false
      },
      "hindsight_low_to_high": {
       "trades": 13,
       "win_pct": 92.3,
-      "sum_pct": 175.1,
-      "compound_pct": 383.6,
+      "sum_pct": 177.1,
+      "compound_pct": 392.5,
       "open": false
      },
      "sell_only_in_profit": {
@@ -2566,84 +2566,88 @@
    {
     "family": "supertrend",
     "params": [
-     "14",
+     "17",
      "0.9",
      "hl2",
      "rma"
     ],
-    "mean_f1": 0.66,
-    "placebo_f1": 0.2,
+    "mean_f1": 0.694,
+    "placebo_f1": 0.207,
     "CBRS_4h": {
-     "f1": 0.536,
-     "precision": 0.625,
-     "recall": 0.469,
-     "hits": 15,
-     "signals": 24,
+     "f1": 0.615,
+     "precision": 0.8,
+     "recall": 0.5,
+     "hits": 16,
+     "signals": 20,
      "targets": 32,
-     "mean_lag": 0.33
+     "mean_lag": 0.38
     },
     "CBRS_4h_accounting": {
      "close_to_close": {
-      "trades": 12,
-      "win_pct": 33.3,
-      "sum_pct": -55.8,
-      "compound_pct": -46.8,
+      "trades": 10,
+      "win_pct": 40.0,
+      "sum_pct": -18.1,
+      "compound_pct": -19.6,
       "open": false
      },
      "next_open": {
-      "trades": 12,
-      "win_pct": 33.3,
-      "sum_pct": -70.6,
-      "compound_pct": -54.5,
+      "trades": 10,
+      "win_pct": 40.0,
+      "sum_pct": -28.0,
+      "compound_pct": -27.6,
       "open": false
      },
      "hindsight_low_to_high": {
-      "trades": 12,
-      "win_pct": 83.3,
-      "sum_pct": 129.7,
-      "compound_pct": 221.4,
+      "trades": 10,
+      "win_pct": 90.0,
+      "sum_pct": 133.5,
+      "compound_pct": 237.2,
       "open": false
      },
      "sell_only_in_profit": {
-      "trades": 0
+      "trades": 1,
+      "win_pct": 100.0,
+      "sum_pct": 5.4,
+      "compound_pct": 5.4,
+      "open": true
      }
     },
     "BTC_1d": {
-     "f1": 0.784,
-     "precision": 0.725,
+     "f1": 0.773,
+     "precision": 0.707,
      "recall": 0.853,
      "hits": 29,
-     "signals": 40,
+     "signals": 41,
      "targets": 34,
      "mean_lag": 0.07
     },
     "BTC_1d_accounting": {
      "close_to_close": {
-      "trades": 258,
-      "win_pct": 43.4,
-      "sum_pct": 737.8,
-      "compound_pct": 20714.2,
+      "trades": 264,
+      "win_pct": 43.2,
+      "sum_pct": 678.9,
+      "compound_pct": 14828.0,
       "open": false
      },
      "next_open": {
-      "trades": 258,
-      "win_pct": 43.4,
-      "sum_pct": 740.6,
-      "compound_pct": 21191.3,
+      "trades": 264,
+      "win_pct": 43.2,
+      "sum_pct": 682.7,
+      "compound_pct": 15335.7,
       "open": false
      },
      "hindsight_low_to_high": {
-      "trades": 258,
-      "win_pct": 95.7,
-      "sum_pct": 3595.1,
-      "compound_pct": 3228701949012965.0,
+      "trades": 264,
+      "win_pct": 96.2,
+      "sum_pct": 3612.8,
+      "compound_pct": 4884432634984916.0,
       "open": false
      },
      "sell_only_in_profit": {
-      "trades": 39,
+      "trades": 41,
       "win_pct": 100.0,
-      "sum_pct": 662.9,
-      "compound_pct": 29661.1,
+      "sum_pct": 640.7,
+      "compound_pct": 28333.4,
       "open": true
      }
     }
@@ -2656,37 +2660,37 @@
      "hl2",
      "sma"
     ],
-    "mean_f1": 0.658,
-    "placebo_f1": 0.204,
+    "mean_f1": 0.694,
+    "placebo_f1": 0.216,
     "CBRS_4h": {
-     "f1": 0.5,
-     "precision": 0.583,
-     "recall": 0.438,
-     "hits": 14,
+     "f1": 0.571,
+     "precision": 0.667,
+     "recall": 0.5,
+     "hits": 16,
      "signals": 24,
      "targets": 32,
-     "mean_lag": 0.43
+     "mean_lag": 0.38
     },
     "CBRS_4h_accounting": {
      "close_to_close": {
       "trades": 12,
       "win_pct": 33.3,
-      "sum_pct": -49.3,
-      "compound_pct": -42.6,
+      "sum_pct": -42.7,
+      "compound_pct": -38.4,
       "open": false
      },
      "next_open": {
       "trades": 12,
       "win_pct": 33.3,
-      "sum_pct": -62.1,
-      "compound_pct": -49.9,
+      "sum_pct": -52.5,
+      "compound_pct": -44.5,
       "open": false
      },
      "hindsight_low_to_high": {
       "trades": 12,
       "win_pct": 83.3,
-      "sum_pct": 140.2,
-      "compound_pct": 257.0,
+      "sum_pct": 150.5,
+      "compound_pct": 292.9,
       "open": false
      },
      "sell_only_in_profit": {
@@ -2736,559 +2740,42 @@
    {
     "family": "supertrend",
     "params": [
-     "17",
-     "1.2",
-     "close",
-     "rma"
-    ],
-    "mean_f1": 0.65,
-    "placebo_f1": 0.198,
-    "CBRS_4h": {
-     "f1": 0.44,
-     "precision": 0.611,
-     "recall": 0.344,
-     "hits": 11,
-     "signals": 18,
-     "targets": 32,
-     "mean_lag": 0.55
-    },
-    "CBRS_4h_accounting": {
-     "close_to_close": {
-      "trades": 9,
-      "win_pct": 33.3,
-      "sum_pct": -31.8,
-      "compound_pct": -30.3,
-      "open": false
-     },
-     "next_open": {
-      "trades": 9,
-      "win_pct": 33.3,
-      "sum_pct": -44.9,
-      "compound_pct": -39.9,
-      "open": false
-     },
-     "hindsight_low_to_high": {
-      "trades": 9,
-      "win_pct": 77.8,
-      "sum_pct": 96.7,
-      "compound_pct": 140.3,
-      "open": false
-     },
-     "sell_only_in_profit": {
-      "trades": 1,
-      "win_pct": 100.0,
-      "sum_pct": 5.4,
-      "compound_pct": 5.4,
-      "open": true
-     }
-    },
-    "BTC_1d": {
-     "f1": 0.861,
-     "precision": 0.816,
-     "recall": 0.912,
-     "hits": 31,
-     "signals": 38,
-     "targets": 34,
-     "mean_lag": 0.1
-    },
-    "BTC_1d_accounting": {
-     "close_to_close": {
-      "trades": 223,
-      "win_pct": 43.0,
-      "sum_pct": 787.4,
-      "compound_pct": 24622.4,
-      "open": false
-     },
-     "next_open": {
-      "trades": 223,
-      "win_pct": 43.0,
-      "sum_pct": 787.5,
-      "compound_pct": 24716.5,
-      "open": false
-     },
-     "hindsight_low_to_high": {
-      "trades": 223,
-      "win_pct": 95.1,
-      "sum_pct": 3423.8,
-      "compound_pct": 380305634290182.5,
-      "open": false
-     },
-     "sell_only_in_profit": {
-      "trades": 41,
-      "win_pct": 100.0,
-      "sum_pct": 731.5,
-      "compound_pct": 36529.3,
-      "open": true
-     }
-    }
-   },
-   {
-    "family": "supertrend",
-    "params": [
-     "12",
+     "30",
      "0.8",
      "hl2",
-     "rma"
+     "sma"
     ],
-    "mean_f1": 0.648,
-    "placebo_f1": 0.213,
+    "mean_f1": 0.694,
+    "placebo_f1": 0.221,
     "CBRS_4h": {
-     "f1": 0.552,
-     "precision": 0.615,
-     "recall": 0.5,
-     "hits": 16,
-     "signals": 26,
-     "targets": 32,
-     "mean_lag": 0.31
-    },
-    "CBRS_4h_accounting": {
-     "close_to_close": {
-      "trades": 13,
-      "win_pct": 30.8,
-      "sum_pct": -45.6,
-      "compound_pct": -40.5,
-      "open": false
-     },
-     "next_open": {
-      "trades": 13,
-      "win_pct": 30.8,
-      "sum_pct": -57.5,
-      "compound_pct": -47.3,
-      "open": false
-     },
-     "hindsight_low_to_high": {
-      "trades": 13,
-      "win_pct": 92.3,
-      "sum_pct": 157.1,
-      "compound_pct": 317.1,
-      "open": false
-     },
-     "sell_only_in_profit": {
-      "trades": 0
-     }
-    },
-    "BTC_1d": {
-     "f1": 0.744,
-     "precision": 0.659,
-     "recall": 0.853,
-     "hits": 29,
-     "signals": 44,
-     "targets": 34,
-     "mean_lag": 0.1
-    },
-    "BTC_1d_accounting": {
-     "close_to_close": {
-      "trades": 289,
-      "win_pct": 44.3,
-      "sum_pct": 746.0,
-      "compound_pct": 30731.6,
-      "open": false
-     },
-     "next_open": {
-      "trades": 289,
-      "win_pct": 44.3,
-      "sum_pct": 745.2,
-      "compound_pct": 30779.4,
-      "open": false
-     },
-     "hindsight_low_to_high": {
-      "trades": 289,
-      "win_pct": 97.6,
-      "sum_pct": 3877.6,
-      "compound_pct": 6.369770885988926e+16,
-      "open": false
-     },
-     "sell_only_in_profit": {
-      "trades": 41,
-      "win_pct": 100.0,
-      "sum_pct": 638.4,
-      "compound_pct": 27629.6,
-      "open": true
-     }
-    }
-   },
-   {
-    "family": "supertrend",
-    "params": [
-     "14",
-     "0.8",
-     "hl2",
-     "rma"
-    ],
-    "mean_f1": 0.648,
-    "placebo_f1": 0.207,
-    "CBRS_4h": {
-     "f1": 0.552,
-     "precision": 0.615,
-     "recall": 0.5,
-     "hits": 16,
-     "signals": 26,
-     "targets": 32,
-     "mean_lag": 0.31
-    },
-    "CBRS_4h_accounting": {
-     "close_to_close": {
-      "trades": 13,
-      "win_pct": 30.8,
-      "sum_pct": -49.0,
-      "compound_pct": -42.7,
-      "open": false
-     },
-     "next_open": {
-      "trades": 13,
-      "win_pct": 30.8,
-      "sum_pct": -59.6,
-      "compound_pct": -48.5,
-      "open": false
-     },
-     "hindsight_low_to_high": {
-      "trades": 13,
-      "win_pct": 92.3,
-      "sum_pct": 143.8,
-      "compound_pct": 268.5,
-      "open": false
-     },
-     "sell_only_in_profit": {
-      "trades": 0
-     }
-    },
-    "BTC_1d": {
-     "f1": 0.744,
-     "precision": 0.659,
-     "recall": 0.853,
-     "hits": 29,
-     "signals": 44,
-     "targets": 34,
-     "mean_lag": 0.1
-    },
-    "BTC_1d_accounting": {
-     "close_to_close": {
-      "trades": 291,
-      "win_pct": 43.3,
-      "sum_pct": 730.1,
-      "compound_pct": 25469.0,
-      "open": false
-     },
-     "next_open": {
-      "trades": 291,
-      "win_pct": 43.3,
-      "sum_pct": 728.5,
-      "compound_pct": 25413.8,
-      "open": false
-     },
-     "hindsight_low_to_high": {
-      "trades": 291,
-      "win_pct": 96.9,
-      "sum_pct": 3891.2,
-      "compound_pct": 6.891033986572865e+16,
-      "open": false
-     },
-     "sell_only_in_profit": {
-      "trades": 42,
-      "win_pct": 100.0,
-      "sum_pct": 647.5,
-      "compound_pct": 29803.5,
-      "open": true
-     }
-    }
-   },
-   {
-    "family": "supertrend",
-    "params": [
-     "17",
-     "0.8",
-     "hl2",
-     "rma"
-    ],
-    "mean_f1": 0.647,
-    "placebo_f1": 0.208,
-    "CBRS_4h": {
-     "f1": 0.556,
-     "precision": 0.682,
-     "recall": 0.469,
-     "hits": 15,
-     "signals": 22,
+     "f1": 0.643,
+     "precision": 0.75,
+     "recall": 0.562,
+     "hits": 18,
+     "signals": 24,
      "targets": 32,
      "mean_lag": 0.33
     },
     "CBRS_4h_accounting": {
      "close_to_close": {
-      "trades": 11,
-      "win_pct": 36.4,
-      "sum_pct": -39.9,
-      "compound_pct": -37.3,
-      "open": false
-     },
-     "next_open": {
-      "trades": 11,
-      "win_pct": 36.4,
-      "sum_pct": -54.6,
-      "compound_pct": -46.2,
-      "open": false
-     },
-     "hindsight_low_to_high": {
-      "trades": 11,
-      "win_pct": 100.0,
-      "sum_pct": 136.4,
-      "compound_pct": 244.9,
-      "open": false
-     },
-     "sell_only_in_profit": {
-      "trades": 0
-     }
-    },
-    "BTC_1d": {
-     "f1": 0.737,
-     "precision": 0.667,
-     "recall": 0.824,
-     "hits": 28,
-     "signals": 42,
-     "targets": 34,
-     "mean_lag": 0.11
-    },
-    "BTC_1d_accounting": {
-     "close_to_close": {
-      "trades": 291,
-      "win_pct": 43.0,
-      "sum_pct": 721.5,
-      "compound_pct": 22521.3,
-      "open": false
-     },
-     "next_open": {
-      "trades": 291,
-      "win_pct": 43.0,
-      "sum_pct": 721.3,
-      "compound_pct": 22805.7,
-      "open": false
-     },
-     "hindsight_low_to_high": {
-      "trades": 291,
-      "win_pct": 97.6,
-      "sum_pct": 3927.9,
-      "compound_pct": 9.708927991127878e+16,
-      "open": false
-     },
-     "sell_only_in_profit": {
-      "trades": 43,
-      "win_pct": 100.0,
-      "sum_pct": 648.1,
-      "compound_pct": 30348.6,
-      "open": true
-     }
-    }
-   },
-   {
-    "family": "ut_bot",
-    "params": [
-     "1.25",
-     "30",
-     "close"
-    ],
-    "mean_f1": 0.643,
-    "placebo_f1": 0.178,
-    "CBRS_4h": {
-     "f1": 0.375,
-     "precision": 0.562,
-     "recall": 0.281,
-     "hits": 9,
-     "signals": 16,
-     "targets": 32,
-     "mean_lag": 0.22
-    },
-    "CBRS_4h_accounting": {
-     "close_to_close": {
-      "trades": 8,
-      "win_pct": 37.5,
-      "sum_pct": -45.9,
-      "compound_pct": -40.6,
-      "open": false
-     },
-     "next_open": {
-      "trades": 8,
-      "win_pct": 37.5,
-      "sum_pct": -55.3,
-      "compound_pct": -46.3,
-      "open": false
-     },
-     "hindsight_low_to_high": {
-      "trades": 8,
-      "win_pct": 75.0,
-      "sum_pct": 57.8,
-      "compound_pct": 62.6,
-      "open": false
-     },
-     "sell_only_in_profit": {
-      "trades": 1,
-      "win_pct": 100.0,
-      "sum_pct": 5.7,
-      "compound_pct": 5.7,
-      "open": true
-     }
-    },
-    "BTC_1d": {
-     "f1": 0.912,
-     "precision": 0.912,
-     "recall": 0.912,
-     "hits": 31,
-     "signals": 34,
-     "targets": 34,
-     "mean_lag": 0.1
-    },
-    "BTC_1d_accounting": {
-     "close_to_close": {
-      "trades": 215,
-      "win_pct": 44.2,
-      "sum_pct": 781.3,
-      "compound_pct": 23964.1,
-      "open": false
-     },
-     "next_open": {
-      "trades": 215,
-      "win_pct": 44.2,
-      "sum_pct": 782.0,
-      "compound_pct": 24127.8,
-      "open": false
-     },
-     "hindsight_low_to_high": {
-      "trades": 215,
-      "win_pct": 94.0,
-      "sum_pct": 3407.0,
-      "compound_pct": 339623252613198.8,
-      "open": false
-     },
-     "sell_only_in_profit": {
-      "trades": 41,
-      "win_pct": 100.0,
-      "sum_pct": 707.0,
-      "compound_pct": 35515.0,
-      "open": true
-     }
-    }
-   },
-   {
-    "family": "supertrend",
-    "params": [
-     "20",
-     "0.9",
-     "hl2",
-     "sma"
-    ],
-    "mean_f1": 0.641,
-    "placebo_f1": 0.204,
-    "CBRS_4h": {
-     "f1": 0.483,
-     "precision": 0.538,
-     "recall": 0.438,
-     "hits": 14,
-     "signals": 26,
-     "targets": 32,
-     "mean_lag": 0.29
-    },
-    "CBRS_4h_accounting": {
-     "close_to_close": {
-      "trades": 13,
-      "win_pct": 30.8,
-      "sum_pct": -55.8,
-      "compound_pct": -46.6,
-      "open": false
-     },
-     "next_open": {
-      "trades": 13,
-      "win_pct": 30.8,
-      "sum_pct": -65.2,
-      "compound_pct": -51.6,
-      "open": false
-     },
-     "hindsight_low_to_high": {
-      "trades": 13,
-      "win_pct": 76.9,
-      "sum_pct": 159.2,
-      "compound_pct": 316.7,
-      "open": false
-     },
-     "sell_only_in_profit": {
-      "trades": 0
-     }
-    },
-    "BTC_1d": {
-     "f1": 0.8,
-     "precision": 0.732,
-     "recall": 0.882,
-     "hits": 30,
-     "signals": 41,
-     "targets": 34,
-     "mean_lag": 0.07
-    },
-    "BTC_1d_accounting": {
-     "close_to_close": {
-      "trades": 258,
-      "win_pct": 42.6,
-      "sum_pct": 700.0,
-      "compound_pct": 17607.7,
-      "open": false
-     },
-     "next_open": {
-      "trades": 258,
-      "win_pct": 42.6,
-      "sum_pct": 701.9,
-      "compound_pct": 17878.8,
-      "open": false
-     },
-     "hindsight_low_to_high": {
-      "trades": 258,
-      "win_pct": 96.9,
-      "sum_pct": 3600.6,
-      "compound_pct": 4123415313267189.0,
-      "open": false
-     },
-     "sell_only_in_profit": {
-      "trades": 38,
-      "win_pct": 100.0,
-      "sum_pct": 630.6,
-      "compound_pct": 25072.6,
-      "open": true
-     }
-    }
-   },
-   {
-    "family": "supertrend",
-    "params": [
-     "30",
-     "0.8",
-     "hl2",
-     "sma"
-    ],
-    "mean_f1": 0.64,
-    "placebo_f1": 0.209,
-    "CBRS_4h": {
-     "f1": 0.536,
-     "precision": 0.625,
-     "recall": 0.469,
-     "hits": 15,
-     "signals": 24,
-     "targets": 32,
-     "mean_lag": 0.27
-    },
-    "CBRS_4h_accounting": {
-     "close_to_close": {
       "trades": 12,
       "win_pct": 41.7,
-      "sum_pct": -22.4,
-      "compound_pct": -25.2,
+      "sum_pct": -15.8,
+      "compound_pct": -19.8,
       "open": false
      },
      "next_open": {
       "trades": 12,
       "win_pct": 41.7,
-      "sum_pct": -31.9,
-      "compound_pct": -32.6,
+      "sum_pct": -22.3,
+      "compound_pct": -25.4,
       "open": false
      },
      "hindsight_low_to_high": {
       "trades": 12,
       "win_pct": 91.7,
-      "sum_pct": 157.0,
-      "compound_pct": 312.6,
+      "sum_pct": 167.3,
+      "compound_pct": 354.1,
       "open": false
      },
      "sell_only_in_profit": {
@@ -3343,37 +2830,37 @@
      "hl2",
      "sma"
     ],
-    "mean_f1": 0.639,
-    "placebo_f1": 0.211,
+    "mean_f1": 0.689,
+    "placebo_f1": 0.216,
     "CBRS_4h": {
-     "f1": 0.533,
-     "precision": 0.571,
-     "recall": 0.5,
-     "hits": 16,
+     "f1": 0.633,
+     "precision": 0.679,
+     "recall": 0.594,
+     "hits": 19,
      "signals": 28,
      "targets": 32,
-     "mean_lag": 0.19
+     "mean_lag": 0.26
     },
     "CBRS_4h_accounting": {
      "close_to_close": {
       "trades": 14,
       "win_pct": 35.7,
-      "sum_pct": -30.0,
-      "compound_pct": -31.2,
+      "sum_pct": -25.7,
+      "compound_pct": -28.0,
       "open": false
      },
      "next_open": {
       "trades": 14,
       "win_pct": 35.7,
-      "sum_pct": -38.6,
-      "compound_pct": -37.1,
+      "sum_pct": -34.0,
+      "compound_pct": -34.1,
       "open": false
      },
      "hindsight_low_to_high": {
       "trades": 14,
       "win_pct": 92.9,
-      "sum_pct": 185.8,
-      "compound_pct": 432.8,
+      "sum_pct": 187.9,
+      "compound_pct": 442.6,
       "open": false
      },
      "sell_only_in_profit": {
@@ -3421,90 +2908,595 @@
     }
    },
    {
+    "family": "ut_bot",
+    "params": [
+     "0.75",
+     "2",
+     "ha"
+    ],
+    "mean_f1": 0.689,
+    "placebo_f1": 0.227,
+    "CBRS_4h": {
+     "f1": 0.667,
+     "precision": 0.647,
+     "recall": 0.688,
+     "hits": 22,
+     "signals": 34,
+     "targets": 32,
+     "mean_lag": 0.64
+    },
+    "CBRS_4h_accounting": {
+     "close_to_close": {
+      "trades": 17,
+      "win_pct": 35.3,
+      "sum_pct": -45.0,
+      "compound_pct": -39.9,
+      "open": false
+     },
+     "next_open": {
+      "trades": 17,
+      "win_pct": 29.4,
+      "sum_pct": -41.1,
+      "compound_pct": -36.8,
+      "open": false
+     },
+     "hindsight_low_to_high": {
+      "trades": 17,
+      "win_pct": 82.4,
+      "sum_pct": 137.4,
+      "compound_pct": 252.7,
+      "open": false
+     },
+     "sell_only_in_profit": {
+      "trades": 0
+     }
+    },
+    "BTC_1d": {
+     "f1": 0.711,
+     "precision": 0.643,
+     "recall": 0.794,
+     "hits": 27,
+     "signals": 42,
+     "targets": 34,
+     "mean_lag": 0.04
+    },
+    "BTC_1d_accounting": {
+     "close_to_close": {
+      "trades": 255,
+      "win_pct": 40.4,
+      "sum_pct": 789.6,
+      "compound_pct": 29875.8,
+      "open": false
+     },
+     "next_open": {
+      "trades": 255,
+      "win_pct": 40.4,
+      "sum_pct": 787.7,
+      "compound_pct": 29302.0,
+      "open": false
+     },
+     "hindsight_low_to_high": {
+      "trades": 255,
+      "win_pct": 90.6,
+      "sum_pct": 2818.1,
+      "compound_pct": 3309436967872.6,
+      "open": false
+     },
+     "sell_only_in_profit": {
+      "trades": 34,
+      "win_pct": 100.0,
+      "sum_pct": 657.8,
+      "compound_pct": 21773.6,
+      "open": true
+     }
+    }
+   },
+   {
     "family": "supertrend",
     "params": [
-     "20",
+     "17",
      "0.8",
      "hl2",
      "rma"
     ],
-    "mean_f1": 0.634,
-    "placebo_f1": 0.216,
+    "mean_f1": 0.683,
+    "placebo_f1": 0.22,
     "CBRS_4h": {
-     "f1": 0.577,
-     "precision": 0.75,
-     "recall": 0.469,
-     "hits": 15,
-     "signals": 20,
+     "f1": 0.63,
+     "precision": 0.773,
+     "recall": 0.531,
+     "hits": 17,
+     "signals": 22,
      "targets": 32,
-     "mean_lag": 0.33
+     "mean_lag": 0.35
     },
     "CBRS_4h_accounting": {
      "close_to_close": {
-      "trades": 10,
-      "win_pct": 40.0,
-      "sum_pct": -17.7,
-      "compound_pct": -19.4,
+      "trades": 11,
+      "win_pct": 36.4,
+      "sum_pct": -33.3,
+      "compound_pct": -32.8,
       "open": false
      },
      "next_open": {
-      "trades": 10,
-      "win_pct": 40.0,
-      "sum_pct": -32.5,
-      "compound_pct": -30.9,
+      "trades": 11,
+      "win_pct": 36.4,
+      "sum_pct": -45.0,
+      "compound_pct": -40.4,
       "open": false
      },
      "hindsight_low_to_high": {
-      "trades": 10,
+      "trades": 11,
       "win_pct": 100.0,
-      "sum_pct": 126.4,
-      "compound_pct": 215.9,
+      "sum_pct": 146.6,
+      "compound_pct": 279.5,
       "open": false
      },
      "sell_only_in_profit": {
-      "trades": 1,
-      "win_pct": 100.0,
-      "sum_pct": 5.4,
-      "compound_pct": 5.4,
-      "open": true
+      "trades": 0
      }
     },
     "BTC_1d": {
-     "f1": 0.692,
-     "precision": 0.614,
-     "recall": 0.794,
-     "hits": 27,
-     "signals": 44,
+     "f1": 0.737,
+     "precision": 0.667,
+     "recall": 0.824,
+     "hits": 28,
+     "signals": 42,
      "targets": 34,
      "mean_lag": 0.11
     },
     "BTC_1d_accounting": {
      "close_to_close": {
       "trades": 291,
-      "win_pct": 43.6,
-      "sum_pct": 731.1,
-      "compound_pct": 23629.5,
+      "win_pct": 43.0,
+      "sum_pct": 721.5,
+      "compound_pct": 22521.3,
+      "open": false
+     },
+     "next_open": {
+      "trades": 291,
+      "win_pct": 43.0,
+      "sum_pct": 721.3,
+      "compound_pct": 22805.7,
+      "open": false
+     },
+     "hindsight_low_to_high": {
+      "trades": 291,
+      "win_pct": 97.6,
+      "sum_pct": 3927.9,
+      "compound_pct": 9.708927991127878e+16,
+      "open": false
+     },
+     "sell_only_in_profit": {
+      "trades": 43,
+      "win_pct": 100.0,
+      "sum_pct": 648.1,
+      "compound_pct": 30348.6,
+      "open": true
+     }
+    }
+   },
+   {
+    "family": "supertrend",
+    "params": [
+     "12",
+     "0.8",
+     "hl2",
+     "rma"
+    ],
+    "mean_f1": 0.682,
+    "placebo_f1": 0.224,
+    "CBRS_4h": {
+     "f1": 0.621,
+     "precision": 0.692,
+     "recall": 0.562,
+     "hits": 18,
+     "signals": 26,
+     "targets": 32,
+     "mean_lag": 0.33
+    },
+    "CBRS_4h_accounting": {
+     "close_to_close": {
+      "trades": 13,
+      "win_pct": 30.8,
+      "sum_pct": -41.2,
+      "compound_pct": -37.7,
+      "open": false
+     },
+     "next_open": {
+      "trades": 13,
+      "win_pct": 30.8,
+      "sum_pct": -52.9,
+      "compound_pct": -44.8,
+      "open": false
+     },
+     "hindsight_low_to_high": {
+      "trades": 13,
+      "win_pct": 92.3,
+      "sum_pct": 159.1,
+      "compound_pct": 324.7,
+      "open": false
+     },
+     "sell_only_in_profit": {
+      "trades": 0
+     }
+    },
+    "BTC_1d": {
+     "f1": 0.744,
+     "precision": 0.659,
+     "recall": 0.853,
+     "hits": 29,
+     "signals": 44,
+     "targets": 34,
+     "mean_lag": 0.1
+    },
+    "BTC_1d_accounting": {
+     "close_to_close": {
+      "trades": 289,
+      "win_pct": 44.3,
+      "sum_pct": 746.0,
+      "compound_pct": 30731.6,
+      "open": false
+     },
+     "next_open": {
+      "trades": 289,
+      "win_pct": 44.3,
+      "sum_pct": 745.2,
+      "compound_pct": 30779.4,
+      "open": false
+     },
+     "hindsight_low_to_high": {
+      "trades": 289,
+      "win_pct": 97.6,
+      "sum_pct": 3877.6,
+      "compound_pct": 6.369770885988926e+16,
+      "open": false
+     },
+     "sell_only_in_profit": {
+      "trades": 41,
+      "win_pct": 100.0,
+      "sum_pct": 638.4,
+      "compound_pct": 27629.6,
+      "open": true
+     }
+    }
+   },
+   {
+    "family": "supertrend",
+    "params": [
+     "14",
+     "0.8",
+     "hl2",
+     "rma"
+    ],
+    "mean_f1": 0.682,
+    "placebo_f1": 0.224,
+    "CBRS_4h": {
+     "f1": 0.621,
+     "precision": 0.692,
+     "recall": 0.562,
+     "hits": 18,
+     "signals": 26,
+     "targets": 32,
+     "mean_lag": 0.33
+    },
+    "CBRS_4h_accounting": {
+     "close_to_close": {
+      "trades": 13,
+      "win_pct": 30.8,
+      "sum_pct": -42.4,
+      "compound_pct": -38.5,
+      "open": false
+     },
+     "next_open": {
+      "trades": 13,
+      "win_pct": 30.8,
+      "sum_pct": -50.0,
+      "compound_pct": -43.0,
+      "open": false
+     },
+     "hindsight_low_to_high": {
+      "trades": 13,
+      "win_pct": 92.3,
+      "sum_pct": 154.0,
+      "compound_pct": 305.5,
+      "open": false
+     },
+     "sell_only_in_profit": {
+      "trades": 0
+     }
+    },
+    "BTC_1d": {
+     "f1": 0.744,
+     "precision": 0.659,
+     "recall": 0.853,
+     "hits": 29,
+     "signals": 44,
+     "targets": 34,
+     "mean_lag": 0.1
+    },
+    "BTC_1d_accounting": {
+     "close_to_close": {
+      "trades": 291,
+      "win_pct": 43.3,
+      "sum_pct": 730.1,
+      "compound_pct": 25469.0,
       "open": false
      },
      "next_open": {
       "trades": 291,
       "win_pct": 43.3,
-      "sum_pct": 731.0,
-      "compound_pct": 23961.7,
+      "sum_pct": 728.5,
+      "compound_pct": 25413.8,
       "open": false
      },
      "hindsight_low_to_high": {
       "trades": 291,
       "win_pct": 96.9,
-      "sum_pct": 3987.6,
-      "compound_pct": 1.472584933428549e+17,
+      "sum_pct": 3891.2,
+      "compound_pct": 6.891033986572865e+16,
       "open": false
      },
      "sell_only_in_profit": {
-      "trades": 45,
+      "trades": 42,
       "win_pct": 100.0,
-      "sum_pct": 659.5,
-      "compound_pct": 33400.2,
+      "sum_pct": 647.5,
+      "compound_pct": 29803.5,
+      "open": true
+     }
+    }
+   },
+   {
+    "family": "supertrend",
+    "params": [
+     "25",
+     "0.8",
+     "hl2",
+     "sma"
+    ],
+    "mean_f1": 0.68,
+    "placebo_f1": 0.212,
+    "CBRS_4h": {
+     "f1": 0.643,
+     "precision": 0.75,
+     "recall": 0.562,
+     "hits": 18,
+     "signals": 24,
+     "targets": 32,
+     "mean_lag": 0.28
+    },
+    "CBRS_4h_accounting": {
+     "close_to_close": {
+      "trades": 12,
+      "win_pct": 41.7,
+      "sum_pct": -14.6,
+      "compound_pct": -18.9,
+      "open": false
+     },
+     "next_open": {
+      "trades": 12,
+      "win_pct": 41.7,
+      "sum_pct": -22.8,
+      "compound_pct": -25.7,
+      "open": false
+     },
+     "hindsight_low_to_high": {
+      "trades": 12,
+      "win_pct": 91.7,
+      "sum_pct": 176.8,
+      "compound_pct": 389.5,
+      "open": false
+     },
+     "sell_only_in_profit": {
+      "trades": 0
+     }
+    },
+    "BTC_1d": {
+     "f1": 0.718,
+     "precision": 0.636,
+     "recall": 0.824,
+     "hits": 28,
+     "signals": 44,
+     "targets": 34,
+     "mean_lag": 0.14
+    },
+    "BTC_1d_accounting": {
+     "close_to_close": {
+      "trades": 294,
+      "win_pct": 42.9,
+      "sum_pct": 715.1,
+      "compound_pct": 20308.0,
+      "open": false
+     },
+     "next_open": {
+      "trades": 294,
+      "win_pct": 42.5,
+      "sum_pct": 715.2,
+      "compound_pct": 20342.5,
+      "open": false
+     },
+     "hindsight_low_to_high": {
+      "trades": 294,
+      "win_pct": 98.0,
+      "sum_pct": 3966.2,
+      "compound_pct": 1.27540916550218e+17,
+      "open": false
+     },
+     "sell_only_in_profit": {
+      "trades": 42,
+      "win_pct": 100.0,
+      "sum_pct": 624.4,
+      "compound_pct": 24290.5,
+      "open": true
+     }
+    }
+   },
+   {
+    "family": "supertrend",
+    "params": [
+     "30",
+     "0.7",
+     "hl2",
+     "sma"
+    ],
+    "mean_f1": 0.679,
+    "placebo_f1": 0.239,
+    "CBRS_4h": {
+     "f1": 0.7,
+     "precision": 0.75,
+     "recall": 0.656,
+     "hits": 21,
+     "signals": 28,
+     "targets": 32,
+     "mean_lag": 0.19
+    },
+    "CBRS_4h_accounting": {
+     "close_to_close": {
+      "trades": 14,
+      "win_pct": 42.9,
+      "sum_pct": -19.2,
+      "compound_pct": -22.0,
+      "open": false
+     },
+     "next_open": {
+      "trades": 14,
+      "win_pct": 42.9,
+      "sum_pct": -24.4,
+      "compound_pct": -26.3,
+      "open": false
+     },
+     "hindsight_low_to_high": {
+      "trades": 14,
+      "win_pct": 100.0,
+      "sum_pct": 203.9,
+      "compound_pct": 527.9,
+      "open": false
+     },
+     "sell_only_in_profit": {
+      "trades": 0
+     }
+    },
+    "BTC_1d": {
+     "f1": 0.659,
+     "precision": 0.537,
+     "recall": 0.853,
+     "hits": 29,
+     "signals": 54,
+     "targets": 34,
+     "mean_lag": -0.28
+    },
+    "BTC_1d_accounting": {
+     "close_to_close": {
+      "trades": 332,
+      "win_pct": 42.5,
+      "sum_pct": 687.5,
+      "compound_pct": 14499.6,
+      "open": false
+     },
+     "next_open": {
+      "trades": 332,
+      "win_pct": 42.5,
+      "sum_pct": 684.7,
+      "compound_pct": 14326.4,
+      "open": false
+     },
+     "hindsight_low_to_high": {
+      "trades": 332,
+      "win_pct": 98.2,
+      "sum_pct": 4358.5,
+      "compound_pct": 4.580762025156484e+18,
+      "open": false
+     },
+     "sell_only_in_profit": {
+      "trades": 48,
+      "win_pct": 100.0,
+      "sum_pct": 684.6,
+      "compound_pct": 43567.4,
+      "open": true
+     }
+    }
+   },
+   {
+    "family": "supertrend",
+    "params": [
+     "14",
+     "0.9",
+     "hl2",
+     "rma"
+    ],
+    "mean_f1": 0.677,
+    "placebo_f1": 0.215,
+    "CBRS_4h": {
+     "f1": 0.571,
+     "precision": 0.667,
+     "recall": 0.5,
+     "hits": 16,
+     "signals": 24,
+     "targets": 32,
+     "mean_lag": 0.31
+    },
+    "CBRS_4h_accounting": {
+     "close_to_close": {
+      "trades": 12,
+      "win_pct": 33.3,
+      "sum_pct": -49.2,
+      "compound_pct": -43.0,
+      "open": false
+     },
+     "next_open": {
+      "trades": 12,
+      "win_pct": 33.3,
+      "sum_pct": -61.0,
+      "compound_pct": -49.6,
+      "open": false
+     },
+     "hindsight_low_to_high": {
+      "trades": 12,
+      "win_pct": 83.3,
+      "sum_pct": 140.0,
+      "compound_pct": 253.7,
+      "open": false
+     },
+     "sell_only_in_profit": {
+      "trades": 0
+     }
+    },
+    "BTC_1d": {
+     "f1": 0.784,
+     "precision": 0.725,
+     "recall": 0.853,
+     "hits": 29,
+     "signals": 40,
+     "targets": 34,
+     "mean_lag": 0.07
+    },
+    "BTC_1d_accounting": {
+     "close_to_close": {
+      "trades": 258,
+      "win_pct": 43.4,
+      "sum_pct": 737.8,
+      "compound_pct": 20714.2,
+      "open": false
+     },
+     "next_open": {
+      "trades": 258,
+      "win_pct": 43.4,
+      "sum_pct": 740.6,
+      "compound_pct": 21191.3,
+      "open": false
+     },
+     "hindsight_low_to_high": {
+      "trades": 258,
+      "win_pct": 95.7,
+      "sum_pct": 3595.1,
+      "compound_pct": 3228701949012965.0,
+      "open": false
+     },
+     "sell_only_in_profit": {
+      "trades": 39,
+      "win_pct": 100.0,
+      "sum_pct": 662.9,
+      "compound_pct": 29661.1,
       "open": true
      }
     }
@@ -3513,18 +3505,18 @@
   "best_for_CBRS_4h": {
    "family": "supertrend",
    "params": [
-    "25",
+    "20",
     "0.6",
-    "hl2",
-    "rma"
+    "close",
+    "sma"
    ],
-   "f1": 0.607,
-   "precision": 0.708,
-   "recall": 0.531,
-   "hits": 17,
-   "signals": 24,
+   "f1": 0.742,
+   "precision": 0.767,
+   "recall": 0.719,
+   "hits": 23,
+   "signals": 30,
    "targets": 32,
-   "mean_lag": 0.24
+   "mean_lag": 0.09
   },
   "best_for_BTC_1d": {
    "family": "ut_bot",
@@ -3544,32 +3536,289 @@
   "cbrs_markers_accounting": {
    "close_to_close": {
     "trades": 16,
-    "win_pct": 56.2,
-    "sum_pct": 56.0,
-    "compound_pct": 60.3,
+    "win_pct": 62.5,
+    "sum_pct": 32.2,
+    "compound_pct": 31.3,
     "open": false
    },
    "next_open": {
     "trades": 16,
     "win_pct": 43.8,
-    "sum_pct": 48.8,
-    "compound_pct": 49.8,
+    "sum_pct": 9.3,
+    "compound_pct": 3.8,
     "open": false
    },
    "hindsight_low_to_high": {
     "trades": 16,
-    "win_pct": 87.5,
-    "sum_pct": 194.9,
-    "compound_pct": 490.1,
+    "win_pct": 100.0,
+    "sum_pct": 251.9,
+    "compound_pct": 879.6,
     "open": false
    },
    "sell_only_in_profit": {
-    "trades": 5,
+    "trades": 1,
     "win_pct": 100.0,
-    "sum_pct": 53.1,
-    "compound_pct": 63.0,
+    "sum_pct": 10.1,
+    "compound_pct": 10.1,
     "open": true
    }
-  }
+  },
+  "cbrs_no_ipo_day_top": [
+   {
+    "family": "supertrend",
+    "params": [
+     "20",
+     "0.6",
+     "close",
+     "sma"
+    ],
+    "f1": 0.742,
+    "precision": 0.767,
+    "recall": 0.719,
+    "hits": 23,
+    "signals": 30,
+    "targets": 32,
+    "mean_lag": 0.09
+   },
+   {
+    "family": "supertrend",
+    "params": [
+     "25",
+     "0.6",
+     "close",
+     "sma"
+    ],
+    "f1": 0.742,
+    "precision": 0.767,
+    "recall": 0.719,
+    "hits": 23,
+    "signals": 30,
+    "targets": 32,
+    "mean_lag": 0.09
+   },
+   {
+    "family": "supertrend",
+    "params": [
+     "25",
+     "0.5",
+     "close",
+     "sma"
+    ],
+    "f1": 0.727,
+    "precision": 0.706,
+    "recall": 0.75,
+    "hits": 24,
+    "signals": 34,
+    "targets": 32,
+    "mean_lag": 0.0
+   },
+   {
+    "family": "ut_bot",
+    "params": [
+     "0.5",
+     "20",
+     "ha"
+    ],
+    "f1": 0.727,
+    "precision": 0.706,
+    "recall": 0.75,
+    "hits": 24,
+    "signals": 34,
+    "targets": 32,
+    "mean_lag": 0.62
+   },
+   {
+    "family": "ut_bot",
+    "params": [
+     "0.5",
+     "30",
+     "ha"
+    ],
+    "f1": 0.724,
+    "precision": 0.808,
+    "recall": 0.656,
+    "hits": 21,
+    "signals": 26,
+    "targets": 32,
+    "mean_lag": 0.67
+   },
+   {
+    "family": "supertrend",
+    "params": [
+     "17",
+     "0.6",
+     "close",
+     "sma"
+    ],
+    "f1": 0.719,
+    "precision": 0.719,
+    "recall": 0.719,
+    "hits": 23,
+    "signals": 32,
+    "targets": 32,
+    "mean_lag": 0.09
+   },
+   {
+    "family": "supertrend",
+    "params": [
+     "30",
+     "0.5",
+     "close",
+     "rma"
+    ],
+    "f1": 0.719,
+    "precision": 0.719,
+    "recall": 0.719,
+    "hits": 23,
+    "signals": 32,
+    "targets": 32,
+    "mean_lag": 0.0
+   },
+   {
+    "family": "supertrend",
+    "params": [
+     "30",
+     "0.6",
+     "close",
+     "sma"
+    ],
+    "f1": 0.719,
+    "precision": 0.719,
+    "recall": 0.719,
+    "hits": 23,
+    "signals": 32,
+    "targets": 32,
+    "mean_lag": 0.04
+   }
+  ],
+  "cbrs_no_ipo_day_for_overall_top": [
+   {
+    "family": "supertrend",
+    "params": [
+     "10",
+     "0.8",
+     "hl2",
+     "rma"
+    ],
+    "f1": 0.613,
+    "precision": 0.633,
+    "recall": 0.594,
+    "hits": 19,
+    "signals": 30,
+    "targets": 32,
+    "mean_lag": 0.26
+   },
+   {
+    "family": "supertrend",
+    "params": [
+     "17",
+     "0.9",
+     "hl2",
+     "rma"
+    ],
+    "f1": 0.607,
+    "precision": 0.708,
+    "recall": 0.531,
+    "hits": 17,
+    "signals": 24,
+    "targets": 32,
+    "mean_lag": 0.35
+   },
+   {
+    "family": "supertrend",
+    "params": [
+     "25",
+     "1.0",
+     "hl2",
+     "sma"
+    ],
+    "f1": 0.571,
+    "precision": 0.667,
+    "recall": 0.5,
+    "hits": 16,
+    "signals": 24,
+    "targets": 32,
+    "mean_lag": 0.38
+   },
+   {
+    "family": "supertrend",
+    "params": [
+     "30",
+     "0.8",
+     "hl2",
+     "sma"
+    ],
+    "f1": 0.643,
+    "precision": 0.75,
+    "recall": 0.562,
+    "hits": 18,
+    "signals": 24,
+    "targets": 32,
+    "mean_lag": 0.33
+   },
+   {
+    "family": "supertrend",
+    "params": [
+     "20",
+     "0.8",
+     "hl2",
+     "sma"
+    ],
+    "f1": 0.633,
+    "precision": 0.679,
+    "recall": 0.594,
+    "hits": 19,
+    "signals": 28,
+    "targets": 32,
+    "mean_lag": 0.26
+   },
+   {
+    "family": "ut_bot",
+    "params": [
+     "0.75",
+     "2",
+     "ha"
+    ],
+    "f1": 0.667,
+    "precision": 0.647,
+    "recall": 0.688,
+    "hits": 22,
+    "signals": 34,
+    "targets": 32,
+    "mean_lag": 0.64
+   },
+   {
+    "family": "supertrend",
+    "params": [
+     "17",
+     "0.8",
+     "hl2",
+     "rma"
+    ],
+    "f1": 0.586,
+    "precision": 0.654,
+    "recall": 0.531,
+    "hits": 17,
+    "signals": 26,
+    "targets": 32,
+    "mean_lag": 0.35
+   },
+   {
+    "family": "supertrend",
+    "params": [
+     "12",
+     "0.8",
+     "hl2",
+     "rma"
+    ],
+    "f1": 0.581,
+    "precision": 0.6,
+    "recall": 0.562,
+    "hits": 18,
+    "signals": 30,
+    "targets": 32,
+    "mean_lag": 0.33
+   }
+  ]
  }
 }
