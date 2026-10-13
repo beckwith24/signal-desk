@@ -187,7 +187,13 @@ per-segment sets and Buy/Sell rules in `engine.py`.
 |---|---|---|---|
 | **Crypto · daily** | 28-day momentum · price above 20/50/100-day MAs · breakout ensemble (5–360 days, trailing stop) · Bitcoin above its 50-day MA | **Buy** when 3 of 4 are bullish and none bearish (4 = Strong Buy); **Exit** alert when that ends; **Sell** when ≥3 bearish | Han, Kang & Ryu; Detzel et al. (Financial Management 2021); Zarattini, Pagani & Barbon (2025). Our test 2021–2026 (never used for tuning): 36%/yr vs 19.6% holding, worst drop −53% vs −90%, Sharpe 0.92 vs 0.60 |
 | **Stocks · daily** | RSI(2) < 10 above the 200-day MA (exit on close above 5-day MA) · close in bottom 20% of the day's range in an uptrend (IBS) · VIX above 3-month VIX | **Buy** when one fires, **Strong Buy** when two or more; no sell signals | Connors & Alvarez; Pagonidis / arXiv 2306.12434; Fassas & Hourvouliades. Our test: positive in both halves but weak (+0.04% to +0.13% per day above normal, not statistically significant). Best used to time additions, not to be in or out |
-| **4-hour and hourly** (both) | none | no Buy/Sell; charts, layers and the daily signal for timing entries | Large studies (e.g., Marshall, Cahan & Cahan 2008) find intraday rules don't survive costs; our tests agreed |
+| **4-hour and hourly** (both) | none | no Buy/Sell. The site's list is daily only; 4H/1H charts are on each ticker page | Large studies (e.g., Marshall, Cahan & Cahan 2008) find intraday rules don't survive costs; our tests agreed |
+
+**Waiting for the 4H and 1H to line up before buying doesn't help** (`mtf_research.py`, results in
+`research/mtf.md`). Over ~2 years of daily Buy signals, entering only once the 4H and 1H had turned up
+(ATR model on the buy side, ribbon blue, or both) gave up about a third of the stock profit (1,820 trades:
+you buy after the bounce has started and skip some winners) and made no difference on crypto. So the daily
+Buy alert itself is the "buy now".
 
 What we tested and dropped: the InvestAnswers-style ribbon and ATR stop (see below), the original five-model vote (no edge in any segment), market-regime filters
 for single-stock timing, the turn-of-month effect (worked before 2021, not after), trend models on stocks,
