@@ -3,7 +3,8 @@ Signal engine v2: each segment (stocks / crypto × daily / 4h / 1h) has its own 
 from published research and checked in our own walk-forward test (research/summary.md).
 
   crypto-1d  trend: 28-day momentum, price above 20/50/100-day MAs, breakout ensemble, Bitcoin trend
-             Buy = at least 3 of 4 bullish (all 4 = Strong Buy). When that ends you get an EXIT alert.
+             Buy = 3 of 4 bullish with none bearish (average vote above 0.5); all 4 = Strong Buy.
+             When that ends you get an EXIT alert.
              Sell = at least 3 of 4 bearish.
   stock-1d   dip-buy entries in an uptrend: RSI(2) pullback, close near the day's low (IBS), VIX panic.
              Buy = any one fires, Strong Buy = two or more. No sell signals (none tested well on stocks).
@@ -21,7 +22,7 @@ from signals import ACTION_RANK, ModelResult
 DEFAULT_SEGMENTS = {
     "crypto-1d": {"models": ["tsmom28", "sma_ensemble", "donchian_ensemble", "btc_trend_gate"],
                   "buy": 0.5, "strong": 1.0, "sell": -0.5, "exit_alerts": True,
-                  "about": "Trend following (3 of 4 trend models must agree)"},
+                  "about": "Trend following: Buy when 3 of 4 trend models are bullish and none bearish"},
     "stock-1d": {"models": ["rsi2_pullback", "ibs_reversal", "vix_backwardation"],
                  "buy_count": 1, "strong_count": 2, "sell": None, "exit_alerts": False,
                  "about": "Dip-buy entries in an uptrend (RSI(2), close near low, VIX panic)"},

@@ -301,7 +301,7 @@ Each segment (stocks / crypto × daily / 4-hour / hourly) uses only models that 
 research and in our own walk-forward test (see `research/summary.md`).
 
 - **Crypto, daily:** trend following — 28-day momentum, price above its 20/50/100-day averages, a breakout
-  ensemble, and Bitcoin's own trend. **Buy** when at least 3 of 4 agree (all 4 = Strong Buy), **Exit** alert when
+  ensemble, and Bitcoin's own trend. **Buy** when 3 of 4 are bullish and none bearish (all 4 = Strong Buy), **Exit** alert when
   that ends, **Sell** when 3 of 4 are bearish.
 - **Stocks, daily:** dip-buy entries in an uptrend — RSI(2) pullback, close near the day's low (IBS), VIX panic.
   **Buy** when one fires, **Strong Buy** when two or more do. No sell signals (none tested well on stocks).
