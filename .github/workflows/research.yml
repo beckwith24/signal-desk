@@ -1,0 +1,43 @@
+# Model research: Actions tab → "Model research" → Run workflow (~20–40 minutes).
+# Tests every model separately for stocks/crypto × daily/4h/1h. Results in research/summary.md.
+name: Model research
+
+on:
+  workflow_dispatch:
+    inputs:
+      segments:
+        description: "Segments (space separated)"
+        default: "stock-1d crypto-1d stock-4h crypto-4h stock-1h crypto-1h"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: research
+  cancel-in-progress: true
+
+jobs:
+  research:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install
+        run: pip install -r requirements.txt
+
+      - name: Run research
+        run: python research_backtest.py --segments ${{ inputs.segments }}
+
+      - name: Save results
+        run: |
+          git config user.name "signal-desk-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research/
+          git commit -m "Model research results" || exit 0
+          ok=0; for i in 1 2 3; do git pull --rebase && git push && ok=1 && break; sleep 5; done; [ "$ok" = 1 ]
