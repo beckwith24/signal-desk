@@ -741,11 +741,25 @@ if (window.top !== window.self) { document.documentElement.style.display = "none
     const m = h.match(/^(.+)_(1d|4h|1h|1wk)$/);
     if (m) openDetail(m[1], m[2], false); else if (state.detail) closeDetail(); else { renderControls(); render(); }
   }
+  // A page left open (a phone tab, a home-screen app) only refreshes its data. When a newer version of the
+  // page has been published, reload once to pick it up — but never while something is being typed.
+  const MY_UI = (document.querySelector('meta[name="sd-ui"]') || {}).content || "";
+  function newerPage(idx) {
+    if (!idx || !idx.ui || !MY_UI || MY_UI === "__UI__" || idx.ui === MY_UI) return false;
+    if (!$("settingsView").hidden || !$("addForm").hidden) return false;
+    let tried = null;
+    try { tried = JSON.parse(sessionStorage.getItem("sd.reloadFor")); } catch {}
+    if (tried && tried.v === idx.ui && Date.now() - tried.t < 15 * 60 * 1000) return false;   // tried already
+    try { sessionStorage.setItem("sd.reloadFor", JSON.stringify({ v: idx.ui, t: Date.now() })); } catch { return false; }
+    location.reload();
+    return true;
+  }
   async function loadIndex() {
     try {
       const r = await fetch("data/index.json?v=" + Date.now());
       if (!r.ok) throw new Error(r.status);
       state.index = await r.json();
+      if (newerPage(state.index)) return;
       $("updated").textContent = "Updated " + since(state.index.generated);
       if (state.index.disclaimer) $("disclaimer").textContent = state.index.disclaimer;
     } catch (e) {

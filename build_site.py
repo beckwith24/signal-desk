@@ -54,6 +54,10 @@ def main() -> None:
     for js in ("theme.js", "app.js", "lightweight-charts.js"):   # new code reaches phones right away, not after a cache expires
         ver = hashlib.sha256((ROOT / "web" / js).read_bytes()).hexdigest()[:10]
         page = page.replace(f'src="{js}"', f'src="{js}?v={ver}"')
+    # version of the whole page: an open page (or home-screen app) compares it with index.json and reloads itself
+    ui = hashlib.sha256(b"".join((ROOT / "web" / f).read_bytes() for f in
+                                 ("index.html", "app.js", "theme.js", "lightweight-charts.js"))).hexdigest()[:12]
+    page = page.replace('content="__UI__"', f'content="{ui}"')
     (SITE_DIR / "index.html").write_text(page)
     (SITE_DIR / ".nojekyll").touch()
 
@@ -101,6 +105,7 @@ def main() -> None:
         "missing": [t for t in tickers if t not in have],   # on the list but no chart yet (new or bad symbol)
         "timeframes": cfg["timeframes"],
         "disclaimer": DISCLAIMER,
+        "ui": ui,
         "items": items,
     }
     (data / "index.json").write_text(json.dumps(index, separators=(",", ":")))
