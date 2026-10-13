@@ -50,13 +50,11 @@ def build_payload(res: dict, cfg: dict) -> dict:
     df = res["_df"].tail(BARS.get(res["timeframe"], 300))
     nd = _decimals(res["price"])
     idx = df.index
-    mo = res["models"]
-    tr, mr, al = mo["trend"].extra, mo["mean_reversion"].extra, mo["atr_layers"].extra
+    ov = res["overlays"]
 
     def series(s: pd.Series) -> list:
         return [_num(v, nd) for v in s.reindex(idx).values]
 
-    p = cfg["models"]
     lp = ladder.plan(res, cfg)
     for tier in lp["buys"] + lp["sells"]:
         tier["price"] = _num(tier["price"], nd)
@@ -79,13 +77,15 @@ def build_payload(res: dict, cfg: dict) -> dict:
         "reasons": res["reasons"],
         "notes": res.get("notes", []),
         "models": [{"name": m.name, "vote": m.vote, "strength": m.strength, "reason": m.reason}
-                   for m in mo.values()],
-        "layer": al["layer"],
-        "levels": {str(k): _num(v, nd) for k, v in al["levels"].items()},
-        "z": mr["z"],
-        "rsi": mo["confluence"].extra.get("rsi"),
-        "labels": {"ema_fast": f"EMA {p['trend']['fast_ema']}", "ema_slow": f"EMA {p['trend']['slow_ema']}",
-                   "ma_long": f"{p['trend']['long_ma']} MA", "anchor": f"{p['atr_layers']['anchor_ma']} MA (layer anchor)"},
+                   for m in res["models"].values()],
+        "layer": ov["layer"],
+        "levels": {str(k): _num(v, nd) for k, v in ov["levels"].items()},
+        "z": round(ov["z"], 2),
+        "rsi": round(ov["rsi"], 1),
+        "labels": ov["labels"],
+        "segment": res.get("segment"),
+        "segment_about": res.get("segment_about", ""),
+        "engine": res.get("engine", "v1"),
         "t": [int(ts.timestamp()) for ts in idx],
         "o": series(df["open"]),
         "h": series(df["high"]),
@@ -93,13 +93,13 @@ def build_payload(res: dict, cfg: dict) -> dict:
         "c": series(df["close"]),
         "v": [int(v) if v == v else 0 for v in df["volume"].values],
         "ov": {
-            "ema_fast": series(tr["fast"]),
-            "ema_slow": series(tr["slow"]),
-            "ma_long": series(tr["long_ma"]),
-            "bb_up": series(mr["bb_upper"]),
-            "bb_mid": series(mr["bb_mid"]),
-            "bb_lo": series(mr["bb_lower"]),
-            "anchor": series(al["anchor"]),
+            "ema_fast": series(ov["ema_fast"]),
+            "ema_slow": series(ov["ema_slow"]),
+            "ma_long": series(ov["ma_long"]),
+            "bb_up": series(ov["bb_up"]),
+            "bb_mid": series(ov["bb_mid"]),
+            "bb_lo": series(ov["bb_lo"]),
+            "anchor": series(ov["anchor"]),
         },
         "signals": [{"t": _ts(s["ts"]), "ts": s["ts"], "action": s["action"], "rank": s["rank"],
                      "score": s["score"], "price": _num(s["price"], nd)}

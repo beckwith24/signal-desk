@@ -163,42 +163,34 @@ python runner.py --once     # one scan, then exit
 
 ---
 
-## The five models
+## Models by segment (engine v2)
 
-Every model votes **bullish (+1), bearish (−1) or neutral (0)** with a strength from 0 to 1, plus a one-line reason.
+Stocks and crypto, and daily vs 4-hour vs hourly, each get their own model set. A model is used only if
+published out-of-sample research supports it **and** our own walk-forward test on these tickers agrees
+(`python research_backtest.py`, results in `research/summary.md`). Models live in `models.py`, the
+per-segment sets and Buy/Sell rules in `engine.py`.
 
-1. **Trend** — EMA 21 vs 55, price vs 200-MA, and Supertrend (10, 3). All three agreeing gives a strong vote
-   (bigger EMA gap = stronger); a 2-of-3 majority gives a weaker "leaning" vote.
-2. **Mean reversion** — z-score of price against its 20-bar mean (identical to Bollinger %B). At or below −2σ
-   = oversold (bullish), at or above +2σ = overbought (bearish). Lookback and σ are configurable.
-3. **Confluence** — five sub-votes averaged into 0–100: RSI (<35 / >65), MACD histogram direction/cross,
-   Stochastic turning in an extreme, volume spike (direction of the bar), and price outside 2-ATR Keltner bands.
-4. **ATR layers (layer-in / layer-out)** — distance from the 50-MA measured in 1-ATR steps, shown as a layer
-   number (−4 … +4). Layer −2 or lower = buy zone (scale in); +2 or higher = take-profit / reduce zone.
-   The layers are drawn on the chart.
-5. **Momentum / breakout** — higher highs + higher lows (or lower/lower) over the last 10 bars vs the 10 before,
-   rate of change, and swing breakouts/breakdowns. Its job is to stop mean reversion from fighting a strong move.
+| Segment | Models | Buy / Sell rule | Evidence |
+|---|---|---|---|
+| **Crypto · daily** | 28-day momentum · price above 20/50/100-day MAs · breakout ensemble (5–360 days, trailing stop) · Bitcoin above its 50-day MA | **Buy** when ≥3 of 4 bullish (4 = Strong Buy); **Exit** alert when that ends; **Sell** when ≥3 bearish | Han, Kang & Ryu; Detzel et al. (Financial Management 2021); Zarattini, Pagani & Barbon (2025). Our test 2021–2026 (never used for tuning): 36%/yr vs 19.6% holding, worst drop −53% vs −90%, Sharpe 0.92 vs 0.60 |
+| **Stocks · daily** | RSI(2) < 10 above the 200-day MA (exit on close above 5-day MA) · close in bottom 20% of the day's range in an uptrend (IBS) · VIX above 3-month VIX | **Buy** when one fires, **Strong Buy** when two or more; no sell signals | Connors & Alvarez; Pagonidis / arXiv 2306.12434; Fassas & Hourvouliades. Our test: positive in both halves but weak (+0.04% to +0.13% per day above normal, not statistically significant). Best used to time additions, not to be in or out |
+| **4-hour and hourly** (both) | none | no Buy/Sell; charts, layers and the daily signal for timing entries | Large studies (e.g., Marshall, Cahan & Cahan 2008) find intraday rules don't survive costs; our tests agreed |
 
-**Crypto extras:** an "extreme volume" note when the latest bar's volume is 2.5σ above normal, and optionally the
-perpetual funding rate (set `funding_exchange`; some exchanges block US IPs).
+What we tested and dropped: the original five-model vote (no edge in any segment), market-regime filters
+for single-stock timing, the turn-of-month effect (worked before 2021, not after), trend models on stocks,
+dip-buying on crypto (it hurt), and every model on 4h/1h bars.
 
-### The ensemble decision
+Honest caveats: with 13 stocks and 5 coins (picked because they did well), no model passed the strict
+pre-set test on the older half alone; the chosen sets are the ones the published research favors and
+that pointed the right way in both halves of our data. Costs assumed: 0.05% per side for stocks, 0.25% for crypto.
 
-- **Confluence score** = 50 + 50 × average(vote × strength) across the five models. 50 is neutral, 100 is
-  everything maximally bullish, 0 maximally bearish.
-- **Buy / Sell**: at least `min_agree` (default 3) of 5 models point the same way and outnumber the other side.
-- **Strong Buy / Strong Sell**: the above *and* score ≥ 75 (≤ 25 for sells).
-- **Watch ↑ / Watch ↓**: one model short, or score past 58 / below 42.
-- **Falling-knife guard**: if trend *and* momentum are both down, an oversold Buy is capped at Watch.
-  The mirror applies to Sells during strong uptrends (don't short a squeeze).
-
-Tested on synthetic scenarios: a sharp dip inside an uptrend → **Buy**; a crash that's still accelerating → **Hold**
-(oversold, but trend and momentum disagree); a vertical squeeze → **Hold** (overbought, but trend and momentum up).
+The **layer-in / layer-out ladder** (`ladder.py`) runs separately on every daily chart. On crypto, its
+messages say so when the ladder and the trend signal disagree.
 
 ### When you get pinged
 
-Only when something changes: a *new* signal at or above your `min_action` level, a direction flip, or a
-strengthening (Buy → Strong Buy). The same Buy showing up every 30 minutes does not re-alert. A signal that fades
+Only when something changes: a *new* signal at or above your `min_action` level, a direction flip, a
+strengthening (Buy → Strong Buy), or (crypto) an **Exit** when a Buy you were alerted to ends. The same Buy showing up every 30 minutes does not re-alert. A signal that fades
 and comes back alerts again. On the very first scan nothing is sent (it just records the baseline), unless you
 set `alert_on_first_scan: true`.
 
@@ -225,8 +217,11 @@ of IADSS or any proprietary Pine script, and it won't produce identical signals.
 
 ## Adding a model
 
-Write `def my_model(df, p) -> ModelResult` in `signals.py`, add it to `MODELS`, and add a `my_model:` params
-block under `models:` in the config. The ensemble picks it up automatically (consider raising `min_agree`).
+Write `def my_model(df, ctx, p)` in `models.py` returning a DataFrame with `vote` (+1/0/−1) and `strength`
+for every bar (looking only backwards), plus a `describe(row, p)`; register it in `MODELS`. Add it to the
+segment lists in `research_backtest.py`, run the research, and only then add it to a segment in `engine.py`.
+The look-ahead test (each bar's vote must be identical whether computed on the full history or only up to
+that bar) should pass for every model.
 
 ## Worthwhile next improvements
 

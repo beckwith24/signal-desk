@@ -127,7 +127,7 @@ def tom_describe(row, p):
 # ============================================================================ regime / risk
 def market_regime(df, ctx, p):
     if "spy_close" not in ctx:
-        return _frame(df, 0, 0)
+        return _frame(df, 0, 0, spy_dist=np.nan)
     on = ctx["spy_close"] > ctx["spy_sma200"]
     vote = np.where(ctx["spy_sma200"].isna(), 0, np.where(on, 1, -1))
     dist = (ctx["spy_close"] / ctx["spy_sma200"] - 1)
@@ -144,7 +144,7 @@ def regime_describe(row, p):
 
 def vix_backwardation(df, ctx, p):
     if "vix" not in ctx or "vix3m" not in ctx:
-        return _frame(df, 0, 0)
+        return _frame(df, 0, 0, vix_ratio=np.nan)
     ratio = ctx["vix"] / ctx["vix3m"]
     vote = np.where(ratio > p["threshold"], 1, 0)
     return _frame(df, vote, np.where(vote > 0, np.clip((ratio - 1) * 5 + 0.5, 0.5, 1), 0), vix_ratio=ratio)
@@ -216,7 +216,7 @@ def donchian_describe(row, p):
 
 def btc_trend_gate(df, ctx, p):
     if "btc_close" not in ctx:
-        return _frame(df, 0, 0)
+        return _frame(df, 0, 0, btc_dist=np.nan)
     up = ctx["btc_close"] > ctx["btc_sma"]
     vote = np.where(ctx["btc_sma"].isna(), 0, np.where(up, 1, -1))
     dist = ctx["btc_close"] / ctx["btc_sma"] - 1
@@ -224,6 +224,8 @@ def btc_trend_gate(df, ctx, p):
 
 
 def btc_gate_describe(row, p):
+    if row.vote == 0:
+        return "Bitcoin trend unavailable (no data this scan)"
     return f"Bitcoin {'above' if row.vote > 0 else 'below'} its {p['sma']}-day average ({row.btc_dist:+.1%}); alts usually follow"
 
 

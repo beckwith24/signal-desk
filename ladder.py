@@ -37,17 +37,15 @@ def _fmt(p: float) -> str:
 
 def plan(res: dict, cfg: dict) -> dict:
     lc = cfg["ladder"]
-    al = res["models"]["atr_layers"].extra
-    anchor = float(al["levels"][0])
-    step = float(al["levels"][1]) - anchor
-    dist = float(al["distance"])
+    ov = res["overlays"]
+    anchor, step, dist = ov["anchor_last"], ov["step_last"], ov["distance"]
     level = lambda k: anchor + k * step
     buys = [{"layer": k, "price": level(k), "pct": p, "reached": dist <= k}
             for k, p in zip(lc["buy_layers"], lc["buy_pct"])]
     sells = [{"layer": k, "price": level(k), "pct": p, "reached": dist >= k}
              for k, p in zip(lc["sell_layers"], lc["sell_pct"])]
-    return {"anchor": anchor, "step": step, "distance": dist, "layer": al["layer"],
-            "anchor_ma": cfg["models"]["atr_layers"]["anchor_ma"], "buys": buys, "sells": sells}
+    return {"anchor": anchor, "step": step, "distance": dist, "layer": ov["layer"],
+            "anchor_ma": ov["anchor_ma"], "buys": buys, "sells": sells}
 
 
 def _link(res: dict) -> str | None:
@@ -82,8 +80,20 @@ def _message(res: dict, p: dict, side: str, idx: int, first: int | None = None) 
          ("That's the last layer in the plan." if side == "buy" else "That's the last layer out in the plan.")),
         f"Overall signal: {res['action']} (score {res['score']}/100).",
     ]
-    if side == "buy" and res["models"]["trend"].vote < 0 and res["models"]["momentum"].vote < 0:
-        lines.append("Note: trend and momentum are both still down, so the price may keep falling to lower layers.")
+    ov = res["overlays"]
+    falling = ov["ema_fast"].iat[-1] < ov["ema_slow"].iat[-1] and res["price"] < (ov["ma_long"].iat[-1] or 0)
+    if side == "buy" and falling:
+        lines.append("Note: the trend is still down (below the 200-bar average, short EMA under long EMA), "
+                     "so the price may keep falling to lower layers.")
+    if side == "buy" and res.get("asset") == "crypto":
+        if res.get("rank", 0) <= -2:
+            lines.append(f"⚠️ Conflict: the crypto trend signal is {res['action']}. In our backtests, buying crypto "
+                         "dips against the trend did worse than waiting for the trend to turn.")
+        else:
+            lines.append("Backtest note: on crypto, buying dips has done worse than following the trend.")
+    if side == "sell" and res.get("asset") == "crypto" and res.get("rank", 0) >= 2:
+        lines.append(f"⚠️ Conflict: the crypto trend signal is still {res['action']}. In our backtests, trimming "
+                     "crypto while the trend was up gave up most of the gains.")
     if (link := _link(res)):
         lines.append(f"📈 Chart: {link}")
     lines += ["Change alerts: /settings", "", f"⚠️ {DISCLAIMER}"]

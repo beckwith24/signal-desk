@@ -148,14 +148,12 @@ def vote_cell(r) -> str:
 def results_table(results: list[dict]) -> pd.DataFrame:
     rows = []
     for r in results:
-        mo = r["models"]
         rows.append({
             "Ticker": r["ticker"], "TF": r["timeframe"], "Price": r["price"],
             "Δ bar %": round(r["change_pct"], 2),
             "Action": f"{ICONS.get(r['action'], '')} {r['action']}", "Score": r["score"],
-            "Trend": vote_cell(mo["trend"]), "MeanRev": vote_cell(mo["mean_reversion"]),
-            "Confl.": vote_cell(mo["confluence"]), "Layer": f"{mo['atr_layers'].extra['layer']:+d}",
-            "Mom.": vote_cell(mo["momentum"]), "_rank": abs(r["rank"]),
+            "Models": f"{r['bull']}▲ {r['bear']}▼ of {len(r['models'])}",
+            "Layer": f"{r['overlays']['layer']:+d}", "_rank": abs(r["rank"]),
         })
     df = pd.DataFrame(rows)
     return df.sort_values(["_rank", "Score"], ascending=False).drop(columns="_rank") if not df.empty else df
@@ -170,8 +168,8 @@ def signal_card(r: dict) -> None:
         a, b = st.columns(2)
         a.metric("Price", f"{r['price']:,.4g}", f"{r['change_pct']:+.2f}%")
         b.metric("Score", f"{r['score']}/100", f"{r['bull']}▲ {r['bear']}▼", delta_color="off")
-        votes = " ".join(f"{m.name.split()[0]} {vote_cell(m).split()[0]}" for m in mo.values())
-        st.caption(votes + f" · layer {mo['atr_layers'].extra['layer']:+d}")
+        votes = " · ".join(f"{m.name} {vote_cell(m).split()[0]}" for m in mo.values())
+        st.caption((votes or r.get("segment_about", "")) + f" · layer {r['overlays']['layer']:+d}")
         for reason in r["reasons"] + r["notes"]:
             st.markdown(f"<p class='sig-reason'>• {reason}</p>", unsafe_allow_html=True)
 
@@ -179,16 +177,14 @@ def signal_card(r: dict) -> None:
 def price_chart(r: dict, cfg: dict):
     import plotly.graph_objects as go
 
-    df, mo = r["_df"], r["models"]
+    df, ov = r["_df"], r["overlays"]
     n = 180
     d = df.tail(n)
     fig = go.Figure(go.Candlestick(x=d.index, open=d.open, high=d.high, low=d.low, close=d.close, name="Price"))
-    mr = mo["mean_reversion"].extra
-    for key, name, dash in [("bb_upper", "Upper band", "dot"), ("bb_mid", "Mean", "dash"), ("bb_lower", "Lower band", "dot")]:
-        fig.add_scatter(x=d.index, y=mr[key].tail(n), name=name, line=dict(width=1, dash=dash))
-    al = mo["atr_layers"].extra
-    fig.add_scatter(x=d.index, y=al["anchor"].tail(n), name="Layer anchor", line=dict(width=1.5))
-    for k, lvl in al["levels"].items():
+    for key, name, dash in [("bb_up", "Upper band", "dot"), ("bb_mid", "Mean", "dash"), ("bb_lo", "Lower band", "dot")]:
+        fig.add_scatter(x=d.index, y=ov[key].tail(n), name=name, line=dict(width=1, dash=dash))
+    fig.add_scatter(x=d.index, y=ov["anchor"].tail(n), name="Layer anchor", line=dict(width=1.5))
+    for k, lvl in ov["levels"].items():
         if k:
             fig.add_hline(y=lvl, line=dict(width=0.6, color="green" if k < 0 else "red"),
                           annotation_text=f"L{k:+d}", annotation_position="right")
@@ -239,8 +235,8 @@ with tab_dash:
                     "Price": st.column_config.NumberColumn(format="%.4g"),
                 },
             )
-            st.caption("▲/▼ = model vote with strength 0–1 · Layer = ATR layer vs anchor MA · "
-                       "Score 50 is neutral, 100 max bullish, 0 max bearish")
+            st.caption("Models = bullish ▲ / bearish ▼ votes in this segment's model set · Layer = ATR layer vs anchor MA · "
+                       "Score 50 is neutral, 100 all bullish, 0 all bearish")
         if st.session_state.get("errors"):
             with st.expander(f"⚠️ {len(st.session_state.errors)} tickers had data problems"):
                 st.write("\n".join(st.session_state.errors))
@@ -300,20 +296,17 @@ with tab_hist:
 
 with tab_about:
     st.markdown(f"""
-### The five models
-Each model votes **▲ bullish / ▼ bearish / · neutral** with a strength from 0 to 1.
+### Models by segment
+Each segment (stocks / crypto × daily / 4-hour / hourly) uses only models that held up in published
+research and in our own walk-forward test (see `research/summary.md`).
 
-1. **Trend** — EMA fast/slow, price vs the long MA (200), and Supertrend. Votes only when all agree.
-2. **Mean reversion** — z-score of price vs its rolling mean (same thing as Bollinger Band position). ≤ −2σ oversold, ≥ +2σ overbought.
-3. **Confluence** — five sub-votes: RSI, MACD histogram, Stochastic, volume spike, and price outside ATR (Keltner) bands. Averaged into a 0–100 score.
-4. **ATR layers** — distance from an anchor MA measured in ATR steps. Layer −2 or lower is the *buy zone* (layer in); +2 or higher is the *take-profit / reduce zone* (layer out).
-5. **Momentum** — higher highs/lows or lower highs/lows plus rate of change, and swing breakouts. Stops mean reversion from fighting a strong trend.
-
-### Ensemble decision
-- **Score** = 50 + 50 × average of (vote × strength) across the 5 models.
-- **Buy / Sell** when at least **{cfg['ensemble']['min_agree']}** models agree. **Strong** when the score also passes **{cfg['ensemble']['strong_score']}** (or below {100 - cfg['ensemble']['strong_score']} for sells).
-- **Watch** when one model short of agreement, or the score passes {cfg['ensemble']['watch_score']}.
-- **Falling-knife guard**: an oversold Buy is downgraded to Watch while trend *and* momentum are both still down (and the mirror for Sells in strong uptrends).
+- **Crypto, daily:** trend following — 28-day momentum, price above its 20/50/100-day averages, a breakout
+  ensemble, and Bitcoin's own trend. **Buy** when at least 3 of 4 agree (all 4 = Strong Buy), **Exit** alert when
+  that ends, **Sell** when 3 of 4 are bearish.
+- **Stocks, daily:** dip-buy entries in an uptrend — RSI(2) pullback, close near the day's low (IBS), VIX panic.
+  **Buy** when one fires, **Strong Buy** when two or more do. No sell signals (none tested well on stocks).
+- **4-hour and hourly:** no model showed an edge after costs, so these show charts, layers and the daily signal
+  for timing entries, with no Buy/Sell of their own.
 
 ### Alerts
 You're alerted on a **new** signal at or above your threshold, a **direction flip**, or a **strengthening** (Buy → Strong Buy). Repeating the same signal scan after scan doesn't re-alert.

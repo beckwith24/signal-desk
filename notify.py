@@ -29,10 +29,31 @@ def format_message(r: dict) -> str:
     lines = [
         f"{ICONS.get(r['action'], '')} {r['action'].upper()} — {r['ticker']} ({r['timeframe']})",
         f"Price: {r['price']:,.4g}  ({r['change_pct']:+.2f}% last bar)",
-        f"Confluence score: {r['score']}/100 · {r['bull']} bullish / {r['bear']} bearish models",
+        f"Score: {r['score']}/100 · {r['bull']} bullish / {r['bear']} bearish of {len(r['models'])} models",
+        *([f"Models: {r['segment_about']}"] if r.get("segment_about") else []),
         "Why:",
         *[f"• {x}" for x in r["reasons"]],
         *[f"ℹ️ {x}" for x in r.get("notes", [])],
+        f"🕒 {r['ts']}",
+        *([f"📈 Chart: {link}"] if link else []),
+        "Change alerts: /settings",
+        "",
+        f"⚠️ {DISCLAIMER}",
+    ]
+    return "\n".join(lines)
+
+
+def format_exit(r: dict, entry: dict) -> str:
+    """entry = the Buy that is ending (its time, action and price when it started)."""
+    link = chart_link(r)
+    move = (r["price"] / entry["price"] - 1) * 100 if entry.get("price") else None
+    lines = [
+        f"⚪ EXIT — {r['ticker']} ({r['timeframe']})",
+        f"The {entry['action']} signal from {entry['ts']} has ended: now {r['action']} "
+        f"({r['bull']} of {len(r['models'])} models bullish).",
+        "The tested strategy steps aside here and waits for the next Buy.",
+        f"Price: {r['price']:,.4g}" + (f" ({move:+.1f}% since that signal at {entry['price']:,.4g})" if move is not None else ""),
+        *[f"• {x}" for x in r["reasons"]],
         f"🕒 {r['ts']}",
         *([f"📈 Chart: {link}"] if link else []),
         "Change alerts: /settings",

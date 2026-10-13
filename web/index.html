@@ -172,6 +172,7 @@ h3.sec { font: 700 13px var(--f-display); text-transform: uppercase; letter-spac
 .foot { color: var(--faint); font-size: 12px; margin-top: 28px; line-height: 1.5; }
 .disclaimer { color: var(--muted); font-size: 12px; padding: 10px 12px; border: 1px dashed var(--line); border-radius: 8px; margin-top: 18px; }
 .err { color: var(--down); }
+.tf-note { font-size: 13px; color: var(--muted); background: var(--flat-soft); border-radius: 8px; padding: 9px 11px; margin: 4px 0 8px; }
 .ladder-now { color: var(--muted); font-size: 14px; margin: 0 0 12px; }
 .ladder-now strong { color: var(--ink); font-weight: 600; }
 .ladder { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
@@ -215,6 +216,7 @@ h3.sec { font: 700 13px var(--f-display); text-transform: uppercase; letter-spac
 <main class="wrap">
   <section id="listView">
     <div class="summary" id="summary"></div>
+    <p class="tf-note" id="tfNote" hidden></p>
     <ul class="list" id="list"></ul>
   </section>
 
@@ -240,7 +242,8 @@ h3.sec { font: 700 13px var(--f-display); text-transform: uppercase; letter-spac
     <h3 class="sec">Layer plan</h3>
     <p class="ladder-now" id="dLadderNow"></p>
     <div class="ladder" id="dLadder"></div>
-    <h3 class="sec">The five models</h3>
+    <h3 class="sec">Models</h3>
+    <p class="ladder-now" id="dAbout"></p>
     <table class="models"><tbody id="dModels"></tbody></table>
     <h3 class="sec">Signal history</h3>
     <ul class="hist" id="dHist"></ul>
@@ -348,6 +351,11 @@ h3.sec { font: 700 13px var(--f-display); text-transform: uppercase; letter-spac
     for (const [k, v] of [["Buy-side", buys], ["Sell-side", sells], ["Watching", watch], ["Tickers", items.length]]) {
       const span = el("span"); span.append(el("strong", null, String(v)), " " + k); s.append(span);
     }
+    const note = $("tfNote");
+    const stockAbout = (idx.items.find((i) => i.tf === state.tf && i.asset === "stock") || {}).segment_about || "";
+    note.hidden = state.tf === "1d" || !stockAbout;
+    if (!note.hidden) note.textContent = "No model showed a tested edge on " + (TF_LABEL[state.tf] || state.tf) +
+      " bars after costs, so this timeframe has no Buy/Sell of its own. Use it to time entries on daily signals.";
     if (state.filter === "signals") items = items.filter((i) => i.rank !== 0);
     else if (state.filter !== "all") items = items.filter((i) => i.asset === state.filter);
     items.sort((a, b) => Math.abs(b.rank) - Math.abs(a.rank) || Math.abs(b.score - 50) - Math.abs(a.score - 50) || a.ticker.localeCompare(b.ticker));
@@ -399,6 +407,7 @@ h3.sec { font: 700 13px var(--f-display); text-transform: uppercase; letter-spac
     for (const r of d.reasons) rs.append(el("li", null, r));
     for (const n of d.notes || []) rs.append(el("li", "note", n));
     renderLadder(d);
+    $("dAbout").textContent = d.segment_about ? d.segment_about + "." : "";
     const mt = $("dModels"); mt.textContent = "";
     for (const m of d.models) {
       const tr = el("tr");
@@ -445,7 +454,7 @@ h3.sec { font: 700 13px var(--f-display); text-transform: uppercase; letter-spac
     $("back").hidden = false; $("brand").hidden = true; renderControls();
     $("dTitle").textContent = ticker.replace("-USD", "");
     $("dAsset").innerHTML = ""; $("dAsset").append(el("span", "err", "No " + (TF_LABEL[tf] || tf) + " chart for this ticker yet."));
-    for (const id of ["dPrice", "dChg", "dStats", "dReasons", "dLadder", "dLadderNow", "dModels", "dHist", "dFoot", "legend"]) $(id).textContent = "";
+    for (const id of ["dPrice", "dChg", "dStats", "dReasons", "dLadder", "dLadderNow", "dAbout", "dModels", "dHist", "dFoot", "legend"]) $(id).textContent = "";
     if (state.chart) { state.chart.remove(); state.chart = null; }
   }
 

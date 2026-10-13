@@ -23,7 +23,7 @@ from notify import DISCLAIMER
 log = logging.getLogger("build_site")
 ROOT = Path(__file__).parent
 SUMMARY_KEYS = ["ticker", "tf", "asset", "updated", "price", "change_pct", "action", "rank", "score",
-                "bull", "bear", "layer", "decimals"]
+                "bull", "bear", "layer", "decimals", "segment_about"]
 
 
 def main() -> None:

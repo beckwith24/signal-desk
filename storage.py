@@ -17,6 +17,7 @@ CREATE TABLE IF NOT EXISTS signals (
     action TEXT, rank INTEGER, score INTEGER, bull INTEGER, bear INTEGER,
     reasons TEXT, notified INTEGER
 );
+CREATE TABLE IF NOT EXISTS meta (key TEXT PRIMARY KEY, value TEXT);
 CREATE TABLE IF NOT EXISTS ladder_state (
     ticker TEXT, timeframe TEXT, buy_tier INTEGER, sell_tier INTEGER, PRIMARY KEY (ticker, timeframe)
 );
@@ -78,6 +79,28 @@ def history(limit: int = 1000) -> pd.DataFrame:
         sign = df["rank"].apply(lambda x: (x > 0) - (x < 0))
         df["signal_result_%"] = (move * sign * 100).round(2)
     return df
+
+
+def ensure_engine(engine: str) -> bool:
+    """When the signal engine changes, forget the last action per ticker so the first scan on the
+    new engine is a quiet baseline (no alerts from comparing new signals with old ones).
+    Signal history and ladder state are kept. Returns True if a reset happened."""
+    with _conn() as c:
+        row = c.execute("SELECT value FROM meta WHERE key='engine'").fetchone()
+        if row and row[0] == engine:
+            return False
+        c.execute("DELETE FROM state")
+        c.execute("INSERT OR REPLACE INTO meta VALUES ('engine', ?)", (engine,))
+        c.commit()
+    return True
+
+
+def last_entry(ticker: str, tf: str) -> dict | None:
+    """Most recent logged Buy/Strong Buy for this ticker/timeframe (for exit messages)."""
+    with _conn() as c:
+        row = c.execute("SELECT ts, action, price FROM signals WHERE ticker=? AND timeframe=? AND rank>=2 "
+                        "ORDER BY id DESC LIMIT 1", (ticker, tf)).fetchone()
+    return dict(zip(["ts", "action", "price"], row)) if row else None
 
 
 def get_ladder(ticker: str, tf: str) -> tuple[int, int] | None:
