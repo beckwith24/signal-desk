@@ -9,12 +9,40 @@ from __future__ import annotations
 import numpy as np
 import pandas as pd
 
+import ia
 from signals import atr, ema, rsi, sma
 
 EMA_FAST, EMA_SLOW, MA_LONG, BB_LEN, BB_SD = 21, 55, 200, 20, 2.0
 
 
-def compute(df: pd.DataFrame, cfg: dict) -> dict:
+def ia_view(df: pd.DataFrame, ath_known: tuple[float, str] | None = None, recent: int = 300) -> dict:
+    """InvestAnswers-style view: trend ribbon, ATR buy/sell stop with its flips, all-time-high levels."""
+    fast, slow = ia.ribbon(df)
+    stop, up = ia.atr_stop(df)
+    ready = stop.notna()
+    flips = up.ne(up.shift(1)) & ready & ready.shift(1, fill_value=False)
+    ath_s = ia.running_ath(df, ath_known)
+    ath = float(ath_s.iat[-1])
+    price = float(df["close"].iat[-1])
+    since = int(len(df) - 1 - np.flatnonzero(flips.to_numpy())[-1]) if flips.any() else None
+    tail = flips.iloc[-recent:]
+    return {
+        "fast": fast, "slow": slow, "stop": stop,
+        "trend": "up" if fast.iat[-1] > slow.iat[-1] else "down",
+        "stop_side": "buy" if bool(up.iat[-1]) else "sell",
+        "stop_last": float(stop.iat[-1]) if ready.iat[-1] else None,
+        "bars_since_flip": since,
+        "flips": [(ts, "buy" if bool(up.loc[ts]) else "sell") for ts in tail.index[tail.to_numpy()]],
+        "ath": ath, "ath_from_history": bool(ath_known),
+        "levels": ia.levels(ath),
+        "level": ia.level_of(price, ath),
+        "pct_of_ath": price / ath,
+        "intraday": ia.is_intraday(df),
+        "stop_key": ia.STOP_KEY_INTRADAY if ia.is_intraday(df) else ia.STOP_KEY,
+    }
+
+
+def compute(df: pd.DataFrame, cfg: dict, ath_known: tuple[float, str] | None = None) -> dict:
     c = df["close"]
     lp = cfg["models"]["atr_layers"]
     anchor = sma(c, lp["anchor_ma"])
@@ -35,4 +63,5 @@ def compute(df: pd.DataFrame, cfg: dict) -> dict:
         "rsi": float(rsi(c, 14).iat[-1]),
         "z": float(((c - m) / sd).iat[-1]) if sd.iat[-1] else 0.0,
         "anchor_ma": lp["anchor_ma"],
+        "ia": ia_view(df, ath_known),
     }

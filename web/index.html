@@ -278,6 +278,9 @@ h3.sec { font: 700 13px var(--f-display); text-transform: uppercase; letter-spac
     </div>
     <h3 class="sec">Why</h3>
     <ul class="reasons" id="dReasons"></ul>
+    <h3 class="sec">InvestAnswers-style view</h3>
+    <ul class="reasons" id="dIA"></ul>
+    <p class="ladder-now" id="dIANote"></p>
     <h3 class="sec">Layer plan</h3>
     <p class="ladder-now" id="dLadderNow"></p>
     <div class="ladder" id="dLadder"></div>
@@ -351,17 +354,17 @@ h3.sec { font: 700 13px var(--f-display); text-transform: uppercase; letter-spac
   const TF_LABEL = { "1d": "Daily", "4h": "4H", "1h": "1H", "1wk": "Weekly" };
   const FILTERS = [["all", "All"], ["signals", "Signals"], ["stock", "Stocks"], ["crypto", "Crypto"]];
   const OVERLAYS = [
-    ["bands", "Bands"], ["layers", "ATR layers"], ["emas", "EMAs"], ["ma", "Long MA"], ["volume", "Volume"], ["markers", "Past signals"],
+    ["ia", "IA view"], ["bands", "Bands"], ["layers", "ATR layers"], ["emas", "EMAs"], ["ma", "Long MA"], ["volume", "Volume"], ["markers", "Past signals"],
   ];
   const store = {
-    get(k, d) { try { const v = localStorage.getItem("sd." + k); return v == null ? d : JSON.parse(v); } catch { return d; } },
-    set(k, v) { try { localStorage.setItem("sd." + k, JSON.stringify(v)); } catch {} },
+    get(k, d, ver) { try { const v = localStorage.getItem("sd." + k + (ver ? "." + ver : "")); return v == null ? d : JSON.parse(v); } catch { return d; } },
+    set(k, v, ver) { try { localStorage.setItem("sd." + k + (ver ? "." + ver : ""), JSON.stringify(v)); } catch {} },
   };
   const state = {
     index: null,
     tf: store.get("tf", "1d"),
     filter: store.get("filter", "all"),
-    overlays: Object.assign({ bands: true, layers: true, emas: true, ma: false, volume: true, markers: true }, store.get("overlays", {})),
+    overlays: Object.assign({ ia: true, bands: false, layers: true, emas: false, ma: false, volume: true, markers: true }, store.get("overlays", {}, "v2")),
     detail: null, chart: null,
   };
   const LOC = (() => { try { const l = navigator.language || "en-US"; new Intl.NumberFormat(l); new Intl.DateTimeFormat(l); return l; } catch { return "en-US"; } })();
@@ -512,6 +515,7 @@ h3.sec { font: 700 13px var(--f-display); text-transform: uppercase; letter-spac
     for (const r of d.reasons) rs.append(el("li", null, r));
     for (const n of d.notes || []) rs.append(el("li", "note", n));
     renderLadder(d);
+    renderIA(d);
     $("dAbout").textContent = d.segment_about ? d.segment_about + "." : "";
     const mt = $("dModels"); mt.textContent = "";
     for (const m of d.models) {
@@ -568,13 +572,30 @@ h3.sec { font: 700 13px var(--f-display); text-transform: uppercase; letter-spac
     box.append(col("in", "Layer in", L.buys, "add"), col("out", "Layer out", L.sells, "trim"));
   }
 
+  function renderIA(d) {
+    const box = $("dIA"), note = $("dIANote"); box.textContent = ""; note.textContent = "";
+    const v = d.ia; if (!v) { box.append(el("li", null, "Not in this data yet. It appears after the next scan.")); return; }
+    const li = (label, strong, rest, cls) => { const x = el("li", cls); x.append(label, el("strong", null, strong), rest || ""); box.append(x); };
+    li("Trend ribbon: ", v.trend === "up" ? "blue (uptrend)" : "orange (downtrend)",
+       " — 15-bar EMA of (high+low+close)/3 " + (v.trend === "up" ? "above" : "below") + " the 34-bar EMA.");
+    const ago = v.bars_since_flip == null ? "" : v.bars_since_flip === 0 ? " on this bar" : " " + v.bars_since_flip + " bar" + (v.bars_since_flip === 1 ? "" : "s") + " ago";
+    li("ATR model: ", (v.stop_side === "buy" ? "buy" : "sell") + ago,
+       v.stop != null ? " — stop " + fmtPrice(v.stop, d.decimals) + " (" + v.stop_key + " × 30-bar ATR). It flips when a close crosses it." : "");
+    const lv = Math.floor(v.level), nxt = Math.min(lv + 1, 6);
+    li("Levels: ", v.pct_of_ath + "% of the all-time high",
+       " (" + fmtPrice(v.ath, d.decimals) + (v.ath_from_history ? "" : ", highest in the data shown") + "), between Level " +
+       Math.max(lv, 0) + " and Level " + nxt + ". Levels are 23.6 / 38.2 / 50 / 61.8 / 76.4 / 100% of the high.");
+    note.textContent = "Rebuilt from your TradingView screenshots: close matches, not InvestAnswers' own code. " +
+      "Shown on the chart with the IA view switch.";
+  }
+
   function showDetailError(ticker, tf) {
     state.detail = { ticker }; $("listView").hidden = true; $("detailView").hidden = false;
     $("dRemove").hidden = true;
     $("back").hidden = false; $("brand").hidden = true; renderControls();
     $("dTitle").textContent = ticker.replace("-USD", "");
     $("dAsset").innerHTML = ""; $("dAsset").append(el("span", "err", "No " + (TF_LABEL[tf] || tf) + " chart for this ticker yet."));
-    for (const id of ["dPrice", "dChg", "dStats", "dReasons", "dLadder", "dLadderNow", "dAbout", "dModels", "dHist", "dFoot", "legend"]) $(id).textContent = "";
+    for (const id of ["dPrice", "dChg", "dStats", "dReasons", "dIA", "dIANote", "dLadder", "dLadderNow", "dAbout", "dModels", "dHist", "dFoot", "legend"]) $(id).textContent = "";
     if (state.chart) { state.chart.remove(); state.chart = null; }
   }
 
@@ -636,6 +657,29 @@ h3.sec { font: 700 13px var(--f-display); text-transform: uppercase; letter-spac
     }
     if (ov.emas) { line("ema_fast", C.watch, 2); line("ema_slow", C.ink, 2); }
     if (ov.ma) line("ma_long", C.muted, 2, 1);
+    const IA_BLUE = "#3E6BEF", IA_ORANGE = "#E0862C", IA_LEVEL = "#9C4DCC";
+    if (ov.ia && d.ia && d.ov.ia_fast) {
+      const f = d.ov.ia_fast, sl = d.ov.ia_slow, st = d.ov.ia_stop || [];
+      const fp = [], sp = [], stp = [];
+      for (let i = 0; i < d.t.length; i++) {
+        if (f[i] == null || sl[i] == null) continue;
+        const col = f[i] >= sl[i] ? IA_BLUE : IA_ORANGE;
+        fp.push({ time: d.t[i], value: f[i], color: col }); sp.push({ time: d.t[i], value: sl[i], color: col });
+      }
+      for (let i = 0; i < d.t.length; i++) {
+        if (st[i] == null || d.c[i] == null) continue;
+        stp.push({ time: d.t[i], value: st[i], color: (d.c[i] > st[i] ? C.up : C.down) + "cc" });
+      }
+      const opts = { priceLineVisible: false, lastValueVisible: false, crosshairMarkerVisible: false };
+      chart.addLineSeries(Object.assign({ lineWidth: 3 }, opts)).setData(fp);
+      chart.addLineSeries(Object.assign({ lineWidth: 2 }, opts)).setData(sp);
+      chart.addLineSeries(Object.assign({ lineWidth: 1, lineStyle: 1, lineType: 1 }, opts)).setData(stp);
+      for (const [k, v] of Object.entries(d.ia.levels || {})) {
+        if (v == null) continue;
+        const near = Math.abs(v / d.price - 1) < 0.3;   // label only the levels near the price
+        candles.createPriceLine({ price: v, color: IA_LEVEL + "bb", lineWidth: 1, lineStyle: 0, axisLabelVisible: near, title: near ? "Level " + k : "" });
+      }
+    }
     if (ov.layers) {
       line("anchor", C.faint, 1);
       for (const [k, v] of Object.entries(d.levels)) {
@@ -644,27 +688,36 @@ h3.sec { font: 700 13px var(--f-display); text-transform: uppercase; letter-spac
           axisLabelVisible: Math.abs(n) <= 2, title: "L" + (n > 0 ? "+" : "") + n });
       }
     }
+    const marks = []; const times = bars.map((b) => b.time);
+    if (ov.ia && d.ia && d.ia.flips) {
+      for (const fl of d.ia.flips) {
+        if (fl.t < times[0]) continue;
+        const buy = fl.side === "buy";
+        marks.push({ time: fl.t, position: buy ? "belowBar" : "aboveBar", color: buy ? C.up : C.down,
+                     shape: buy ? "arrowUp" : "arrowDown", text: fl.side });
+      }
+    }
     if (ov.markers && d.signals && d.signals.length) {
-      const marks = []; const times = bars.map((b) => b.time); const seen = new Set();
+      const seen = new Set();
       for (const s of d.signals) {
         if (!s.t || Math.abs(s.rank) < 1 || s.t < times[0]) continue;
         let j = times.length - 1; while (j > 0 && times[j] > s.t) j--;
         const t = times[j]; if (seen.has(t)) continue; seen.add(t);
         const up = s.rank > 0, strong = Math.abs(s.rank) >= 2;
         marks.push({ time: t, position: up ? "belowBar" : "aboveBar", color: up ? C.up : C.down,
-                     shape: strong ? (up ? "arrowUp" : "arrowDown") : "circle", text: strong ? s.action : "" });
+                     shape: strong ? "square" : "circle", text: strong ? s.action : "" });
       }
-      marks.sort((a, b) => a.time - b.time);
-      candles.setMarkers(marks);
     }
+    marks.sort((a, b) => a.time - b.time);
+    if (marks.length) candles.setMarkers(marks);
     // legend / overlay toggles
-    const swatch = { bands: C.accent, layers: C.up, emas: C.watch, ma: C.muted, volume: C.faint, markers: C.down };
-    const labelFor = { bands: "Bands (2σ)", layers: "ATR layers", emas: d.labels.ema_fast + " / " + d.labels.ema_slow.replace("EMA ", ""), ma: d.labels.ma_long, volume: "Volume", markers: "Past signals" };
+    const swatch = { ia: IA_BLUE, bands: C.accent, layers: C.up, emas: C.watch, ma: C.muted, volume: C.faint, markers: C.down };
+    const labelFor = { ia: "IA ribbon · ATR buy/sell · levels", bands: "Bands (2σ)", layers: "ATR layers", emas: d.labels.ema_fast + " / " + d.labels.ema_slow.replace("EMA ", ""), ma: d.labels.ma_long, volume: "Volume", markers: "Past signals" };
     for (const [k] of OVERLAYS) {
       const b = el("button", "chip"); b.type = "button"; b.setAttribute("aria-pressed", String(!!ov[k]));
       const sw = el("span", "sw"); sw.style.background = swatch[k];
       b.append(sw, labelFor[k]);
-      b.onclick = () => { ov[k] = !ov[k]; store.set("overlays", ov); drawChart(); };
+      b.onclick = () => { ov[k] = !ov[k]; store.set("overlays", ov, "v2"); drawChart(); };
       legend.append(b);
     }
     // touch readout

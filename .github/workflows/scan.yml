@@ -60,6 +60,7 @@ jobs:
           git config user.name "signal-desk-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add signals.db
+          if [ -f ath.json ]; then git add ath.json; fi
           if ! git diff --cached --quiet; then
             git commit -m "Update signal history"
             ok=0; for i in 1 2 3; do git pull --rebase && git push && ok=1 && break; sleep 5; done; [ "$ok" = 1 ]

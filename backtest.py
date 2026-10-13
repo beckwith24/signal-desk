@@ -29,7 +29,7 @@ import numpy as np
 import pandas as pd
 
 from config import load_config
-from data import _normalize, _resample, is_crypto
+from data import _normalize, is_crypto, to_4h
 from signals import MIN_BARS, evaluate
 
 log = logging.getLogger("backtest")
@@ -55,7 +55,7 @@ def download(ticker: str, tf: str) -> pd.DataFrame:
             df = yf.Ticker(ticker).history(period=period, interval=interval, auto_adjust=True)
             if df is not None and not df.empty:
                 df = _normalize(df)
-                return _resample(df, "4h") if tf == "4h" else df
+                return to_4h(df, ticker) if tf == "4h" else df
         except Exception as e:
             log.warning("%s %s download failed: %s", ticker, tf, e)
         time.sleep(3 * (attempt + 1))

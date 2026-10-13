@@ -59,6 +59,16 @@ def build_payload(res: dict, cfg: dict) -> dict:
     for tier in lp["buys"] + lp["sells"]:
         tier["price"] = _num(tier["price"], nd)
     lp["anchor"], lp["step"], lp["distance"] = _num(lp["anchor"], nd), _num(lp["step"], nd), round(lp["distance"], 2)
+    iv = ov["ia"]
+    start = idx[0]
+    ia_out = {
+        "trend": iv["trend"], "stop_side": iv["stop_side"], "stop": _num(iv["stop_last"], nd),
+        "bars_since_flip": iv["bars_since_flip"], "stop_key": iv["stop_key"],
+        "ath": _num(iv["ath"], nd), "ath_from_history": iv["ath_from_history"],
+        "levels": {str(k): _num(v, nd) for k, v in iv["levels"].items()},
+        "level": round(iv["level"], 2), "pct_of_ath": round(iv["pct_of_ath"] * 100, 1),
+        "flips": [{"t": int(ts.timestamp()), "side": side} for ts, side in iv["flips"] if ts >= start],
+    }
     return {
         "ladder": lp,
         "ticker": res["ticker"],
@@ -100,7 +110,11 @@ def build_payload(res: dict, cfg: dict) -> dict:
             "bb_mid": series(ov["bb_mid"]),
             "bb_lo": series(ov["bb_lo"]),
             "anchor": series(ov["anchor"]),
+            "ia_fast": series(iv["fast"]),
+            "ia_slow": series(iv["slow"]),
+            "ia_stop": series(iv["stop"]),
         },
+        "ia": ia_out,
         "signals": [{"t": _ts(s["ts"]), "ts": s["ts"], "action": s["action"], "rank": s["rank"],
                      "score": s["score"], "price": _num(s["price"], nd)}
                     for s in storage.signals_for(res["ticker"], res["timeframe"])],

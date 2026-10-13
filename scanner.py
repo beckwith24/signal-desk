@@ -7,6 +7,7 @@ from datetime import datetime, timezone
 
 import context
 import engine
+import ia
 import ladder
 import overlays
 import storage
@@ -32,12 +33,14 @@ def daily_context(asset: str, cfg: dict) -> dict:
 def scan_one(ticker: str, tf: str, cfg: dict) -> dict:
     df = fetch_ohlcv(ticker, tf, cfg)
     asset = "crypto" if is_crypto(ticker, cfg) else "stock"
+    ath_known = ia.known_ath(ticker)          # full-history all-time high (cached in ath.json, daily refresh)
     if cfg.get("engine", "v2") == "v2":
         ctx = context.align(daily_context(asset, cfg), df.index, asset, tf)
+        ctx["ath_known"] = ath_known
         res = engine.evaluate(df, cfg, asset, tf, ctx)
     else:
         res = evaluate(df, cfg)
-    res["overlays"] = overlays.compute(df, cfg)
+    res["overlays"] = overlays.compute(df, cfg, ath_known)
     res["asset"] = asset
     price, prev = float(df["close"].iat[-1]), float(df["close"].iat[-2])
     notes = []

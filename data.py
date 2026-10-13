@@ -26,6 +26,28 @@ def _resample(df: pd.DataFrame, rule: str) -> pd.DataFrame:
     return df.resample(rule).agg(agg).dropna(subset=["close"])
 
 
+def session_4h(df: pd.DataFrame) -> pd.DataFrame:
+    """TradingView-style 4h bars for US stocks: 09:30-13:30 and 13:30-16:00 New York time."""
+    import numpy as np
+    from datetime import time as _t
+
+    ny = df.tz_convert("America/New_York")
+    t = ny.index.time
+    ny = ny[(t >= _t(9, 30)) & (t < _t(16, 0))]
+    first = ny.index.time < _t(13, 30)
+    start = ny.index.normalize() + pd.to_timedelta(np.where(first, 9.5, 13.5), unit="h")
+    agg = {"open": "first", "high": "max", "low": "min", "close": "last", "volume": "sum"}
+    out = ny.groupby(start).agg(agg).dropna(subset=["close"])
+    out.index = pd.DatetimeIndex(out.index).tz_convert("UTC")
+    return out
+
+
+def to_4h(df: pd.DataFrame, ticker: str) -> pd.DataFrame:
+    """US stocks get session bars (like TradingView); everything else clock bins."""
+    us_stock = "." not in ticker and not ticker.upper().endswith(("-USD", "-USDT")) and not ticker.startswith("^")
+    return session_4h(df) if us_stock else _resample(df, "4h")
+
+
 _YF_CACHE: dict = {}
 _YF_TTL = 300  # seconds; 1h and 4h share one hourly download per ticker
 
@@ -46,7 +68,7 @@ def fetch_yfinance(ticker: str, tf: str) -> pd.DataFrame:
             raise ValueError(f"yfinance returned no data for {ticker} {tf}")
         df = _normalize(df)
         _YF_CACHE[key] = (time.time(), df)
-    return _resample(df, "4h") if tf == "4h" else df.copy()
+    return to_4h(df, ticker) if tf == "4h" else df.copy()
 
 
 def _exchange(name: str):
