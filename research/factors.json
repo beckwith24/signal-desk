@@ -1,0 +1,533 @@
+{
+ "generated": "2026-10-13 20:51 UTC",
+ "dropped": [
+  "BK (no data for BK 1d)",
+  "UNI-USD (no data for UNI-USD 1d)",
+  "SUI-USD (no data for SUI-USD 1d)",
+  "HYPE-USD (no data for HYPE-USD 1d)"
+ ],
+ "stock_ranking": {
+  "universe": 99,
+  "rebalance": "monthly",
+  "train": {
+   "Equal weight, all stocks": {
+    "n": 38,
+    "cagr_pct": 18.9,
+    "vol_pct": 18.8,
+    "sharpe": 1.02,
+    "max_dd_pct": -18.5
+   },
+   "Top third by 12-month strength": {
+    "n": 38,
+    "cagr_pct": 20.5,
+    "vol_pct": 18.8,
+    "sharpe": 1.09,
+    "max_dd_pct": -16.5,
+    "excess_pct_per_year": 1.3,
+    "t": 0.33,
+    "share_beating_pct": 52.6
+   },
+   "Top third by 6-month strength": {
+    "n": 38,
+    "cagr_pct": 21.8,
+    "vol_pct": 20.5,
+    "sharpe": 1.07,
+    "max_dd_pct": -19.0,
+    "excess_pct_per_year": 2.7,
+    "t": 0.86,
+    "share_beating_pct": 60.5
+   },
+   "Top third (12m) + above 200-day": {
+    "n": 38,
+    "cagr_pct": 19.9,
+    "vol_pct": 19.3,
+    "sharpe": 1.04,
+    "max_dd_pct": -16.1,
+    "excess_pct_per_year": 0.9,
+    "t": 0.19,
+    "share_beating_pct": 50.0
+   },
+   "Top third (12m), sized by volatility": {
+    "n": 38,
+    "cagr_pct": 18.9,
+    "vol_pct": 17.4,
+    "sharpe": 1.09,
+    "max_dd_pct": -16.9,
+    "excess_pct_per_year": -0.3,
+    "t": -0.07,
+    "share_beating_pct": 52.6
+   }
+  },
+  "test": {
+   "Equal weight, all stocks": {
+    "n": 70,
+    "cagr_pct": 18.9,
+    "vol_pct": 14.7,
+    "sharpe": 1.26,
+    "max_dd_pct": -22.1
+   },
+   "Top third by 12-month strength": {
+    "n": 70,
+    "cagr_pct": 22.4,
+    "vol_pct": 17.0,
+    "sharpe": 1.28,
+    "max_dd_pct": -18.7,
+    "excess_pct_per_year": 3.3,
+    "t": 0.84,
+    "share_beating_pct": 48.6
+   },
+   "Top third by 6-month strength": {
+    "n": 70,
+    "cagr_pct": 22.9,
+    "vol_pct": 17.3,
+    "sharpe": 1.29,
+    "max_dd_pct": -22.7,
+    "excess_pct_per_year": 3.8,
+    "t": 1.02,
+    "share_beating_pct": 52.9
+   },
+   "Top third (12m) + above 200-day": {
+    "n": 70,
+    "cagr_pct": 22.2,
+    "vol_pct": 18.1,
+    "sharpe": 1.2,
+    "max_dd_pct": -21.4,
+    "excess_pct_per_year": 3.3,
+    "t": 0.74,
+    "share_beating_pct": 51.4
+   },
+   "Top third (12m), sized by volatility": {
+    "n": 70,
+    "cagr_pct": 18.2,
+    "vol_pct": 14.4,
+    "sharpe": 1.24,
+    "max_dd_pct": -17.4,
+    "excess_pct_per_year": -0.6,
+    "t": -0.22,
+    "share_beating_pct": 50.0
+   }
+  },
+  "all": {
+   "Equal weight, all stocks": {
+    "n": 108,
+    "cagr_pct": 18.9,
+    "vol_pct": 16.2,
+    "sharpe": 1.16,
+    "max_dd_pct": -22.1
+   },
+   "Top third by 12-month strength": {
+    "n": 108,
+    "cagr_pct": 21.7,
+    "vol_pct": 17.6,
+    "sharpe": 1.21,
+    "max_dd_pct": -18.7,
+    "excess_pct_per_year": 2.6,
+    "t": 0.9,
+    "share_beating_pct": 50.0
+   },
+   "Top third by 6-month strength": {
+    "n": 108,
+    "cagr_pct": 22.5,
+    "vol_pct": 18.4,
+    "sharpe": 1.2,
+    "max_dd_pct": -22.7,
+    "excess_pct_per_year": 3.4,
+    "t": 1.29,
+    "share_beating_pct": 55.6
+   },
+   "Top third (12m) + above 200-day": {
+    "n": 108,
+    "cagr_pct": 21.4,
+    "vol_pct": 18.4,
+    "sharpe": 1.15,
+    "max_dd_pct": -21.4,
+    "excess_pct_per_year": 2.4,
+    "t": 0.74,
+    "share_beating_pct": 50.9
+   },
+   "Top third (12m), sized by volatility": {
+    "n": 108,
+    "cagr_pct": 18.5,
+    "vol_pct": 15.4,
+    "sharpe": 1.18,
+    "max_dd_pct": -17.4,
+    "excess_pct_per_year": -0.5,
+    "t": -0.21,
+    "share_beating_pct": 50.9
+   }
+  }
+ },
+ "crypto": {
+  "universe": 29,
+  "rebalance": "weekly",
+  "target_vol_pct": 60.0,
+  "train": {
+   "Equal weight, all coins": {
+    "n": 202,
+    "cagr_pct": 282.8,
+    "vol_pct": 122.4,
+    "sharpe": 1.62,
+    "max_dd_pct": -83.5
+   },
+   "Top third by 4-week strength": {
+    "n": 159,
+    "cagr_pct": 118.6,
+    "vol_pct": 119.0,
+    "sharpe": 1.17,
+    "max_dd_pct": -78.9,
+    "excess_pct_per_year": 50.4,
+    "t": 2.16,
+    "share_beating_pct": 57.2
+   },
+   "App trend rule on every coin": {
+    "n": 202,
+    "cagr_pct": 219.6,
+    "vol_pct": 89.9,
+    "sharpe": 1.65,
+    "max_dd_pct": -34.8,
+    "excess_pct_per_year": -50.1,
+    "t": -1.27,
+    "share_beating_pct": 39.1
+   },
+   "App trend rule, sized by volatility": {
+    "n": 202,
+    "cagr_pct": 102.1,
+    "vol_pct": 45.8,
+    "sharpe": 1.74,
+    "max_dd_pct": -17.1,
+    "excess_pct_per_year": -118.3,
+    "t": -2.46,
+    "share_beating_pct": 42.1
+   },
+   "Top third + trend rule": {
+    "n": 159,
+    "cagr_pct": 97.3,
+    "vol_pct": 100.9,
+    "sharpe": 1.07,
+    "max_dd_pct": -68.6,
+    "excess_pct_per_year": 18.6,
+    "t": 0.44,
+    "share_beating_pct": 51.6
+   },
+   "Top third + trend rule, sized by volatility": {
+    "n": 159,
+    "cagr_pct": 54.3,
+    "vol_pct": 38.9,
+    "sharpe": 1.3,
+    "max_dd_pct": -39.3,
+    "excess_pct_per_year": -38.5,
+    "t": -0.81,
+    "share_beating_pct": 50.3
+   }
+  },
+  "test": {
+   "Equal weight, all coins": {
+    "n": 302,
+    "cagr_pct": 29.7,
+    "vol_pct": 76.3,
+    "sharpe": 0.71,
+    "max_dd_pct": -80.8
+   },
+   "Top third by 4-week strength": {
+    "n": 302,
+    "cagr_pct": 48.4,
+    "vol_pct": 81.5,
+    "sharpe": 0.87,
+    "max_dd_pct": -80.0,
+    "excess_pct_per_year": 16.1,
+    "t": 1.53,
+    "share_beating_pct": 49.3
+   },
+   "App trend rule on every coin": {
+    "n": 302,
+    "cagr_pct": 68.5,
+    "vol_pct": 43.7,
+    "sharpe": 1.4,
+    "max_dd_pct": -44.1,
+    "excess_pct_per_year": 6.5,
+    "t": 0.3,
+    "share_beating_pct": 46.0
+   },
+   "App trend rule, sized by volatility": {
+    "n": 302,
+    "cagr_pct": 36.3,
+    "vol_pct": 25.2,
+    "sharpe": 1.35,
+    "max_dd_pct": -28.2,
+    "excess_pct_per_year": -20.4,
+    "t": -0.81,
+    "share_beating_pct": 50.0
+   },
+   "Top third + trend rule": {
+    "n": 302,
+    "cagr_pct": 116.6,
+    "vol_pct": 69.0,
+    "sharpe": 1.43,
+    "max_dd_pct": -58.3,
+    "excess_pct_per_year": 44.4,
+    "t": 2.12,
+    "share_beating_pct": 52.0
+   },
+   "Top third + trend rule, sized by volatility": {
+    "n": 302,
+    "cagr_pct": 56.7,
+    "vol_pct": 38.6,
+    "sharpe": 1.35,
+    "max_dd_pct": -44.3,
+    "excess_pct_per_year": -2.3,
+    "t": -0.1,
+    "share_beating_pct": 49.3
+   }
+  },
+  "all": {
+   "Equal weight, all coins": {
+    "n": 504,
+    "cagr_pct": 100.2,
+    "vol_pct": 97.8,
+    "sharpe": 1.15,
+    "max_dd_pct": -83.5
+   },
+   "Top third by 4-week strength": {
+    "n": 461,
+    "cagr_pct": 69.6,
+    "vol_pct": 96.1,
+    "sharpe": 0.98,
+    "max_dd_pct": -80.0,
+    "excess_pct_per_year": 27.9,
+    "t": 2.63,
+    "share_beating_pct": 52.1
+   },
+   "App trend rule on every coin": {
+    "n": 504,
+    "cagr_pct": 117.8,
+    "vol_pct": 66.4,
+    "sharpe": 1.44,
+    "max_dd_pct": -44.1,
+    "excess_pct_per_year": -16.2,
+    "t": -0.78,
+    "share_beating_pct": 43.3
+   },
+   "App trend rule, sized by volatility": {
+    "n": 504,
+    "cagr_pct": 59.6,
+    "vol_pct": 35.0,
+    "sharpe": 1.5,
+    "max_dd_pct": -28.2,
+    "excess_pct_per_year": -59.7,
+    "t": -2.42,
+    "share_beating_pct": 46.8
+   },
+   "Top third + trend rule": {
+    "n": 461,
+    "cagr_pct": 109.7,
+    "vol_pct": 81.3,
+    "sharpe": 1.25,
+    "max_dd_pct": -68.6,
+    "excess_pct_per_year": 35.5,
+    "t": 1.78,
+    "share_beating_pct": 51.8
+   },
+   "Top third + trend rule, sized by volatility": {
+    "n": 461,
+    "cagr_pct": 55.9,
+    "vol_pct": 38.7,
+    "sharpe": 1.34,
+    "max_dd_pct": -44.3,
+    "excess_pct_per_year": -14.8,
+    "t": -0.67,
+    "share_beating_pct": 49.7
+   }
+  }
+ },
+ "earnings": {
+  "events_total": 3750,
+  "from": "2016-10-17",
+  "to": "2026-07-16",
+  "train": {
+   "All reports": {
+    "events": 1592,
+    "20d_excess_pct": -0.26,
+    "20d_t": -1.48,
+    "20d_win_pct": 45.9,
+    "40d_excess_pct": -0.36,
+    "40d_t": -1.5,
+    "40d_win_pct": 46.4,
+    "60d_excess_pct": -0.5,
+    "60d_t": -1.56,
+    "60d_win_pct": 44.5
+   },
+   "Beat (surprise > 0) and stock jumped > 3%": {
+    "events": 365,
+    "20d_excess_pct": 0.16,
+    "20d_t": 0.53,
+    "20d_win_pct": 48.5,
+    "40d_excess_pct": -0.11,
+    "40d_t": -0.25,
+    "40d_win_pct": 48.2,
+    "60d_excess_pct": 0.15,
+    "60d_t": 0.25,
+    "60d_win_pct": 45.2
+   },
+   "Biggest jumps (top 20%)": {
+    "events": 319,
+    "20d_excess_pct": 0.33,
+    "20d_t": 1.01,
+    "20d_win_pct": 50.2,
+    "40d_excess_pct": 0.26,
+    "40d_t": 0.51,
+    "40d_win_pct": 48.6,
+    "60d_excess_pct": 0.69,
+    "60d_t": 1.03,
+    "60d_win_pct": 45.5
+   },
+   "Biggest drops (bottom 20%)": {
+    "events": 319,
+    "20d_excess_pct": -0.95,
+    "20d_t": -2.6,
+    "20d_win_pct": 42.3,
+    "40d_excess_pct": -0.55,
+    "40d_t": -0.98,
+    "40d_win_pct": 43.9,
+    "60d_excess_pct": -0.54,
+    "60d_t": -0.75,
+    "60d_win_pct": 45.8
+   },
+   "Missed (surprise < 0) and stock fell > 3%": {
+    "events": 104,
+    "20d_excess_pct": -0.97,
+    "20d_t": -1.6,
+    "20d_win_pct": 40.4,
+    "40d_excess_pct": -1.23,
+    "40d_t": -1.39,
+    "40d_win_pct": 43.3,
+    "60d_excess_pct": -1.86,
+    "60d_t": -1.78,
+    "60d_win_pct": 42.3
+   }
+  },
+  "test": {
+   "All reports": {
+    "events": 2158,
+    "20d_excess_pct": -0.14,
+    "20d_t": -0.82,
+    "20d_win_pct": 45.3,
+    "40d_excess_pct": -0.22,
+    "40d_t": -0.9,
+    "40d_win_pct": 44.3,
+    "60d_excess_pct": -0.26,
+    "60d_t": -0.67,
+    "60d_win_pct": 43.1
+   },
+   "Beat (surprise > 0) and stock jumped > 3%": {
+    "events": 576,
+    "20d_excess_pct": 0.5,
+    "20d_t": 1.57,
+    "20d_win_pct": 48.3,
+    "40d_excess_pct": 0.28,
+    "40d_t": 0.65,
+    "40d_win_pct": 45.0,
+    "60d_excess_pct": -0.06,
+    "60d_t": -0.1,
+    "60d_win_pct": 42.9
+   },
+   "Biggest jumps (top 20%)": {
+    "events": 432,
+    "20d_excess_pct": 0.67,
+    "20d_t": 1.62,
+    "20d_win_pct": 49.1,
+    "40d_excess_pct": 0.74,
+    "40d_t": 1.3,
+    "40d_win_pct": 47.0,
+    "60d_excess_pct": 0.45,
+    "60d_t": 0.56,
+    "60d_win_pct": 44.7
+   },
+   "Biggest drops (bottom 20%)": {
+    "events": 432,
+    "20d_excess_pct": -0.26,
+    "20d_t": -0.55,
+    "20d_win_pct": 45.1,
+    "40d_excess_pct": -0.06,
+    "40d_t": -0.07,
+    "40d_win_pct": 45.4,
+    "60d_excess_pct": 1.01,
+    "60d_t": 0.7,
+    "60d_win_pct": 44.4
+   },
+   "Missed (surprise < 0) and stock fell > 3%": {
+    "events": 133,
+    "20d_excess_pct": -1.25,
+    "20d_t": -1.57,
+    "20d_win_pct": 42.1,
+    "40d_excess_pct": -1.14,
+    "40d_t": -0.88,
+    "40d_win_pct": 39.8,
+    "60d_excess_pct": -0.26,
+    "60d_t": -0.15,
+    "60d_win_pct": 36.8
+   }
+  },
+  "all": {
+   "All reports": {
+    "events": 3750,
+    "20d_excess_pct": -0.19,
+    "20d_t": -1.55,
+    "20d_win_pct": 45.5,
+    "40d_excess_pct": -0.28,
+    "40d_t": -1.61,
+    "40d_win_pct": 45.1,
+    "60d_excess_pct": -0.36,
+    "60d_t": -1.39,
+    "60d_win_pct": 43.7
+   },
+   "Beat (surprise > 0) and stock jumped > 3%": {
+    "events": 941,
+    "20d_excess_pct": 0.37,
+    "20d_t": 1.62,
+    "20d_win_pct": 48.4,
+    "40d_excess_pct": 0.13,
+    "40d_t": 0.41,
+    "40d_win_pct": 46.2,
+    "60d_excess_pct": 0.02,
+    "60d_t": 0.04,
+    "60d_win_pct": 43.8
+   },
+   "Biggest jumps (top 20%)": {
+    "events": 750,
+    "20d_excess_pct": 0.52,
+    "20d_t": 1.86,
+    "20d_win_pct": 48.7,
+    "40d_excess_pct": 0.48,
+    "40d_t": 1.19,
+    "40d_win_pct": 47.3,
+    "60d_excess_pct": 0.69,
+    "60d_t": 1.26,
+    "60d_win_pct": 45.6
+   },
+   "Biggest drops (bottom 20%)": {
+    "events": 750,
+    "20d_excess_pct": -0.67,
+    "20d_t": -2.11,
+    "20d_win_pct": 44.1,
+    "40d_excess_pct": -0.5,
+    "40d_t": -1.0,
+    "40d_win_pct": 44.3,
+    "60d_excess_pct": 0.28,
+    "60d_t": 0.32,
+    "60d_win_pct": 44.8
+   },
+   "Missed (surprise < 0) and stock fell > 3%": {
+    "events": 237,
+    "20d_excess_pct": -1.13,
+    "20d_t": -2.18,
+    "20d_win_pct": 41.4,
+    "40d_excess_pct": -1.18,
+    "40d_t": -1.43,
+    "40d_win_pct": 41.4,
+    "60d_excess_pct": -0.96,
+    "60d_t": -0.88,
+    "60d_win_pct": 39.2
+   }
+  }
+ }
+}
