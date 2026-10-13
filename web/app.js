@@ -3,7 +3,8 @@ if (window.top !== window.self) { document.documentElement.style.display = "none
 (() => {
   "use strict";
   const TF_LABEL = { "1d": "Daily", "4h": "4H", "1h": "1H", "1wk": "Weekly" };
-  const FILTERS = [["all", "All"], ["signals", "Signals"], ["stock", "Stocks"], ["crypto", "Crypto"]];
+  const FILTERS = [["all", "All"], ["stock", "Stocks"], ["crypto", "Crypto"]];
+  const LEVELS = { strong: (i) => i.rank >= 3, buy: (i) => i.rank === 2, sell: (i) => i.rank <= -2, signals: (i) => i.rank !== 0, all: () => true };
   const OVERLAYS = [
     ["ia", "IA view"], ["bands", "Bands"], ["layers", "ATR layers"], ["emas", "EMAs"], ["ma", "Long MA"], ["volume", "Volume"], ["markers", "Past signals"],
   ];
@@ -14,7 +15,8 @@ if (window.top !== window.self) { document.documentElement.style.display = "none
   const state = {
     index: null,
     tf: store.get("tf", "1d"),
-    filter: store.get("filter", "all"),
+    filter: ["all", "stock", "crypto"].includes(store.get("filter", "all")) ? store.get("filter", "all") : "all",
+    level: "all",                       // all | strong | buy | sell | signals (tiles and the Signals tab)
     overlays: Object.assign({ ia: true, bands: false, layers: true, emas: false, ma: false, volume: true, markers: true }, store.get("overlays", {}, "v2")),
     detail: null, chart: null,
   };
@@ -36,17 +38,6 @@ if (window.top !== window.self) { document.documentElement.style.display = "none
   function fmtChg(c) {
     const span = el("span", "chg " + (c > 0 ? "up" : c < 0 ? "down" : "flat"), (c > 0 ? "+" : "") + c.toFixed(2) + "%");
     return span;
-  }
-  function meter(score) {
-    const m = el("div", "meter");
-    const bar = el("div", "bar");
-    const dev = Math.max(-50, Math.min(50, score - 50));
-    const fill = el("div", "fill " + (dev >= 0 ? "up" : "down"));
-    fill.style.width = Math.abs(dev) + "%";
-    bar.append(fill);
-    m.append(bar, el("span", "v", String(score)));
-    m.title = "Confluence score " + score + "/100 (50 = neutral)";
-    return m;
   }
   function since(text) {
     const t = Date.parse(text.replace(" UTC", "Z").replace(" ", "T"));
@@ -83,77 +74,128 @@ if (window.top !== window.self) { document.documentElement.style.display = "none
   }
 
   // ---------------------------------------------------------------- list
+  const SVG = "http://www.w3.org/2000/svg";
+  const svgEl = (tag, attrs) => { const e = document.createElementNS(SVG, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); return e; };
+  let sparkId = 0;
+  function spark(vals, pct) {            // last month of daily closes, drawn as a small line (no inline script or style: CSP-safe)
+    const svg = svgEl("svg", { class: "spark", viewBox: "0 0 76 30", preserveAspectRatio: "none", "aria-hidden": "true" });
+    if (!vals || vals.length < 2) return svg;
+    const up = vals[vals.length - 1] >= vals[0], dir = up ? "up" : "down";
+    const n = vals.length, X = (i) => (i / (n - 1) * 76).toFixed(1), Y = (v) => (2 + (100 - v) / 100 * 26).toFixed(1);
+    let d = ""; vals.forEach((v, i) => { d += (i ? "L" : "M") + X(i) + " " + Y(v); });
+    const id = "sg" + (++sparkId);
+    const grad = svgEl("linearGradient", { id, x1: "0", y1: "0", x2: "0", y2: "1" });
+    grad.append(svgEl("stop", { offset: "0", class: dir, "stop-opacity": "0.28" }), svgEl("stop", { offset: "1", class: dir, "stop-opacity": "0" }));
+    const defs = svgEl("defs", {}); defs.append(grad);
+    svg.append(defs, svgEl("path", { d: d + "L76 30L0 30Z", fill: "url(#" + id + ")" }),
+      svgEl("line", { class: "base", x1: "0", x2: "76", y1: Y(vals[0]), y2: Y(vals[0]) }),
+      svgEl("path", { class: "ln " + dir, d }));
+    if (pct != null) { const t = svgEl("title", {}); t.textContent = "Past month: " + (pct > 0 ? "+" : "") + pct + "%"; svg.append(t); }
+    return svg;
+  }
+  function stripe(rank) {
+    return rank >= 3 ? "s-strong" : rank === 2 ? "s-buy" : rank === 1 ? "s-watch" : rank === -1 ? "s-watchd" : rank === -2 ? "s-sell" : rank <= -3 ? "s-strongsell" : "";
+  }
+  function row(i) {
+    const li = el("li");
+    const b = el("button", "item " + stripe(i.rank)); b.type = "button";
+    const head = el("div", "head");
+    head.append(el("span", "tk", i.ticker.replace("-USD", "")));
+    if (i.rank) head.append(pill(i.action));                 // Hold rows stay quiet
+    const px = el("div", "px"); px.append(el("div", "p", fmtPrice(i.price, i.decimals)), fmtChg(i.change_pct));
+    b.append(head, spark(i.spark, i.spark_pct), px);
+    const mods = el("div", "mods");
+    if (i.models && i.models.length) {          // what each model says today: filled dot = buy
+      const on = i.models.filter((m) => m.v > 0).length;
+      const n = el("span", "mods-n", on + "/" + i.models.length + " buy");
+      n.title = on + " of " + i.models.length + " models say buy";
+      mods.append(n);
+      for (const m of i.models) {
+        const c = el("span", "mod " + (m.v > 0 ? "up" : m.v < 0 ? "down" : "flat"));
+        c.append(el("i"), m.s); c.title = m.r; mods.append(c);
+      }
+    }
+    if (i.congress) {                           // congressional trades reported in the last 30 days
+      const c = i.congress, parts = [];
+      if (c.buys) parts.push(c.buys + " buy" + (c.buys > 1 ? "s" : ""));
+      if (c.sells) parts.push(c.sells + " sell" + (c.sells > 1 ? "s" : ""));
+      const tag = el("span", "mod gov", "🏛 Congress " + parts.join(", "));
+      tag.title = "Reported by members of Congress in the last 30 days (information only)";
+      mods.append(tag);
+    }
+    if (mods.childNodes.length) b.append(mods);
+    b.onclick = () => { state.fromList = true; location.hash = (i.ticker + "_" + i.tf).replace(/[^A-Za-z0-9_.-]/g, "_"); };
+    li.append(b);
+    return li;
+  }
+  function syncTabs() {
+    const cur = !$("settingsView").hidden ? "settings" : state.level === "all" ? "list" : "signals";
+    for (const b of $("tabbar").querySelectorAll("button")) {
+      if (b.dataset.tab === cur) b.setAttribute("aria-current", "page"); else b.removeAttribute("aria-current");
+    }
+    const items = ((state.index && state.index.items) || []).filter((i) => i.tf === "1d" && i.rank >= 2);
+    const badge = $("tabBadge"); badge.hidden = !items.length; badge.textContent = String(items.length);
+  }
+  const EMPTY = { strong: "No Strong Buys", buy: "No Buys", sell: "No Sells", signals: "No signals" };
   function render() {
-    const list = $("list"); list.textContent = "";
+    const box = $("list"); box.textContent = ""; box.className = "";
+    const tiles = $("tiles"); tiles.textContent = "";
+    syncTabs();
     const idx = state.index;
     if (!idx || !idx.items.length) {
-      const e = el("li", "empty");
+      const e = el("div", "empty");
       e.append(el("h2", null, "No charts yet"), el("div", null, "Charts appear after the next scan publishes them."));
-      list.append(e); $("summary").textContent = ""; return;
+      box.append(e); return;
     }
-    let items = idx.items.filter((i) => i.tf === "1d");
-    const strong = items.filter((i) => i.rank >= 3).length, buy = items.filter((i) => i.rank === 2).length;
-    const sells = items.filter((i) => i.rank <= -2).length;
-    const s = $("summary"); s.textContent = "";
-    const counts = [["Strong Buy", strong, "up"], ["Buy", buy, "up"]];
-    if (sells) counts.push(["Sell", sells, "down"]);         // only shown when there are any
-    counts.push(["Tickers", items.length, ""]);
-    for (const [k, v, cls] of counts) {
-      const span = el("span", cls ? "cnt " + cls : null); span.append(el("strong", null, String(v)), " " + k); s.append(span);
+    const all = idx.items.filter((i) => i.tf === "1d");
+    const shown = state.filter === "all" ? all : all.filter((i) => i.asset === state.filter);
+    const count = (k) => shown.filter(LEVELS[k]).length;
+    const defs = [["strong", "Strong Buy", count("strong")], ["buy", "Buy", count("buy")]];
+    if (count("sell")) defs.push(["sell", "Sell", count("sell")]);      // only shown when there are any
+    defs.push(["all", "All tickers", shown.length]);
+    tiles.style.setProperty("--n", defs.length);
+    for (const [k, label, n] of defs) {
+      const t = el("button", "tile " + k); t.type = "button";
+      t.setAttribute("aria-pressed", String(state.level === k));
+      t.append(el("span", "n", String(n)), el("span", "l", label));
+      t.onclick = () => { state.level = state.level === k && k !== "all" ? "all" : k; render(); };
+      tiles.append(t);
     }
-    s.append(el("span", "spacer"));
-    const addBtn = el("button", "btn ghost", $("addForm").hidden ? "＋ Add ticker" : "Close");
-    addBtn.type = "button";
-    addBtn.onclick = () => {
-      $("addForm").hidden = !$("addForm").hidden; render();
-      if (!$("addForm").hidden) {
-        $("addSubmit").textContent = GH.token ? "Add" : "Add in Telegram";
-        $("addHint").textContent = GH.token ? "Crypto: add -USD (e.g. DOGE-USD)." :
-          "Opens your bot; tap Start there. Tip: connect GitHub in ⚙︎ Settings to add tickers right here.";
-        $("addInput").focus();
-      }
+    const keep = LEVELS[state.level] || LEVELS.all;
+    const groups = state.filter === "all" ? [["stock", "Stocks"], ["crypto", "Crypto"]] : [[state.filter, state.filter === "stock" ? "Stocks" : "Crypto"]];
+    const present = groups.filter(([a]) => all.some((i) => i.asset === a));
+    if (present.length === 1) box.className = "single";
+    for (const [asset, title] of present) {
+      const pool = shown.filter((i) => i.asset === asset);
+      const items = pool.filter(keep).sort((a, b) => b.rank - a.rank || Math.abs(b.score - 50) - Math.abs(a.score - 50) || a.ticker.localeCompare(b.ticker));
+      const sec = el("section", "group");
+      const h = el("h2", "group-h", title);
+      h.append(el("span", "c", items.length === pool.length ? String(pool.length) : items.length + " of " + pool.length));
+      const ul = el("ul", "list");
+      if (!items.length) ul.append(el("li", "none", (EMPTY[state.level] || "Nothing") + " in " + title.toLowerCase() + " today."));
+      for (const i of items) ul.append(row(i));
+      if (present.length === 1 && items.length % 2) ul.append(el("li", "filler"));   // keeps the 2-column grid even on wide screens
+      sec.append(h, ul); box.append(sec);
+    }
+  }
+  $("addToggle").onclick = () => {
+    const f = $("addForm"); f.hidden = !f.hidden;
+    $("addToggle").textContent = f.hidden ? "＋ Add ticker" : "Close";
+    if (!f.hidden) {
+      $("addSubmit").textContent = GH.token ? "Add" : "Add in Telegram";
+      $("addHint").textContent = GH.token ? "Crypto: add -USD (e.g. DOGE-USD)." :
+        "Opens your bot; tap Start there. Tip: connect GitHub in Settings to add tickers right here.";
+      $("addInput").focus();
+    }
+  };
+  for (const b of $("tabbar").querySelectorAll("button")) {
+    b.onclick = () => {
+      const t = b.dataset.tab;
+      if (t === "settings") { if (location.hash !== "#settings") { state.fromList = true; location.hash = "settings"; } return; }
+      state.level = t === "signals" ? "signals" : "all";
+      if (location.hash.length > 1) { state.fromList = false; location.hash = ""; } else { render(); }
+      window.scrollTo(0, 0);
     };
-    s.append(addBtn);
-    const key = $("tfNote"); key.hidden = false;      // what Buy / Strong Buy mean
-    key.textContent = "Stocks: Buy = 1 of 3 dip signals, Strong Buy = 2 or more. " +
-      "Crypto: Buy = 3 of 4 trend signals with none against, Strong Buy = all 4. " +
-      "Tested over 10 years: Strong Buys did clearly better; single-signal Buys were close to random.";
-    if (state.filter === "signals") items = items.filter((i) => i.rank !== 0);
-    else if (state.filter !== "all") items = items.filter((i) => i.asset === state.filter);
-    items.sort((a, b) => Math.abs(b.rank) - Math.abs(a.rank) || Math.abs(b.score - 50) - Math.abs(a.score - 50) || a.ticker.localeCompare(b.ticker));
-    if (!items.length) {
-      const e = el("li", "empty"); e.append(el("h2", null, "Nothing here"), el("div", null, state.filter === "signals" ? "Every ticker is on Hold today." : "No tickers match this filter."));
-      list.append(e); return;
-    }
-    for (const i of items) {
-      const li = el("li");
-      const b = el("button", "item"); b.type = "button";
-      const left = el("div");
-      left.append(el("div", "tk", i.ticker.replace("-USD", "")), el("div", "sub", (i.asset === "crypto" ? "Crypto" : "Stock") + " · layer " + (i.layer > 0 ? "+" : "") + i.layer));
-      const px = el("div", "px"); px.append(el("div", "p", fmtPrice(i.price, i.decimals)), fmtChg(i.change_pct));
-      const sig = el("div", "sig"); sig.append(pill(i.action), meter(i.score));
-      b.append(left, px, sig);
-      if (i.models && i.models.length) {          // one chip per model: what each one says today
-        const mods = el("div", "mods");
-        const on = i.models.filter((m) => m.v > 0).length;
-        mods.append(el("span", "mods-n", on + "/" + i.models.length + " buy"));
-        for (const m of i.models) {
-          const c = el("span", "mod " + (m.v > 0 ? "up" : m.v < 0 ? "down" : "flat"), (m.v > 0 ? "▲ " : m.v < 0 ? "▼ " : "· ") + m.s);
-          c.title = m.r; mods.append(c);
-        }
-        b.append(mods);
-      }
-      if (i.congress) {                           // congressional trades reported in the last 30 days
-        const c = i.congress, parts = [];
-        if (c.buys) parts.push(c.buys + " buy" + (c.buys > 1 ? "s" : ""));
-        if (c.sells) parts.push(c.sells + " sell" + (c.sells > 1 ? "s" : ""));
-        const tag = el("span", "mod flat", "🏛 Congress: " + parts.join(", "));
-        tag.title = "Reported by members of Congress in the last 30 days (information only)";
-        (b.querySelector(".mods") || b.appendChild(el("div", "mods"))).append(tag);
-      }
-      b.onclick = () => { state.fromList = true; location.hash = (i.ticker + "_" + i.tf).replace(/[^A-Za-z0-9_.-]/g, "_"); };
-      li.append(b); list.append(li);
-    }
   }
 
   // ---------------------------------------------------------------- detail
@@ -177,20 +219,22 @@ if (window.top !== window.self) { document.documentElement.style.display = "none
     $("dAsset").textContent = (d.asset === "crypto" ? "Crypto · " + d.ticker : "Stock") + " · " + (TF_LABEL[d.tf] || d.tf) + " bars";
     $("dPrice").textContent = fmtPrice(d.price, d.decimals);
     const chg = $("dChg"); chg.className = "chg " + (d.change_pct > 0 ? "up" : d.change_pct < 0 ? "down" : "flat");
-    chg.textContent = (d.change_pct > 0 ? "+" : "") + d.change_pct.toFixed(2) + "% last bar";
+    chg.textContent = (d.change_pct > 0 ? "+" : "") + d.change_pct.toFixed(2) + "% " + (d.tf === "1d" ? "on the day" : "last bar");
+    const daily = d.tf === "1d" ? d : ((state.index && state.index.items) || []).find((i) => i.ticker === d.ticker && i.tf === "1d");
+    const dp = $("dPill"); dp.textContent = "";
+    if (daily) { const p = pill(daily.action); if (d.tf !== "1d") p.textContent = "Daily: " + daily.action; dp.append(p); }
     const stats = $("dStats"); stats.textContent = "";
     const statBox = (k, node) => { const s = el("div", "stat"); const v = el("div", "val"); v.append(node); s.append(el("div", "k", k), v); stats.append(s); };
+    const txt = (x) => document.createTextNode(x);
     if (d.tf === "1d") {
-      statBox("Signal", pill(d.action));
-      statBox("Score", document.createTextNode(d.score + " / 100"));
-      statBox("Models", document.createTextNode(d.bull + "▲  " + d.bear + "▼"));
+      statBox("Models", txt(d.bull + " buy · " + d.bear + " sell"));
+      statBox("Score", txt(d.score + " / 100"));
     } else {
-      const daily = ((state.index && state.index.items) || []).find((i) => i.ticker === d.ticker && i.tf === "1d");
-      statBox("Daily signal", daily ? pill(daily.action) : document.createTextNode("–"));
-      statBox("This chart", document.createTextNode((TF_LABEL[d.tf] || d.tf) + " view only"));
-      statBox("IA view", document.createTextNode(d.ia ? (d.ia.trend === "up" ? "Blue" : "Orange") + " · ATR " + d.ia.stop_side : "–"));
+      statBox("This chart", txt((TF_LABEL[d.tf] || d.tf) + " view only"));
+      statBox("IA view", txt(d.ia ? (d.ia.trend === "up" ? "Blue" : "Orange") + " · ATR " + d.ia.stop_side : "–"));
     }
-    statBox("ATR layer", document.createTextNode((d.layer > 0 ? "+" : "") + d.layer + (d.rsi != null ? " · RSI " + Math.round(d.rsi) : "")));
+    statBox("ATR layer", txt((d.layer > 0 ? "+" : "") + d.layer));
+    statBox("RSI", txt(d.rsi != null ? String(Math.round(d.rsi)) : "–"));
     const rs = $("dReasons"); rs.textContent = "";
     for (const r of d.reasons) rs.append(el("li", null, r));
     for (const n of d.notes || []) rs.append(el("li", "note", n));
@@ -308,7 +352,7 @@ if (window.top !== window.self) { document.documentElement.style.display = "none
     $("back").hidden = false; $("brand").hidden = true; renderControls();
     $("dTitle").textContent = ticker.replace("-USD", "");
     $("dAsset").innerHTML = ""; $("dAsset").append(el("span", "err", "No " + (TF_LABEL[tf] || tf) + " chart for this ticker yet."));
-    for (const id of ["dPrice", "dChg", "dStats", "dReasons", "dSize", "dCongress", "dCongressNote", "dIA", "dIANote", "dLadder", "dLadderNow", "dAbout", "dModels", "dHist", "dFoot", "legend"]) $(id).textContent = "";
+    for (const id of ["dPrice", "dChg", "dPill", "dStats", "dReasons", "dSize", "dCongress", "dCongressNote", "dIA", "dIANote", "dLadder", "dLadderNow", "dAbout", "dModels", "dHist", "dFoot", "legend"]) $(id).textContent = "";
     if (state.chart) { state.chart.remove(); state.chart = null; }
   }
 
@@ -332,7 +376,7 @@ if (window.top !== window.self) { document.documentElement.style.display = "none
     const chart = LightweightCharts.createChart(box, {
       autoSize: true,
       layout: { background: { type: "solid", color: C.surface }, textColor: C.muted, fontFamily: "IBM Plex Mono, ui-monospace, monospace", fontSize: 11 },
-      grid: { vertLines: { color: C.line }, horzLines: { color: C.line } },
+      grid: { vertLines: { color: css("--grid") }, horzLines: { color: css("--grid") } },
       rightPriceScale: { borderColor: C.line },
       timeScale: { borderColor: C.line, timeVisible: intraday, secondsVisible: false, rightOffset: 4 },
       crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
@@ -667,14 +711,14 @@ if (window.top !== window.self) { document.documentElement.style.display = "none
     state.detail = null; if (state.chart) { state.chart.remove(); state.chart = null; }
     $("listView").hidden = true; $("detailView").hidden = true; $("settingsView").hidden = false;
     $("controls").hidden = true; $("back").hidden = false; $("brand").hidden = true; $("gear").hidden = true;
-    renderSettings(); window.scrollTo(0, 0);
+    renderSettings(); syncTabs(); window.scrollTo(0, 0);
     if (GH.token) {
       try { state.settings = (await loadSettings()).s; renderSettings(); say("sStatus", ""); }
       catch (e) { if (!authFail(e)) say("sStatus", e.message, "bad"); }
     }
   }
   function leaveSettings() {
-    $("settingsView").hidden = true; $("controls").hidden = false; $("gear").hidden = false;
+    $("settingsView").hidden = true; $("controls").hidden = false; $("gear").hidden = false; syncTabs();
   }
   $("gear").onclick = () => { state.fromList = true; location.hash = "settings"; };
 
@@ -704,7 +748,16 @@ if (window.top !== window.self) { document.documentElement.style.display = "none
            else closeDetail(); }
   };
   window.addEventListener("hashchange", route);
-  matchMedia("(prefers-color-scheme: dark)").addEventListener?.("change", () => { if (state.detail) drawChart(); });
+  // ---------------------------------------------------------------- theme (theme.js applies it before the page paints)
+  function syncTheme() {
+    const T = window.SDTheme; if (!T) return;
+    for (const b of $("sTheme").children) b.setAttribute("aria-pressed", String(b.dataset.theme === T.pref()));
+    $("themeBtn").setAttribute("aria-label", T.current() === "dark" ? "Switch to light theme" : "Switch to dark theme");
+  }
+  $("themeBtn").onclick = () => { const T = window.SDTheme; if (T) T.set(T.current() === "dark" ? "light" : "dark"); };
+  $("sTheme").addEventListener("click", (e) => { const b = e.target.closest("button"); if (b && window.SDTheme) window.SDTheme.set(b.dataset.theme); });
+  document.addEventListener("sd-theme", () => { syncTheme(); if (state.detail && state.detail.t) drawChart(); });
+  syncTheme();
   document.addEventListener("visibilitychange", async () => {
     if (document.visibilityState !== "visible") return;
     await loadIndex();

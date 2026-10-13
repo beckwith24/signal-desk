@@ -28,6 +28,20 @@ SUMMARY_KEYS = ["ticker", "tf", "asset", "updated", "price", "change_pct", "acti
                 "bull", "bear", "layer", "decimals", "segment_about"]
 
 
+def spark(d: dict, days: int = 30) -> dict:
+    """The last month of daily closes for the home-page mini chart, scaled 0-100 (shape only, small file)."""
+    t, c = d.get("t") or [], d.get("c") or []
+    if not t or len(t) != len(c):
+        return {}
+    cut = t[-1] - days * 86400
+    closes = [x for ts, x in zip(t, c) if ts >= cut and x is not None]
+    if len(closes) < 2:
+        return {}
+    lo, hi = min(closes), max(closes)
+    return {"spark": [round((x - lo) / (hi - lo) * 100) if hi > lo else 50 for x in closes],
+            "spark_pct": round((closes[-1] / closes[0] - 1) * 100, 1)}
+
+
 def main() -> None:
     logging.basicConfig(level=logging.INFO, format="%(levelname)s %(name)s: %(message)s")
     cfg = settings.apply(load_config(), settings.load(load_config()))   # includes Telegram watchlist edits
@@ -37,7 +51,7 @@ def main() -> None:
         if f.is_file():
             shutil.copy(f, SITE_DIR / f.name)
     page = (SITE_DIR / "index.html").read_text()
-    for js in ("app.js", "lightweight-charts.js"):     # new code reaches phones right away, not after a cache expires
+    for js in ("theme.js", "app.js", "lightweight-charts.js"):   # new code reaches phones right away, not after a cache expires
         ver = hashlib.sha256((ROOT / "web" / js).read_bytes()).hexdigest()[:10]
         page = page.replace(f'src="{js}"', f'src="{js}?v={ver}"')
     (SITE_DIR / "index.html").write_text(page)
@@ -69,6 +83,7 @@ def main() -> None:
                     if recent:                    # congressional trades reported in the last 30 days
                         item["congress"] = {"buys": sum(c["side"] == "buy" for c in recent),
                                             "sells": sum(c["side"] == "sell" for c in recent)}
+                    item.update(spark(d))
                 items.append(item)
     bot_name = ""
     token = os.environ.get("TELEGRAM_BOT_TOKEN", "")

@@ -16,6 +16,7 @@ from __future__ import annotations
 import json
 import logging
 import math
+import time
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -52,20 +53,53 @@ def fetch_all() -> tuple[pd.DataFrame, dict]:
     return df, stats
 
 
-def prices(tickers: list[str], start: str = "2017-12-01") -> pd.DataFrame:
+PRICE_STATS: dict = {}
+
+
+def _download(batch: list[str], start: str) -> pd.DataFrame:
     import yfinance as yf
-    frames = []
-    tickers = sorted(set(tickers) | {"SPY"})
-    for i in range(0, len(tickers), 150):
-        batch = tickers[i:i + 150]
+    d = yf.download(batch, start=start, auto_adjust=True, progress=False, threads=True)["Close"]
+    d = d if isinstance(d, pd.DataFrame) else d.to_frame(batch[0])
+    d.index = pd.DatetimeIndex(d.index).tz_localize(None).normalize()
+    d = d[~d.index.duplicated(keep="last")]
+    return d.loc[:, [c for c in d.columns if d[c].notna().any()]]
+
+
+def prices(tickers: list[str], start: str = "2017-12-01") -> pd.DataFrame:
+    """Daily closes on SPY's trading calendar. SPY comes first and must load: every return is measured against it
+    (a rate-limited SPY batch once left every result blank). Batches that come back empty are retried after a pause."""
+    spy = None
+    for attempt in range(5):
         try:
-            d = yf.download(batch, start=start, auto_adjust=True, progress=False, threads=True)["Close"]
-            frames.append(d if isinstance(d, pd.DataFrame) else d.to_frame(batch[0]))
+            d = _download(["SPY"], start)
+            if "SPY" in d and d["SPY"].notna().sum() > 500:
+                spy = d["SPY"].dropna(); break
         except Exception as e:
-            log.warning("price batch %d failed: %s", i, e)
+            log.warning("SPY download failed (%s), retrying", e)
+        time.sleep(15 * (attempt + 1))
+    if spy is None:
+        raise RuntimeError("SPY prices unavailable from Yahoo; try again later")
+    frames, want = [spy.to_frame("SPY")], sorted(set(tickers) - {"SPY"})
+    got: set[str] = set()
+    for i in range(0, len(want), 100):
+        todo = want[i:i + 100]
+        for attempt in range(3):
+            try:
+                d = _download(todo, start)
+                frames.append(d); got |= set(d.columns)
+            except Exception as e:
+                log.warning("price batch %d failed: %s", i, e)
+            todo = [t for t in todo if t not in got]
+            if len(todo) < 10:          # the rest are mostly delisted or renamed symbols
+                break
+            time.sleep(10 * (attempt + 1))
+        time.sleep(1)
     px = pd.concat(frames, axis=1)
-    px.index = pd.DatetimeIndex(px.index).tz_localize(None)
-    return px.loc[:, ~px.columns.duplicated()].sort_index()
+    px = px.loc[:, ~px.columns.duplicated()].reindex(spy.index)
+    PRICE_STATS.update({"tickers": len(want), "with_prices": len(got), "days": int(len(spy)),
+                        "from": str(spy.index[0].date()), "to": str(spy.index[-1].date())})
+    log.info("prices: %s", PRICE_STATS)
+    return px
 
 
 def events(df: pd.DataFrame, px: pd.DataFrame, when: str) -> pd.DataFrame:
@@ -84,13 +118,13 @@ def events(df: pd.DataFrame, px: pd.DataFrame, when: str) -> pd.DataFrame:
         if i >= len(dates):
             continue
         p0, s0 = px[t].iat[i], spy.iat[i]
-        if not (p0 > 0):
+        if not (p0 > 0 and s0 > 0):
             continue
         rec = {"ticker": t, "side": e["side"], "member": e["member"], "chamber": e["chamber"],
                "date": dates[i], "amount_low": e["amount_low"],
                "lag_days": (e["d_first"] - e["t_first"]).days if pd.notna(e["t_first"]) else None}
         for h in H:
-            if i + h < len(dates) and px[t].iat[i + h] > 0:
+            if i + h < len(dates) and px[t].iat[i + h] > 0 and spy.iat[i + h] > 0:
                 rec[f"x{h}"] = (px[t].iat[i + h] / p0 - 1) - (spy.iat[i + h] / s0 - 1)
         rows.append(rec)
     return pd.DataFrame(rows)
@@ -161,6 +195,7 @@ def main() -> None:
            "trades": int(len(trades)), "members": int(trades["member"].nunique()),
            "disclosed_from": str(trades["disclosed"].min().date()), "disclosed_to": str(trades["disclosed"].max().date()),
            "median_days_to_disclose": float((trades["disclosed"] - trades["traded"]).dt.days.median())}
+    res["prices"] = dict(PRICE_STATS)
     res["results"] = {}
     for when, label in (("disclosed", "copyable (after disclosure)"), ("traded", "trade date (NOT copyable)")):
         ev = events(trades, px, when)
@@ -172,7 +207,7 @@ def main() -> None:
     L = [f"# Congressional trades test ({res['generated']})", "",
          f"{res['trades']:,} stock trades by {res['members']} members, disclosed {res['disclosed_from']} to "
          f"{res['disclosed_to']}. Median {res['median_days_to_disclose']:.0f} days from trade to disclosure.",
-         f"Sources: {json.dumps(fetch_stats)}", "",
+         f"Sources: {json.dumps(fetch_stats)}", f"Prices: {json.dumps(res['prices'])}", "",
          "Return = stock minus SPY over the next 20/60/120 trading days. t clustered by week.", ""]
     cols = [("events", "Trades"), ("20d_pct", "20d %"), ("20d_t", "t"), ("60d_pct", "60d %"), ("60d_t", "t"),
             ("120d_pct", "120d %"), ("120d_t", "t"), ("60d_win", "60d beat SPY %")]

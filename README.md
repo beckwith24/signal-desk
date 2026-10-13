@@ -89,7 +89,7 @@ to switch **Daily / 4-hour / Hourly** on or off, change the **alert level** (Wat
 the chat every 5 minutes, so a tap takes effect within about 5–15 minutes, and the bot confirms it. Only your
 own chat ID is obeyed. The switches are saved in `settings.json` in the repo.
 
-**Settings on the website (recommended):** tap **⚙︎** on the chart site and connect once with a GitHub
+**Settings on the website (recommended):** tap **Settings** (bottom bar on phones, top-right icon on computers) on the chart site and connect once with a GitHub
 fine-grained token limited to this repository (Contents: read & write, Actions: read & write); the page shows
 the exact steps. The key is kept only in that browser. From then on you can add/remove tickers, choose alert
 timeframes and level, switch layer alerts, pause alerts and start a scan, all saved straight to
@@ -103,9 +103,13 @@ on the main list and **Remove from watchlist** on each chart. Both open your bot
 Up to 60 tickers.
 
 **Charts on your phone:** every scan publishes a small website at
-`https://<your-github-username>.github.io/signal-desk`. It lists every ticker with its current signal and score.
+`https://<your-github-username>.github.io/signal-desk`. Stocks and crypto are listed in separate panels (side by
+side on wide screens). Each row shows the daily signal (with a coloured stripe), a one-month mini chart, the
+price, and a dot per model (filled = that model says buy). The **Strong Buy** and **Buy** tiles at the top filter
+the list; on phones the bottom bar switches between Watchlist, Signals and Settings.
 Tap a ticker for a candlestick chart with the Bollinger bands, ATR layers, EMAs, volume and past signal arrows,
-plus each model's reading. Switch Daily / 4H / 1H at the top. In Safari, use Share → **Add to Home Screen**
+plus each model's reading. Switch Daily / 4H / 1H at the top. The site is dark by default; the sun/moon button
+(or Settings → Theme: Dark / Light / Auto) changes it, remembered per device. In Safari, use Share → **Add to Home Screen**
 to make it open like an app. Telegram alerts include a direct link to that ticker's chart, and `/chart` in the
 bot chat sends the link. One-time setup: repo **Settings → Pages → Source: GitHub Actions**. The site is
 public, as the repo is, but only shows prices and signals.
