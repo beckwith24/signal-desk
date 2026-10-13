@@ -7,5 +7,43 @@
   "paused": false,
   "ladder": true,
   "min_action": "Buy",
-  "tg_offset": 498513498
+  "tg_offset": 498513498,
+  "watchlist": {
+    "stocks": [
+      "NVDA",
+      "AMD",
+      "AVGO",
+      "PLTR",
+      "TSLA",
+      "MRVL",
+      "MU",
+      "GOOGL",
+      "AAPL",
+      "MSFT",
+      "META",
+      "QQQ",
+      "SPY",
+      "TSM",
+      "CRDO",
+      "ALAB",
+      "LITE",
+      "DELL",
+      "BE",
+      "LLY",
+      "HOOD"
+    ],
+    "crypto": [
+      "BTC-USD",
+      "ETH-USD",
+      "SOL-USD",
+      "LINK-USD",
+      "AVAX-USD",
+      "JUP-USD",
+      "PUMP-USD",
+      "RAY-USD",
+      "RENDER-USD",
+      "MET-USD",
+      "HYPE-USD"
+    ]
+  }
 }
