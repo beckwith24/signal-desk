@@ -31,7 +31,19 @@
       "BE",
       "LLY",
       "HOOD",
-      "SPCX"
+      "SPCX",
+      "PANW",
+      "INTC",
+      "NOW",
+      "CSCO",
+      "CRM",
+      "TXN",
+      "ANET",
+      "V",
+      "ABBV",
+      "XOM",
+      "AMAT",
+      "TMO"
     ],
     "crypto": [
       "BTC-USD",
@@ -44,7 +56,17 @@
       "RAY-USD",
       "RENDER-USD",
       "MET-USD",
-      "HYPE-USD"
+      "HYPE-USD",
+      "XRP-USD",
+      "NEAR-USD",
+      "SUI-USD",
+      "TAO-USD",
+      "ADA-USD",
+      "DOGE-USD",
+      "LTC-USD",
+      "UNI-USD",
+      "XLM-USD",
+      "ONDO-USD"
     ]
   }
 }
