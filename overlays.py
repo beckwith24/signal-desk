@@ -42,6 +42,28 @@ def ia_view(df: pd.DataFrame, ath_known: tuple[float, str] | None = None, recent
     }
 
 
+RISK_TARGET = {"crypto": 0.60, "stock": 0.30}   # yearly swings of bitcoin / of a typical large stock
+
+
+def risk_size(df: pd.DataFrame) -> dict | None:
+    """Risk-matched position size: smaller in wilder tickers so each position carries similar risk.
+
+    size = target volatility / this ticker's 30-day volatility, capped at 1 (never more than normal).
+    Tested on 29 coins with the trend rule (research/factors.md): roughly halved the worst drops and
+    gave up a similar share of the gains, so it's a risk choice, not an edge.
+    """
+    if ia.is_intraday(df) or len(df) < 40:
+        return None
+    crypto = bool((df.index[-30:].dayofweek >= 5).any())       # trades on weekends
+    per_year = 365 if crypto else 252
+    vol = float(np.log(df["close"]).diff().iloc[-30:].std() * np.sqrt(per_year))
+    if not vol or vol != vol:
+        return None
+    target = RISK_TARGET["crypto" if crypto else "stock"]
+    size = min(1.0, target / vol)
+    return {"vol_pct": round(vol * 100), "target_pct": round(target * 100), "size": round(size * 20) / 20}
+
+
 def compute(df: pd.DataFrame, cfg: dict, ath_known: tuple[float, str] | None = None) -> dict:
     c = df["close"]
     lp = cfg["models"]["atr_layers"]
@@ -64,4 +86,5 @@ def compute(df: pd.DataFrame, cfg: dict, ath_known: tuple[float, str] | None = N
         "z": float(((c - m) / sd).iat[-1]) if sd.iat[-1] else 0.0,
         "anchor_ma": lp["anchor_ma"],
         "ia": ia_view(df, ath_known),
+        "risk": risk_size(df),
     }

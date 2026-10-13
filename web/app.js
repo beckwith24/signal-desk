@@ -185,6 +185,7 @@ if (window.top !== window.self) { document.documentElement.style.display = "none
     for (const n of d.notes || []) rs.append(el("li", "note", n));
     renderLadder(d);
     renderIA(d);
+    renderSize(d);
     $("dAbout").textContent = d.segment_about ? d.segment_about + "." : "";
     const mt = $("dModels"); mt.textContent = "";
     for (const m of d.models) {
@@ -241,6 +242,19 @@ if (window.top !== window.self) { document.documentElement.style.display = "none
     box.append(col("in", "Layer in", L.buys, "add"), col("out", "Layer out", L.sells, "trim"));
   }
 
+  function renderSize(d) {
+    const box = $("dSize"); box.textContent = "";
+    const r = d.risk;
+    if (!r) { box.textContent = d.tf === "1d" ? "Not in this data yet." : "Sizing uses the daily chart."; return; }
+    if (r.size >= 0.95) {
+      box.append("A ", el("strong", null, "normal position"), ". It swings about " + r.vol_pct + "% a year, within the " + r.target_pct + "% guide.");
+    } else {
+      box.append("About ", el("strong", null, r.size.toFixed(2).replace(/0$/, "") + "× a normal position"),
+        ". It swings about " + r.vol_pct + "% a year vs a " + r.target_pct + "% guide, so a smaller position keeps the risk similar.");
+    }
+    box.append(el("br"), "In testing on 29 coins this roughly halved the worst drops, and gave up a similar share of the gains. A risk choice, not an edge.");
+  }
+
   function renderIA(d) {
     const box = $("dIA"), note = $("dIANote"); box.textContent = ""; note.textContent = "";
     const v = d.ia; if (!v) { box.append(el("li", null, "Not in this data yet. It appears after the next scan.")); return; }
@@ -264,7 +278,7 @@ if (window.top !== window.self) { document.documentElement.style.display = "none
     $("back").hidden = false; $("brand").hidden = true; renderControls();
     $("dTitle").textContent = ticker.replace("-USD", "");
     $("dAsset").innerHTML = ""; $("dAsset").append(el("span", "err", "No " + (TF_LABEL[tf] || tf) + " chart for this ticker yet."));
-    for (const id of ["dPrice", "dChg", "dStats", "dReasons", "dIA", "dIANote", "dLadder", "dLadderNow", "dAbout", "dModels", "dHist", "dFoot", "legend"]) $(id).textContent = "";
+    for (const id of ["dPrice", "dChg", "dStats", "dReasons", "dSize", "dIA", "dIANote", "dLadder", "dLadderNow", "dAbout", "dModels", "dHist", "dFoot", "legend"]) $(id).textContent = "";
     if (state.chart) { state.chart.remove(); state.chart = null; }
   }
 
@@ -518,7 +532,7 @@ if (window.top !== window.self) { document.documentElement.style.display = "none
       const saved = await saveSettings("add " + t, (s) => {
         const w = s.watchlist;
         if (w.stocks.includes(t) || w.crypto.includes(t)) return false;
-        if (w.stocks.length + w.crypto.length >= 40) throw new Error("Your list is full (40). Remove a ticker first.");
+        if (w.stocks.length + w.crypto.length >= 60) throw new Error("Your list is full (60). Remove a ticker first.");
         w[k].push(t);
       });
       if (!saved) { say("sAddStatus", t + " is already on your list."); renderSettings(); return; }

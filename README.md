@@ -100,7 +100,7 @@ timeframes and level, switch layer alerts, pause alerts and start a scan, all sa
 symbol exists on Yahoo, saves the list to `settings.json` (it overrides the watchlist in `config.yaml`) and
 starts a scan so the new chart appears within minutes. The chart site has the same controls: **＋ Add ticker**
 on the main list and **Remove from watchlist** on each chart. Both open your bot; tap **Start** to confirm.
-Up to 40 tickers.
+Up to 60 tickers.
 
 **Charts on your phone:** every scan publishes a small website at
 `https://<your-github-username>.github.io/signal-desk`. It lists every ticker with its current signal and score.
@@ -188,6 +188,19 @@ per-segment sets and Buy/Sell rules in `engine.py`.
 | **Crypto · daily** | 28-day momentum · price above 20/50/100-day MAs · breakout ensemble (5–360 days, trailing stop) · Bitcoin above its 50-day MA | **Buy** when 3 of 4 are bullish and none bearish (4 = Strong Buy); **Exit** alert when that ends; **Sell** when ≥3 bearish | Han, Kang & Ryu; Detzel et al. (Financial Management 2021); Zarattini, Pagani & Barbon (2025). Our test 2021–2026 (never used for tuning): 36%/yr vs 19.6% holding, worst drop −53% vs −90%, Sharpe 0.92 vs 0.60 |
 | **Stocks · daily** | RSI(2) < 10 above the 200-day MA (exit on close above 5-day MA) · close in bottom 20% of the day's range in an uptrend (IBS) · VIX above 3-month VIX | **Buy** when one fires, **Strong Buy** when two or more; no sell signals | Connors & Alvarez; Pagonidis / arXiv 2306.12434; Fassas & Hourvouliades. Our test: positive in both halves but weak (+0.04% to +0.13% per day above normal, not statistically significant). Best used to time additions, not to be in or out |
 | **4-hour and hourly** (both) | none | no Buy/Sell. The site's list is daily only; 4H/1H charts are on each ticker page | Large studies (e.g., Marshall, Cahan & Cahan 2008) find intraday rules don't survive costs; our tests agreed |
+
+**Three more model types** (`factor_research.py`, results in `research/factors.md`; S&P 100 and 29 coins,
+not just the watchlist):
+- *Relative strength ranking* (own the strongest third): stocks +1 to +4%/yr vs equal weight, not
+  statistically reliable even with today's S&P 100 flattering it; crypto inconsistent between the two
+  halves. Not used for signals.
+- *Earnings drift* (buy after a beat the market cheers): too small to trade on big US stocks (+0.2 to
+  +0.7% over 20 days, not reliable). Not used.
+- *Risk-matched size* (smaller positions in wilder tickers): on the crypto trend rule it roughly halved
+  the worst drops (−35% → −17% before 2021, −44% → −28% after) and gave up a similar share of the gains.
+  Shown as a suggested size on each ticker page and in Buy alerts; a risk choice, not an edge.
+- Bonus check: the app's crypto trend rule, run on all 29 coins, beat holding them equally after 2021
+  (Sharpe 1.40 vs 0.71, worst drop −44% vs −81%).
 
 **Strong Buy vs Buy** (`strength_research.py`, results in `research/strength.md`, ~10 years): on stocks,
 Strong Buy days (2+ dip signals) beat the stock's normal next day by 0.44% (t 2.8) and its normal 5 days by

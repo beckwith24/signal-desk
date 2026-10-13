@@ -116,6 +116,7 @@ def build_payload(res: dict, cfg: dict) -> dict:
             "ia_stop": series(iv["stop"]),
         },
         "ia": ia_out,
+        "risk": ov.get("risk"),
         "signals": [{"t": _ts(s["ts"]), "ts": s["ts"], "action": s["action"], "rank": s["rank"],
                      "score": s["score"], "price": _num(s["price"], nd)}
                     for s in storage.signals_for(res["ticker"], res["timeframe"])],

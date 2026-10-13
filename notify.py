@@ -34,6 +34,7 @@ def format_message(r: dict) -> str:
         "Why:",
         *[f"• {x}" for x in r["reasons"]],
         *[f"ℹ️ {x}" for x in r.get("notes", [])],
+        *([size_line(r)] if r.get("rank", 0) > 0 and size_line(r) else []),
         f"🕒 {r['ts']}",
         *([f"📈 Chart: {link}"] if link else []),
         "Change alerts: /settings",
@@ -41,6 +42,16 @@ def format_message(r: dict) -> str:
         f"⚠️ {DISCLAIMER}",
     ]
     return "\n".join(lines)
+
+
+def size_line(r: dict) -> str | None:
+    rk = (r.get("overlays") or {}).get("risk")
+    if not rk:
+        return None
+    if rk["size"] >= 0.95:
+        return f"⚖️ Size: a normal position (swings {rk['vol_pct']}% a year, within the {rk['target_pct']}% guide)."
+    return (f"⚖️ Size: about {rk['size']:.2g}× a normal position. It swings {rk['vol_pct']}% a year vs a "
+            f"{rk['target_pct']}% guide, so a smaller position keeps the risk similar.")
 
 
 def format_exit(r: dict, entry: dict) -> str:
