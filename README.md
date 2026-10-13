@@ -189,7 +189,7 @@ per-segment sets and Buy/Sell rules in `engine.py`.
 | **Stocks · daily** | RSI(2) < 10 above the 200-day MA (exit on close above 5-day MA) · close in bottom 20% of the day's range in an uptrend (IBS) · VIX above 3-month VIX | **Buy** when one fires, **Strong Buy** when two or more; no sell signals | Connors & Alvarez; Pagonidis / arXiv 2306.12434; Fassas & Hourvouliades. Our test: positive in both halves but weak (+0.04% to +0.13% per day above normal, not statistically significant). Best used to time additions, not to be in or out |
 | **4-hour and hourly** (both) | none | no Buy/Sell; charts, layers and the daily signal for timing entries | Large studies (e.g., Marshall, Cahan & Cahan 2008) find intraday rules don't survive costs; our tests agreed |
 
-What we tested and dropped: the original five-model vote (no edge in any segment), market-regime filters
+What we tested and dropped: the InvestAnswers-style ribbon and ATR stop (see below), the original five-model vote (no edge in any segment), market-regime filters
 for single-stock timing, the turn-of-month effect (worked before 2021, not after), trend models on stocks,
 dip-buying on crypto (it hurt), and every model on 4h/1h bars.
 
@@ -207,19 +207,39 @@ strengthening (Buy → Strong Buy), or (crypto) an **Exit** when a Buy you were 
 and comes back alerts again. On the very first scan nothing is sent (it just records the baseline), unless you
 set `alert_on_first_scan: true`.
 
-### How this relates to InvestAnswers-style thinking
+### InvestAnswers-style view (rebuilt from TradingView screenshots)
 
-The idea is the same family: don't act on one indicator, wait for **confluence** of trend, mean reversion
-and multi-indicator agreement, and think in **ATR layers** for scaling in and out, with daily/4H as the main
-timeframes. Everything here is an open, documented approximation written from scratch. It isn't a copy
-of IADSS or any proprietary Pine script, and it won't produce identical signals.
+Every chart has an **IA view** switch, plus an "InvestAnswers-style view" box on each ticker page. The
+formulas were worked out by digitising screenshots of the IA indicators (`research/ia_targets/`) and
+searching thousands of candidate formulas against real prices (`calibrate_ia.py`, Actions → "IA calibration",
+results in `research/ia_calibration.md`). They are close matches, not InvestAnswers' own code.
+
+| Indicator | Rebuilt as | How close |
+|---|---|---|
+| IA-Optimized-Trend ribbon | 15-bar EMA of (high+low+close)/3 vs 34-bar EMA of close; blue when the fast line is above | SK hynix and Samsung: lines within 0.3–0.7%, colour right on 97–98% of days |
+| IA-ATR-Model buy/sell | ATR trailing stop that trails k × 30-bar ATR behind the close and flips when a close crosses it; k = 1.25 daily, 0.5 intraday | BTC daily: 31 of 34 triangles, 3 extra. CBRS 4h: about 23 of 32 |
+| IA-ATR-Model levels | Fibonacci fractions of the all-time high: Level 1–6 = 23.6 / 38.2 / 50 / 61.8 / 76.4 / 100% | BTC levels within 0.25% |
+
+**Tested like every other model** (same walk-forward test, costs included). Results:
+- Crypto daily: ribbon and ATR stop point the right way in both halves but weakly. Ribbon + stop together:
+  Sharpe 0.65 vs 0.60 holding, 17%/yr vs 20%, worst drop −73% vs −90%. The crypto trend set already in use
+  did better (Sharpe 0.92, 36%/yr, worst drop −53%), so it stays in charge of alerts.
+- Stocks daily: no edge from the ribbon or the ATR stop. "Below Level 4 (61.8% of the high)" pointed the right
+  way in both halves but fires rarely.
+- 4h and 1h: no edge; the ATR stop flips often and costs eat it.
+- The ATR-BT table's 91–94% win rates can't be reproduced by trading the signals at real prices
+  (close to close: about 44–56% wins). Buying at each signal bar's low and selling at its high gives
+  92–98%, which suggests the table uses prices you couldn't actually get.
+
+So the IA view is for reading the chart the way you're used to. Alerts still come from the tested model sets.
 
 ---
 
 ## Notes and limits
 
 - **Data:** yfinance is unofficial and occasionally rate-limits or breaks; the app retries and shows any failed
-  tickers instead of crashing. Stock 4H bars are built from 1H data. Intraday scans of the `1d` timeframe use
+  tickers instead of crashing. Stock 4H bars are built from 1H data as two session bars per day
+  (9:30–13:30 and 13:30–16:00 ET), the way TradingView draws them. Intraday scans of the `1d` timeframe use
   the still-forming daily bar.
 - **Hourly stock data** comes from Yahoo (free); 4-hour bars are built from it. Crypto hourly comes from Kraken.
 - **Market hours** are 9:30–16:05 ET weekdays; exchange holidays aren't handled (the scan just sees no new bar).
