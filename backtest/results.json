@@ -1,0 +1,1326 @@
+{
+ "meta": {
+  "generated": "2026-10-13 02:31 UTC",
+  "tickers": [
+   "NVDA",
+   "AMD",
+   "AVGO",
+   "PLTR",
+   "TSLA",
+   "MRVL",
+   "MU",
+   "GOOGL",
+   "AAPL",
+   "MSFT",
+   "META",
+   "QQQ",
+   "SPY",
+   "BTC-USD",
+   "ETH-USD",
+   "SOL-USD",
+   "LINK-USD",
+   "AVAX-USD"
+  ],
+  "timeframes": [
+   "1d",
+   "4h",
+   "1h"
+  ],
+  "failed": [],
+  "window": 400,
+  "ensemble": {
+   "min_agree": 3,
+   "strong_score": 75,
+   "watch_score": 58,
+   "knife_guard": true
+  },
+  "models": {
+   "trend": {
+    "fast_ema": 21,
+    "slow_ema": 55,
+    "long_ma": 200,
+    "supertrend_period": 10,
+    "supertrend_mult": 3.0
+   },
+   "mean_reversion": {
+    "lookback": 20,
+    "sd_threshold": 2.0
+   },
+   "confluence": {
+    "rsi_period": 14,
+    "rsi_low": 35,
+    "rsi_high": 65,
+    "stoch_k": 14,
+    "stoch_d": 3,
+    "volume_lookback": 20,
+    "volume_spike": 1.5
+   },
+   "atr_layers": {
+    "atr_period": 14,
+    "anchor_ma": 50,
+    "layer_step": 1.0,
+    "max_layers": 4,
+    "zone_layer": 2
+   },
+   "momentum": {
+    "roc_period": 20,
+    "swing_lookback": 10,
+    "roc_full_strength": 0.2
+   }
+  }
+ },
+ "summary": {
+  "1d": {
+   "stock": {
+    "baseline": {
+     "1 week": {
+      "n": 28344,
+      "avg": 0.7,
+      "median": 0.62,
+      "hit": 56.6
+     },
+     "2 weeks": {
+      "n": 28279,
+      "avg": 1.42,
+      "median": 1.2,
+      "hit": 58.5
+     },
+     "1 month": {
+      "n": 28136,
+      "avg": 3.06,
+      "median": 2.32,
+      "hit": 60.6
+     }
+    },
+    "Buy": {
+     "1 week": {
+      "n": 210,
+      "avg": 1.41,
+      "median": 0.74,
+      "hit": 61.4
+     },
+     "2 weeks": {
+      "n": 209,
+      "avg": 2.27,
+      "median": 2.26,
+      "hit": 62.2
+     },
+     "1 month": {
+      "n": 208,
+      "avg": 3.58,
+      "median": 2.93,
+      "hit": 64.9
+     },
+     "_n": 210,
+     "_mdd": -7.44
+    },
+    "Watch \u2191": {
+     "1 week": {
+      "n": 2586,
+      "avg": 0.73,
+      "median": 0.71,
+      "hit": 58.2
+     },
+     "2 weeks": {
+      "n": 2577,
+      "avg": 1.31,
+      "median": 1.09,
+      "hit": 58.5
+     },
+     "1 month": {
+      "n": 2560,
+      "avg": 2.96,
+      "median": 2.17,
+      "hit": 60.6
+     },
+     "_n": 2592,
+     "_mdd": -6.78
+    },
+    "Watch \u2193": {
+     "1 week": {
+      "n": 1457,
+      "avg": 0.97,
+      "median": 0.79,
+      "hit": 41.7
+     },
+     "2 weeks": {
+      "n": 1456,
+      "avg": 1.79,
+      "median": 1.5,
+      "hit": 40.0
+     },
+     "1 month": {
+      "n": 1451,
+      "avg": 3.35,
+      "median": 2.44,
+      "hit": 40.2
+     },
+     "_n": 1458,
+     "_mdd": -7.74
+    },
+    "Sell": {
+     "1 week": {
+      "n": 120,
+      "avg": 0.94,
+      "median": 0.81,
+      "hit": 44.2
+     },
+     "2 weeks": {
+      "n": 120,
+      "avg": 2.6,
+      "median": 2.77,
+      "hit": 34.2
+     },
+     "1 month": {
+      "n": 120,
+      "avg": 2.74,
+      "median": 2.19,
+      "hit": 40.8
+     },
+     "_n": 120,
+     "_mdd": -6.78
+    }
+   },
+   "crypto": {
+    "baseline": {
+     "1 week": {
+      "n": 13483,
+      "avg": 1.52,
+      "median": 0.24,
+      "hit": 51.1
+     },
+     "2 weeks": {
+      "n": 13448,
+      "avg": 3.22,
+      "median": 0.57,
+      "hit": 51.7
+     },
+     "1 month": {
+      "n": 13368,
+      "avg": 7.68,
+      "median": 1.32,
+      "hit": 52.5
+     }
+    },
+    "Buy": {
+     "1 week": {
+      "n": 68,
+      "avg": 3.11,
+      "median": 0.75,
+      "hit": 51.5
+     },
+     "2 weeks": {
+      "n": 68,
+      "avg": 5.18,
+      "median": 0.98,
+      "hit": 54.4
+     },
+     "1 month": {
+      "n": 67,
+      "avg": 13.36,
+      "median": -0.21,
+      "hit": 47.8
+     },
+     "_n": 68,
+     "_mdd": -16.47
+    },
+    "Watch \u2191": {
+     "1 week": {
+      "n": 933,
+      "avg": 2.33,
+      "median": 0.67,
+      "hit": 53.2
+     },
+     "2 weeks": {
+      "n": 930,
+      "avg": 4.33,
+      "median": 1.08,
+      "hit": 53.7
+     },
+     "1 month": {
+      "n": 921,
+      "avg": 10.07,
+      "median": 2.05,
+      "hit": 53.9
+     },
+     "_n": 937,
+     "_mdd": -16.5
+    },
+    "Watch \u2193": {
+     "1 week": {
+      "n": 897,
+      "avg": 1.74,
+      "median": 0.51,
+      "hit": 47.3
+     },
+     "2 weeks": {
+      "n": 897,
+      "avg": 2.95,
+      "median": -0.06,
+      "hit": 50.5
+     },
+     "1 month": {
+      "n": 891,
+      "avg": 7.17,
+      "median": 0.95,
+      "hit": 48.8
+     },
+     "_n": 898,
+     "_mdd": -16.71
+    },
+    "Sell": {
+     "1 week": {
+      "n": 90,
+      "avg": 0.42,
+      "median": -0.25,
+      "hit": 51.1
+     },
+     "2 weeks": {
+      "n": 90,
+      "avg": 2.68,
+      "median": -1.31,
+      "hit": 54.4
+     },
+     "1 month": {
+      "n": 88,
+      "avg": 4.03,
+      "median": 1.09,
+      "hit": 47.7
+     },
+     "_n": 90,
+     "_mdd": -17.7
+    }
+   },
+   "all": {
+    "baseline": {
+     "1 week": {
+      "n": 41827,
+      "avg": 0.96,
+      "median": 0.55,
+      "hit": 54.8
+     },
+     "2 weeks": {
+      "n": 41727,
+      "avg": 2.0,
+      "median": 1.1,
+      "hit": 56.3
+     },
+     "1 month": {
+      "n": 41504,
+      "avg": 4.54,
+      "median": 2.17,
+      "hit": 58.0
+     }
+    },
+    "Buy": {
+     "1 week": {
+      "n": 278,
+      "avg": 1.83,
+      "median": 0.74,
+      "hit": 59.0
+     },
+     "2 weeks": {
+      "n": 277,
+      "avg": 2.98,
+      "median": 2.25,
+      "hit": 60.3
+     },
+     "1 month": {
+      "n": 275,
+      "avg": 5.96,
+      "median": 2.41,
+      "hit": 60.7
+     },
+     "_n": 278,
+     "_mdd": -9.65
+    },
+    "Watch \u2191": {
+     "1 week": {
+      "n": 3519,
+      "avg": 1.15,
+      "median": 0.7,
+      "hit": 56.8
+     },
+     "2 weeks": {
+      "n": 3507,
+      "avg": 2.11,
+      "median": 1.09,
+      "hit": 57.2
+     },
+     "1 month": {
+      "n": 3481,
+      "avg": 4.84,
+      "median": 2.16,
+      "hit": 58.8
+     },
+     "_n": 3529,
+     "_mdd": -9.36
+    },
+    "Watch \u2193": {
+     "1 week": {
+      "n": 2354,
+      "avg": 1.27,
+      "median": 0.71,
+      "hit": 43.8
+     },
+     "2 weeks": {
+      "n": 2353,
+      "avg": 2.23,
+      "median": 1.28,
+      "hit": 44.0
+     },
+     "1 month": {
+      "n": 2342,
+      "avg": 4.8,
+      "median": 2.19,
+      "hit": 43.5
+     },
+     "_n": 2356,
+     "_mdd": -11.16
+    },
+    "Sell": {
+     "1 week": {
+      "n": 210,
+      "avg": 0.71,
+      "median": 0.46,
+      "hit": 47.1
+     },
+     "2 weeks": {
+      "n": 210,
+      "avg": 2.64,
+      "median": 1.51,
+      "hit": 42.9
+     },
+     "1 month": {
+      "n": 208,
+      "avg": 3.28,
+      "median": 2.13,
+      "hit": 43.8
+     },
+     "_n": 210,
+     "_mdd": -11.46
+    }
+   }
+  },
+  "4h": {
+   "stock": {
+    "baseline": {
+     "1 day": {
+      "n": 18772,
+      "avg": 0.11,
+      "median": 0.0,
+      "hit": 47.2
+     },
+     "3 days": {
+      "n": 18772,
+      "avg": 0.26,
+      "median": 0.16,
+      "hit": 53.0
+     },
+     "1 week": {
+      "n": 18668,
+      "avg": 0.85,
+      "median": 0.52,
+      "hit": 55.0
+     }
+    },
+    "Buy": {
+     "1 day": {
+      "n": 130,
+      "avg": 0.51,
+      "median": 0.22,
+      "hit": 56.9
+     },
+     "3 days": {
+      "n": 130,
+      "avg": 1.16,
+      "median": 0.55,
+      "hit": 62.3
+     },
+     "1 week": {
+      "n": 129,
+      "avg": 2.14,
+      "median": 1.04,
+      "hit": 61.2
+     },
+     "_n": 130,
+     "_mdd": -3.52
+    },
+    "Watch \u2191": {
+     "1 day": {
+      "n": 1563,
+      "avg": -0.02,
+      "median": 0.0,
+      "hit": 47.3
+     },
+     "3 days": {
+      "n": 1563,
+      "avg": 0.13,
+      "median": 0.1,
+      "hit": 52.0
+     },
+     "1 week": {
+      "n": 1546,
+      "avg": 0.75,
+      "median": 0.4,
+      "hit": 53.9
+     },
+     "_n": 1567,
+     "_mdd": -3.9
+    },
+    "Watch \u2193": {
+     "1 day": {
+      "n": 1118,
+      "avg": 0.18,
+      "median": 0.01,
+      "hit": 42.5
+     },
+     "3 days": {
+      "n": 1118,
+      "avg": 0.37,
+      "median": 0.3,
+      "hit": 45.4
+     },
+     "1 week": {
+      "n": 1112,
+      "avg": 1.22,
+      "median": 0.85,
+      "hit": 42.4
+     },
+     "_n": 1118,
+     "_mdd": -4.1
+    },
+    "Sell": {
+     "1 day": {
+      "n": 89,
+      "avg": 0.14,
+      "median": -0.04,
+      "hit": 50.6
+     },
+     "3 days": {
+      "n": 89,
+      "avg": 0.05,
+      "median": -0.37,
+      "hit": 56.2
+     },
+     "1 week": {
+      "n": 88,
+      "avg": 0.65,
+      "median": 0.04,
+      "hit": 47.7
+     },
+     "_n": 89,
+     "_mdd": -4.17
+    }
+   },
+   "crypto": {
+    "baseline": {
+     "1 day": {
+      "n": 20535,
+      "avg": -0.01,
+      "median": 0.0,
+      "hit": 50.0
+     },
+     "3 days": {
+      "n": 20475,
+      "avg": -0.04,
+      "median": -0.11,
+      "hit": 49.1
+     },
+     "1 week": {
+      "n": 20355,
+      "avg": -0.14,
+      "median": -0.31,
+      "hit": 48.0
+     }
+    },
+    "Buy": {
+     "1 day": {
+      "n": 218,
+      "avg": -0.69,
+      "median": -0.52,
+      "hit": 44.0
+     },
+     "3 days": {
+      "n": 216,
+      "avg": 0.53,
+      "median": 0.53,
+      "hit": 52.8
+     },
+     "1 week": {
+      "n": 212,
+      "avg": -0.37,
+      "median": -0.91,
+      "hit": 47.2
+     },
+     "_n": 222,
+     "_mdd": -7.45
+    },
+    "Watch \u2191": {
+     "1 day": {
+      "n": 1444,
+      "avg": -0.11,
+      "median": -0.08,
+      "hit": 48.5
+     },
+     "3 days": {
+      "n": 1438,
+      "avg": -0.09,
+      "median": -0.36,
+      "hit": 47.8
+     },
+     "1 week": {
+      "n": 1431,
+      "avg": -0.33,
+      "median": -0.56,
+      "hit": 46.3
+     },
+     "_n": 1449,
+     "_mdd": -7.36
+    },
+    "Watch \u2193": {
+     "1 day": {
+      "n": 1501,
+      "avg": -0.11,
+      "median": -0.02,
+      "hit": 50.3
+     },
+     "3 days": {
+      "n": 1498,
+      "avg": 0.09,
+      "median": 0.11,
+      "hit": 48.9
+     },
+     "1 week": {
+      "n": 1485,
+      "avg": -0.09,
+      "median": -0.13,
+      "hit": 50.8
+     },
+     "_n": 1502,
+     "_mdd": -7.92
+    },
+    "Sell": {
+     "1 day": {
+      "n": 202,
+      "avg": -0.43,
+      "median": 0.17,
+      "hit": 49.0
+     },
+     "3 days": {
+      "n": 202,
+      "avg": -0.24,
+      "median": -0.51,
+      "hit": 53.5
+     },
+     "1 week": {
+      "n": 202,
+      "avg": -0.63,
+      "median": -0.27,
+      "hit": 52.0
+     },
+     "_n": 204,
+     "_mdd": -7.84
+    }
+   },
+   "all": {
+    "baseline": {
+     "1 day": {
+      "n": 39307,
+      "avg": 0.05,
+      "median": 0.0,
+      "hit": 48.7
+     },
+     "3 days": {
+      "n": 39247,
+      "avg": 0.11,
+      "median": 0.08,
+      "hit": 50.9
+     },
+     "1 week": {
+      "n": 39023,
+      "avg": 0.33,
+      "median": 0.18,
+      "hit": 51.4
+     }
+    },
+    "Buy": {
+     "1 day": {
+      "n": 348,
+      "avg": -0.24,
+      "median": 0.0,
+      "hit": 48.9
+     },
+     "3 days": {
+      "n": 346,
+      "avg": 0.77,
+      "median": 0.54,
+      "hit": 56.4
+     },
+     "1 week": {
+      "n": 341,
+      "avg": 0.58,
+      "median": 0.28,
+      "hit": 52.5
+     },
+     "_n": 352,
+     "_mdd": -5.99
+    },
+    "Watch \u2191": {
+     "1 day": {
+      "n": 3007,
+      "avg": -0.06,
+      "median": 0.0,
+      "hit": 47.9
+     },
+     "3 days": {
+      "n": 3001,
+      "avg": 0.02,
+      "median": 0.0,
+      "hit": 50.0
+     },
+     "1 week": {
+      "n": 2977,
+      "avg": 0.23,
+      "median": 0.02,
+      "hit": 50.3
+     },
+     "_n": 3016,
+     "_mdd": -5.56
+    },
+    "Watch \u2193": {
+     "1 day": {
+      "n": 2619,
+      "avg": 0.02,
+      "median": 0.0,
+      "hit": 47.0
+     },
+     "3 days": {
+      "n": 2616,
+      "avg": 0.21,
+      "median": 0.24,
+      "hit": 47.4
+     },
+     "1 week": {
+      "n": 2597,
+      "avg": 0.47,
+      "median": 0.37,
+      "hit": 47.2
+     },
+     "_n": 2620,
+     "_mdd": -6.29
+    },
+    "Sell": {
+     "1 day": {
+      "n": 291,
+      "avg": -0.26,
+      "median": 0.0,
+      "hit": 49.5
+     },
+     "3 days": {
+      "n": 291,
+      "avg": -0.15,
+      "median": -0.46,
+      "hit": 54.3
+     },
+     "1 week": {
+      "n": 290,
+      "avg": -0.24,
+      "median": -0.15,
+      "hit": 50.7
+     },
+     "_n": 293,
+     "_mdd": -6.73
+    }
+   }
+  },
+  "1h": {
+   "stock": {
+    "baseline": {
+     "1 day": {
+      "n": 62516,
+      "avg": 0.14,
+      "median": 0.03,
+      "hit": 50.9
+     },
+     "2 days": {
+      "n": 62516,
+      "avg": 0.26,
+      "median": 0.07,
+      "hit": 52.1
+     },
+     "5 days": {
+      "n": 62334,
+      "avg": 0.62,
+      "median": 0.44,
+      "hit": 55.6
+     }
+    },
+    "Strong Buy": {
+     "1 day": {
+      "n": 2,
+      "avg": 0.83,
+      "median": 0.83,
+      "hit": 100.0
+     },
+     "2 days": {
+      "n": 2,
+      "avg": 2.15,
+      "median": 2.15,
+      "hit": 100.0
+     },
+     "5 days": {
+      "n": 2,
+      "avg": 2.99,
+      "median": 2.99,
+      "hit": 100.0
+     },
+     "_n": 2,
+     "_mdd": -0.49
+    },
+    "Buy": {
+     "1 day": {
+      "n": 507,
+      "avg": 0.13,
+      "median": 0.03,
+      "hit": 50.7
+     },
+     "2 days": {
+      "n": 507,
+      "avg": 0.33,
+      "median": 0.1,
+      "hit": 51.3
+     },
+     "5 days": {
+      "n": 502,
+      "avg": 0.61,
+      "median": 0.73,
+      "hit": 59.6
+     },
+     "_n": 508,
+     "_mdd": -3.09
+    },
+    "Watch \u2191": {
+     "1 day": {
+      "n": 5124,
+      "avg": 0.16,
+      "median": 0.05,
+      "hit": 51.8
+     },
+     "2 days": {
+      "n": 5124,
+      "avg": 0.29,
+      "median": 0.1,
+      "hit": 52.9
+     },
+     "5 days": {
+      "n": 5099,
+      "avg": 0.63,
+      "median": 0.41,
+      "hit": 55.9
+     },
+     "_n": 5136,
+     "_mdd": -2.99
+    },
+    "Watch \u2193": {
+     "1 day": {
+      "n": 3978,
+      "avg": 0.13,
+      "median": 0.05,
+      "hit": 45.4
+     },
+     "2 days": {
+      "n": 3978,
+      "avg": 0.26,
+      "median": 0.11,
+      "hit": 45.0
+     },
+     "5 days": {
+      "n": 3968,
+      "avg": 0.67,
+      "median": 0.5,
+      "hit": 44.2
+     },
+     "_n": 3984,
+     "_mdd": -3.3
+    },
+    "Sell": {
+     "1 day": {
+      "n": 389,
+      "avg": 0.11,
+      "median": 0.12,
+      "hit": 43.4
+     },
+     "2 days": {
+      "n": 389,
+      "avg": 0.3,
+      "median": 0.1,
+      "hit": 46.5
+     },
+     "5 days": {
+      "n": 389,
+      "avg": 0.55,
+      "median": 0.41,
+      "hit": 46.3
+     },
+     "_n": 389,
+     "_mdd": -3.27
+    }
+   },
+   "crypto": {
+    "baseline": {
+     "1 day": {
+      "n": 85830,
+      "avg": 0.05,
+      "median": 0.01,
+      "hit": 50.1
+     },
+     "2 days": {
+      "n": 85710,
+      "avg": 0.11,
+      "median": 0.03,
+      "hit": 50.2
+     },
+     "5 days": {
+      "n": 85350,
+      "avg": 0.2,
+      "median": -0.16,
+      "hit": 48.8
+     }
+    },
+    "Strong Buy": {
+     "1 day": {
+      "n": 2,
+      "avg": -2.8,
+      "median": -2.8,
+      "hit": 0.0
+     },
+     "2 days": {
+      "n": 2,
+      "avg": -7.74,
+      "median": -7.74,
+      "hit": 0.0
+     },
+     "5 days": {
+      "n": 2,
+      "avg": -2.46,
+      "median": -2.46,
+      "hit": 0.0
+     },
+     "_n": 2,
+     "_mdd": -10.46
+    },
+    "Buy": {
+     "1 day": {
+      "n": 877,
+      "avg": 0.03,
+      "median": -0.02,
+      "hit": 49.1
+     },
+     "2 days": {
+      "n": 876,
+      "avg": 0.19,
+      "median": -0.18,
+      "hit": 48.5
+     },
+     "5 days": {
+      "n": 876,
+      "avg": 0.28,
+      "median": -0.22,
+      "hit": 47.9
+     },
+     "_n": 877,
+     "_mdd": -6.0
+    },
+    "Watch \u2191": {
+     "1 day": {
+      "n": 6242,
+      "avg": 0.02,
+      "median": -0.18,
+      "hit": 47.5
+     },
+     "2 days": {
+      "n": 6234,
+      "avg": 0.05,
+      "median": -0.18,
+      "hit": 47.9
+     },
+     "5 days": {
+      "n": 6223,
+      "avg": 0.08,
+      "median": -0.39,
+      "hit": 47.3
+     },
+     "_n": 6253,
+     "_mdd": -6.14
+    },
+    "Watch \u2193": {
+     "1 day": {
+      "n": 6333,
+      "avg": 0.06,
+      "median": 0.08,
+      "hit": 48.9
+     },
+     "2 days": {
+      "n": 6323,
+      "avg": 0.15,
+      "median": 0.15,
+      "hit": 48.4
+     },
+     "5 days": {
+      "n": 6289,
+      "avg": 0.23,
+      "median": -0.07,
+      "hit": 50.5
+     },
+     "_n": 6352,
+     "_mdd": -6.45
+    },
+    "Sell": {
+     "1 day": {
+      "n": 803,
+      "avg": 0.29,
+      "median": 0.08,
+      "hit": 48.4
+     },
+     "2 days": {
+      "n": 798,
+      "avg": -0.15,
+      "median": -0.07,
+      "hit": 50.6
+     },
+     "5 days": {
+      "n": 795,
+      "avg": 0.32,
+      "median": -0.0,
+      "hit": 50.2
+     },
+     "_n": 803,
+     "_mdd": -6.44
+    }
+   },
+   "all": {
+    "baseline": {
+     "1 day": {
+      "n": 148346,
+      "avg": 0.09,
+      "median": 0.02,
+      "hit": 50.4
+     },
+     "2 days": {
+      "n": 148226,
+      "avg": 0.17,
+      "median": 0.06,
+      "hit": 51.0
+     },
+     "5 days": {
+      "n": 147684,
+      "avg": 0.38,
+      "median": 0.18,
+      "hit": 51.7
+     }
+    },
+    "Strong Buy": {
+     "1 day": {
+      "n": 4,
+      "avg": -0.99,
+      "median": -1.12,
+      "hit": 50.0
+     },
+     "2 days": {
+      "n": 4,
+      "avg": -2.79,
+      "median": -0.79,
+      "hit": 50.0
+     },
+     "5 days": {
+      "n": 4,
+      "avg": 0.27,
+      "median": 0.62,
+      "hit": 50.0
+     },
+     "_n": 4,
+     "_mdd": -5.47
+    },
+    "Buy": {
+     "1 day": {
+      "n": 1384,
+      "avg": 0.07,
+      "median": 0.0,
+      "hit": 49.7
+     },
+     "2 days": {
+      "n": 1383,
+      "avg": 0.24,
+      "median": -0.0,
+      "hit": 49.5
+     },
+     "5 days": {
+      "n": 1378,
+      "avg": 0.4,
+      "median": 0.24,
+      "hit": 52.2
+     },
+     "_n": 1385,
+     "_mdd": -4.93
+    },
+    "Watch \u2191": {
+     "1 day": {
+      "n": 11366,
+      "avg": 0.08,
+      "median": 0.0,
+      "hit": 49.4
+     },
+     "2 days": {
+      "n": 11358,
+      "avg": 0.16,
+      "median": 0.01,
+      "hit": 50.1
+     },
+     "5 days": {
+      "n": 11322,
+      "avg": 0.33,
+      "median": 0.12,
+      "hit": 51.2
+     },
+     "_n": 11389,
+     "_mdd": -4.72
+    },
+    "Watch \u2193": {
+     "1 day": {
+      "n": 10311,
+      "avg": 0.09,
+      "median": 0.06,
+      "hit": 47.6
+     },
+     "2 days": {
+      "n": 10301,
+      "avg": 0.19,
+      "median": 0.12,
+      "hit": 47.1
+     },
+     "5 days": {
+      "n": 10257,
+      "avg": 0.4,
+      "median": 0.22,
+      "hit": 48.1
+     },
+     "_n": 10336,
+     "_mdd": -5.24
+    },
+    "Sell": {
+     "1 day": {
+      "n": 1192,
+      "avg": 0.23,
+      "median": 0.09,
+      "hit": 46.8
+     },
+     "2 days": {
+      "n": 1187,
+      "avg": 0.0,
+      "median": 0.03,
+      "hit": 49.3
+     },
+     "5 days": {
+      "n": 1184,
+      "avg": 0.4,
+      "median": 0.09,
+      "hit": 48.9
+     },
+     "_n": 1192,
+     "_mdd": -5.41
+    }
+   }
+  }
+ },
+ "per_ticker": [
+  {
+   "ticker": "AAPL",
+   "buys": 17,
+   "buy_avg": 2.06,
+   "buy_hit": 76,
+   "sells": 10,
+   "sell_avg": 2.95,
+   "sell_hit": 50
+  },
+  {
+   "ticker": "AMD",
+   "buys": 12,
+   "buy_avg": 3.3,
+   "buy_hit": 58,
+   "sells": 11,
+   "sell_avg": -2.96,
+   "sell_hit": 55
+  },
+  {
+   "ticker": "AVAX-USD",
+   "buys": 9,
+   "buy_avg": -6.58,
+   "buy_hit": 22,
+   "sells": 21,
+   "sell_avg": 12.22,
+   "sell_hit": 43
+  },
+  {
+   "ticker": "AVGO",
+   "buys": 24,
+   "buy_avg": 2.6,
+   "buy_hit": 62,
+   "sells": 10,
+   "sell_avg": -1.63,
+   "sell_hit": 60
+  },
+  {
+   "ticker": "BTC-USD",
+   "buys": 14,
+   "buy_avg": 13.5,
+   "buy_hit": 64,
+   "sells": 16,
+   "sell_avg": 4.83,
+   "sell_hit": 44
+  },
+  {
+   "ticker": "ETH-USD",
+   "buys": 16,
+   "buy_avg": 19.46,
+   "buy_hit": 56,
+   "sells": 22,
+   "sell_avg": -3.58,
+   "sell_hit": 50
+  },
+  {
+   "ticker": "GOOGL",
+   "buys": 19,
+   "buy_avg": 2.33,
+   "buy_hit": 58,
+   "sells": 8,
+   "sell_avg": -0.15,
+   "sell_hit": 50
+  },
+  {
+   "ticker": "LINK-USD",
+   "buys": 15,
+   "buy_avg": 8.07,
+   "buy_hit": 33,
+   "sells": 12,
+   "sell_avg": 10.76,
+   "sell_hit": 42
+  },
+  {
+   "ticker": "META",
+   "buys": 19,
+   "buy_avg": 1.84,
+   "buy_hit": 53,
+   "sells": 8,
+   "sell_avg": 5.7,
+   "sell_hit": 50
+  },
+  {
+   "ticker": "MRVL",
+   "buys": 21,
+   "buy_avg": 5.82,
+   "buy_hit": 67,
+   "sells": 9,
+   "sell_avg": 3.14,
+   "sell_hit": 22
+  },
+  {
+   "ticker": "MSFT",
+   "buys": 12,
+   "buy_avg": 3.17,
+   "buy_hit": 58,
+   "sells": 9,
+   "sell_avg": 4.12,
+   "sell_hit": 22
+  },
+  {
+   "ticker": "MU",
+   "buys": 19,
+   "buy_avg": 5.88,
+   "buy_hit": 53,
+   "sells": 11,
+   "sell_avg": 12.32,
+   "sell_hit": 27
+  },
+  {
+   "ticker": "NVDA",
+   "buys": 8,
+   "buy_avg": 4.97,
+   "buy_hit": 75,
+   "sells": 6,
+   "sell_avg": 2.99,
+   "sell_hit": 17
+  },
+  {
+   "ticker": "PLTR",
+   "buys": 6,
+   "buy_avg": 4.38,
+   "buy_hit": 67,
+   "sells": 6,
+   "sell_avg": 9.36,
+   "sell_hit": 33
+  },
+  {
+   "ticker": "QQQ",
+   "buys": 22,
+   "buy_avg": 3.77,
+   "buy_hit": 77,
+   "sells": 10,
+   "sell_avg": -0.16,
+   "sell_hit": 40
+  },
+  {
+   "ticker": "SOL-USD",
+   "buys": 13,
+   "buy_avg": 25.62,
+   "buy_hit": 54,
+   "sells": 17,
+   "sell_avg": -1.76,
+   "sell_hit": 59
+  },
+  {
+   "ticker": "SPY",
+   "buys": 20,
+   "buy_avg": 2.13,
+   "buy_hit": 80,
+   "sells": 10,
+   "sell_avg": -0.56,
+   "sell_hit": 50
+  },
+  {
+   "ticker": "TSLA",
+   "buys": 9,
+   "buy_avg": 7.14,
+   "buy_hit": 56,
+   "sells": 12,
+   "sell_avg": 2.96,
+   "sell_hit": 42
+  }
+ ],
+ "action_frequency_pct": {
+  "1d": {
+   "Hold": 49.19,
+   "Watch \u2191": 29.65,
+   "Watch \u2193": 19.61,
+   "Buy": 0.8500000000000001,
+   "Sell": 0.7100000000000001,
+   "Strong Buy": 0.0
+  },
+  "4h": {
+   "Hold": 50.7,
+   "Watch \u2191": 25.03,
+   "Watch \u2193": 22.1,
+   "Buy": 1.15,
+   "Sell": 1.01,
+   "Strong Buy": 0.01
+  },
+  "1h": {
+   "Hold": 51.12,
+   "Watch \u2191": 24.39,
+   "Watch \u2193": 22.16,
+   "Buy": 1.26,
+   "Sell": 1.06,
+   "Strong Buy": 0.01
+  }
+ }
+}
