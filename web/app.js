@@ -92,11 +92,14 @@ if (window.top !== window.self) { document.documentElement.style.display = "none
       list.append(e); $("summary").textContent = ""; return;
     }
     let items = idx.items.filter((i) => i.tf === "1d");
-    const buys = items.filter((i) => i.rank >= 2).length, sells = items.filter((i) => i.rank <= -2).length;
-    const watch = items.filter((i) => Math.abs(i.rank) === 1).length;
+    const strong = items.filter((i) => i.rank >= 3).length, buy = items.filter((i) => i.rank === 2).length;
+    const sells = items.filter((i) => i.rank <= -2).length;
     const s = $("summary"); s.textContent = "";
-    for (const [k, v] of [["Buy-side", buys], ["Sell-side", sells], ["Watching", watch], ["Tickers", items.length]]) {
-      const span = el("span"); span.append(el("strong", null, String(v)), " " + k); s.append(span);
+    const counts = [["Strong Buy", strong, "up"], ["Buy", buy, "up"]];
+    if (sells) counts.push(["Sell", sells, "down"]);         // only shown when there are any
+    counts.push(["Tickers", items.length, ""]);
+    for (const [k, v, cls] of counts) {
+      const span = el("span", cls ? "cnt " + cls : null); span.append(el("strong", null, String(v)), " " + k); s.append(span);
     }
     s.append(el("span", "spacer"));
     const addBtn = el("button", "btn ghost", $("addForm").hidden ? "＋ Add ticker" : "Close");
