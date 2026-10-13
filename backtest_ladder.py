@@ -5,6 +5,8 @@ Three strategies on each ticker, each starting with $1 of cash and paying a fee 
 
   ladder   add 1/3 of available cash at L-2, L-3, L-4; trim 1/3 of the position at L+2, L+3, L+4
            (buy ladder resets once price is back above the anchor, sell ladder once it's below)
+  core     same ladder, but layer-out only trims half the position (1/6 at each sell layer), keeping a core
+  in_only  layer in at L-2/-3/-4, never sell (a way to time entries for money you want invested anyway)
   lump     put all cash in at the first L-2; sell everything at the first L+2
   hold     buy at the start and never sell
 
@@ -36,6 +38,8 @@ from signals import atr, sma
 log = logging.getLogger("ladder_bt")
 OUT = Path(__file__).with_name("backtest")
 FEE = 0.001     # 0.1% per trade
+MODES = ("ladder", "core", "in_only", "lump", "hold")
+NAMES = {"ladder": "Ladder", "core": "Ladder, keep half", "in_only": "Layer-in only", "lump": "Lump sum", "hold": "Buy & hold"}
 WARMUP = 250
 
 
@@ -66,7 +70,7 @@ def simulate(close: np.ndarray, dist: np.ndarray, lc: dict, mode: str) -> dict:
                 s_tier = 0
             nb = sum(d <= L for L in buy_l)
             ns = sum(d >= L for L in sell_l)
-            if mode == "ladder":
+            if mode in ("ladder", "core", "in_only"):
                 while b_tier < nb:
                     if b_tier == 0:
                         tranche = cash / nb_total
@@ -76,10 +80,10 @@ def simulate(close: np.ndarray, dist: np.ndarray, lc: dict, mode: str) -> dict:
                         cash -= amt
                         trades += 1
                     b_tier += 1
-                while s_tier < ns:
+                while s_tier < ns and mode != "in_only":
                     if s_tier == 0:
-                        sell_tranche = sh / ns_total
-                    q = sh if s_tier == ns_total - 1 else min(sell_tranche, sh)
+                        sell_tranche = sh / ns_total * (0.5 if mode == "core" else 1.0)
+                    q = sh if (s_tier == ns_total - 1 and mode == "ladder") else min(sell_tranche, sh)
                     if q > 1e-12:
                         cash += q * px * (1 - FEE)
                         sh -= q
@@ -115,12 +119,12 @@ def run_one(ticker: str, tf: str, cfg: dict) -> dict:
            "start": str(df.index[WARMUP].date()), "end": str(df.index[-1].date()),
            "years": round((df.index[-1] - df.index[WARMUP]).days / 365.25, 1)}
     curves = {}
-    for mode in ("ladder", "lump", "hold"):
+    for mode in MODES:
         r = simulate(close, dist, cfg["ladder"], mode)
         curves[mode] = r.pop("equity")
         out[mode] = r
     # Per year of time invested, to compare strategies that sit in cash a lot with ones that don't.
-    for mode in ("ladder", "lump"):
+    for mode in ("ladder", "core", "in_only", "lump"):
         inv = out[mode]["avg_invested"] / 100
         out[mode]["return_per_invested"] = round(out[mode]["return"] / inv, 1) if inv > 0.01 else None
     # How many full buy cycles reached each layer (how often the deeper layers actually get used).
@@ -147,19 +151,22 @@ def run_one(ticker: str, tf: str, cfg: dict) -> dict:
 
 def summarise(rows: list[dict]) -> dict:
     df = pd.DataFrame([{**{k: r[k] for k in ("ticker", "tf", "asset")},
-                        **{f"{m}_{k}": r[m][k] for m in ("ladder", "lump", "hold")
+                        **{f"{m}_{k}": r[m][k] for m in MODES
                            for k in ("return", "max_drawdown", "avg_invested", "trades")}} for r in rows])
     out = {}
     for (tf, asset), g in list(df.groupby(["tf", "asset"])) + [((tf, "all"), g) for tf, g in df.groupby("tf")]:
         out.setdefault(tf, {})[asset] = {
             "tickers": int(len(g)),
-            "median_return": {m: float(g[f"{m}_return"].median()) for m in ("ladder", "lump", "hold")},
-            "median_max_drawdown": {m: float(g[f"{m}_max_drawdown"].median()) for m in ("ladder", "lump", "hold")},
-            "median_avg_invested": {m: float(g[f"{m}_avg_invested"].median()) for m in ("ladder", "lump", "hold")},
+            "median_return": {m: float(g[f"{m}_return"].median()) for m in MODES},
+            "median_max_drawdown": {m: float(g[f"{m}_max_drawdown"].median()) for m in MODES},
+            "median_avg_invested": {m: float(g[f"{m}_avg_invested"].median()) for m in MODES},
             "ladder_beats_lump": int((g["ladder_return"] > g["lump_return"]).sum()),
             "ladder_beats_hold": int((g["ladder_return"] > g["hold_return"]).sum()),
             "ladder_smaller_drawdown_than_lump": int((g["ladder_max_drawdown"] > g["lump_max_drawdown"]).sum()),
             "ladder_smaller_drawdown_than_hold": int((g["ladder_max_drawdown"] > g["hold_max_drawdown"]).sum()),
+            "core_beats_hold": int((g["core_return"] > g["hold_return"]).sum()),
+            "in_only_beats_hold": int((g["in_only_return"] > g["hold_return"]).sum()),
+            "core_beats_ladder": int((g["core_return"] > g["ladder_return"]).sum()),
         }
     return out
 
@@ -171,21 +178,23 @@ def markdown(rows: list[dict], summary: dict, meta: dict) -> str:
     for tf, assets in summary.items():
         for asset, s in assets.items():
             L += [f"## {tf} — {asset} ({s['tickers']} tickers, medians)", "",
-                  "| | Ladder | Lump sum | Buy & hold |", "|---|---|---|---|",
-                  "| Return | " + " | ".join(f"{s['median_return'][m]:.1f}%" for m in ("ladder", "lump", "hold")) + " |",
-                  "| Max dip | " + " | ".join(f"{s['median_max_drawdown'][m]:.1f}%" for m in ("ladder", "lump", "hold")) + " |",
-                  "| Invested | " + " | ".join(f"{s['median_avg_invested'][m]:.0f}%" for m in ("ladder", "lump", "hold")) + " |",
+                  "| | " + " | ".join(NAMES[m] for m in MODES) + " |", "|---|" + "---|" * len(MODES),
+                  "| Return | " + " | ".join(f"{s['median_return'][m]:.1f}%" for m in MODES) + " |",
+                  "| Max dip | " + " | ".join(f"{s['median_max_drawdown'][m]:.1f}%" for m in MODES) + " |",
+                  "| Invested | " + " | ".join(f"{s['median_avg_invested'][m]:.0f}%" for m in MODES) + " |",
                   "",
                   f"Ladder beat lump sum on {s['ladder_beats_lump']}/{s['tickers']}, beat buy & hold on "
                   f"{s['ladder_beats_hold']}/{s['tickers']}; smaller worst dip than lump sum on "
                   f"{s['ladder_smaller_drawdown_than_lump']}/{s['tickers']} and than buy & hold on "
-                  f"{s['ladder_smaller_drawdown_than_hold']}/{s['tickers']}.", ""]
-    L += ["## By ticker", "", "| Ticker | TF | Years | Ladder | Lump | Hold | Ladder dip | Hold dip | Dips to L-2 / L-3 / L-4 |",
-          "|---|---|---|---|---|---|---|---|---|"]
+                  f"{s['ladder_smaller_drawdown_than_hold']}/{s['tickers']}. Keep-half beat buy & hold on "
+                  f"{s['core_beats_hold']}/{s['tickers']}; layer-in only beat buy & hold on {s['in_only_beats_hold']}/{s['tickers']}.", ""]
+    L += ["## By ticker", "", "| Ticker | TF | Years | Ladder | Keep half | In only | Lump | Hold | Ladder dip | Keep-half dip | Hold dip | Dips to L-2 / L-3 / L-4 |",
+          "|---|---|---|---|---|---|---|---|---|---|---|---|"]
     for r in sorted(rows, key=lambda r: (r["tf"], r["ticker"])):
         c = r["dip_cycles"]
-        L.append(f"| {r['ticker']} | {r['tf']} | {r['years']} | {r['ladder']['return']}% | {r['lump']['return']}% | "
-                 f"{r['hold']['return']}% | {r['ladder']['max_drawdown']}% | {r['hold']['max_drawdown']}% | "
+        L.append(f"| {r['ticker']} | {r['tf']} | {r['years']} | {r['ladder']['return']}% | {r['core']['return']}% | "
+                 f"{r['in_only']['return']}% | {r['lump']['return']}% | {r['hold']['return']}% | "
+                 f"{r['ladder']['max_drawdown']}% | {r['core']['max_drawdown']}% | {r['hold']['max_drawdown']}% | "
                  f"{c['reached_L-2']} / {c['reached_L-3']} / {c['reached_L-4']} |")
     L += ["", "_Personal research only. Past results don't guarantee future results._"]
     return "\n".join(L)
