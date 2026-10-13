@@ -1,6 +1,6 @@
 {
  "meta": {
-  "generated": "2026-10-13 03:29 UTC",
+  "generated": "2026-10-13 12:46 UTC",
   "costs": {
    "stock": 0.0005,
    "crypto": 0.0025
@@ -92,6 +92,19 @@
     "roc_period": 20,
     "swing_lookback": 10,
     "roc_full_strength": 0.2
+   },
+   "ia_ribbon": {
+    "fast": 15,
+    "slow": 34,
+    "full": 0.05
+   },
+   "ia_atr_stop": {
+    "key": 1.25,
+    "key_intraday": 0.5,
+    "atr_len": 30
+   },
+   "ia_ath_discount": {
+    "buy_below": 0.618
    }
   }
  },
@@ -500,11 +513,11 @@
     "donchian_ensemble": {
      "train": {
       "bull": {
-       "n": 4697,
+       "n": 4698,
        "days": 710,
        "share": 48.2,
-       "excess_bp": -3.33,
-       "t": -0.55
+       "excess_bp": -3.49,
+       "t": -0.57
       },
       "bear": {
        "n": 1138,
@@ -848,17 +861,17 @@
     "momentum_classic": {
      "train": {
       "bull": {
-       "n": 4835,
+       "n": 4836,
        "days": 701,
        "share": 49.6,
-       "excess_bp": -1.16,
-       "t": -0.19
+       "excess_bp": -1.03,
+       "t": -0.16
       },
       "bear": {
-       "n": 2140,
-       "days": 516,
+       "n": 2141,
+       "days": 517,
        "share": 22.0,
-       "excess_bp": 4.56,
+       "excess_bp": 4.7,
        "t": 0.24
       },
       "long_only": {
@@ -903,6 +916,172 @@
       }
      }
     },
+    "ia_ribbon": {
+     "train": {
+      "bull": {
+       "n": 6870,
+       "days": 795,
+       "share": 70.5,
+       "excess_bp": -0.5,
+       "t": -0.09
+      },
+      "bear": {
+       "n": 2874,
+       "days": 641,
+       "share": 29.5,
+       "excess_bp": 1.19,
+       "t": 0.07
+      },
+      "long_only": {
+       "median_sharpe": 0.8,
+       "median_hold_sharpe": 0.91,
+       "median_sharpe_gain": -0.07,
+       "share_better": 0.25,
+       "median_ann_pct": 15.2,
+       "median_hold_ann_pct": 30.5,
+       "median_mdd_pct": -27.1,
+       "median_hold_mdd_pct": -41.5,
+       "median_exposure_pct": 71.0,
+       "median_switches_per_year": 5.9
+      }
+     },
+     "test": {
+      "bull": {
+       "n": 11599,
+       "days": 1363,
+       "share": 62.2,
+       "excess_bp": -0.99,
+       "t": -0.2
+      },
+      "bear": {
+       "n": 7053,
+       "days": 1336,
+       "share": 37.8,
+       "excess_bp": 1.63,
+       "t": 0.18
+      },
+      "long_only": {
+       "median_sharpe": 0.72,
+       "median_hold_sharpe": 0.86,
+       "median_sharpe_gain": -0.18,
+       "share_better": 0.08,
+       "median_ann_pct": 16.8,
+       "median_hold_ann_pct": 28.0,
+       "median_mdd_pct": -43.7,
+       "median_hold_mdd_pct": -57.6,
+       "median_exposure_pct": 61.0,
+       "median_switches_per_year": 6.7
+      }
+     }
+    },
+    "ia_atr_stop": {
+     "train": {
+      "bull": {
+       "n": 6138,
+       "days": 777,
+       "share": 63.0,
+       "excess_bp": -6.14,
+       "t": -0.92
+      },
+      "bear": {
+       "n": 3606,
+       "days": 725,
+       "share": 37.0,
+       "excess_bp": 10.45,
+       "t": 0.91
+      },
+      "long_only": {
+       "median_sharpe": 0.36,
+       "median_hold_sharpe": 0.91,
+       "median_sharpe_gain": -0.49,
+       "share_better": 0.0,
+       "median_ann_pct": 5.9,
+       "median_hold_ann_pct": 30.5,
+       "median_mdd_pct": -39.3,
+       "median_hold_mdd_pct": -41.5,
+       "median_exposure_pct": 63.0,
+       "median_switches_per_year": 29.5
+      }
+     },
+     "test": {
+      "bull": {
+       "n": 10569,
+       "days": 1355,
+       "share": 56.7,
+       "excess_bp": -2.47,
+       "t": -0.47
+      },
+      "bear": {
+       "n": 8083,
+       "days": 1327,
+       "share": 43.3,
+       "excess_bp": 3.23,
+       "t": 0.41
+      },
+      "long_only": {
+       "median_sharpe": 0.46,
+       "median_hold_sharpe": 0.86,
+       "median_sharpe_gain": -0.35,
+       "share_better": 0.15,
+       "median_ann_pct": 7.3,
+       "median_hold_ann_pct": 28.0,
+       "median_mdd_pct": -43.3,
+       "median_hold_mdd_pct": -57.6,
+       "median_exposure_pct": 57.0,
+       "median_switches_per_year": 28.8
+      }
+     }
+    },
+    "ia_ath_discount": {
+     "train": {
+      "bull": {
+       "n": 517,
+       "days": 239,
+       "share": 5.3,
+       "excess_bp": 34.11,
+       "t": 1.28
+      },
+      "bear": {
+       "n": 0
+      },
+      "long_only": {
+       "median_sharpe": 0.44,
+       "median_hold_sharpe": 0.91,
+       "median_sharpe_gain": -0.61,
+       "share_better": 0.17,
+       "median_ann_pct": 4.0,
+       "median_hold_ann_pct": 30.5,
+       "median_mdd_pct": -4.9,
+       "median_hold_mdd_pct": -41.5,
+       "median_exposure_pct": 1.0,
+       "median_switches_per_year": 1.6
+      }
+     },
+     "test": {
+      "bull": {
+       "n": 3093,
+       "days": 1010,
+       "share": 16.6,
+       "excess_bp": 10.5,
+       "t": 0.83
+      },
+      "bear": {
+       "n": 0
+      },
+      "long_only": {
+       "median_sharpe": 0.41,
+       "median_hold_sharpe": 0.86,
+       "median_sharpe_gain": -0.34,
+       "share_better": 0.15,
+       "median_ann_pct": 4.2,
+       "median_hold_ann_pct": 28.0,
+       "median_mdd_pct": -33.2,
+       "median_hold_mdd_pct": -57.6,
+       "median_exposure_pct": 14.0,
+       "median_switches_per_year": 2.1
+      }
+     }
+    },
     "old_ensemble": {
      "train": {
       "bull": {
@@ -913,11 +1092,11 @@
        "t": 0.89
       },
       "bear": {
-       "n": 42,
-       "days": 41,
+       "n": 41,
+       "days": 40,
        "share": 0.4,
-       "excess_bp": -1.38,
-       "t": -0.04
+       "excess_bp": -1.07,
+       "t": -0.03
       },
       "long_only": {
        "median_sharpe": 0.59,
@@ -966,7 +1145,8 @@
    "consistent": [
     "rsi2_pullback",
     "ibs_reversal",
-    "vix_backwardation"
+    "vix_backwardation",
+    "ia_ath_discount"
    ],
    "presets": {
     "pullback_any": {
@@ -1024,6 +1204,69 @@
        "median_switches_per_year": 60.1
       }
      }
+    },
+    "ia_ribbon_and_stop": {
+     "models": [
+      "ia_ribbon",
+      "ia_atr_stop"
+     ],
+     "threshold": 0.5,
+     "train": {
+      "bull": {
+       "n": 4690,
+       "days": 735,
+       "share": 48.1,
+       "excess_bp": -3.28,
+       "t": -0.56
+      },
+      "bear": {
+       "n": 1426,
+       "days": 472,
+       "share": 14.6,
+       "excess_bp": 18.05,
+       "t": 0.86
+      },
+      "long_only": {
+       "median_sharpe": 0.59,
+       "median_hold_sharpe": 0.91,
+       "median_sharpe_gain": -0.42,
+       "share_better": 0.17,
+       "median_ann_pct": 9.0,
+       "median_hold_ann_pct": 30.5,
+       "median_mdd_pct": -25.4,
+       "median_hold_mdd_pct": -41.5,
+       "median_exposure_pct": 47.0,
+       "median_switches_per_year": 21.7
+      }
+     },
+     "test": {
+      "bull": {
+       "n": 7465,
+       "days": 1233,
+       "share": 40.0,
+       "excess_bp": -0.72,
+       "t": -0.13
+      },
+      "bear": {
+       "n": 3949,
+       "days": 1059,
+       "share": 21.2,
+       "excess_bp": 8.16,
+       "t": 0.66
+      },
+      "long_only": {
+       "median_sharpe": 0.54,
+       "median_hold_sharpe": 0.86,
+       "median_sharpe_gain": -0.32,
+       "share_better": 0.15,
+       "median_ann_pct": 8.1,
+       "median_hold_ann_pct": 28.0,
+       "median_mdd_pct": -30.6,
+       "median_hold_mdd_pct": -57.6,
+       "median_exposure_pct": 39.0,
+       "median_switches_per_year": 21.3
+      }
+     }
     }
    }
   },
@@ -1043,7 +1286,7 @@
    ],
    "test_period": [
     "2021-01-01",
-    "2026-10-11"
+    "2026-10-12"
    ],
    "models": {
     "tsmom28": {
@@ -1077,18 +1320,18 @@
      },
      "test": {
       "bull": {
-       "n": 5245,
-       "days": 1482,
+       "n": 5249,
+       "days": 1483,
        "share": 50.4,
-       "excess_bp": 17.66,
-       "t": 1.7
+       "excess_bp": 17.59,
+       "t": 1.69
       },
       "bear": {
-       "n": 5158,
-       "days": 1475,
+       "n": 5159,
+       "days": 1476,
        "share": 49.6,
-       "excess_bp": -17.96,
-       "t": -1.51
+       "excess_bp": -17.9,
+       "t": -1.5
       },
       "long_only": {
        "median_sharpe": 0.77,
@@ -1096,7 +1339,7 @@
        "median_sharpe_gain": 0.23,
        "share_better": 0.8,
        "median_ann_pct": 28.6,
-       "median_hold_ann_pct": 19.6,
+       "median_hold_ann_pct": 19.7,
        "median_mdd_pct": -64.0,
        "median_hold_mdd_pct": -90.2,
        "median_exposure_pct": 51.0,
@@ -1135,18 +1378,18 @@
      },
      "test": {
       "bull": {
-       "n": 5150,
-       "days": 1439,
+       "n": 5153,
+       "days": 1440,
        "share": 49.5,
-       "excess_bp": 16.04,
-       "t": 1.52
+       "excess_bp": 16.0,
+       "t": 1.51
       },
       "bear": {
        "n": 3598,
        "days": 1102,
        "share": 34.6,
-       "excess_bp": -16.26,
-       "t": -1.11
+       "excess_bp": -16.23,
+       "t": -1.1
       },
       "long_only": {
        "median_sharpe": 0.76,
@@ -1154,11 +1397,11 @@
        "median_sharpe_gain": 0.16,
        "share_better": 0.6,
        "median_ann_pct": 25.1,
-       "median_hold_ann_pct": 19.6,
+       "median_hold_ann_pct": 19.7,
        "median_mdd_pct": -75.6,
        "median_hold_mdd_pct": -90.2,
        "median_exposure_pct": 52.0,
-       "median_switches_per_year": 24.6
+       "median_switches_per_year": 24.5
       }
      }
     },
@@ -1193,17 +1436,17 @@
      },
      "test": {
       "bull": {
-       "n": 3079,
-       "days": 1056,
+       "n": 3080,
+       "days": 1057,
        "share": 29.6,
-       "excess_bp": 31.95,
+       "excess_bp": 31.9,
        "t": 2.38
       },
       "bear": {
        "n": 3178,
        "days": 1118,
        "share": 30.5,
-       "excess_bp": -9.57,
+       "excess_bp": -9.55,
        "t": -0.6
       },
       "long_only": {
@@ -1212,7 +1455,7 @@
        "median_sharpe_gain": 0.06,
        "share_better": 0.8,
        "median_ann_pct": 22.2,
-       "median_hold_ann_pct": 19.6,
+       "median_hold_ann_pct": 19.7,
        "median_mdd_pct": -48.7,
        "median_hold_mdd_pct": -90.2,
        "median_exposure_pct": 31.0,
@@ -1251,17 +1494,17 @@
      },
      "test": {
       "bull": {
-       "n": 5501,
-       "days": 1123,
+       "n": 5506,
+       "days": 1124,
        "share": 52.9,
-       "excess_bp": 22.17,
+       "excess_bp": 22.13,
        "t": 2.08
       },
       "bear": {
        "n": 4902,
        "days": 987,
        "share": 47.1,
-       "excess_bp": -24.87,
+       "excess_bp": -24.85,
        "t": -1.83
       },
       "long_only": {
@@ -1269,12 +1512,12 @@
        "median_hold_sharpe": 0.6,
        "median_sharpe_gain": 0.39,
        "share_better": 1.0,
-       "median_ann_pct": 46.5,
-       "median_hold_ann_pct": 19.6,
+       "median_ann_pct": 46.0,
+       "median_hold_ann_pct": 19.7,
        "median_mdd_pct": -70.9,
        "median_hold_mdd_pct": -90.2,
        "median_exposure_pct": 53.0,
-       "median_switches_per_year": 21.1
+       "median_switches_per_year": 21.0
       }
      }
     },
@@ -1312,14 +1555,14 @@
        "n": 1253,
        "days": 652,
        "share": 12.0,
-       "excess_bp": 36.34,
+       "excess_bp": 36.35,
        "t": 1.98
       },
       "bear": {
        "n": 50,
        "days": 37,
        "share": 0.5,
-       "excess_bp": 313.64,
+       "excess_bp": 313.65,
        "t": 3.21
       },
       "long_only": {
@@ -1328,7 +1571,7 @@
        "median_sharpe_gain": -0.19,
        "share_better": 0.2,
        "median_ann_pct": 7.1,
-       "median_hold_ann_pct": 19.6,
+       "median_hold_ann_pct": 19.7,
        "median_mdd_pct": -40.9,
        "median_hold_mdd_pct": -90.2,
        "median_exposure_pct": 12.0,
@@ -1366,7 +1609,7 @@
        "n": 806,
        "days": 396,
        "share": 7.7,
-       "excess_bp": 4.07,
+       "excess_bp": 4.09,
        "t": 0.16
       },
       "bear": {
@@ -1378,7 +1621,7 @@
        "median_sharpe_gain": -0.51,
        "share_better": 0.0,
        "median_ann_pct": 0.0,
-       "median_hold_ann_pct": 19.6,
+       "median_hold_ann_pct": 19.7,
        "median_mdd_pct": -41.2,
        "median_hold_mdd_pct": -90.2,
        "median_exposure_pct": 8.0,
@@ -1413,26 +1656,26 @@
      },
      "test": {
       "bull": {
-       "n": 834,
-       "days": 422,
-       "share": 8.0,
-       "excess_bp": 0.87,
-       "t": 0.04
+       "n": 839,
+       "days": 423,
+       "share": 8.1,
+       "excess_bp": 1.64,
+       "t": 0.07
       },
       "bear": {
        "n": 0
       },
       "long_only": {
-       "median_sharpe": -0.32,
+       "median_sharpe": -0.3,
        "median_hold_sharpe": 0.6,
-       "median_sharpe_gain": -1.14,
+       "median_sharpe_gain": -1.13,
        "share_better": 0.0,
-       "median_ann_pct": -10.8,
-       "median_hold_ann_pct": 19.6,
+       "median_ann_pct": -10.6,
+       "median_hold_ann_pct": 19.7,
        "median_mdd_pct": -52.8,
        "median_hold_mdd_pct": -90.2,
        "median_exposure_pct": 8.0,
-       "median_switches_per_year": 50.5
+       "median_switches_per_year": 50.7
       }
      }
     },
@@ -1466,7 +1709,7 @@
        "n": 1531,
        "days": 311,
        "share": 14.7,
-       "excess_bp": -9.02,
+       "excess_bp": -9.0,
        "t": -0.41
       },
       "bear": {
@@ -1475,10 +1718,10 @@
       "long_only": {
        "median_sharpe": 0.0,
        "median_hold_sharpe": 0.6,
-       "median_sharpe_gain": -0.84,
+       "median_sharpe_gain": -0.85,
        "share_better": 0.0,
        "median_ann_pct": -6.3,
-       "median_hold_ann_pct": 19.6,
+       "median_hold_ann_pct": 19.7,
        "median_mdd_pct": -76.0,
        "median_hold_mdd_pct": -90.2,
        "median_exposure_pct": 15.0,
@@ -1517,17 +1760,17 @@
      },
      "test": {
       "bull": {
-       "n": 4855,
-       "days": 1423,
+       "n": 4860,
+       "days": 1424,
        "share": 46.7,
-       "excess_bp": 15.48,
-       "t": 1.39
+       "excess_bp": 15.43,
+       "t": 1.38
       },
       "bear": {
        "n": 5548,
        "days": 1493,
        "share": 53.3,
-       "excess_bp": -13.54,
+       "excess_bp": -13.52,
        "t": -1.21
       },
       "long_only": {
@@ -1535,8 +1778,8 @@
        "median_hold_sharpe": 0.6,
        "median_sharpe_gain": 0.16,
        "share_better": 0.8,
-       "median_ann_pct": 35.9,
-       "median_hold_ann_pct": 19.6,
+       "median_ann_pct": 35.4,
+       "median_hold_ann_pct": 19.7,
        "median_mdd_pct": -72.3,
        "median_hold_mdd_pct": -90.2,
        "median_exposure_pct": 48.0,
@@ -1575,26 +1818,26 @@
      },
      "test": {
       "bull": {
-       "n": 465,
-       "days": 203,
+       "n": 467,
+       "days": 204,
        "share": 4.5,
-       "excess_bp": 34.77,
-       "t": 0.67
+       "excess_bp": 35.11,
+       "t": 0.68
       },
       "bear": {
        "n": 751,
        "days": 425,
        "share": 7.2,
-       "excess_bp": 30.26,
+       "excess_bp": 30.28,
        "t": 1.29
       },
       "long_only": {
-       "median_sharpe": 0.21,
+       "median_sharpe": 0.22,
        "median_hold_sharpe": 0.6,
-       "median_sharpe_gain": -0.45,
+       "median_sharpe_gain": -0.44,
        "share_better": 0.2,
-       "median_ann_pct": 2.2,
-       "median_hold_ann_pct": 19.6,
+       "median_ann_pct": 2.4,
+       "median_hold_ann_pct": 19.7,
        "median_mdd_pct": -42.6,
        "median_hold_mdd_pct": -90.2,
        "median_exposure_pct": 4.0,
@@ -1636,14 +1879,14 @@
        "n": 522,
        "days": 325,
        "share": 5.0,
-       "excess_bp": 25.17,
+       "excess_bp": 25.21,
        "t": 0.66
       },
       "bear": {
        "n": 653,
        "days": 434,
        "share": 6.3,
-       "excess_bp": 35.74,
+       "excess_bp": 35.75,
        "t": 1.47
       },
       "long_only": {
@@ -1652,7 +1895,7 @@
        "median_sharpe_gain": -0.66,
        "share_better": 0.0,
        "median_ann_pct": -1.5,
-       "median_hold_ann_pct": 19.6,
+       "median_hold_ann_pct": 19.7,
        "median_mdd_pct": -51.2,
        "median_hold_mdd_pct": -90.2,
        "median_exposure_pct": 4.0,
@@ -1694,23 +1937,23 @@
        "n": 2560,
        "days": 888,
        "share": 24.6,
-       "excess_bp": -17.11,
+       "excess_bp": -17.08,
        "t": -0.97
       },
       "bear": {
        "n": 2715,
        "days": 975,
        "share": 26.1,
-       "excess_bp": 33.42,
-       "t": 2.39
+       "excess_bp": 33.35,
+       "t": 2.38
       },
       "long_only": {
        "median_sharpe": -0.09,
        "median_hold_sharpe": 0.6,
-       "median_sharpe_gain": -0.83,
+       "median_sharpe_gain": -0.82,
        "share_better": 0.0,
        "median_ann_pct": -17.8,
-       "median_hold_ann_pct": 19.6,
+       "median_hold_ann_pct": 19.7,
        "median_mdd_pct": -76.1,
        "median_hold_mdd_pct": -90.2,
        "median_exposure_pct": 23.0,
@@ -1752,14 +1995,14 @@
        "n": 3823,
        "days": 1238,
        "share": 36.7,
-       "excess_bp": 15.17,
+       "excess_bp": 15.19,
        "t": 1.25
       },
       "bear": {
-       "n": 3310,
-       "days": 1122,
+       "n": 3314,
+       "days": 1123,
        "share": 31.8,
-       "excess_bp": -12.3,
+       "excess_bp": -12.33,
        "t": -0.82
       },
       "long_only": {
@@ -1768,11 +2011,177 @@
        "median_sharpe_gain": -0.04,
        "share_better": 0.4,
        "median_ann_pct": 20.3,
-       "median_hold_ann_pct": 19.6,
+       "median_hold_ann_pct": 19.7,
        "median_mdd_pct": -60.2,
        "median_hold_mdd_pct": -90.2,
        "median_exposure_pct": 37.0,
        "median_switches_per_year": 31.6
+      }
+     }
+    },
+    "ia_ribbon": {
+     "train": {
+      "bull": {
+       "n": 1770,
+       "days": 918,
+       "share": 57.0,
+       "excess_bp": 10.89,
+       "t": 0.68
+      },
+      "bear": {
+       "n": 1335,
+       "days": 720,
+       "share": 43.0,
+       "excess_bp": -14.44,
+       "t": -0.78
+      },
+      "long_only": {
+       "median_sharpe": 1.29,
+       "median_hold_sharpe": 1.27,
+       "median_sharpe_gain": -0.18,
+       "share_better": 0.5,
+       "median_ann_pct": 86.7,
+       "median_hold_ann_pct": 102.3,
+       "median_mdd_pct": -57.5,
+       "median_hold_mdd_pct": -73.8,
+       "median_exposure_pct": 53.0,
+       "median_switches_per_year": 7.8
+      }
+     },
+     "test": {
+      "bull": {
+       "n": 5032,
+       "days": 1411,
+       "share": 48.3,
+       "excess_bp": 14.73,
+       "t": 1.3
+      },
+      "bear": {
+       "n": 5376,
+       "days": 1478,
+       "share": 51.7,
+       "excess_bp": -13.79,
+       "t": -1.22
+      },
+      "long_only": {
+       "median_sharpe": 0.8,
+       "median_hold_sharpe": 0.6,
+       "median_sharpe_gain": 0.14,
+       "share_better": 0.8,
+       "median_ann_pct": 34.3,
+       "median_hold_ann_pct": 19.7,
+       "median_mdd_pct": -77.0,
+       "median_hold_mdd_pct": -90.2,
+       "median_exposure_pct": 50.0,
+       "median_switches_per_year": 8.4
+      }
+     }
+    },
+    "ia_atr_stop": {
+     "train": {
+      "bull": {
+       "n": 1757,
+       "days": 913,
+       "share": 56.6,
+       "excess_bp": 7.8,
+       "t": 0.53
+      },
+      "bear": {
+       "n": 1348,
+       "days": 794,
+       "share": 43.4,
+       "excess_bp": -10.17,
+       "t": -0.48
+      },
+      "long_only": {
+       "median_sharpe": 1.0,
+       "median_hold_sharpe": 1.27,
+       "median_sharpe_gain": -0.22,
+       "share_better": 0.5,
+       "median_ann_pct": 60.6,
+       "median_hold_ann_pct": 102.3,
+       "median_mdd_pct": -55.3,
+       "median_hold_mdd_pct": -73.8,
+       "median_exposure_pct": 58.0,
+       "median_switches_per_year": 42.3
+      }
+     },
+     "test": {
+      "bull": {
+       "n": 4972,
+       "days": 1539,
+       "share": 47.8,
+       "excess_bp": 4.23,
+       "t": 0.42
+      },
+      "bear": {
+       "n": 5436,
+       "days": 1629,
+       "share": 52.2,
+       "excess_bp": -3.87,
+       "t": -0.33
+      },
+      "long_only": {
+       "median_sharpe": 0.33,
+       "median_hold_sharpe": 0.6,
+       "median_sharpe_gain": -0.33,
+       "share_better": 0.2,
+       "median_ann_pct": 3.8,
+       "median_hold_ann_pct": 19.7,
+       "median_mdd_pct": -76.0,
+       "median_hold_mdd_pct": -90.2,
+       "median_exposure_pct": 48.0,
+       "median_switches_per_year": 34.2
+      }
+     }
+    },
+    "ia_ath_discount": {
+     "train": {
+      "bull": {
+       "n": 2517,
+       "days": 1080,
+       "share": 81.1,
+       "excess_bp": -6.59,
+       "t": -0.49
+      },
+      "bear": {
+       "n": 0
+      },
+      "long_only": {
+       "median_sharpe": 0.95,
+       "median_hold_sharpe": 1.27,
+       "median_sharpe_gain": -0.14,
+       "share_better": 0.0,
+       "median_ann_pct": 56.4,
+       "median_hold_ann_pct": 102.3,
+       "median_mdd_pct": -68.8,
+       "median_hold_mdd_pct": -73.8,
+       "median_exposure_pct": 89.0,
+       "median_switches_per_year": 1.9
+      }
+     },
+     "test": {
+      "bull": {
+       "n": 7656,
+       "days": 1971,
+       "share": 73.6,
+       "excess_bp": -1.28,
+       "t": -0.13
+      },
+      "bear": {
+       "n": 0
+      },
+      "long_only": {
+       "median_sharpe": 0.57,
+       "median_hold_sharpe": 0.6,
+       "median_sharpe_gain": -0.08,
+       "share_better": 0.0,
+       "median_ann_pct": 15.5,
+       "median_hold_ann_pct": 19.7,
+       "median_mdd_pct": -84.1,
+       "median_hold_mdd_pct": -90.2,
+       "median_exposure_pct": 73.0,
+       "median_switches_per_year": 9.1
       }
      }
     },
@@ -1810,14 +2219,14 @@
        "n": 58,
        "days": 52,
        "share": 0.6,
-       "excess_bp": 153.02,
+       "excess_bp": 153.05,
        "t": 1.44
       },
       "bear": {
        "n": 110,
        "days": 87,
        "share": 1.1,
-       "excess_bp": 4.87,
+       "excess_bp": 4.89,
        "t": 0.11
       },
       "long_only": {
@@ -1826,7 +2235,7 @@
        "median_sharpe_gain": -0.41,
        "share_better": 0.0,
        "median_ann_pct": 1.4,
-       "median_hold_ann_pct": 19.6,
+       "median_hold_ann_pct": 19.7,
        "median_mdd_pct": -11.3,
        "median_hold_mdd_pct": -90.2,
        "median_exposure_pct": 1.0,
@@ -1843,7 +2252,9 @@
     "btc_trend_gate",
     "ibs_reversal",
     "trend_classic",
-    "momentum_classic"
+    "momentum_classic",
+    "ia_ribbon",
+    "ia_atr_stop"
    ],
    "presets": {
     "trend4_majority": {
@@ -1884,17 +2295,17 @@
      },
      "test": {
       "bull": {
-       "n": 5180,
-       "days": 1340,
+       "n": 5184,
+       "days": 1341,
        "share": 49.8,
-       "excess_bp": 20.11,
-       "t": 1.89
+       "excess_bp": 20.04,
+       "t": 1.88
       },
       "bear": {
        "n": 4606,
        "days": 1181,
        "share": 44.3,
-       "excess_bp": -19.3,
+       "excess_bp": -19.28,
        "t": -1.46
       },
       "long_only": {
@@ -1902,12 +2313,12 @@
        "median_hold_sharpe": 0.6,
        "median_sharpe_gain": 0.28,
        "share_better": 0.8,
-       "median_ann_pct": 40.9,
-       "median_hold_ann_pct": 19.6,
+       "median_ann_pct": 40.4,
+       "median_hold_ann_pct": 19.7,
        "median_mdd_pct": -70.0,
        "median_hold_mdd_pct": -90.2,
        "median_exposure_pct": 52.0,
-       "median_switches_per_year": 24.9
+       "median_switches_per_year": 25.1
       }
      }
     },
@@ -1949,17 +2360,17 @@
      },
      "test": {
       "bull": {
-       "n": 3993,
-       "days": 1086,
+       "n": 3996,
+       "days": 1087,
        "share": 38.4,
-       "excess_bp": 30.57,
+       "excess_bp": 30.51,
        "t": 2.63
       },
       "bear": {
        "n": 3141,
        "days": 875,
        "share": 30.2,
-       "excess_bp": -16.74,
+       "excess_bp": -16.72,
        "t": -1.04
       },
       "long_only": {
@@ -1967,12 +2378,75 @@
        "median_hold_sharpe": 0.6,
        "median_sharpe_gain": 0.36,
        "share_better": 1.0,
-       "median_ann_pct": 36.0,
-       "median_hold_ann_pct": 19.6,
+       "median_ann_pct": 36.1,
+       "median_hold_ann_pct": 19.7,
        "median_mdd_pct": -52.7,
        "median_hold_mdd_pct": -90.2,
        "median_exposure_pct": 38.0,
        "median_switches_per_year": 24.4
+      }
+     }
+    },
+    "ia_ribbon_and_stop": {
+     "models": [
+      "ia_ribbon",
+      "ia_atr_stop"
+     ],
+     "threshold": 0.5,
+     "train": {
+      "bull": {
+       "n": 1110,
+       "days": 672,
+       "share": 35.7,
+       "excess_bp": 17.55,
+       "t": 0.93
+      },
+      "bear": {
+       "n": 688,
+       "days": 481,
+       "share": 22.2,
+       "excess_bp": -19.61,
+       "t": -0.71
+      },
+      "long_only": {
+       "median_sharpe": 1.03,
+       "median_hold_sharpe": 1.27,
+       "median_sharpe_gain": -0.32,
+       "share_better": 0.5,
+       "median_ann_pct": 53.4,
+       "median_hold_ann_pct": 102.3,
+       "median_mdd_pct": -48.6,
+       "median_hold_mdd_pct": -73.8,
+       "median_exposure_pct": 32.0,
+       "median_switches_per_year": 32.7
+      }
+     },
+     "test": {
+      "bull": {
+       "n": 2966,
+       "days": 1087,
+       "share": 28.5,
+       "excess_bp": 17.54,
+       "t": 1.41
+      },
+      "bear": {
+       "n": 3370,
+       "days": 1128,
+       "share": 32.4,
+       "excess_bp": -12.8,
+       "t": -0.9
+      },
+      "long_only": {
+       "median_sharpe": 0.65,
+       "median_hold_sharpe": 0.6,
+       "median_sharpe_gain": -0.06,
+       "share_better": 0.4,
+       "median_ann_pct": 17.0,
+       "median_hold_ann_pct": 19.7,
+       "median_mdd_pct": -73.4,
+       "median_hold_mdd_pct": -90.2,
+       "median_exposure_pct": 28.0,
+       "median_switches_per_year": 24.0
       }
      }
     }
@@ -2032,26 +2506,26 @@
      },
      "test": {
       "bull": {
-       "n": 1323,
-       "days": 221,
+       "n": 1327,
+       "days": 223,
        "share": 14.1,
-       "excess_bp": 4.66,
-       "t": 0.55
+       "excess_bp": 4.19,
+       "t": 0.49
       },
       "bear": {
        "n": 0
       },
       "long_only": {
-       "median_sharpe": 0.61,
-       "median_hold_sharpe": 1.4,
+       "median_sharpe": 0.7,
+       "median_hold_sharpe": 1.39,
        "median_sharpe_gain": -0.7,
        "share_better": 0.15,
-       "median_ann_pct": 4.6,
-       "median_hold_ann_pct": 31.4,
+       "median_ann_pct": 5.3,
+       "median_hold_ann_pct": 31.1,
        "median_mdd_pct": -13.1,
        "median_hold_mdd_pct": -30.0,
        "median_exposure_pct": 13.0,
-       "median_switches_per_year": 32.2
+       "median_switches_per_year": 32.0
       }
      }
     },
@@ -2082,26 +2556,26 @@
      },
      "test": {
       "bull": {
-       "n": 1237,
-       "days": 288,
+       "n": 1242,
+       "days": 290,
        "share": 13.2,
-       "excess_bp": 7.25,
-       "t": 0.71
+       "excess_bp": 6.38,
+       "t": 0.63
       },
       "bear": {
        "n": 0
       },
       "long_only": {
-       "median_sharpe": 0.17,
-       "median_hold_sharpe": 1.4,
-       "median_sharpe_gain": -1.17,
-       "share_better": 0.0,
-       "median_ann_pct": 1.2,
-       "median_hold_ann_pct": 31.4,
+       "median_sharpe": 0.23,
+       "median_hold_sharpe": 1.39,
+       "median_sharpe_gain": -1.35,
+       "share_better": 0.08,
+       "median_ann_pct": 1.9,
+       "median_hold_ann_pct": 31.1,
        "median_mdd_pct": -13.0,
        "median_hold_mdd_pct": -30.0,
        "median_exposure_pct": 14.0,
-       "median_switches_per_year": 116.3
+       "median_switches_per_year": 117.0
       }
      }
     },
@@ -2134,24 +2608,24 @@
       "bull": {
        "n": 1820,
        "days": 63,
-       "share": 19.5,
-       "excess_bp": 6.14,
-       "t": 0.62
+       "share": 19.3,
+       "excess_bp": 6.21,
+       "t": 0.63
       },
       "bear": {
        "n": 0
       },
       "long_only": {
-       "median_sharpe": 0.81,
-       "median_hold_sharpe": 1.4,
+       "median_sharpe": 0.8,
+       "median_hold_sharpe": 1.39,
        "median_sharpe_gain": -0.57,
        "share_better": 0.15,
-       "median_ann_pct": 10.3,
-       "median_hold_ann_pct": 31.4,
+       "median_ann_pct": 10.2,
+       "median_hold_ann_pct": 31.1,
        "median_mdd_pct": -18.3,
        "median_hold_mdd_pct": -30.0,
        "median_exposure_pct": 19.0,
-       "median_switches_per_year": 21.7
+       "median_switches_per_year": 21.6
       }
      }
     },
@@ -2186,8 +2660,8 @@
      },
      "test": {
       "bull": {
-       "n": 9040,
-       "days": 309,
+       "n": 9100,
+       "days": 311,
        "share": 96.7,
        "excess_bp": -0.33,
        "t": -0.09
@@ -2196,16 +2670,16 @@
        "n": 312,
        "days": 12,
        "share": 3.3,
-       "excess_bp": 9.63,
+       "excess_bp": 9.7,
        "t": 0.26
       },
       "long_only": {
-       "median_sharpe": 1.27,
-       "median_hold_sharpe": 1.4,
+       "median_sharpe": 1.26,
+       "median_hold_sharpe": 1.39,
        "median_sharpe_gain": -0.1,
        "share_better": 0.31,
-       "median_ann_pct": 26.8,
-       "median_hold_ann_pct": 31.4,
+       "median_ann_pct": 26.6,
+       "median_hold_ann_pct": 31.1,
        "median_mdd_pct": -30.0,
        "median_hold_mdd_pct": -30.0,
        "median_exposure_pct": 97.0,
@@ -2243,7 +2717,7 @@
        "n": 377,
        "days": 13,
        "share": 4.0,
-       "excess_bp": 39.3,
+       "excess_bp": 39.37,
        "t": 1.36
       },
       "bear": {
@@ -2251,15 +2725,15 @@
       },
       "long_only": {
        "median_sharpe": 1.24,
-       "median_hold_sharpe": 1.4,
-       "median_sharpe_gain": -0.3,
+       "median_hold_sharpe": 1.39,
+       "median_sharpe_gain": -0.28,
        "share_better": 0.38,
        "median_ann_pct": 9.8,
-       "median_hold_ann_pct": 31.4,
+       "median_hold_ann_pct": 31.1,
        "median_mdd_pct": -5.6,
        "median_hold_mdd_pct": -30.0,
        "median_exposure_pct": 4.0,
-       "median_switches_per_year": 12.6
+       "median_switches_per_year": 12.5
       }
      }
     },
@@ -2294,30 +2768,30 @@
      },
      "test": {
       "bull": {
-       "n": 5412,
-       "days": 319,
+       "n": 5445,
+       "days": 321,
        "share": 57.9,
-       "excess_bp": -2.39,
-       "t": -0.54
+       "excess_bp": -2.26,
+       "t": -0.51
       },
       "bear": {
-       "n": 3940,
-       "days": 310,
+       "n": 3967,
+       "days": 312,
        "share": 42.1,
-       "excess_bp": 3.29,
-       "t": 0.61
+       "excess_bp": 3.1,
+       "t": 0.58
       },
       "long_only": {
-       "median_sharpe": 0.17,
-       "median_hold_sharpe": 1.4,
-       "median_sharpe_gain": -0.81,
+       "median_sharpe": 0.14,
+       "median_hold_sharpe": 1.39,
+       "median_sharpe_gain": -0.65,
        "share_better": 0.08,
-       "median_ann_pct": 1.0,
-       "median_hold_ann_pct": 31.4,
-       "median_mdd_pct": -26.9,
+       "median_ann_pct": 0.8,
+       "median_hold_ann_pct": 31.1,
+       "median_mdd_pct": -28.1,
        "median_hold_mdd_pct": -30.0,
        "median_exposure_pct": 59.0,
-       "median_switches_per_year": 41.3
+       "median_switches_per_year": 41.1
       }
      }
     },
@@ -2352,30 +2826,30 @@
      },
      "test": {
       "bull": {
-       "n": 5637,
-       "days": 321,
-       "share": 60.3,
-       "excess_bp": -3.22,
-       "t": -0.75
+       "n": 5666,
+       "days": 323,
+       "share": 60.2,
+       "excess_bp": -3.39,
+       "t": -0.79
       },
       "bear": {
-       "n": 2312,
-       "days": 262,
-       "share": 24.7,
-       "excess_bp": 5.26,
-       "t": 0.77
+       "n": 2335,
+       "days": 264,
+       "share": 24.8,
+       "excess_bp": 5.15,
+       "t": 0.76
       },
       "long_only": {
-       "median_sharpe": 0.3,
-       "median_hold_sharpe": 1.4,
-       "median_sharpe_gain": -0.67,
-       "share_better": 0.0,
-       "median_ann_pct": 2.9,
-       "median_hold_ann_pct": 31.4,
-       "median_mdd_pct": -27.7,
+       "median_sharpe": 0.35,
+       "median_hold_sharpe": 1.39,
+       "median_sharpe_gain": -0.76,
+       "share_better": 0.08,
+       "median_ann_pct": 2.7,
+       "median_hold_ann_pct": 31.1,
+       "median_mdd_pct": -30.0,
        "median_hold_mdd_pct": -30.0,
        "median_exposure_pct": 62.0,
-       "median_switches_per_year": 37.1
+       "median_switches_per_year": 36.2
       }
      }
     },
@@ -2410,30 +2884,30 @@
      },
      "test": {
       "bull": {
-       "n": 4287,
-       "days": 314,
-       "share": 45.8,
-       "excess_bp": -0.18,
-       "t": -0.04
+       "n": 4321,
+       "days": 316,
+       "share": 45.9,
+       "excess_bp": -0.14,
+       "t": -0.03
       },
       "bear": {
-       "n": 1155,
-       "days": 195,
-       "share": 12.4,
-       "excess_bp": 1.32,
-       "t": 0.17
+       "n": 1161,
+       "days": 196,
+       "share": 12.3,
+       "excess_bp": 1.64,
+       "t": 0.21
       },
       "long_only": {
-       "median_sharpe": 0.45,
-       "median_hold_sharpe": 1.4,
-       "median_sharpe_gain": -0.46,
+       "median_sharpe": 0.57,
+       "median_hold_sharpe": 1.39,
+       "median_sharpe_gain": -0.5,
        "share_better": 0.08,
        "median_ann_pct": 5.4,
-       "median_hold_ann_pct": 31.4,
-       "median_mdd_pct": -25.0,
+       "median_hold_ann_pct": 31.1,
+       "median_mdd_pct": -22.8,
        "median_hold_mdd_pct": -30.0,
        "median_exposure_pct": 41.0,
-       "median_switches_per_year": 22.4
+       "median_switches_per_year": 23.7
       }
      }
     },
@@ -2468,26 +2942,26 @@
      },
      "test": {
       "bull": {
-       "n": 2431,
-       "days": 271,
-       "share": 26.0,
-       "excess_bp": -0.99,
-       "t": -0.17
+       "n": 2436,
+       "days": 273,
+       "share": 25.9,
+       "excess_bp": -0.93,
+       "t": -0.16
       },
       "bear": {
        "n": 78,
        "days": 49,
        "share": 0.8,
-       "excess_bp": -2.02,
+       "excess_bp": -1.95,
        "t": -0.09
       },
       "long_only": {
        "median_sharpe": 0.28,
-       "median_hold_sharpe": 1.4,
+       "median_hold_sharpe": 1.39,
        "median_sharpe_gain": -0.66,
        "share_better": 0.0,
-       "median_ann_pct": 2.4,
-       "median_hold_ann_pct": 31.4,
+       "median_ann_pct": 2.3,
+       "median_hold_ann_pct": 31.1,
        "median_mdd_pct": -15.6,
        "median_hold_mdd_pct": -30.0,
        "median_exposure_pct": 25.0,
@@ -2526,30 +3000,30 @@
      },
      "test": {
       "bull": {
-       "n": 5982,
-       "days": 321,
-       "share": 64.0,
-       "excess_bp": -1.49,
-       "t": -0.33
+       "n": 6007,
+       "days": 323,
+       "share": 63.8,
+       "excess_bp": -1.74,
+       "t": -0.39
       },
       "bear": {
-       "n": 3370,
-       "days": 305,
-       "share": 36.0,
-       "excess_bp": 2.64,
-       "t": 0.47
+       "n": 3405,
+       "days": 307,
+       "share": 36.2,
+       "excess_bp": 3.07,
+       "t": 0.55
       },
       "long_only": {
-       "median_sharpe": 0.95,
-       "median_hold_sharpe": 1.4,
-       "median_sharpe_gain": -0.36,
+       "median_sharpe": 0.99,
+       "median_hold_sharpe": 1.39,
+       "median_sharpe_gain": -0.46,
        "share_better": 0.0,
-       "median_ann_pct": 17.7,
-       "median_hold_ann_pct": 31.4,
+       "median_ann_pct": 17.6,
+       "median_hold_ann_pct": 31.1,
        "median_mdd_pct": -29.4,
        "median_hold_mdd_pct": -30.0,
        "median_exposure_pct": 67.0,
-       "median_switches_per_year": 11.2
+       "median_switches_per_year": 11.1
       }
      }
     },
@@ -2584,30 +3058,30 @@
      },
      "test": {
       "bull": {
-       "n": 406,
+       "n": 415,
        "days": 121,
-       "share": 4.3,
-       "excess_bp": -4.68,
-       "t": -0.41
+       "share": 4.4,
+       "excess_bp": -3.01,
+       "t": -0.27
       },
       "bear": {
-       "n": 530,
-       "days": 180,
+       "n": 535,
+       "days": 181,
        "share": 5.7,
-       "excess_bp": -3.76,
-       "t": -0.44
+       "excess_bp": -3.59,
+       "t": -0.43
       },
       "long_only": {
-       "median_sharpe": 0.05,
-       "median_hold_sharpe": 1.4,
-       "median_sharpe_gain": -0.78,
-       "share_better": 0.0,
-       "median_ann_pct": 0.1,
-       "median_hold_ann_pct": 31.4,
-       "median_mdd_pct": -7.3,
+       "median_sharpe": 0.21,
+       "median_hold_sharpe": 1.39,
+       "median_sharpe_gain": -0.81,
+       "share_better": 0.08,
+       "median_ann_pct": 0.9,
+       "median_hold_ann_pct": 31.1,
+       "median_mdd_pct": -7.1,
        "median_hold_mdd_pct": -30.0,
        "median_exposure_pct": 5.0,
-       "median_switches_per_year": 21.7
+       "median_switches_per_year": 23.0
       }
      }
     },
@@ -2642,30 +3116,30 @@
      },
      "test": {
       "bull": {
-       "n": 364,
+       "n": 363,
        "days": 146,
        "share": 3.9,
-       "excess_bp": 24.12,
-       "t": 1.51
+       "excess_bp": 22.24,
+       "t": 1.37
       },
       "bear": {
-       "n": 1146,
-       "days": 254,
+       "n": 1155,
+       "days": 258,
        "share": 12.3,
-       "excess_bp": 7.6,
-       "t": 0.95
+       "excess_bp": 7.77,
+       "t": 0.98
       },
       "long_only": {
-       "median_sharpe": 0.77,
-       "median_hold_sharpe": 1.4,
-       "median_sharpe_gain": -0.5,
-       "share_better": 0.15,
+       "median_sharpe": 0.72,
+       "median_hold_sharpe": 1.39,
+       "median_sharpe_gain": -0.65,
+       "share_better": 0.23,
        "median_ann_pct": 3.8,
-       "median_hold_ann_pct": 31.4,
+       "median_hold_ann_pct": 31.1,
        "median_mdd_pct": -6.7,
        "median_hold_mdd_pct": -30.0,
        "median_exposure_pct": 3.0,
-       "median_switches_per_year": 21.0
+       "median_switches_per_year": 20.9
       }
      }
     },
@@ -2700,30 +3174,30 @@
      },
      "test": {
       "bull": {
-       "n": 1525,
-       "days": 238,
-       "share": 16.3,
-       "excess_bp": 15.71,
-       "t": 1.75
+       "n": 1528,
+       "days": 240,
+       "share": 16.2,
+       "excess_bp": 14.9,
+       "t": 1.7
       },
       "bear": {
-       "n": 3238,
-       "days": 306,
+       "n": 3252,
+       "days": 308,
        "share": 34.6,
-       "excess_bp": -1.09,
-       "t": -0.2
+       "excess_bp": -1.29,
+       "t": -0.24
       },
       "long_only": {
        "median_sharpe": 1.31,
-       "median_hold_sharpe": 1.4,
-       "median_sharpe_gain": -0.2,
-       "share_better": 0.46,
-       "median_ann_pct": 17.7,
-       "median_hold_ann_pct": 31.4,
-       "median_mdd_pct": -13.4,
+       "median_hold_sharpe": 1.39,
+       "median_sharpe_gain": -0.07,
+       "share_better": 0.38,
+       "median_ann_pct": 16.9,
+       "median_hold_ann_pct": 31.1,
+       "median_mdd_pct": -11.6,
        "median_hold_mdd_pct": -30.0,
        "median_exposure_pct": 15.0,
-       "median_switches_per_year": 26.6
+       "median_switches_per_year": 26.5
       }
      }
     },
@@ -2758,30 +3232,196 @@
      },
      "test": {
       "bull": {
-       "n": 3958,
-       "days": 309,
-       "share": 42.3,
-       "excess_bp": -1.44,
-       "t": -0.3
+       "n": 3969,
+       "days": 311,
+       "share": 42.2,
+       "excess_bp": -1.1,
+       "t": -0.23
       },
       "bear": {
-       "n": 2695,
-       "days": 284,
-       "share": 28.8,
-       "excess_bp": 11.17,
-       "t": 1.66
+       "n": 2699,
+       "days": 286,
+       "share": 28.7,
+       "excess_bp": 11.33,
+       "t": 1.7
       },
       "long_only": {
        "median_sharpe": 0.49,
-       "median_hold_sharpe": 1.4,
+       "median_hold_sharpe": 1.39,
        "median_sharpe_gain": -0.56,
        "share_better": 0.08,
        "median_ann_pct": 7.5,
-       "median_hold_ann_pct": 31.4,
-       "median_mdd_pct": -20.5,
+       "median_hold_ann_pct": 31.1,
+       "median_mdd_pct": -20.6,
        "median_hold_mdd_pct": -30.0,
-       "median_exposure_pct": 43.0,
-       "median_switches_per_year": 41.3
+       "median_exposure_pct": 42.0,
+       "median_switches_per_year": 41.1
+      }
+     }
+    },
+    "ia_ribbon": {
+     "train": {
+      "bull": {
+       "n": 5489,
+       "days": 304,
+       "share": 58.6,
+       "excess_bp": -0.82,
+       "t": -0.17
+      },
+      "bear": {
+       "n": 3884,
+       "days": 305,
+       "share": 41.4,
+       "excess_bp": 1.15,
+       "t": 0.14
+      },
+      "long_only": {
+       "median_sharpe": 0.67,
+       "median_hold_sharpe": 0.8,
+       "median_sharpe_gain": -0.18,
+       "share_better": 0.31,
+       "median_ann_pct": 13.7,
+       "median_hold_ann_pct": 16.6,
+       "median_mdd_pct": -24.6,
+       "median_hold_mdd_pct": -38.2,
+       "median_exposure_pct": 62.0,
+       "median_switches_per_year": 13.3
+      }
+     },
+     "test": {
+      "bull": {
+       "n": 5721,
+       "days": 323,
+       "share": 60.8,
+       "excess_bp": -1.89,
+       "t": -0.43
+      },
+      "bear": {
+       "n": 3691,
+       "days": 303,
+       "share": 39.2,
+       "excess_bp": 2.93,
+       "t": 0.52
+      },
+      "long_only": {
+       "median_sharpe": 0.41,
+       "median_hold_sharpe": 1.39,
+       "median_sharpe_gain": -0.58,
+       "share_better": 0.08,
+       "median_ann_pct": 7.2,
+       "median_hold_ann_pct": 31.1,
+       "median_mdd_pct": -28.7,
+       "median_hold_mdd_pct": -30.0,
+       "median_exposure_pct": 61.0,
+       "median_switches_per_year": 15.3
+      }
+     }
+    },
+    "ia_atr_stop": {
+     "train": {
+      "bull": {
+       "n": 5193,
+       "days": 312,
+       "share": 55.4,
+       "excess_bp": -0.93,
+       "t": -0.17
+      },
+      "bear": {
+       "n": 4180,
+       "days": 306,
+       "share": 44.6,
+       "excess_bp": 1.15,
+       "t": 0.16
+      },
+      "long_only": {
+       "median_sharpe": 0.19,
+       "median_hold_sharpe": 0.8,
+       "median_sharpe_gain": -0.61,
+       "share_better": 0.31,
+       "median_ann_pct": 1.8,
+       "median_hold_ann_pct": 16.6,
+       "median_mdd_pct": -30.6,
+       "median_hold_mdd_pct": -38.2,
+       "median_exposure_pct": 55.0,
+       "median_switches_per_year": 113.2
+      }
+     },
+     "test": {
+      "bull": {
+       "n": 5096,
+       "days": 322,
+       "share": 54.1,
+       "excess_bp": -0.28,
+       "t": -0.06
+      },
+      "bear": {
+       "n": 4316,
+       "days": 319,
+       "share": 45.9,
+       "excess_bp": 0.33,
+       "t": 0.07
+      },
+      "long_only": {
+       "median_sharpe": 0.59,
+       "median_hold_sharpe": 1.39,
+       "median_sharpe_gain": -0.55,
+       "share_better": 0.08,
+       "median_ann_pct": 6.6,
+       "median_hold_ann_pct": 31.1,
+       "median_mdd_pct": -21.6,
+       "median_hold_mdd_pct": -30.0,
+       "median_exposure_pct": 54.0,
+       "median_switches_per_year": 110.7
+      }
+     }
+    },
+    "ia_ath_discount": {
+     "train": {
+      "bull": {
+       "n": 961,
+       "days": 193,
+       "share": 10.3,
+       "excess_bp": 13.59,
+       "t": 0.96
+      },
+      "bear": {
+       "n": 0
+      },
+      "long_only": {
+       "median_sharpe": 0.3,
+       "median_hold_sharpe": 0.8,
+       "median_sharpe_gain": -0.54,
+       "share_better": 0.23,
+       "median_ann_pct": 1.4,
+       "median_hold_ann_pct": 16.6,
+       "median_mdd_pct": -0.0,
+       "median_hold_mdd_pct": -38.2,
+       "median_exposure_pct": 0.0,
+       "median_switches_per_year": 1.4
+      }
+     },
+     "test": {
+      "bull": {
+       "n": 238,
+       "days": 98,
+       "share": 2.5,
+       "excess_bp": 49.78,
+       "t": 2.01
+      },
+      "bear": {
+       "n": 0
+      },
+      "long_only": {
+       "median_sharpe": 0.0,
+       "median_hold_sharpe": 1.39,
+       "median_sharpe_gain": -0.98,
+       "share_better": 0.23,
+       "median_ann_pct": 0.0,
+       "median_hold_ann_pct": 31.1,
+       "median_mdd_pct": 0.0,
+       "median_hold_mdd_pct": -30.0,
+       "median_exposure_pct": 0.0,
+       "median_switches_per_year": 0.0
       }
      }
     },
@@ -2816,27 +3456,27 @@
      },
      "test": {
       "bull": {
-       "n": 81,
-       "days": 50,
-       "share": 0.9,
-       "excess_bp": 42.99,
-       "t": 1.7
+       "n": 79,
+       "days": 48,
+       "share": 0.8,
+       "excess_bp": 49.4,
+       "t": 1.9
       },
       "bear": {
-       "n": 76,
-       "days": 51,
+       "n": 75,
+       "days": 50,
        "share": 0.8,
-       "excess_bp": 7.4,
-       "t": 0.23
+       "excess_bp": 8.53,
+       "t": 0.27
       },
       "long_only": {
        "median_sharpe": 0.78,
-       "median_hold_sharpe": 1.4,
-       "median_sharpe_gain": -0.44,
+       "median_hold_sharpe": 1.39,
+       "median_sharpe_gain": -0.39,
        "share_better": 0.23,
-       "median_ann_pct": 1.8,
-       "median_hold_ann_pct": 31.4,
-       "median_mdd_pct": -2.1,
+       "median_ann_pct": 2.8,
+       "median_hold_ann_pct": 31.1,
+       "median_mdd_pct": -2.0,
        "median_hold_mdd_pct": -30.0,
        "median_exposure_pct": 1.0,
        "median_switches_per_year": 7.0
@@ -2848,7 +3488,8 @@
    "consistent": [
     "turn_of_month",
     "vix_backwardation",
-    "atr_layers"
+    "atr_layers",
+    "ia_ath_discount"
    ],
    "presets": {
     "pullback_any": {
@@ -2884,33 +3525,96 @@
      },
      "test": {
       "bull": {
-       "n": 2546,
-       "days": 302,
+       "n": 2557,
+       "days": 304,
        "share": 27.2,
-       "excess_bp": 8.83,
-       "t": 1.13
+       "excess_bp": 7.96,
+       "t": 1.01
       },
       "bear": {
        "n": 0
       },
       "long_only": {
-       "median_sharpe": 0.53,
-       "median_hold_sharpe": 1.4,
+       "median_sharpe": 0.49,
+       "median_hold_sharpe": 1.39,
        "median_sharpe_gain": -0.64,
        "share_better": 0.23,
-       "median_ann_pct": 8.6,
-       "median_hold_ann_pct": 31.4,
-       "median_mdd_pct": -17.4,
+       "median_ann_pct": 6.4,
+       "median_hold_ann_pct": 31.1,
+       "median_mdd_pct": -17.1,
        "median_hold_mdd_pct": -30.0,
        "median_exposure_pct": 28.0,
-       "median_switches_per_year": 119.1
+       "median_switches_per_year": 118.3
+      }
+     }
+    },
+    "ia_ribbon_and_stop": {
+     "models": [
+      "ia_ribbon",
+      "ia_atr_stop"
+     ],
+     "threshold": 0.5,
+     "train": {
+      "bull": {
+       "n": 3195,
+       "days": 286,
+       "share": 34.1,
+       "excess_bp": -0.23,
+       "t": -0.05
+      },
+      "bear": {
+       "n": 1886,
+       "days": 246,
+       "share": 20.1,
+       "excess_bp": 4.54,
+       "t": 0.36
+      },
+      "long_only": {
+       "median_sharpe": 0.25,
+       "median_hold_sharpe": 0.8,
+       "median_sharpe_gain": -0.71,
+       "share_better": 0.38,
+       "median_ann_pct": 1.9,
+       "median_hold_ann_pct": 16.6,
+       "median_mdd_pct": -18.9,
+       "median_hold_mdd_pct": -38.2,
+       "median_exposure_pct": 34.0,
+       "median_switches_per_year": 71.3
+      }
+     },
+     "test": {
+      "bull": {
+       "n": 3205,
+       "days": 311,
+       "share": 34.1,
+       "excess_bp": -3.41,
+       "t": -0.68
+      },
+      "bear": {
+       "n": 1800,
+       "days": 248,
+       "share": 19.1,
+       "excess_bp": 0.74,
+       "t": 0.11
+      },
+      "long_only": {
+       "median_sharpe": -0.27,
+       "median_hold_sharpe": 1.39,
+       "median_sharpe_gain": -1.07,
+       "share_better": 0.0,
+       "median_ann_pct": -4.0,
+       "median_hold_ann_pct": 31.1,
+       "median_mdd_pct": -26.6,
+       "median_hold_mdd_pct": -30.0,
+       "median_exposure_pct": 33.0,
+       "median_switches_per_year": 72.4
       }
      }
     }
    }
   },
   "crypto-4h": {
-   "split": "2025-11-03",
+   "split": "2025-11-04",
    "tickers": [
     "AVAX-USD",
     "BTC-USD",
@@ -2924,8 +3628,8 @@
     "2025-11-03"
    ],
    "test_period": [
-    "2025-11-03",
-    "2026-10-12"
+    "2025-11-04",
+    "2026-10-13"
    ],
    "models": {
     "tsmom28": {
@@ -2933,56 +3637,56 @@
       "bull": {
        "n": 5129,
        "days": 284,
-       "share": 49.9,
-       "excess_bp": 0.08,
-       "t": 0.02
+       "share": 49.8,
+       "excess_bp": 0.03,
+       "t": 0.01
       },
       "bear": {
-       "n": 5156,
+       "n": 5161,
        "days": 290,
-       "share": 50.1,
-       "excess_bp": -0.08,
-       "t": -0.02
+       "share": 50.2,
+       "excess_bp": -0.03,
+       "t": -0.01
       },
       "long_only": {
        "median_sharpe": -0.97,
-       "median_hold_sharpe": 0.33,
-       "median_sharpe_gain": -0.71,
+       "median_hold_sharpe": 0.34,
+       "median_sharpe_gain": -0.73,
        "share_better": 0.0,
-       "median_ann_pct": -43.6,
-       "median_hold_ann_pct": -15.8,
+       "median_ann_pct": -43.5,
+       "median_hold_ann_pct": -14.7,
        "median_mdd_pct": -59.3,
        "median_hold_mdd_pct": -65.9,
        "median_exposure_pct": 49.0,
-       "median_switches_per_year": 190.6
+       "median_switches_per_year": 190.5
       }
      },
      "test": {
       "bull": {
-       "n": 4773,
-       "days": 273,
+       "n": 4782,
+       "days": 274,
        "share": 46.5,
-       "excess_bp": -1.61,
-       "t": -0.46
+       "excess_bp": -1.64,
+       "t": -0.47
       },
       "bear": {
-       "n": 5502,
+       "n": 5503,
        "days": 296,
        "share": 53.5,
-       "excess_bp": 1.4,
+       "excess_bp": 1.43,
        "t": 0.39
       },
       "long_only": {
-       "median_sharpe": -1.92,
-       "median_hold_sharpe": -0.37,
+       "median_sharpe": -1.94,
+       "median_hold_sharpe": -0.39,
        "median_sharpe_gain": -1.51,
        "share_better": 0.0,
-       "median_ann_pct": -46.4,
-       "median_hold_ann_pct": -32.5,
+       "median_ann_pct": -46.3,
+       "median_hold_ann_pct": -33.2,
        "median_mdd_pct": -63.7,
-       "median_hold_mdd_pct": -57.7,
+       "median_hold_mdd_pct": -57.5,
        "median_exposure_pct": 47.0,
-       "median_switches_per_year": 200.4
+       "median_switches_per_year": 201.2
       }
      }
     },
@@ -2991,24 +3695,24 @@
       "bull": {
        "n": 4942,
        "days": 279,
-       "share": 48.1,
-       "excess_bp": 1.02,
-       "t": 0.24
+       "share": 48.0,
+       "excess_bp": 0.97,
+       "t": 0.23
       },
       "bear": {
-       "n": 3508,
+       "n": 3513,
        "days": 245,
        "share": 34.1,
-       "excess_bp": -0.38,
-       "t": -0.06
+       "excess_bp": -0.28,
+       "t": -0.04
       },
       "long_only": {
        "median_sharpe": -0.77,
-       "median_hold_sharpe": 0.33,
-       "median_sharpe_gain": -0.65,
+       "median_hold_sharpe": 0.34,
+       "median_sharpe_gain": -0.67,
        "share_better": 0.2,
        "median_ann_pct": -41.5,
-       "median_hold_ann_pct": -15.8,
+       "median_hold_ann_pct": -14.7,
        "median_mdd_pct": -53.7,
        "median_hold_mdd_pct": -65.9,
        "median_exposure_pct": 47.0,
@@ -3017,30 +3721,30 @@
      },
      "test": {
       "bull": {
-       "n": 4720,
-       "days": 260,
+       "n": 4722,
+       "days": 261,
        "share": 45.9,
-       "excess_bp": -1.08,
-       "t": -0.3
+       "excess_bp": -1.02,
+       "t": -0.28
       },
       "bear": {
-       "n": 3732,
+       "n": 3738,
        "days": 246,
        "share": 36.3,
-       "excess_bp": -0.07,
-       "t": -0.02
+       "excess_bp": -0.15,
+       "t": -0.03
       },
       "long_only": {
        "median_sharpe": -1.47,
-       "median_hold_sharpe": -0.37,
-       "median_sharpe_gain": -1.1,
+       "median_hold_sharpe": -0.39,
+       "median_sharpe_gain": -1.09,
        "share_better": 0.0,
-       "median_ann_pct": -47.2,
-       "median_hold_ann_pct": -32.5,
+       "median_ann_pct": -47.1,
+       "median_hold_ann_pct": -33.2,
        "median_mdd_pct": -51.8,
-       "median_hold_mdd_pct": -57.7,
+       "median_hold_mdd_pct": -57.5,
        "median_exposure_pct": 46.0,
-       "median_switches_per_year": 170.5
+       "median_switches_per_year": 170.3
       }
      }
     },
@@ -3050,23 +3754,23 @@
        "n": 2732,
        "days": 204,
        "share": 26.6,
-       "excess_bp": 2.12,
-       "t": 0.42
+       "excess_bp": 2.06,
+       "t": 0.41
       },
       "bear": {
-       "n": 2576,
+       "n": 2581,
        "days": 213,
-       "share": 25.0,
-       "excess_bp": 2.7,
-       "t": 0.34
+       "share": 25.1,
+       "excess_bp": 2.85,
+       "t": 0.36
       },
       "long_only": {
        "median_sharpe": -0.05,
-       "median_hold_sharpe": 0.33,
-       "median_sharpe_gain": -0.38,
+       "median_hold_sharpe": 0.34,
+       "median_sharpe_gain": -0.4,
        "share_better": 0.4,
        "median_ann_pct": -15.5,
-       "median_hold_ann_pct": -15.8,
+       "median_hold_ann_pct": -14.7,
        "median_mdd_pct": -34.0,
        "median_hold_mdd_pct": -65.9,
        "median_exposure_pct": 27.0,
@@ -3078,27 +3782,27 @@
        "n": 2446,
        "days": 175,
        "share": 23.8,
-       "excess_bp": 0.92,
-       "t": 0.19
+       "excess_bp": 0.97,
+       "t": 0.21
       },
       "bear": {
-       "n": 3022,
-       "days": 231,
-       "share": 29.4,
-       "excess_bp": -0.08,
-       "t": -0.01
+       "n": 3017,
+       "days": 230,
+       "share": 29.3,
+       "excess_bp": -0.19,
+       "t": -0.03
       },
       "long_only": {
        "median_sharpe": -0.82,
-       "median_hold_sharpe": -0.37,
-       "median_sharpe_gain": -0.45,
+       "median_hold_sharpe": -0.39,
+       "median_sharpe_gain": -0.43,
        "share_better": 0.2,
        "median_ann_pct": -20.6,
-       "median_hold_ann_pct": -32.5,
+       "median_hold_ann_pct": -33.2,
        "median_mdd_pct": -34.5,
-       "median_hold_mdd_pct": -57.7,
+       "median_hold_mdd_pct": -57.5,
        "median_exposure_pct": 25.0,
-       "median_switches_per_year": 93.8
+       "median_switches_per_year": 93.7
       }
      }
     },
@@ -3108,23 +3812,23 @@
        "n": 6130,
        "days": 205,
        "share": 59.6,
-       "excess_bp": 0.15,
-       "t": 0.04
+       "excess_bp": 0.1,
+       "t": 0.02
       },
       "bear": {
-       "n": 4155,
+       "n": 4160,
        "days": 139,
        "share": 40.4,
-       "excess_bp": -0.23,
-       "t": -0.04
+       "excess_bp": -0.15,
+       "t": -0.02
       },
       "long_only": {
        "median_sharpe": 0.1,
-       "median_hold_sharpe": 0.33,
-       "median_sharpe_gain": -0.27,
+       "median_hold_sharpe": 0.34,
+       "median_sharpe_gain": -0.28,
        "share_better": 0.4,
        "median_ann_pct": -2.7,
-       "median_hold_ann_pct": -15.8,
+       "median_hold_ann_pct": -14.7,
        "median_mdd_pct": -45.8,
        "median_hold_mdd_pct": -65.9,
        "median_exposure_pct": 60.0,
@@ -3133,28 +3837,28 @@
      },
      "test": {
       "bull": {
-       "n": 4800,
-       "days": 160,
-       "share": 46.7,
-       "excess_bp": 3.36,
-       "t": 1.02
+       "n": 4815,
+       "days": 161,
+       "share": 46.8,
+       "excess_bp": 3.39,
+       "t": 1.04
       },
       "bear": {
-       "n": 5475,
-       "days": 184,
-       "share": 53.3,
-       "excess_bp": -2.94,
-       "t": -0.72
+       "n": 5470,
+       "days": 183,
+       "share": 53.2,
+       "excess_bp": -2.98,
+       "t": -0.73
       },
       "long_only": {
-       "median_sharpe": 0.56,
-       "median_hold_sharpe": -0.37,
-       "median_sharpe_gain": 0.81,
+       "median_sharpe": 0.54,
+       "median_hold_sharpe": -0.39,
+       "median_sharpe_gain": 0.83,
        "share_better": 1.0,
-       "median_ann_pct": 14.6,
-       "median_hold_ann_pct": -32.5,
+       "median_ann_pct": 13.8,
+       "median_hold_ann_pct": -33.2,
        "median_mdd_pct": -27.4,
-       "median_hold_mdd_pct": -57.7,
+       "median_hold_mdd_pct": -57.5,
        "median_exposure_pct": 47.0,
        "median_switches_per_year": 20.2
       }
@@ -3166,23 +3870,23 @@
        "n": 1239,
        "days": 119,
        "share": 12.0,
-       "excess_bp": 4.92,
+       "excess_bp": 4.87,
        "t": 0.63
       },
       "bear": {
        "n": 46,
        "days": 30,
        "share": 0.4,
-       "excess_bp": -4.77,
+       "excess_bp": -4.82,
        "t": -0.17
       },
       "long_only": {
        "median_sharpe": 0.52,
-       "median_hold_sharpe": 0.33,
-       "median_sharpe_gain": 0.26,
+       "median_hold_sharpe": 0.34,
+       "median_sharpe_gain": 0.25,
        "share_better": 0.6,
        "median_ann_pct": 11.9,
-       "median_hold_ann_pct": -15.8,
+       "median_hold_ann_pct": -14.7,
        "median_mdd_pct": -23.5,
        "median_hold_mdd_pct": -65.9,
        "median_exposure_pct": 13.0,
@@ -3194,25 +3898,25 @@
        "n": 968,
        "days": 94,
        "share": 9.4,
-       "excess_bp": 5.7,
+       "excess_bp": 5.75,
        "t": 0.71
       },
       "bear": {
        "n": 35,
        "days": 25,
        "share": 0.3,
-       "excess_bp": 5.4,
+       "excess_bp": 5.45,
        "t": 0.32
       },
       "long_only": {
        "median_sharpe": 0.36,
-       "median_hold_sharpe": -0.37,
-       "median_sharpe_gain": 0.7,
+       "median_hold_sharpe": -0.39,
+       "median_sharpe_gain": 0.75,
        "share_better": 0.8,
        "median_ann_pct": 6.2,
-       "median_hold_ann_pct": -32.5,
+       "median_hold_ann_pct": -33.2,
        "median_mdd_pct": -15.7,
-       "median_hold_mdd_pct": -57.7,
+       "median_hold_mdd_pct": -57.5,
        "median_exposure_pct": 10.0,
        "median_switches_per_year": 14.9
       }
@@ -3224,31 +3928,31 @@
        "n": 984,
        "days": 148,
        "share": 9.6,
-       "excess_bp": -2.77,
-       "t": -0.34
+       "excess_bp": -2.83,
+       "t": -0.35
       },
       "bear": {
        "n": 0
       },
       "long_only": {
        "median_sharpe": -1.55,
-       "median_hold_sharpe": 0.33,
-       "median_sharpe_gain": -1.11,
+       "median_hold_sharpe": 0.34,
+       "median_sharpe_gain": -1.13,
        "share_better": 0.0,
        "median_ann_pct": -23.9,
-       "median_hold_ann_pct": -15.8,
+       "median_hold_ann_pct": -14.7,
        "median_mdd_pct": -29.8,
        "median_hold_mdd_pct": -65.9,
        "median_exposure_pct": 9.0,
-       "median_switches_per_year": 94.8
+       "median_switches_per_year": 94.7
       }
      },
      "test": {
       "bull": {
-       "n": 898,
-       "days": 112,
+       "n": 899,
+       "days": 113,
        "share": 8.7,
-       "excess_bp": -1.02,
+       "excess_bp": -1.04,
        "t": -0.21
       },
       "bear": {
@@ -3256,15 +3960,15 @@
       },
       "long_only": {
        "median_sharpe": -1.68,
-       "median_hold_sharpe": -0.37,
-       "median_sharpe_gain": -1.27,
+       "median_hold_sharpe": -0.39,
+       "median_sharpe_gain": -1.23,
        "share_better": 0.0,
-       "median_ann_pct": -21.3,
-       "median_hold_ann_pct": -32.5,
+       "median_ann_pct": -22.8,
+       "median_hold_ann_pct": -33.2,
        "median_mdd_pct": -22.7,
-       "median_hold_mdd_pct": -57.7,
+       "median_hold_mdd_pct": -57.5,
        "median_exposure_pct": 8.0,
-       "median_switches_per_year": 78.9
+       "median_switches_per_year": 78.8
       }
      }
     },
@@ -3274,7 +3978,7 @@
        "n": 1122,
        "days": 219,
        "share": 10.9,
-       "excess_bp": 0.66,
+       "excess_bp": 0.6,
        "t": 0.08
       },
       "bear": {
@@ -3282,61 +3986,61 @@
       },
       "long_only": {
        "median_sharpe": -3.25,
-       "median_hold_sharpe": 0.33,
-       "median_sharpe_gain": -3.23,
+       "median_hold_sharpe": 0.34,
+       "median_sharpe_gain": -3.24,
        "share_better": 0.0,
-       "median_ann_pct": -64.1,
-       "median_hold_ann_pct": -15.8,
+       "median_ann_pct": -64.0,
+       "median_hold_ann_pct": -14.7,
        "median_mdd_pct": -61.6,
        "median_hold_mdd_pct": -65.9,
        "median_exposure_pct": 11.0,
-       "median_switches_per_year": 364.1
+       "median_switches_per_year": 363.9
       }
      },
      "test": {
       "bull": {
        "n": 844,
-       "days": 183,
+       "days": 184,
        "share": 8.2,
-       "excess_bp": 5.67,
-       "t": 0.88
+       "excess_bp": 5.45,
+       "t": 0.85
       },
       "bear": {
        "n": 0
       },
       "long_only": {
        "median_sharpe": -4.43,
-       "median_hold_sharpe": -0.37,
-       "median_sharpe_gain": -4.06,
+       "median_hold_sharpe": -0.39,
+       "median_sharpe_gain": -4.04,
        "share_better": 0.0,
        "median_ann_pct": -46.9,
-       "median_hold_ann_pct": -32.5,
+       "median_hold_ann_pct": -33.2,
        "median_mdd_pct": -48.0,
-       "median_hold_mdd_pct": -57.7,
+       "median_hold_mdd_pct": -57.5,
        "median_exposure_pct": 8.0,
-       "median_switches_per_year": 300.5
+       "median_switches_per_year": 296.0
       }
      }
     },
     "turn_of_month": {
      "train": {
       "bull": {
-       "n": 1550,
+       "n": 1555,
        "days": 63,
        "share": 15.1,
-       "excess_bp": -1.65,
-       "t": -0.14
+       "excess_bp": -1.34,
+       "t": -0.12
       },
       "bear": {
        "n": 0
       },
       "long_only": {
-       "median_sharpe": -0.37,
-       "median_hold_sharpe": 0.33,
-       "median_sharpe_gain": -0.33,
+       "median_sharpe": -0.33,
+       "median_hold_sharpe": 0.34,
+       "median_sharpe_gain": -0.31,
        "share_better": 0.2,
-       "median_ann_pct": -16.6,
-       "median_hold_ann_pct": -15.8,
+       "median_ann_pct": -15.5,
+       "median_hold_ann_pct": -14.7,
        "median_mdd_pct": -41.5,
        "median_hold_mdd_pct": -65.9,
        "median_exposure_pct": 15.0,
@@ -3345,25 +4049,25 @@
      },
      "test": {
       "bull": {
-       "n": 1495,
-       "days": 63,
+       "n": 1490,
+       "days": 62,
        "share": 14.5,
-       "excess_bp": 1.41,
-       "t": 0.18
+       "excess_bp": 1.11,
+       "t": 0.14
       },
       "bear": {
        "n": 0
       },
       "long_only": {
-       "median_sharpe": -0.24,
-       "median_hold_sharpe": -0.37,
-       "median_sharpe_gain": 0.11,
+       "median_sharpe": -0.27,
+       "median_hold_sharpe": -0.39,
+       "median_sharpe_gain": 0.08,
        "share_better": 0.8,
-       "median_ann_pct": -5.8,
-       "median_hold_ann_pct": -32.5,
+       "median_ann_pct": -6.3,
+       "median_hold_ann_pct": -33.2,
        "median_mdd_pct": -21.7,
-       "median_hold_mdd_pct": -57.7,
-       "median_exposure_pct": 15.0,
+       "median_hold_mdd_pct": -57.5,
+       "median_exposure_pct": 14.0,
        "median_switches_per_year": 24.5
       }
      }
@@ -3374,23 +4078,23 @@
        "n": 4781,
        "days": 246,
        "share": 46.5,
-       "excess_bp": 1.74,
-       "t": 0.43
+       "excess_bp": 1.68,
+       "t": 0.41
       },
       "bear": {
-       "n": 5504,
+       "n": 5509,
        "days": 276,
        "share": 53.5,
-       "excess_bp": -1.51,
-       "t": -0.3
+       "excess_bp": -1.46,
+       "t": -0.29
       },
       "long_only": {
        "median_sharpe": -0.02,
-       "median_hold_sharpe": 0.33,
-       "median_sharpe_gain": 0.03,
+       "median_hold_sharpe": 0.34,
+       "median_sharpe_gain": 0.02,
        "share_better": 0.6,
        "median_ann_pct": -9.3,
-       "median_hold_ann_pct": -15.8,
+       "median_hold_ann_pct": -14.7,
        "median_mdd_pct": -42.3,
        "median_hold_mdd_pct": -65.9,
        "median_exposure_pct": 46.0,
@@ -3399,14 +4103,14 @@
      },
      "test": {
       "bull": {
-       "n": 4617,
+       "n": 4621,
        "days": 230,
        "share": 44.9,
-       "excess_bp": -0.42,
-       "t": -0.13
+       "excess_bp": -0.41,
+       "t": -0.12
       },
       "bear": {
-       "n": 5658,
+       "n": 5664,
        "days": 264,
        "share": 55.1,
        "excess_bp": 0.34,
@@ -3414,13 +4118,13 @@
       },
       "long_only": {
        "median_sharpe": -0.39,
-       "median_hold_sharpe": -0.37,
-       "median_sharpe_gain": 0.03,
+       "median_hold_sharpe": -0.39,
+       "median_sharpe_gain": 0.05,
        "share_better": 0.6,
        "median_ann_pct": -20.0,
-       "median_hold_ann_pct": -32.5,
+       "median_hold_ann_pct": -33.2,
        "median_mdd_pct": -44.7,
-       "median_hold_mdd_pct": -57.7,
+       "median_hold_mdd_pct": -57.5,
        "median_exposure_pct": 46.0,
        "median_switches_per_year": 57.5
       }
@@ -3429,26 +4133,26 @@
     "meanrev_z": {
      "train": {
       "bull": {
-       "n": 585,
+       "n": 588,
        "days": 106,
        "share": 5.7,
-       "excess_bp": -19.71,
-       "t": -1.04
+       "excess_bp": -19.09,
+       "t": -1.02
       },
       "bear": {
        "n": 647,
        "days": 127,
        "share": 6.3,
-       "excess_bp": 4.94,
-       "t": 0.54
+       "excess_bp": 4.89,
+       "t": 0.53
       },
       "long_only": {
        "median_sharpe": -1.6,
-       "median_hold_sharpe": 0.33,
-       "median_sharpe_gain": -2.09,
+       "median_hold_sharpe": 0.34,
+       "median_sharpe_gain": -2.06,
        "share_better": 0.0,
-       "median_ann_pct": -47.3,
-       "median_hold_ann_pct": -15.8,
+       "median_ann_pct": -46.6,
+       "median_hold_ann_pct": -14.7,
        "median_mdd_pct": -54.8,
        "median_hold_mdd_pct": -65.9,
        "median_exposure_pct": 6.0,
@@ -3457,11 +4161,11 @@
      },
      "test": {
       "bull": {
-       "n": 575,
-       "days": 111,
+       "n": 572,
+       "days": 110,
        "share": 5.6,
-       "excess_bp": 3.97,
-       "t": 0.31
+       "excess_bp": 3.74,
+       "t": 0.3
       },
       "bear": {
        "n": 603,
@@ -3471,16 +4175,16 @@
        "t": -0.49
       },
       "long_only": {
-       "median_sharpe": -1.33,
-       "median_hold_sharpe": -0.37,
-       "median_sharpe_gain": -0.91,
+       "median_sharpe": -1.34,
+       "median_hold_sharpe": -0.39,
+       "median_sharpe_gain": -0.9,
        "share_better": 0.0,
-       "median_ann_pct": -22.0,
-       "median_hold_ann_pct": -32.5,
-       "median_mdd_pct": -27.4,
-       "median_hold_mdd_pct": -57.7,
+       "median_ann_pct": -22.2,
+       "median_hold_ann_pct": -33.2,
+       "median_mdd_pct": -27.5,
+       "median_hold_mdd_pct": -57.5,
        "median_exposure_pct": 6.0,
-       "median_switches_per_year": 131.1
+       "median_switches_per_year": 132.0
       }
      }
     },
@@ -3490,113 +4194,113 @@
        "n": 796,
        "days": 194,
        "share": 7.7,
-       "excess_bp": -0.47,
+       "excess_bp": -0.52,
        "t": -0.04
       },
       "bear": {
-       "n": 880,
+       "n": 881,
        "days": 188,
        "share": 8.6,
        "excess_bp": 5.92,
        "t": 0.7
       },
       "long_only": {
-       "median_sharpe": -2.43,
-       "median_hold_sharpe": 0.33,
-       "median_sharpe_gain": -2.48,
+       "median_sharpe": -2.44,
+       "median_hold_sharpe": 0.34,
+       "median_sharpe_gain": -2.5,
        "share_better": 0.0,
-       "median_ann_pct": -41.4,
-       "median_hold_ann_pct": -15.8,
-       "median_mdd_pct": -40.1,
+       "median_ann_pct": -41.6,
+       "median_hold_ann_pct": -14.7,
+       "median_mdd_pct": -40.3,
        "median_hold_mdd_pct": -65.9,
        "median_exposure_pct": 8.0,
-       "median_switches_per_year": 241.7
+       "median_switches_per_year": 242.6
       }
      },
      "test": {
       "bull": {
-       "n": 885,
+       "n": 884,
        "days": 198,
        "share": 8.6,
-       "excess_bp": -3.33,
-       "t": -0.41
+       "excess_bp": -3.11,
+       "t": -0.38
       },
       "bear": {
-       "n": 675,
+       "n": 677,
        "days": 168,
        "share": 6.6,
-       "excess_bp": 7.57,
-       "t": 1.1
+       "excess_bp": 7.82,
+       "t": 1.13
       },
       "long_only": {
        "median_sharpe": -3.29,
-       "median_hold_sharpe": -0.37,
-       "median_sharpe_gain": -3.34,
+       "median_hold_sharpe": -0.39,
+       "median_sharpe_gain": -3.33,
        "share_better": 0.0,
-       "median_ann_pct": -48.6,
-       "median_hold_ann_pct": -32.5,
-       "median_mdd_pct": -49.2,
-       "median_hold_mdd_pct": -57.7,
+       "median_ann_pct": -48.5,
+       "median_hold_ann_pct": -33.2,
+       "median_mdd_pct": -48.6,
+       "median_hold_mdd_pct": -57.5,
        "median_exposure_pct": 9.0,
-       "median_switches_per_year": 255.8
+       "median_switches_per_year": 254.5
       }
      }
     },
     "atr_layers": {
      "train": {
       "bull": {
-       "n": 2490,
+       "n": 2495,
        "days": 187,
        "share": 24.2,
-       "excess_bp": 3.69,
-       "t": 0.45
+       "excess_bp": 3.85,
+       "t": 0.47
       },
       "bear": {
        "n": 2422,
        "days": 185,
        "share": 23.5,
-       "excess_bp": 5.98,
-       "t": 1.11
+       "excess_bp": 5.93,
+       "t": 1.1
       },
       "long_only": {
-       "median_sharpe": -0.2,
-       "median_hold_sharpe": 0.33,
-       "median_sharpe_gain": -0.62,
+       "median_sharpe": -0.17,
+       "median_hold_sharpe": 0.34,
+       "median_sharpe_gain": -0.61,
        "share_better": 0.0,
-       "median_ann_pct": -17.1,
-       "median_hold_ann_pct": -15.8,
+       "median_ann_pct": -16.0,
+       "median_hold_ann_pct": -14.7,
        "median_mdd_pct": -34.8,
        "median_hold_mdd_pct": -65.9,
        "median_exposure_pct": 25.0,
-       "median_switches_per_year": 139.5
+       "median_switches_per_year": 139.4
       }
      },
      "test": {
       "bull": {
-       "n": 2351,
+       "n": 2349,
        "days": 170,
-       "share": 22.9,
-       "excess_bp": 0.12,
-       "t": 0.02
+       "share": 22.8,
+       "excess_bp": 0.02,
+       "t": 0.0
       },
       "bear": {
        "n": 1913,
        "days": 157,
        "share": 18.6,
-       "excess_bp": 0.71,
-       "t": 0.12
+       "excess_bp": 0.77,
+       "t": 0.14
       },
       "long_only": {
-       "median_sharpe": -0.86,
-       "median_hold_sharpe": -0.37,
-       "median_sharpe_gain": -0.73,
+       "median_sharpe": -0.9,
+       "median_hold_sharpe": -0.39,
+       "median_sharpe_gain": -0.74,
        "share_better": 0.0,
-       "median_ann_pct": -32.3,
-       "median_hold_ann_pct": -32.5,
-       "median_mdd_pct": -43.7,
-       "median_hold_mdd_pct": -57.7,
+       "median_ann_pct": -33.4,
+       "median_hold_ann_pct": -33.2,
+       "median_mdd_pct": -41.7,
+       "median_hold_mdd_pct": -57.5,
        "median_exposure_pct": 23.0,
-       "median_switches_per_year": 123.6
+       "median_switches_per_year": 124.6
       }
      }
     },
@@ -3606,55 +4310,221 @@
        "n": 3691,
        "days": 253,
        "share": 35.9,
-       "excess_bp": -1.77,
-       "t": -0.35
+       "excess_bp": -1.82,
+       "t": -0.36
       },
       "bear": {
-       "n": 3344,
+       "n": 3346,
        "days": 236,
        "share": 32.5,
-       "excess_bp": -1.96,
+       "excess_bp": -1.93,
        "t": -0.31
       },
       "long_only": {
        "median_sharpe": -1.36,
-       "median_hold_sharpe": 0.33,
-       "median_sharpe_gain": -1.31,
+       "median_hold_sharpe": 0.34,
+       "median_sharpe_gain": -1.32,
        "share_better": 0.0,
        "median_ann_pct": -49.2,
-       "median_hold_ann_pct": -15.8,
+       "median_hold_ann_pct": -14.7,
        "median_mdd_pct": -60.7,
        "median_hold_mdd_pct": -65.9,
        "median_exposure_pct": 36.0,
-       "median_switches_per_year": 189.5
+       "median_switches_per_year": 189.4
       }
      },
      "test": {
       "bull": {
-       "n": 3293,
+       "n": 3292,
        "days": 225,
        "share": 32.0,
-       "excess_bp": -3.97,
-       "t": -0.88
+       "excess_bp": -3.92,
+       "t": -0.87
       },
       "bear": {
-       "n": 3564,
-       "days": 237,
-       "share": 34.7,
-       "excess_bp": 0.99,
-       "t": 0.2
+       "n": 3562,
+       "days": 236,
+       "share": 34.6,
+       "excess_bp": 1.05,
+       "t": 0.21
       },
       "long_only": {
        "median_sharpe": -2.41,
-       "median_hold_sharpe": -0.37,
-       "median_sharpe_gain": -2.07,
+       "median_hold_sharpe": -0.39,
+       "median_sharpe_gain": -2.02,
        "share_better": 0.0,
        "median_ann_pct": -51.2,
-       "median_hold_ann_pct": -32.5,
+       "median_hold_ann_pct": -33.2,
        "median_mdd_pct": -61.0,
-       "median_hold_mdd_pct": -57.7,
+       "median_hold_mdd_pct": -57.5,
        "median_exposure_pct": 33.0,
-       "median_switches_per_year": 181.2
+       "median_switches_per_year": 181.0
+      }
+     }
+    },
+    "ia_ribbon": {
+     "train": {
+      "bull": {
+       "n": 4974,
+       "days": 263,
+       "share": 48.3,
+       "excess_bp": -1.34,
+       "t": -0.31
+      },
+      "bear": {
+       "n": 5316,
+       "days": 269,
+       "share": 51.7,
+       "excess_bp": 1.25,
+       "t": 0.25
+      },
+      "long_only": {
+       "median_sharpe": -0.53,
+       "median_hold_sharpe": 0.34,
+       "median_sharpe_gain": -0.61,
+       "share_better": 0.0,
+       "median_ann_pct": -24.2,
+       "median_hold_ann_pct": -14.7,
+       "median_mdd_pct": -52.7,
+       "median_hold_mdd_pct": -65.9,
+       "median_exposure_pct": 48.0,
+       "median_switches_per_year": 64.9
+      }
+     },
+     "test": {
+      "bull": {
+       "n": 4670,
+       "days": 242,
+       "share": 45.4,
+       "excess_bp": -2.66,
+       "t": -0.76
+      },
+      "bear": {
+       "n": 5615,
+       "days": 278,
+       "share": 54.6,
+       "excess_bp": 2.21,
+       "t": 0.6
+      },
+      "long_only": {
+       "median_sharpe": -0.9,
+       "median_hold_sharpe": -0.39,
+       "median_sharpe_gain": -0.66,
+       "share_better": 0.0,
+       "median_ann_pct": -33.3,
+       "median_hold_ann_pct": -33.2,
+       "median_mdd_pct": -55.1,
+       "median_hold_mdd_pct": -57.5,
+       "median_exposure_pct": 45.0,
+       "median_switches_per_year": 63.9
+      }
+     }
+    },
+    "ia_atr_stop": {
+     "train": {
+      "bull": {
+       "n": 5266,
+       "days": 333,
+       "share": 51.2,
+       "excess_bp": 3.49,
+       "t": 0.88
+      },
+      "bear": {
+       "n": 5024,
+       "days": 331,
+       "share": 48.8,
+       "excess_bp": -3.66,
+       "t": -0.72
+      },
+      "long_only": {
+       "median_sharpe": -1.35,
+       "median_hold_sharpe": 0.34,
+       "median_sharpe_gain": -1.79,
+       "share_better": 0.0,
+       "median_ann_pct": -61.2,
+       "median_hold_ann_pct": -14.7,
+       "median_mdd_pct": -67.2,
+       "median_hold_mdd_pct": -65.9,
+       "median_exposure_pct": 51.0,
+       "median_switches_per_year": 521.4
+      }
+     },
+     "test": {
+      "bull": {
+       "n": 5215,
+       "days": 337,
+       "share": 50.7,
+       "excess_bp": 2.76,
+       "t": 0.79
+      },
+      "bear": {
+       "n": 5070,
+       "days": 335,
+       "share": 49.3,
+       "excess_bp": -2.84,
+       "t": -0.81
+      },
+      "long_only": {
+       "median_sharpe": -1.86,
+       "median_hold_sharpe": -0.39,
+       "median_sharpe_gain": -1.61,
+       "share_better": 0.0,
+       "median_ann_pct": -59.1,
+       "median_hold_ann_pct": -33.2,
+       "median_mdd_pct": -65.6,
+       "median_hold_mdd_pct": -57.5,
+       "median_exposure_pct": 50.0,
+       "median_switches_per_year": 474.8
+      }
+     }
+    },
+    "ia_ath_discount": {
+     "train": {
+      "bull": {
+       "n": 4537,
+       "days": 283,
+       "share": 44.1,
+       "excess_bp": 4.23,
+       "t": 0.82
+      },
+      "bear": {
+       "n": 0
+      },
+      "long_only": {
+       "median_sharpe": 0.91,
+       "median_hold_sharpe": 0.34,
+       "median_sharpe_gain": 0.48,
+       "share_better": 0.8,
+       "median_ann_pct": 36.7,
+       "median_hold_ann_pct": -14.7,
+       "median_mdd_pct": -45.2,
+       "median_hold_mdd_pct": -65.9,
+       "median_exposure_pct": 50.0,
+       "median_switches_per_year": 35.1
+      }
+     },
+     "test": {
+      "bull": {
+       "n": 9137,
+       "days": 344,
+       "share": 88.8,
+       "excess_bp": 0.72,
+       "t": 0.26
+      },
+      "bear": {
+       "n": 0
+      },
+      "long_only": {
+       "median_sharpe": 0.03,
+       "median_hold_sharpe": -0.39,
+       "median_sharpe_gain": -0.0,
+       "share_better": 0.4,
+       "median_ann_pct": -17.6,
+       "median_hold_ann_pct": -33.2,
+       "median_mdd_pct": -57.1,
+       "median_hold_mdd_pct": -57.5,
+       "median_exposure_pct": 100.0,
+       "median_switches_per_year": 0.0
       }
      }
     },
@@ -3664,27 +4534,27 @@
        "n": 139,
        "days": 77,
        "share": 1.4,
-       "excess_bp": -1.23,
-       "t": -0.06
+       "excess_bp": -1.28,
+       "t": -0.07
       },
       "bear": {
        "n": 114,
        "days": 63,
        "share": 1.1,
-       "excess_bp": -37.36,
+       "excess_bp": -37.42,
        "t": -1.67
       },
       "long_only": {
        "median_sharpe": -1.04,
-       "median_hold_sharpe": 0.33,
-       "median_sharpe_gain": -1.2,
+       "median_hold_sharpe": 0.34,
+       "median_sharpe_gain": -1.23,
        "share_better": 0.0,
-       "median_ann_pct": -11.2,
-       "median_hold_ann_pct": -15.8,
-       "median_mdd_pct": -14.1,
+       "median_ann_pct": -11.4,
+       "median_hold_ann_pct": -14.7,
+       "median_mdd_pct": -14.3,
        "median_hold_mdd_pct": -65.9,
        "median_exposure_pct": 1.0,
-       "median_switches_per_year": 45.8
+       "median_switches_per_year": 46.8
       }
      },
      "test": {
@@ -3692,27 +4562,27 @@
        "n": 135,
        "days": 72,
        "share": 1.3,
-       "excess_bp": 18.07,
-       "t": 1.0
+       "excess_bp": 17.33,
+       "t": 0.96
       },
       "bear": {
        "n": 160,
        "days": 71,
        "share": 1.6,
-       "excess_bp": -1.02,
-       "t": -0.07
+       "excess_bp": -0.27,
+       "t": -0.02
       },
       "long_only": {
-       "median_sharpe": -1.15,
-       "median_hold_sharpe": -0.37,
-       "median_sharpe_gain": -0.78,
+       "median_sharpe": -1.13,
+       "median_hold_sharpe": -0.39,
+       "median_sharpe_gain": -0.74,
        "share_better": 0.2,
-       "median_ann_pct": -8.4,
-       "median_hold_ann_pct": -32.5,
-       "median_mdd_pct": -8.8,
-       "median_hold_mdd_pct": -57.7,
+       "median_ann_pct": -8.2,
+       "median_hold_ann_pct": -33.2,
+       "median_mdd_pct": -8.6,
+       "median_hold_mdd_pct": -57.5,
        "median_exposure_pct": 1.0,
-       "median_switches_per_year": 44.8
+       "median_switches_per_year": 44.7
       }
      }
     }
@@ -3720,7 +4590,9 @@
    "kept": [],
    "consistent": [
     "btc_trend_gate",
-    "ibs_reversal"
+    "ibs_reversal",
+    "ia_atr_stop",
+    "ia_ath_discount"
    ],
    "presets": {
     "trend4_majority": {
@@ -3736,55 +4608,55 @@
        "n": 5156,
        "days": 275,
        "share": 50.1,
-       "excess_bp": -0.81,
-       "t": -0.19
+       "excess_bp": -0.86,
+       "t": -0.21
       },
       "bear": {
-       "n": 4212,
+       "n": 4217,
        "days": 244,
        "share": 41.0,
-       "excess_bp": -0.32,
-       "t": -0.06
+       "excess_bp": -0.24,
+       "t": -0.04
       },
       "long_only": {
        "median_sharpe": -0.86,
-       "median_hold_sharpe": 0.33,
-       "median_sharpe_gain": -0.98,
+       "median_hold_sharpe": 0.34,
+       "median_sharpe_gain": -1.0,
        "share_better": 0.0,
        "median_ann_pct": -44.1,
-       "median_hold_ann_pct": -15.8,
+       "median_hold_ann_pct": -14.7,
        "median_mdd_pct": -61.3,
        "median_hold_mdd_pct": -65.9,
        "median_exposure_pct": 49.0,
-       "median_switches_per_year": 165.0
+       "median_switches_per_year": 164.9
       }
      },
      "test": {
       "bull": {
-       "n": 4599,
-       "days": 258,
+       "n": 4608,
+       "days": 259,
        "share": 44.8,
-       "excess_bp": -1.93,
-       "t": -0.55
+       "excess_bp": -1.96,
+       "t": -0.56
       },
       "bear": {
-       "n": 4837,
+       "n": 4838,
        "days": 259,
-       "share": 47.1,
-       "excess_bp": 1.09,
-       "t": 0.27
+       "share": 47.0,
+       "excess_bp": 1.12,
+       "t": 0.28
       },
       "long_only": {
-       "median_sharpe": -1.63,
-       "median_hold_sharpe": -0.37,
-       "median_sharpe_gain": -1.68,
+       "median_sharpe": -1.66,
+       "median_hold_sharpe": -0.39,
+       "median_sharpe_gain": -1.7,
        "share_better": 0.0,
-       "median_ann_pct": -45.9,
-       "median_hold_ann_pct": -32.5,
+       "median_ann_pct": -46.1,
+       "median_hold_ann_pct": -33.2,
        "median_mdd_pct": -60.2,
-       "median_hold_mdd_pct": -57.7,
+       "median_hold_mdd_pct": -57.5,
        "median_exposure_pct": 45.0,
-       "median_switches_per_year": 176.9
+       "median_switches_per_year": 176.7
       }
      }
     },
@@ -3801,23 +4673,23 @@
        "n": 3183,
        "days": 176,
        "share": 30.9,
-       "excess_bp": 5.68,
-       "t": 1.1
+       "excess_bp": 5.63,
+       "t": 1.09
       },
       "bear": {
-       "n": 1986,
+       "n": 1991,
        "days": 124,
        "share": 19.3,
-       "excess_bp": 4.54,
-       "t": 0.52
+       "excess_bp": 4.75,
+       "t": 0.55
       },
       "long_only": {
        "median_sharpe": 0.49,
-       "median_hold_sharpe": 0.33,
-       "median_sharpe_gain": 0.15,
+       "median_hold_sharpe": 0.34,
+       "median_sharpe_gain": 0.13,
        "share_better": 0.8,
        "median_ann_pct": 12.4,
-       "median_hold_ann_pct": -15.8,
+       "median_hold_ann_pct": -14.7,
        "median_mdd_pct": -28.8,
        "median_hold_mdd_pct": -65.9,
        "median_exposure_pct": 31.0,
@@ -3826,30 +4698,93 @@
      },
      "test": {
       "bull": {
-       "n": 2405,
-       "days": 142,
+       "n": 2406,
+       "days": 143,
        "share": 23.4,
-       "excess_bp": 2.7,
-       "t": 0.53
+       "excess_bp": 2.74,
+       "t": 0.54
       },
       "bear": {
-       "n": 2497,
-       "days": 153,
-       "share": 24.3,
-       "excess_bp": -1.56,
-       "t": -0.23
+       "n": 2492,
+       "days": 152,
+       "share": 24.2,
+       "excess_bp": -1.72,
+       "t": -0.26
       },
       "long_only": {
        "median_sharpe": -0.6,
-       "median_hold_sharpe": -0.37,
-       "median_sharpe_gain": -0.55,
+       "median_hold_sharpe": -0.39,
+       "median_sharpe_gain": -0.53,
        "share_better": 0.4,
        "median_ann_pct": -21.6,
-       "median_hold_ann_pct": -32.5,
+       "median_hold_ann_pct": -33.2,
        "median_mdd_pct": -30.7,
-       "median_hold_mdd_pct": -57.7,
+       "median_hold_mdd_pct": -57.5,
        "median_exposure_pct": 24.0,
-       "median_switches_per_year": 95.9
+       "median_switches_per_year": 95.8
+      }
+     }
+    },
+    "ia_ribbon_and_stop": {
+     "models": [
+      "ia_ribbon",
+      "ia_atr_stop"
+     ],
+     "threshold": 0.5,
+     "train": {
+      "bull": {
+       "n": 2548,
+       "days": 238,
+       "share": 24.8,
+       "excess_bp": 2.02,
+       "t": 0.42
+      },
+      "bear": {
+       "n": 2598,
+       "days": 241,
+       "share": 25.2,
+       "excess_bp": -2.54,
+       "t": -0.35
+      },
+      "long_only": {
+       "median_sharpe": -1.55,
+       "median_hold_sharpe": 0.34,
+       "median_sharpe_gain": -1.3,
+       "share_better": 0.0,
+       "median_ann_pct": -52.3,
+       "median_hold_ann_pct": -14.7,
+       "median_mdd_pct": -52.6,
+       "median_hold_mdd_pct": -65.9,
+       "median_exposure_pct": 25.0,
+       "median_switches_per_year": 283.1
+      }
+     },
+     "test": {
+      "bull": {
+       "n": 2267,
+       "days": 218,
+       "share": 22.0,
+       "excess_bp": 0.14,
+       "t": 0.03
+      },
+      "bear": {
+       "n": 2667,
+       "days": 254,
+       "share": 25.9,
+       "excess_bp": -0.63,
+       "t": -0.12
+      },
+      "long_only": {
+       "median_sharpe": -2.13,
+       "median_hold_sharpe": -0.39,
+       "median_sharpe_gain": -1.74,
+       "share_better": 0.0,
+       "median_ann_pct": -42.2,
+       "median_hold_ann_pct": -33.2,
+       "median_mdd_pct": -46.3,
+       "median_hold_mdd_pct": -57.5,
+       "median_exposure_pct": 22.0,
+       "median_switches_per_year": 244.9
       }
      }
     }
@@ -3909,26 +4844,26 @@
      },
      "test": {
       "bull": {
-       "n": 4015,
-       "days": 290,
+       "n": 4032,
+       "days": 292,
        "share": 12.9,
-       "excess_bp": 0.87,
-       "t": 0.41
+       "excess_bp": 0.9,
+       "t": 0.43
       },
       "bear": {
        "n": 0
       },
       "long_only": {
-       "median_sharpe": 0.04,
-       "median_hold_sharpe": 1.59,
+       "median_sharpe": -0.04,
+       "median_hold_sharpe": 1.58,
        "median_sharpe_gain": -1.32,
        "share_better": 0.08,
-       "median_ann_pct": 0.1,
-       "median_hold_ann_pct": 44.9,
-       "median_mdd_pct": -11.7,
+       "median_ann_pct": -1.7,
+       "median_hold_ann_pct": 44.6,
+       "median_mdd_pct": -12.1,
        "median_hold_mdd_pct": -31.1,
        "median_exposure_pct": 13.0,
-       "median_switches_per_year": 96.0
+       "median_switches_per_year": 96.7
       }
      }
     },
@@ -3959,26 +4894,26 @@
      },
      "test": {
       "bull": {
-       "n": 3759,
-       "days": 342,
+       "n": 3774,
+       "days": 344,
        "share": 12.1,
-       "excess_bp": -0.37,
-       "t": -0.13
+       "excess_bp": -0.48,
+       "t": -0.17
       },
       "bear": {
        "n": 0
       },
       "long_only": {
-       "median_sharpe": -1.18,
-       "median_hold_sharpe": 1.59,
-       "median_sharpe_gain": -1.97,
+       "median_sharpe": -1.1,
+       "median_hold_sharpe": 1.58,
+       "median_sharpe_gain": -1.99,
        "share_better": 0.0,
-       "median_ann_pct": -11.6,
-       "median_hold_ann_pct": 44.9,
-       "median_mdd_pct": -21.5,
+       "median_ann_pct": -10.9,
+       "median_hold_ann_pct": 44.6,
+       "median_mdd_pct": -22.6,
        "median_hold_mdd_pct": -31.1,
        "median_exposure_pct": 12.0,
-       "median_switches_per_year": 348.5
+       "median_switches_per_year": 351.8
       }
      }
     },
@@ -4011,24 +4946,24 @@
       "bull": {
        "n": 5966,
        "days": 68,
-       "share": 19.2,
-       "excess_bp": 1.08,
-       "t": 0.34
+       "share": 19.1,
+       "excess_bp": 1.11,
+       "t": 0.35
       },
       "bear": {
        "n": 0
       },
       "long_only": {
        "median_sharpe": 0.84,
-       "median_hold_sharpe": 1.59,
-       "median_sharpe_gain": -0.67,
+       "median_hold_sharpe": 1.58,
+       "median_sharpe_gain": -0.66,
        "share_better": 0.08,
-       "median_ann_pct": 15.0,
-       "median_hold_ann_pct": 44.9,
+       "median_ann_pct": 14.8,
+       "median_hold_ann_pct": 44.6,
        "median_mdd_pct": -21.2,
        "median_hold_mdd_pct": -31.1,
        "median_exposure_pct": 19.0,
-       "median_switches_per_year": 25.1
+       "median_switches_per_year": 24.9
       }
      }
     },
@@ -4063,8 +4998,8 @@
      },
      "test": {
       "bull": {
-       "n": 29965,
-       "days": 333,
+       "n": 30198,
+       "days": 335,
        "share": 96.5,
        "excess_bp": 0.05,
        "t": 0.04
@@ -4073,19 +5008,19 @@
        "n": 1092,
        "days": 12,
        "share": 3.5,
-       "excess_bp": -1.34,
+       "excess_bp": -1.32,
        "t": -0.12
       },
       "long_only": {
-       "median_sharpe": 1.53,
-       "median_hold_sharpe": 1.59,
+       "median_sharpe": 1.52,
+       "median_hold_sharpe": 1.58,
        "median_sharpe_gain": -0.03,
        "share_better": 0.31,
-       "median_ann_pct": 43.9,
-       "median_hold_ann_pct": 44.9,
+       "median_ann_pct": 43.5,
+       "median_hold_ann_pct": 44.6,
        "median_mdd_pct": -31.1,
        "median_hold_mdd_pct": -31.1,
-       "median_exposure_pct": 96.0,
+       "median_exposure_pct": 97.0,
        "median_switches_per_year": 1.5
       }
      }
@@ -4120,7 +5055,7 @@
        "n": 1183,
        "days": 13,
        "share": 3.8,
-       "excess_bp": 14.16,
+       "excess_bp": 14.19,
        "t": 1.62
       },
       "bear": {
@@ -4128,15 +5063,15 @@
       },
       "long_only": {
        "median_sharpe": 1.32,
-       "median_hold_sharpe": 1.59,
-       "median_sharpe_gain": -0.33,
+       "median_hold_sharpe": 1.58,
+       "median_sharpe_gain": -0.32,
        "share_better": 0.38,
        "median_ann_pct": 10.5,
-       "median_hold_ann_pct": 44.9,
+       "median_hold_ann_pct": 44.6,
        "median_mdd_pct": -6.1,
        "median_hold_mdd_pct": -31.1,
        "median_exposure_pct": 4.0,
-       "median_switches_per_year": 13.3
+       "median_switches_per_year": 13.2
       }
      }
     },
@@ -4171,30 +5106,30 @@
      },
      "test": {
       "bull": {
-       "n": 17881,
-       "days": 342,
-       "share": 57.6,
-       "excess_bp": -0.53,
-       "t": -0.4
+       "n": 17999,
+       "days": 344,
+       "share": 57.5,
+       "excess_bp": -0.46,
+       "t": -0.35
       },
       "bear": {
-       "n": 13176,
-       "days": 338,
-       "share": 42.4,
-       "excess_bp": 0.72,
-       "t": 0.38
+       "n": 13291,
+       "days": 340,
+       "share": 42.5,
+       "excess_bp": 0.62,
+       "t": 0.33
       },
       "long_only": {
-       "median_sharpe": 0.82,
-       "median_hold_sharpe": 1.59,
-       "median_sharpe_gain": -0.67,
+       "median_sharpe": 0.83,
+       "median_hold_sharpe": 1.58,
+       "median_sharpe_gain": -0.64,
        "share_better": 0.08,
-       "median_ann_pct": 11.0,
-       "median_hold_ann_pct": 44.9,
+       "median_ann_pct": 12.1,
+       "median_hold_ann_pct": 44.6,
        "median_mdd_pct": -33.6,
        "median_hold_mdd_pct": -31.1,
        "median_exposure_pct": 58.0,
-       "median_switches_per_year": 130.0
+       "median_switches_per_year": 129.0
       }
      }
     },
@@ -4229,30 +5164,30 @@
      },
      "test": {
       "bull": {
-       "n": 18299,
-       "days": 343,
+       "n": 18418,
+       "days": 345,
        "share": 58.9,
-       "excess_bp": -0.76,
-       "t": -0.59
+       "excess_bp": -0.71,
+       "t": -0.55
       },
       "bear": {
-       "n": 8126,
-       "days": 308,
+       "n": 8203,
+       "days": 310,
        "share": 26.2,
-       "excess_bp": 2.16,
-       "t": 0.9
+       "excess_bp": 1.87,
+       "t": 0.78
       },
       "long_only": {
-       "median_sharpe": 0.54,
-       "median_hold_sharpe": 1.59,
+       "median_sharpe": 0.53,
+       "median_hold_sharpe": 1.58,
        "median_sharpe_gain": -0.77,
        "share_better": 0.08,
-       "median_ann_pct": 8.8,
-       "median_hold_ann_pct": 44.9,
-       "median_mdd_pct": -30.3,
+       "median_ann_pct": 9.6,
+       "median_hold_ann_pct": 44.6,
+       "median_mdd_pct": -30.4,
        "median_hold_mdd_pct": -31.1,
        "median_exposure_pct": 60.0,
-       "median_switches_per_year": 115.2
+       "median_switches_per_year": 115.8
       }
      }
     },
@@ -4287,30 +5222,30 @@
      },
      "test": {
       "bull": {
-       "n": 13015,
-       "days": 340,
-       "share": 41.9,
-       "excess_bp": -1.08,
-       "t": -0.79
+       "n": 13077,
+       "days": 342,
+       "share": 41.8,
+       "excess_bp": -1.2,
+       "t": -0.88
       },
       "bear": {
-       "n": 4981,
-       "days": 280,
+       "n": 5019,
+       "days": 282,
        "share": 16.0,
-       "excess_bp": 3.58,
-       "t": 1.19
+       "excess_bp": 3.54,
+       "t": 1.18
       },
       "long_only": {
-       "median_sharpe": 0.38,
-       "median_hold_sharpe": 1.59,
-       "median_sharpe_gain": -0.96,
+       "median_sharpe": 0.36,
+       "median_hold_sharpe": 1.58,
+       "median_sharpe_gain": -1.0,
        "share_better": 0.08,
-       "median_ann_pct": 5.2,
-       "median_hold_ann_pct": 44.9,
-       "median_mdd_pct": -26.8,
+       "median_ann_pct": 4.8,
+       "median_hold_ann_pct": 44.6,
+       "median_mdd_pct": -29.6,
        "median_hold_mdd_pct": -31.1,
        "median_exposure_pct": 43.0,
-       "median_switches_per_year": 76.1
+       "median_switches_per_year": 76.2
       }
      }
     },
@@ -4345,30 +5280,30 @@
      },
      "test": {
       "bull": {
-       "n": 7203,
-       "days": 292,
-       "share": 23.2,
-       "excess_bp": -0.75,
-       "t": -0.44
+       "n": 7238,
+       "days": 294,
+       "share": 23.1,
+       "excess_bp": -0.73,
+       "t": -0.43
       },
       "bear": {
        "n": 216,
        "days": 115,
        "share": 0.7,
-       "excess_bp": -11.54,
+       "excess_bp": -11.52,
        "t": -1.73
       },
       "long_only": {
        "median_sharpe": 0.37,
-       "median_hold_sharpe": 1.59,
+       "median_hold_sharpe": 1.58,
        "median_sharpe_gain": -0.77,
        "share_better": 0.15,
-       "median_ann_pct": 7.5,
-       "median_hold_ann_pct": 44.9,
+       "median_ann_pct": 7.4,
+       "median_hold_ann_pct": 44.6,
        "median_mdd_pct": -17.9,
        "median_hold_mdd_pct": -31.1,
        "median_exposure_pct": 24.0,
-       "median_switches_per_year": 25.1
+       "median_switches_per_year": 24.9
       }
      }
     },
@@ -4403,30 +5338,30 @@
      },
      "test": {
       "bull": {
-       "n": 19117,
-       "days": 345,
-       "share": 61.6,
-       "excess_bp": -0.37,
-       "t": -0.3
+       "n": 19242,
+       "days": 347,
+       "share": 61.5,
+       "excess_bp": -0.32,
+       "t": -0.26
       },
       "bear": {
-       "n": 11940,
-       "days": 332,
-       "share": 38.4,
-       "excess_bp": 0.6,
-       "t": 0.3
+       "n": 12048,
+       "days": 334,
+       "share": 38.5,
+       "excess_bp": 0.51,
+       "t": 0.26
       },
       "long_only": {
-       "median_sharpe": 0.72,
-       "median_hold_sharpe": 1.59,
-       "median_sharpe_gain": -0.5,
+       "median_sharpe": 0.79,
+       "median_hold_sharpe": 1.58,
+       "median_sharpe_gain": -0.44,
        "share_better": 0.0,
-       "median_ann_pct": 16.5,
-       "median_hold_ann_pct": 44.9,
-       "median_mdd_pct": -29.8,
+       "median_ann_pct": 15.0,
+       "median_hold_ann_pct": 44.6,
+       "median_mdd_pct": -28.5,
        "median_hold_mdd_pct": -31.1,
-       "median_exposure_pct": 64.0,
-       "median_switches_per_year": 47.3
+       "median_exposure_pct": 63.0,
+       "median_switches_per_year": 46.9
       }
      }
     },
@@ -4461,30 +5396,30 @@
      },
      "test": {
       "bull": {
-       "n": 1497,
-       "days": 227,
+       "n": 1517,
+       "days": 228,
        "share": 4.8,
-       "excess_bp": 7.28,
-       "t": 2.0
+       "excess_bp": 7.35,
+       "t": 2.03
       },
       "bear": {
-       "n": 1728,
-       "days": 274,
+       "n": 1741,
+       "days": 276,
        "share": 5.6,
-       "excess_bp": -2.45,
-       "t": -1.07
+       "excess_bp": -2.27,
+       "t": -1.0
       },
       "long_only": {
-       "median_sharpe": 0.29,
-       "median_hold_sharpe": 1.59,
+       "median_sharpe": 0.31,
+       "median_hold_sharpe": 1.58,
        "median_sharpe_gain": -1.12,
        "share_better": 0.15,
-       "median_ann_pct": 1.4,
-       "median_hold_ann_pct": 44.9,
+       "median_ann_pct": 1.5,
+       "median_hold_ann_pct": 44.6,
        "median_mdd_pct": -7.4,
        "median_hold_mdd_pct": -31.1,
        "median_exposure_pct": 5.0,
-       "median_switches_per_year": 88.6
+       "median_switches_per_year": 89.4
       }
      }
     },
@@ -4519,30 +5454,30 @@
      },
      "test": {
       "bull": {
-       "n": 2078,
-       "days": 288,
+       "n": 2087,
+       "days": 290,
        "share": 6.7,
-       "excess_bp": 0.75,
-       "t": 0.21
+       "excess_bp": 1.12,
+       "t": 0.31
       },
       "bear": {
-       "n": 3968,
-       "days": 328,
-       "share": 12.8,
-       "excess_bp": -2.3,
-       "t": -0.97
+       "n": 3969,
+       "days": 329,
+       "share": 12.7,
+       "excess_bp": -2.44,
+       "t": -1.02
       },
       "long_only": {
-       "median_sharpe": 0.4,
-       "median_hold_sharpe": 1.59,
-       "median_sharpe_gain": -1.25,
+       "median_sharpe": 0.37,
+       "median_hold_sharpe": 1.58,
+       "median_sharpe_gain": -1.27,
        "share_better": 0.08,
-       "median_ann_pct": 3.1,
-       "median_hold_ann_pct": 44.9,
-       "median_mdd_pct": -10.9,
+       "median_ann_pct": 2.8,
+       "median_hold_ann_pct": 44.6,
+       "median_mdd_pct": -11.2,
        "median_hold_mdd_pct": -31.1,
        "median_exposure_pct": 7.0,
-       "median_switches_per_year": 126.3
+       "median_switches_per_year": 125.3
       }
      }
     },
@@ -4577,30 +5512,30 @@
      },
      "test": {
       "bull": {
-       "n": 6217,
-       "days": 287,
+       "n": 6258,
+       "days": 289,
        "share": 20.0,
-       "excess_bp": 3.44,
+       "excess_bp": 3.43,
        "t": 1.25
       },
       "bear": {
-       "n": 10628,
-       "days": 326,
-       "share": 34.2,
-       "excess_bp": -1.22,
-       "t": -0.79
+       "n": 10669,
+       "days": 328,
+       "share": 34.1,
+       "excess_bp": -1.2,
+       "t": -0.78
       },
       "long_only": {
-       "median_sharpe": 0.91,
-       "median_hold_sharpe": 1.59,
-       "median_sharpe_gain": -0.22,
+       "median_sharpe": 0.86,
+       "median_hold_sharpe": 1.58,
+       "median_sharpe_gain": -0.26,
        "share_better": 0.15,
        "median_ann_pct": 12.4,
-       "median_hold_ann_pct": 44.9,
+       "median_hold_ann_pct": 44.6,
        "median_mdd_pct": -16.2,
        "median_hold_mdd_pct": -31.1,
        "median_exposure_pct": 20.0,
-       "median_switches_per_year": 84.9
+       "median_switches_per_year": 84.3
       }
      }
     },
@@ -4635,30 +5570,196 @@
      },
      "test": {
       "bull": {
-       "n": 12804,
-       "days": 336,
-       "share": 41.2,
-       "excess_bp": -1.17,
-       "t": -0.84
+       "n": 12867,
+       "days": 338,
+       "share": 41.1,
+       "excess_bp": -1.23,
+       "t": -0.88
       },
       "bear": {
-       "n": 9380,
-       "days": 324,
+       "n": 9456,
+       "days": 326,
        "share": 30.2,
-       "excess_bp": 1.36,
-       "t": 0.63
+       "excess_bp": 1.29,
+       "t": 0.6
       },
       "long_only": {
-       "median_sharpe": 0.12,
-       "median_hold_sharpe": 1.59,
-       "median_sharpe_gain": -1.09,
+       "median_sharpe": 0.13,
+       "median_hold_sharpe": 1.58,
+       "median_sharpe_gain": -1.1,
        "share_better": 0.0,
-       "median_ann_pct": 0.3,
-       "median_hold_ann_pct": 44.9,
-       "median_mdd_pct": -25.6,
+       "median_ann_pct": 0.2,
+       "median_hold_ann_pct": 44.6,
+       "median_mdd_pct": -26.2,
        "median_hold_mdd_pct": -31.1,
        "median_exposure_pct": 42.0,
-       "median_switches_per_year": 148.4
+       "median_switches_per_year": 147.3
+      }
+     }
+    },
+    "ia_ribbon": {
+     "train": {
+      "bull": {
+       "n": 17763,
+       "days": 331,
+       "share": 56.7,
+       "excess_bp": 0.54,
+       "t": 0.35
+      },
+      "bear": {
+       "n": 13541,
+       "days": 328,
+       "share": 43.3,
+       "excess_bp": -0.71,
+       "t": -0.27
+      },
+      "long_only": {
+       "median_sharpe": 0.41,
+       "median_hold_sharpe": 0.77,
+       "median_sharpe_gain": -0.2,
+       "share_better": 0.38,
+       "median_ann_pct": 3.5,
+       "median_hold_ann_pct": 17.8,
+       "median_mdd_pct": -26.9,
+       "median_hold_mdd_pct": -38.5,
+       "median_exposure_pct": 57.0,
+       "median_switches_per_year": 42.5
+      }
+     },
+     "test": {
+      "bull": {
+       "n": 18615,
+       "days": 344,
+       "share": 59.5,
+       "excess_bp": -0.71,
+       "t": -0.56
+      },
+      "bear": {
+       "n": 12675,
+       "days": 337,
+       "share": 40.5,
+       "excess_bp": 1.04,
+       "t": 0.54
+      },
+      "long_only": {
+       "median_sharpe": 1.01,
+       "median_hold_sharpe": 1.58,
+       "median_sharpe_gain": -0.56,
+       "share_better": 0.0,
+       "median_ann_pct": 12.2,
+       "median_hold_ann_pct": 44.6,
+       "median_mdd_pct": -28.4,
+       "median_hold_mdd_pct": -31.1,
+       "median_exposure_pct": 61.0,
+       "median_switches_per_year": 44.0
+      }
+     }
+    },
+    "ia_atr_stop": {
+     "train": {
+      "bull": {
+       "n": 16687,
+       "days": 346,
+       "share": 53.3,
+       "excess_bp": 0.34,
+       "t": 0.19
+      },
+      "bear": {
+       "n": 14617,
+       "days": 346,
+       "share": 46.7,
+       "excess_bp": -0.39,
+       "t": -0.19
+      },
+      "long_only": {
+       "median_sharpe": -0.31,
+       "median_hold_sharpe": 0.77,
+       "median_sharpe_gain": -1.14,
+       "share_better": 0.15,
+       "median_ann_pct": -8.6,
+       "median_hold_ann_pct": 17.8,
+       "median_mdd_pct": -34.7,
+       "median_hold_mdd_pct": -38.5,
+       "median_exposure_pct": 55.0,
+       "median_switches_per_year": 384.6
+      }
+     },
+     "test": {
+      "bull": {
+       "n": 16827,
+       "days": 347,
+       "share": 53.8,
+       "excess_bp": -1.49,
+       "t": -1.05
+      },
+      "bear": {
+       "n": 14463,
+       "days": 347,
+       "share": 46.2,
+       "excess_bp": 1.73,
+       "t": 0.95
+      },
+      "long_only": {
+       "median_sharpe": -0.39,
+       "median_hold_sharpe": 1.58,
+       "median_sharpe_gain": -1.67,
+       "share_better": 0.0,
+       "median_ann_pct": -8.9,
+       "median_hold_ann_pct": 44.6,
+       "median_mdd_pct": -35.0,
+       "median_hold_mdd_pct": -31.1,
+       "median_exposure_pct": 53.0,
+       "median_switches_per_year": 374.5
+      }
+     }
+    },
+    "ia_ath_discount": {
+     "train": {
+      "bull": {
+       "n": 2616,
+       "days": 174,
+       "share": 8.4,
+       "excess_bp": 3.96,
+       "t": 0.7
+      },
+      "bear": {
+       "n": 0
+      },
+      "long_only": {
+       "median_sharpe": 0.0,
+       "median_hold_sharpe": 0.77,
+       "median_sharpe_gain": -0.67,
+       "share_better": 0.15,
+       "median_ann_pct": 0.0,
+       "median_hold_ann_pct": 17.8,
+       "median_mdd_pct": -1.0,
+       "median_hold_mdd_pct": -38.5,
+       "median_exposure_pct": 0.0,
+       "median_switches_per_year": 0.7
+      }
+     },
+     "test": {
+      "bull": {
+       "n": 1124,
+       "days": 125,
+       "share": 3.6,
+       "excess_bp": 13.1,
+       "t": 2.35
+      },
+      "bear": {
+       "n": 0
+      },
+      "long_only": {
+       "median_sharpe": 0.0,
+       "median_hold_sharpe": 1.58,
+       "median_sharpe_gain": -0.89,
+       "share_better": 0.23,
+       "median_ann_pct": 0.0,
+       "median_hold_ann_pct": 44.6,
+       "median_mdd_pct": 0.0,
+       "median_hold_mdd_pct": -31.1,
+       "median_exposure_pct": 0.0,
+       "median_switches_per_year": 0.0
       }
      }
     },
@@ -4693,30 +5794,30 @@
      },
      "test": {
       "bull": {
-       "n": 400,
+       "n": 397,
        "days": 153,
        "share": 1.3,
-       "excess_bp": -9.96,
-       "t": -2.35
+       "excess_bp": -9.24,
+       "t": -2.16
       },
       "bear": {
-       "n": 267,
+       "n": 269,
        "days": 131,
        "share": 0.9,
-       "excess_bp": -3.97,
-       "t": -0.62
+       "excess_bp": -4.38,
+       "t": -0.69
       },
       "long_only": {
-       "median_sharpe": -0.66,
-       "median_hold_sharpe": 1.59,
-       "median_sharpe_gain": -2.39,
+       "median_sharpe": -0.63,
+       "median_hold_sharpe": 1.58,
+       "median_sharpe_gain": -2.38,
        "share_better": 0.0,
-       "median_ann_pct": -2.4,
-       "median_hold_ann_pct": 44.9,
-       "median_mdd_pct": -5.5,
+       "median_ann_pct": -2.2,
+       "median_hold_ann_pct": 44.6,
+       "median_mdd_pct": -4.6,
        "median_hold_mdd_pct": -31.1,
        "median_exposure_pct": 1.0,
-       "median_switches_per_year": 26.6
+       "median_switches_per_year": 26.4
       }
      }
     }
@@ -4724,7 +5825,8 @@
    "kept": [],
    "consistent": [
     "turn_of_month",
-    "vix_backwardation"
+    "vix_backwardation",
+    "ia_ath_discount"
    ],
    "presets": {
     "pullback_any": {
@@ -4760,26 +5862,89 @@
      },
      "test": {
       "bull": {
-       "n": 7761,
-       "days": 344,
-       "share": 25.0,
-       "excess_bp": 1.87,
-       "t": 0.87
+       "n": 7786,
+       "days": 346,
+       "share": 24.9,
+       "excess_bp": 1.89,
+       "t": 0.88
       },
       "bear": {
        "n": 0
       },
       "long_only": {
-       "median_sharpe": -0.34,
-       "median_hold_sharpe": 1.59,
-       "median_sharpe_gain": -1.2,
+       "median_sharpe": -0.29,
+       "median_hold_sharpe": 1.58,
+       "median_sharpe_gain": -1.25,
        "share_better": 0.08,
-       "median_ann_pct": -6.4,
-       "median_hold_ann_pct": 44.9,
-       "median_mdd_pct": -18.8,
+       "median_ann_pct": -5.6,
+       "median_hold_ann_pct": 44.6,
+       "median_mdd_pct": -17.9,
        "median_hold_mdd_pct": -31.1,
        "median_exposure_pct": 25.0,
-       "median_switches_per_year": 341.1
+       "median_switches_per_year": 338.6
+      }
+     }
+    },
+    "ia_ribbon_and_stop": {
+     "models": [
+      "ia_ribbon",
+      "ia_atr_stop"
+     ],
+     "threshold": 0.5,
+     "train": {
+      "bull": {
+       "n": 10079,
+       "days": 325,
+       "share": 32.2,
+       "excess_bp": 1.23,
+       "t": 0.71
+      },
+      "bear": {
+       "n": 6933,
+       "days": 315,
+       "share": 22.1,
+       "excess_bp": -0.42,
+       "t": -0.14
+      },
+      "long_only": {
+       "median_sharpe": -0.01,
+       "median_hold_sharpe": 0.77,
+       "median_sharpe_gain": -0.99,
+       "share_better": 0.23,
+       "median_ann_pct": -1.8,
+       "median_hold_ann_pct": 17.8,
+       "median_mdd_pct": -23.1,
+       "median_hold_mdd_pct": -38.5,
+       "median_exposure_pct": 32.0,
+       "median_switches_per_year": 231.5
+      }
+     },
+     "test": {
+      "bull": {
+       "n": 10527,
+       "days": 341,
+       "share": 33.6,
+       "excess_bp": -1.6,
+       "t": -1.08
+      },
+      "bear": {
+       "n": 6375,
+       "days": 329,
+       "share": 20.4,
+       "excess_bp": 3.35,
+       "t": 1.19
+      },
+      "long_only": {
+       "median_sharpe": -0.44,
+       "median_hold_sharpe": 1.58,
+       "median_sharpe_gain": -1.6,
+       "share_better": 0.0,
+       "median_ann_pct": -4.1,
+       "median_hold_ann_pct": 44.6,
+       "median_mdd_pct": -28.6,
+       "median_hold_mdd_pct": -31.1,
+       "median_exposure_pct": 34.0,
+       "median_switches_per_year": 236.0
       }
      }
     }
@@ -4807,174 +5972,174 @@
     "tsmom28": {
      "train": {
       "bull": {
-       "n": 21760,
+       "n": 21780,
        "days": 339,
        "share": 50.6,
-       "excess_bp": 0.1,
-       "t": 0.1
+       "excess_bp": 0.12,
+       "t": 0.12
       },
       "bear": {
-       "n": 21285,
+       "n": 21290,
        "days": 340,
        "share": 49.4,
-       "excess_bp": -0.11,
-       "t": -0.09
+       "excess_bp": -0.13,
+       "t": -0.11
       },
       "long_only": {
-       "median_sharpe": -2.57,
-       "median_hold_sharpe": 0.86,
-       "median_sharpe_gain": -2.99,
+       "median_sharpe": -2.54,
+       "median_hold_sharpe": 0.88,
+       "median_sharpe_gain": -2.98,
        "share_better": 0.0,
-       "median_ann_pct": -82.4,
-       "median_hold_ann_pct": 42.6,
+       "median_ann_pct": -82.1,
+       "median_hold_ann_pct": 46.3,
        "median_mdd_pct": -86.8,
        "median_hold_mdd_pct": -66.3,
        "median_exposure_pct": 50.0,
-       "median_switches_per_year": 729.6
+       "median_switches_per_year": 731.2
       }
      },
      "test": {
       "bull": {
-       "n": 21210,
-       "days": 335,
+       "n": 21194,
+       "days": 336,
        "share": 49.4,
-       "excess_bp": -0.05,
-       "t": -0.07
+       "excess_bp": -0.07,
+       "t": -0.09
       },
       "bear": {
-       "n": 21695,
-       "days": 346,
+       "n": 21731,
+       "days": 345,
        "share": 50.6,
-       "excess_bp": 0.05,
-       "t": 0.06
+       "excess_bp": 0.07,
+       "t": 0.08
       },
       "long_only": {
-       "median_sharpe": -5.15,
-       "median_hold_sharpe": -0.46,
-       "median_sharpe_gain": -4.68,
+       "median_sharpe": -5.18,
+       "median_hold_sharpe": -0.48,
+       "median_sharpe_gain": -4.7,
        "share_better": 0.0,
-       "median_ann_pct": -88.3,
-       "median_hold_ann_pct": -36.4,
+       "median_ann_pct": -88.4,
+       "median_hold_ann_pct": -37.1,
        "median_mdd_pct": -88.4,
        "median_hold_mdd_pct": -64.1,
        "median_exposure_pct": 49.0,
-       "median_switches_per_year": 797.3
+       "median_switches_per_year": 794.9
       }
      }
     },
     "sma_ensemble": {
      "train": {
       "bull": {
-       "n": 21990,
+       "n": 22001,
        "days": 339,
        "share": 51.1,
        "excess_bp": 0.59,
-       "t": 0.58
+       "t": 0.57
       },
       "bear": {
-       "n": 13899,
+       "n": 13903,
        "days": 305,
        "share": 32.3,
-       "excess_bp": -0.68,
-       "t": -0.45
+       "excess_bp": -0.69,
+       "t": -0.46
       },
       "long_only": {
-       "median_sharpe": -1.85,
-       "median_hold_sharpe": 0.86,
-       "median_sharpe_gain": -2.12,
+       "median_sharpe": -1.84,
+       "median_hold_sharpe": 0.88,
+       "median_sharpe_gain": -2.13,
        "share_better": 0.0,
-       "median_ann_pct": -74.3,
-       "median_hold_ann_pct": 42.6,
+       "median_ann_pct": -74.6,
+       "median_hold_ann_pct": 46.3,
        "median_mdd_pct": -84.0,
        "median_hold_mdd_pct": -66.3,
        "median_exposure_pct": 51.0,
-       "median_switches_per_year": 685.8
+       "median_switches_per_year": 689.5
       }
      },
      "test": {
       "bull": {
-       "n": 20847,
-       "days": 330,
+       "n": 20856,
+       "days": 331,
        "share": 48.6,
        "excess_bp": -0.19,
        "t": -0.23
       },
       "bear": {
-       "n": 14599,
-       "days": 308,
+       "n": 14611,
+       "days": 307,
        "share": 34.0,
-       "excess_bp": 0.23,
-       "t": 0.21
+       "excess_bp": 0.25,
+       "t": 0.22
       },
       "long_only": {
-       "median_sharpe": -4.96,
-       "median_hold_sharpe": -0.46,
+       "median_sharpe": -5.01,
+       "median_hold_sharpe": -0.48,
        "median_sharpe_gain": -4.39,
        "share_better": 0.0,
-       "median_ann_pct": -85.3,
-       "median_hold_ann_pct": -36.4,
-       "median_mdd_pct": -85.1,
+       "median_ann_pct": -85.2,
+       "median_hold_ann_pct": -37.1,
+       "median_mdd_pct": -85.2,
        "median_hold_mdd_pct": -64.1,
        "median_exposure_pct": 49.0,
-       "median_switches_per_year": 737.1
+       "median_switches_per_year": 735.7
       }
      }
     },
     "donchian_ensemble": {
      "train": {
       "bull": {
-       "n": 12844,
-       "days": 277,
+       "n": 12846,
+       "days": 278,
        "share": 29.8,
-       "excess_bp": 1.32,
-       "t": 1.08
+       "excess_bp": 1.3,
+       "t": 1.07
       },
       "bear": {
-       "n": 10100,
+       "n": 10112,
        "days": 266,
        "share": 23.5,
-       "excess_bp": -1.39,
-       "t": -0.77
+       "excess_bp": -1.34,
+       "t": -0.74
       },
       "long_only": {
        "median_sharpe": -0.84,
-       "median_hold_sharpe": 0.86,
-       "median_sharpe_gain": -1.43,
+       "median_hold_sharpe": 0.88,
+       "median_sharpe_gain": -1.44,
        "share_better": 0.0,
-       "median_ann_pct": -41.8,
-       "median_hold_ann_pct": 42.6,
+       "median_ann_pct": -41.5,
+       "median_hold_ann_pct": 46.3,
        "median_mdd_pct": -57.6,
        "median_hold_mdd_pct": -66.3,
        "median_exposure_pct": 31.0,
-       "median_switches_per_year": 370.4
+       "median_switches_per_year": 371.2
       }
      },
      "test": {
       "bull": {
-       "n": 10565,
+       "n": 10566,
        "days": 256,
        "share": 24.6,
-       "excess_bp": 0.15,
-       "t": 0.13
+       "excess_bp": 0.16,
+       "t": 0.14
       },
       "bear": {
-       "n": 11926,
-       "days": 290,
+       "n": 11922,
+       "days": 289,
        "share": 27.8,
-       "excess_bp": 0.33,
-       "t": 0.24
+       "excess_bp": 0.3,
+       "t": 0.22
       },
       "long_only": {
-       "median_sharpe": -3.16,
-       "median_hold_sharpe": -0.46,
-       "median_sharpe_gain": -2.69,
+       "median_sharpe": -3.18,
+       "median_hold_sharpe": -0.48,
+       "median_sharpe_gain": -2.68,
        "share_better": 0.0,
        "median_ann_pct": -62.8,
-       "median_hold_ann_pct": -36.4,
+       "median_hold_ann_pct": -37.1,
        "median_mdd_pct": -68.3,
        "median_hold_mdd_pct": -64.1,
        "median_exposure_pct": 25.0,
-       "median_switches_per_year": 355.3
+       "median_switches_per_year": 355.1
       }
      }
     },
@@ -4983,24 +6148,24 @@
       "bull": {
        "n": 28140,
        "days": 235,
-       "share": 65.4,
-       "excess_bp": 0.25,
-       "t": 0.25
+       "share": 65.3,
+       "excess_bp": 0.23,
+       "t": 0.23
       },
       "bear": {
-       "n": 14905,
+       "n": 14930,
        "days": 125,
-       "share": 34.6,
-       "excess_bp": -0.46,
-       "t": -0.29
+       "share": 34.7,
+       "excess_bp": -0.43,
+       "t": -0.26
       },
       "long_only": {
        "median_sharpe": 1.09,
-       "median_hold_sharpe": 0.86,
-       "median_sharpe_gain": -0.08,
+       "median_hold_sharpe": 0.88,
+       "median_sharpe_gain": -0.1,
        "share_better": 0.4,
-       "median_ann_pct": 40.1,
-       "median_hold_ann_pct": 42.6,
+       "median_ann_pct": 40.0,
+       "median_hold_ann_pct": 46.3,
        "median_mdd_pct": -40.8,
        "median_hold_mdd_pct": -66.3,
        "median_exposure_pct": 65.0,
@@ -5009,26 +6174,26 @@
      },
      "test": {
       "bull": {
-       "n": 19330,
+       "n": 19375,
        "days": 162,
        "share": 45.1,
-       "excess_bp": 0.81,
-       "t": 0.96
+       "excess_bp": 0.83,
+       "t": 0.98
       },
       "bear": {
-       "n": 23575,
+       "n": 23550,
        "days": 198,
        "share": 54.9,
-       "excess_bp": -0.67,
-       "t": -0.69
+       "excess_bp": -0.68,
+       "t": -0.7
       },
       "long_only": {
-       "median_sharpe": 0.44,
-       "median_hold_sharpe": -0.46,
-       "median_sharpe_gain": 0.89,
+       "median_sharpe": 0.42,
+       "median_hold_sharpe": -0.48,
+       "median_sharpe_gain": 0.9,
        "share_better": 1.0,
-       "median_ann_pct": 9.7,
-       "median_hold_ann_pct": -36.4,
+       "median_ann_pct": 9.1,
+       "median_hold_ann_pct": -37.1,
        "median_mdd_pct": -27.1,
        "median_hold_mdd_pct": -64.1,
        "median_exposure_pct": 45.0,
@@ -5042,23 +6207,23 @@
        "n": 5304,
        "days": 156,
        "share": 12.3,
-       "excess_bp": 1.81,
-       "t": 1.11
+       "excess_bp": 1.8,
+       "t": 1.1
       },
       "bear": {
        "n": 208,
        "days": 103,
        "share": 0.5,
-       "excess_bp": 6.39,
+       "excess_bp": 6.37,
        "t": 0.9
       },
       "long_only": {
        "median_sharpe": 0.51,
-       "median_hold_sharpe": 0.86,
-       "median_sharpe_gain": -0.73,
+       "median_hold_sharpe": 0.88,
+       "median_sharpe_gain": -0.75,
        "share_better": 0.4,
        "median_ann_pct": 7.6,
-       "median_hold_ann_pct": 42.6,
+       "median_hold_ann_pct": 46.3,
        "median_mdd_pct": -23.4,
        "median_hold_mdd_pct": -66.3,
        "median_exposure_pct": 13.0,
@@ -5070,27 +6235,27 @@
        "n": 3994,
        "days": 119,
        "share": 9.3,
-       "excess_bp": 0.52,
-       "t": 0.29
+       "excess_bp": 0.54,
+       "t": 0.3
       },
       "bear": {
        "n": 162,
        "days": 73,
        "share": 0.4,
-       "excess_bp": 11.01,
+       "excess_bp": 11.03,
        "t": 1.8
       },
       "long_only": {
        "median_sharpe": -0.83,
-       "median_hold_sharpe": -0.46,
-       "median_sharpe_gain": -0.26,
+       "median_hold_sharpe": -0.48,
+       "median_sharpe_gain": -0.21,
        "share_better": 0.2,
        "median_ann_pct": -16.8,
-       "median_hold_ann_pct": -36.4,
+       "median_hold_ann_pct": -37.1,
        "median_mdd_pct": -34.0,
        "median_hold_mdd_pct": -64.1,
        "median_exposure_pct": 10.0,
-       "median_switches_per_year": 67.4
+       "median_switches_per_year": 67.3
       }
      }
     },
@@ -5100,23 +6265,23 @@
        "n": 3831,
        "days": 249,
        "share": 8.9,
-       "excess_bp": 0.35,
-       "t": 0.18
+       "excess_bp": 0.33,
+       "t": 0.17
       },
       "bear": {
        "n": 0
       },
       "long_only": {
        "median_sharpe": -3.6,
-       "median_hold_sharpe": 0.86,
-       "median_sharpe_gain": -4.28,
+       "median_hold_sharpe": 0.88,
+       "median_sharpe_gain": -4.3,
        "share_better": 0.0,
        "median_ann_pct": -57.8,
-       "median_hold_ann_pct": 42.6,
+       "median_hold_ann_pct": 46.3,
        "median_mdd_pct": -58.1,
        "median_hold_mdd_pct": -66.3,
        "median_exposure_pct": 9.0,
-       "median_switches_per_year": 352.1
+       "median_switches_per_year": 351.9
       }
      },
      "test": {
@@ -5124,23 +6289,23 @@
        "n": 3604,
        "days": 225,
        "share": 8.4,
-       "excess_bp": -0.38,
-       "t": -0.24
+       "excess_bp": -0.34,
+       "t": -0.22
       },
       "bear": {
        "n": 0
       },
       "long_only": {
        "median_sharpe": -5.08,
-       "median_hold_sharpe": -0.46,
-       "median_sharpe_gain": -5.03,
+       "median_hold_sharpe": -0.48,
+       "median_sharpe_gain": -5.0,
        "share_better": 0.0,
-       "median_ann_pct": -59.3,
-       "median_hold_ann_pct": -36.4,
-       "median_mdd_pct": -58.8,
+       "median_ann_pct": -59.2,
+       "median_hold_ann_pct": -37.1,
+       "median_mdd_pct": -58.7,
        "median_hold_mdd_pct": -64.1,
        "median_exposure_pct": 8.0,
-       "median_switches_per_year": 345.1
+       "median_switches_per_year": 342.8
       }
      }
     },
@@ -5149,48 +6314,48 @@
       "bull": {
        "n": 5662,
        "days": 285,
-       "share": 13.2,
-       "excess_bp": 2.61,
-       "t": 1.58
+       "share": 13.1,
+       "excess_bp": 2.59,
+       "t": 1.57
       },
       "bear": {
        "n": 0
       },
       "long_only": {
-       "median_sharpe": -13.21,
-       "median_hold_sharpe": 0.86,
-       "median_sharpe_gain": -13.72,
+       "median_sharpe": -13.2,
+       "median_hold_sharpe": 0.88,
+       "median_sharpe_gain": -13.74,
        "share_better": 0.0,
        "median_ann_pct": -98.3,
-       "median_hold_ann_pct": 42.6,
+       "median_hold_ann_pct": 46.3,
        "median_mdd_pct": -98.2,
        "median_hold_mdd_pct": -66.3,
        "median_exposure_pct": 13.0,
-       "median_switches_per_year": 1744.1
+       "median_switches_per_year": 1743.1
       }
      },
      "test": {
       "bull": {
-       "n": 4298,
+       "n": 4292,
        "days": 269,
        "share": 10.0,
-       "excess_bp": -1.72,
-       "t": -1.15
+       "excess_bp": -1.81,
+       "t": -1.21
       },
       "bear": {
        "n": 0
       },
       "long_only": {
-       "median_sharpe": -17.94,
-       "median_hold_sharpe": -0.46,
-       "median_sharpe_gain": -17.4,
+       "median_sharpe": -18.02,
+       "median_hold_sharpe": -0.48,
+       "median_sharpe_gain": -17.44,
        "share_better": 0.0,
        "median_ann_pct": -97.6,
-       "median_hold_ann_pct": -36.4,
+       "median_hold_ann_pct": -37.1,
        "median_mdd_pct": -97.4,
        "median_hold_mdd_pct": -64.1,
        "median_exposure_pct": 10.0,
-       "median_switches_per_year": 1419.0
+       "median_switches_per_year": 1418.3
       }
      }
     },
@@ -5200,19 +6365,19 @@
        "n": 6240,
        "days": 64,
        "share": 14.5,
-       "excess_bp": -1.02,
-       "t": -0.38
+       "excess_bp": -1.04,
+       "t": -0.39
       },
       "bear": {
        "n": 0
       },
       "long_only": {
        "median_sharpe": -0.35,
-       "median_hold_sharpe": 0.86,
-       "median_sharpe_gain": -1.09,
+       "median_hold_sharpe": 0.88,
+       "median_sharpe_gain": -1.11,
        "share_better": 0.0,
        "median_ann_pct": -19.3,
-       "median_hold_ann_pct": 42.6,
+       "median_hold_ann_pct": 46.3,
        "median_mdd_pct": -42.1,
        "median_hold_mdd_pct": -66.3,
        "median_exposure_pct": 14.0,
@@ -5224,19 +6389,19 @@
        "n": 6385,
        "days": 66,
        "share": 14.9,
-       "excess_bp": -0.53,
-       "t": -0.28
+       "excess_bp": -0.51,
+       "t": -0.27
       },
       "bear": {
        "n": 0
       },
       "long_only": {
        "median_sharpe": -0.53,
-       "median_hold_sharpe": -0.46,
-       "median_sharpe_gain": -0.2,
+       "median_hold_sharpe": -0.48,
+       "median_sharpe_gain": -0.18,
        "share_better": 0.2,
        "median_ann_pct": -17.4,
-       "median_hold_ann_pct": -36.4,
+       "median_hold_ann_pct": -37.1,
        "median_mdd_pct": -28.7,
        "median_hold_mdd_pct": -64.1,
        "median_exposure_pct": 15.0,
@@ -5250,171 +6415,171 @@
        "n": 21602,
        "days": 311,
        "share": 50.2,
-       "excess_bp": 0.36,
-       "t": 0.34
+       "excess_bp": 0.34,
+       "t": 0.33
       },
       "bear": {
-       "n": 21443,
+       "n": 21468,
        "days": 312,
        "share": 49.8,
-       "excess_bp": -0.36,
-       "t": -0.3
+       "excess_bp": -0.34,
+       "t": -0.28
       },
       "long_only": {
        "median_sharpe": -0.4,
-       "median_hold_sharpe": 0.86,
-       "median_sharpe_gain": -0.91,
+       "median_hold_sharpe": 0.88,
+       "median_sharpe_gain": -0.93,
        "share_better": 0.0,
        "median_ann_pct": -34.2,
-       "median_hold_ann_pct": 42.6,
+       "median_hold_ann_pct": 46.3,
        "median_mdd_pct": -59.9,
        "median_hold_mdd_pct": -66.3,
        "median_exposure_pct": 50.0,
-       "median_switches_per_year": 240.1
+       "median_switches_per_year": 240.0
       }
      },
      "test": {
       "bull": {
-       "n": 19905,
-       "days": 289,
+       "n": 19908,
+       "days": 290,
        "share": 46.4,
-       "excess_bp": -0.63,
-       "t": -0.72
+       "excess_bp": -0.6,
+       "t": -0.7
       },
       "bear": {
-       "n": 23000,
+       "n": 23017,
        "days": 318,
        "share": 53.6,
-       "excess_bp": 0.54,
-       "t": 0.6
+       "excess_bp": 0.52,
+       "t": 0.58
       },
       "long_only": {
        "median_sharpe": -2.5,
-       "median_hold_sharpe": -0.46,
-       "median_sharpe_gain": -2.01,
+       "median_hold_sharpe": -0.48,
+       "median_sharpe_gain": -1.98,
        "share_better": 0.0,
-       "median_ann_pct": -64.5,
-       "median_hold_ann_pct": -36.4,
+       "median_ann_pct": -64.4,
+       "median_hold_ann_pct": -37.1,
        "median_mdd_pct": -65.0,
        "median_hold_mdd_pct": -64.1,
        "median_exposure_pct": 47.0,
-       "median_switches_per_year": 257.3
+       "median_switches_per_year": 256.1
       }
      }
     },
     "meanrev_z": {
      "train": {
       "bull": {
-       "n": 2404,
-       "days": 262,
+       "n": 2405,
+       "days": 263,
        "share": 5.6,
-       "excess_bp": 0.48,
+       "excess_bp": 0.49,
        "t": 0.11
       },
       "bear": {
-       "n": 2540,
+       "n": 2547,
        "days": 265,
        "share": 5.9,
-       "excess_bp": 3.61,
-       "t": 1.24
+       "excess_bp": 3.63,
+       "t": 1.25
       },
       "long_only": {
        "median_sharpe": -4.52,
-       "median_hold_sharpe": 0.86,
-       "median_sharpe_gain": -5.04,
+       "median_hold_sharpe": 0.88,
+       "median_sharpe_gain": -5.05,
        "share_better": 0.0,
-       "median_ann_pct": -73.0,
-       "median_hold_ann_pct": 42.6,
+       "median_ann_pct": -72.9,
+       "median_hold_ann_pct": 46.3,
        "median_mdd_pct": -72.6,
        "median_hold_mdd_pct": -66.3,
        "median_exposure_pct": 6.0,
-       "median_switches_per_year": 516.9
+       "median_switches_per_year": 516.6
       }
      },
      "test": {
       "bull": {
-       "n": 2509,
-       "days": 248,
+       "n": 2510,
+       "days": 246,
        "share": 5.8,
-       "excess_bp": -3.55,
-       "t": -1.28
+       "excess_bp": -3.64,
+       "t": -1.3
       },
       "bear": {
-       "n": 2443,
+       "n": 2435,
        "days": 251,
        "share": 5.7,
-       "excess_bp": 4.28,
-       "t": 1.59
+       "excess_bp": 4.18,
+       "t": 1.55
       },
       "long_only": {
        "median_sharpe": -7.14,
-       "median_hold_sharpe": -0.46,
-       "median_sharpe_gain": -6.68,
+       "median_hold_sharpe": -0.48,
+       "median_sharpe_gain": -6.66,
        "share_better": 0.0,
-       "median_ann_pct": -74.4,
-       "median_hold_ann_pct": -36.4,
-       "median_mdd_pct": -74.2,
+       "median_ann_pct": -75.1,
+       "median_hold_ann_pct": -37.1,
+       "median_mdd_pct": -74.9,
        "median_hold_mdd_pct": -64.1,
        "median_exposure_pct": 6.0,
-       "median_switches_per_year": 488.0
+       "median_switches_per_year": 485.7
       }
      }
     },
     "confluence": {
      "train": {
       "bull": {
-       "n": 3300,
-       "days": 318,
+       "n": 3308,
+       "days": 319,
        "share": 7.7,
-       "excess_bp": -0.43,
-       "t": -0.16
+       "excess_bp": -0.38,
+       "t": -0.14
       },
       "bear": {
-       "n": 3558,
-       "days": 315,
+       "n": 3564,
+       "days": 316,
        "share": 8.3,
-       "excess_bp": -0.61,
-       "t": -0.28
+       "excess_bp": -0.46,
+       "t": -0.21
       },
       "long_only": {
        "median_sharpe": -7.9,
-       "median_hold_sharpe": 0.86,
-       "median_sharpe_gain": -8.42,
+       "median_hold_sharpe": 0.88,
+       "median_sharpe_gain": -8.44,
        "share_better": 0.0,
-       "median_ann_pct": -89.3,
-       "median_hold_ann_pct": 42.6,
+       "median_ann_pct": -89.2,
+       "median_hold_ann_pct": 46.3,
        "median_mdd_pct": -89.8,
        "median_hold_mdd_pct": -66.3,
        "median_exposure_pct": 8.0,
-       "median_switches_per_year": 853.7
+       "median_switches_per_year": 854.2
       }
      },
      "test": {
       "bull": {
-       "n": 3482,
+       "n": 3470,
        "days": 314,
        "share": 8.1,
-       "excess_bp": 2.45,
-       "t": 1.2
+       "excess_bp": 2.32,
+       "t": 1.13
       },
       "bear": {
-       "n": 3116,
-       "days": 307,
+       "n": 3114,
+       "days": 308,
        "share": 7.3,
-       "excess_bp": 1.87,
-       "t": 1.05
+       "excess_bp": 1.72,
+       "t": 0.97
       },
       "long_only": {
-       "median_sharpe": -9.81,
-       "median_hold_sharpe": -0.46,
-       "median_sharpe_gain": -9.34,
+       "median_sharpe": -9.74,
+       "median_hold_sharpe": -0.48,
+       "median_sharpe_gain": -9.26,
        "share_better": 0.0,
-       "median_ann_pct": -85.0,
-       "median_hold_ann_pct": -36.4,
-       "median_mdd_pct": -84.6,
+       "median_ann_pct": -84.8,
+       "median_hold_ann_pct": -37.1,
+       "median_mdd_pct": -84.5,
        "median_hold_mdd_pct": -64.1,
        "median_exposure_pct": 8.0,
-       "median_switches_per_year": 855.5
+       "median_switches_per_year": 855.1
       }
      }
     },
@@ -5424,113 +6589,279 @@
        "n": 10719,
        "days": 270,
        "share": 24.9,
-       "excess_bp": -1.16,
-       "t": -0.66
+       "excess_bp": -1.18,
+       "t": -0.67
       },
       "bear": {
-       "n": 11876,
+       "n": 11882,
        "days": 283,
        "share": 27.6,
-       "excess_bp": 1.64,
+       "excess_bp": 1.63,
        "t": 1.26
       },
       "long_only": {
        "median_sharpe": -2.81,
-       "median_hold_sharpe": 0.86,
-       "median_sharpe_gain": -3.59,
+       "median_hold_sharpe": 0.88,
+       "median_sharpe_gain": -3.61,
        "share_better": 0.0,
        "median_ann_pct": -80.4,
-       "median_hold_ann_pct": 42.6,
+       "median_hold_ann_pct": 46.3,
        "median_mdd_pct": -81.7,
        "median_hold_mdd_pct": -66.3,
        "median_exposure_pct": 27.0,
-       "median_switches_per_year": 512.8
+       "median_switches_per_year": 512.5
       }
      },
      "test": {
       "bull": {
-       "n": 10807,
+       "n": 10816,
        "days": 258,
        "share": 25.2,
-       "excess_bp": -0.45,
-       "t": -0.32
+       "excess_bp": -0.44,
+       "t": -0.31
       },
       "bear": {
-       "n": 9549,
+       "n": 9541,
        "days": 253,
-       "share": 22.3,
-       "excess_bp": 0.17,
-       "t": 0.13
+       "share": 22.2,
+       "excess_bp": 0.18,
+       "t": 0.14
       },
       "long_only": {
-       "median_sharpe": -3.65,
-       "median_hold_sharpe": -0.46,
-       "median_sharpe_gain": -3.1,
+       "median_sharpe": -3.66,
+       "median_hold_sharpe": -0.48,
+       "median_sharpe_gain": -3.08,
        "share_better": 0.0,
-       "median_ann_pct": -77.2,
-       "median_hold_ann_pct": -36.4,
+       "median_ann_pct": -77.5,
+       "median_hold_ann_pct": -37.1,
        "median_mdd_pct": -78.4,
        "median_hold_mdd_pct": -64.1,
        "median_exposure_pct": 25.0,
-       "median_switches_per_year": 466.5
+       "median_switches_per_year": 468.4
       }
      }
     },
     "momentum_classic": {
      "train": {
       "bull": {
-       "n": 15616,
+       "n": 15625,
        "days": 340,
        "share": 36.3,
-       "excess_bp": 1.19,
-       "t": 1.03
+       "excess_bp": 1.17,
+       "t": 1.02
       },
       "bear": {
-       "n": 14589,
+       "n": 14593,
        "days": 340,
        "share": 33.9,
        "excess_bp": -1.02,
        "t": -0.73
       },
       "long_only": {
-       "median_sharpe": -2.91,
-       "median_hold_sharpe": 0.86,
-       "median_sharpe_gain": -3.42,
+       "median_sharpe": -2.93,
+       "median_hold_sharpe": 0.88,
+       "median_sharpe_gain": -3.46,
        "share_better": 0.0,
-       "median_ann_pct": -74.5,
-       "median_hold_ann_pct": 42.6,
+       "median_ann_pct": -74.7,
+       "median_hold_ann_pct": 46.3,
        "median_mdd_pct": -75.8,
        "median_hold_mdd_pct": -66.3,
        "median_exposure_pct": 36.0,
-       "median_switches_per_year": 703.1
+       "median_switches_per_year": 703.7
       }
      },
      "test": {
       "bull": {
-       "n": 13863,
-       "days": 328,
+       "n": 13855,
+       "days": 329,
        "share": 32.3,
-       "excess_bp": 0.42,
-       "t": 0.38
+       "excess_bp": 0.43,
+       "t": 0.4
       },
       "bear": {
-       "n": 13909,
-       "days": 339,
-       "share": 32.4,
-       "excess_bp": -0.45,
-       "t": -0.41
+       "n": 13939,
+       "days": 338,
+       "share": 32.5,
+       "excess_bp": -0.43,
+       "t": -0.39
       },
       "long_only": {
-       "median_sharpe": -5.07,
-       "median_hold_sharpe": -0.46,
-       "median_sharpe_gain": -4.67,
+       "median_sharpe": -5.03,
+       "median_hold_sharpe": -0.48,
+       "median_sharpe_gain": -4.65,
        "share_better": 0.0,
-       "median_ann_pct": -85.1,
-       "median_hold_ann_pct": -36.4,
+       "median_ann_pct": -85.0,
+       "median_hold_ann_pct": -37.1,
        "median_mdd_pct": -85.8,
        "median_hold_mdd_pct": -64.1,
-       "median_exposure_pct": 33.0,
-       "median_switches_per_year": 733.0
+       "median_exposure_pct": 32.0,
+       "median_switches_per_year": 731.6
+      }
+     }
+    },
+    "ia_ribbon": {
+     "train": {
+      "bull": {
+       "n": 21824,
+       "days": 323,
+       "share": 50.7,
+       "excess_bp": 0.51,
+       "t": 0.48
+      },
+      "bear": {
+       "n": 21246,
+       "days": 320,
+       "share": 49.3,
+       "excess_bp": -0.53,
+       "t": -0.44
+      },
+      "long_only": {
+       "median_sharpe": -0.07,
+       "median_hold_sharpe": 0.88,
+       "median_sharpe_gain": -0.85,
+       "share_better": 0.0,
+       "median_ann_pct": -25.8,
+       "median_hold_ann_pct": 46.3,
+       "median_mdd_pct": -60.9,
+       "median_hold_mdd_pct": -66.3,
+       "median_exposure_pct": 50.0,
+       "median_switches_per_year": 236.9
+      }
+     },
+     "test": {
+      "bull": {
+       "n": 20789,
+       "days": 306,
+       "share": 48.4,
+       "excess_bp": -0.56,
+       "t": -0.67
+      },
+      "bear": {
+       "n": 22136,
+       "days": 324,
+       "share": 51.6,
+       "excess_bp": 0.52,
+       "t": 0.56
+      },
+      "long_only": {
+       "median_sharpe": -2.47,
+       "median_hold_sharpe": -0.48,
+       "median_sharpe_gain": -1.95,
+       "share_better": 0.0,
+       "median_ann_pct": -66.7,
+       "median_hold_ann_pct": -37.1,
+       "median_mdd_pct": -71.9,
+       "median_hold_mdd_pct": -64.1,
+       "median_exposure_pct": 48.0,
+       "median_switches_per_year": 245.9
+      }
+     }
+    },
+    "ia_atr_stop": {
+     "train": {
+      "bull": {
+       "n": 22489,
+       "days": 360,
+       "share": 52.2,
+       "excess_bp": -0.01,
+       "t": -0.01
+      },
+      "bear": {
+       "n": 20581,
+       "days": 360,
+       "share": 47.8,
+       "excess_bp": 0.01,
+       "t": 0.01
+      },
+      "long_only": {
+       "median_sharpe": -9.12,
+       "median_hold_sharpe": 0.88,
+       "median_sharpe_gain": -9.66,
+       "share_better": 0.0,
+       "median_ann_pct": -99.7,
+       "median_hold_ann_pct": 46.3,
+       "median_mdd_pct": -99.7,
+       "median_hold_mdd_pct": -66.3,
+       "median_exposure_pct": 52.0,
+       "median_switches_per_year": 2406.1
+      }
+     },
+     "test": {
+      "bull": {
+       "n": 21700,
+       "days": 360,
+       "share": 50.6,
+       "excess_bp": 0.54,
+       "t": 0.6
+      },
+      "bear": {
+       "n": 21225,
+       "days": 360,
+       "share": 49.4,
+       "excess_bp": -0.55,
+       "t": -0.65
+      },
+      "long_only": {
+       "median_sharpe": -11.13,
+       "median_hold_sharpe": -0.48,
+       "median_sharpe_gain": -11.05,
+       "share_better": 0.0,
+       "median_ann_pct": -99.5,
+       "median_hold_ann_pct": -37.1,
+       "median_mdd_pct": -99.5,
+       "median_hold_mdd_pct": -64.1,
+       "median_exposure_pct": 50.0,
+       "median_switches_per_year": 2162.2
+      }
+     }
+    },
+    "ia_ath_discount": {
+     "train": {
+      "bull": {
+       "n": 17358,
+       "days": 268,
+       "share": 40.3,
+       "excess_bp": 0.52,
+       "t": 0.39
+      },
+      "bear": {
+       "n": 0
+      },
+      "long_only": {
+       "median_sharpe": 0.61,
+       "median_hold_sharpe": 0.88,
+       "median_sharpe_gain": -0.24,
+       "share_better": 0.2,
+       "median_ann_pct": 18.5,
+       "median_hold_ann_pct": 46.3,
+       "median_mdd_pct": -46.3,
+       "median_hold_mdd_pct": -66.3,
+       "median_exposure_pct": 47.0,
+       "median_switches_per_year": 71.2
+      }
+     },
+     "test": {
+      "bull": {
+       "n": 37298,
+       "days": 360,
+       "share": 86.9,
+       "excess_bp": 0.19,
+       "t": 0.28
+      },
+      "bear": {
+       "n": 0
+      },
+      "long_only": {
+       "median_sharpe": -0.09,
+       "median_hold_sharpe": -0.48,
+       "median_sharpe_gain": 0.06,
+       "share_better": 0.6,
+       "median_ann_pct": -25.7,
+       "median_hold_ann_pct": -37.1,
+       "median_mdd_pct": -63.3,
+       "median_hold_mdd_pct": -64.1,
+       "median_exposure_pct": 96.0,
+       "median_switches_per_year": 5.1
       }
      }
     },
@@ -5540,55 +6871,55 @@
        "n": 596,
        "days": 194,
        "share": 1.4,
-       "excess_bp": 1.38,
-       "t": 0.31
+       "excess_bp": 1.36,
+       "t": 0.3
       },
       "bear": {
-       "n": 537,
+       "n": 544,
        "days": 184,
-       "share": 1.2,
-       "excess_bp": 3.29,
-       "t": 0.63
+       "share": 1.3,
+       "excess_bp": 3.7,
+       "t": 0.72
       },
       "long_only": {
        "median_sharpe": -3.98,
-       "median_hold_sharpe": 0.86,
-       "median_sharpe_gain": -4.5,
+       "median_hold_sharpe": 0.88,
+       "median_sharpe_gain": -4.52,
        "share_better": 0.0,
        "median_ann_pct": -35.6,
-       "median_hold_ann_pct": 42.6,
+       "median_hold_ann_pct": 46.3,
        "median_mdd_pct": -37.5,
        "median_hold_mdd_pct": -66.3,
        "median_exposure_pct": 1.0,
-       "median_switches_per_year": 197.4
+       "median_switches_per_year": 197.3
       }
      },
      "test": {
       "bull": {
-       "n": 509,
+       "n": 508,
        "days": 178,
        "share": 1.2,
-       "excess_bp": -3.72,
-       "t": -0.83
+       "excess_bp": -4.45,
+       "t": -1.01
       },
       "bear": {
-       "n": 511,
+       "n": 501,
        "days": 169,
        "share": 1.2,
-       "excess_bp": 0.3,
-       "t": 0.06
+       "excess_bp": -0.52,
+       "t": -0.1
       },
       "long_only": {
-       "median_sharpe": -5.74,
-       "median_hold_sharpe": -0.46,
-       "median_sharpe_gain": -5.19,
+       "median_sharpe": -5.91,
+       "median_hold_sharpe": -0.48,
+       "median_sharpe_gain": -5.43,
        "share_better": 0.0,
        "median_ann_pct": -34.3,
-       "median_hold_ann_pct": -36.4,
+       "median_hold_ann_pct": -37.1,
        "median_mdd_pct": -33.8,
        "median_hold_mdd_pct": -64.1,
        "median_exposure_pct": 1.0,
-       "median_switches_per_year": 165.4
+       "median_switches_per_year": 165.3
       }
      }
     }
@@ -5596,7 +6927,8 @@
    "kept": [],
    "consistent": [
     "btc_trend_gate",
-    "momentum_classic"
+    "momentum_classic",
+    "ia_ath_discount"
    ],
    "presets": {
     "trend4_majority": {
@@ -5609,58 +6941,58 @@
      "threshold": 0.0,
      "train": {
       "bull": {
-       "n": 22517,
+       "n": 22527,
        "days": 337,
        "share": 52.3,
-       "excess_bp": 0.18,
-       "t": 0.18
+       "excess_bp": 0.17,
+       "t": 0.17
       },
       "bear": {
-       "n": 16645,
+       "n": 16656,
        "days": 304,
        "share": 38.7,
-       "excess_bp": -0.13,
-       "t": -0.09
+       "excess_bp": -0.12,
+       "t": -0.08
       },
       "long_only": {
        "median_sharpe": -2.51,
-       "median_hold_sharpe": 0.86,
-       "median_sharpe_gain": -2.71,
+       "median_hold_sharpe": 0.88,
+       "median_sharpe_gain": -2.74,
        "share_better": 0.0,
-       "median_ann_pct": -75.6,
-       "median_hold_ann_pct": 42.6,
+       "median_ann_pct": -76.0,
+       "median_hold_ann_pct": 46.3,
        "median_mdd_pct": -82.2,
        "median_hold_mdd_pct": -66.3,
        "median_exposure_pct": 51.0,
-       "median_switches_per_year": 654.3
+       "median_switches_per_year": 654.9
       }
      },
      "test": {
       "bull": {
-       "n": 20421,
-       "days": 324,
+       "n": 20435,
+       "days": 325,
        "share": 47.6,
        "excess_bp": -0.07,
        "t": -0.09
       },
       "bear": {
-       "n": 19136,
-       "days": 321,
+       "n": 19140,
+       "days": 320,
        "share": 44.6,
-       "excess_bp": 0.02,
+       "excess_bp": 0.03,
        "t": 0.02
       },
       "long_only": {
        "median_sharpe": -4.81,
-       "median_hold_sharpe": -0.46,
-       "median_sharpe_gain": -4.35,
+       "median_hold_sharpe": -0.48,
+       "median_sharpe_gain": -4.33,
        "share_better": 0.0,
        "median_ann_pct": -85.0,
-       "median_hold_ann_pct": -36.4,
+       "median_hold_ann_pct": -37.1,
        "median_mdd_pct": -84.9,
        "median_hold_mdd_pct": -64.1,
        "median_exposure_pct": 48.0,
-       "median_switches_per_year": 708.5
+       "median_switches_per_year": 707.1
       }
      }
     },
@@ -5677,55 +7009,118 @@
        "n": 13292,
        "days": 217,
        "share": 30.9,
-       "excess_bp": 1.35,
-       "t": 1.07
+       "excess_bp": 1.33,
+       "t": 1.06
       },
       "bear": {
-       "n": 5534,
+       "n": 5539,
        "days": 116,
        "share": 12.9,
-       "excess_bp": 0.13,
-       "t": 0.05
+       "excess_bp": 0.11,
+       "t": 0.04
       },
       "long_only": {
        "median_sharpe": -1.2,
-       "median_hold_sharpe": 0.86,
-       "median_sharpe_gain": -1.71,
+       "median_hold_sharpe": 0.88,
+       "median_sharpe_gain": -1.73,
        "share_better": 0.0,
        "median_ann_pct": -47.7,
-       "median_hold_ann_pct": 42.6,
+       "median_hold_ann_pct": 46.3,
        "median_mdd_pct": -65.8,
        "median_hold_mdd_pct": -66.3,
        "median_exposure_pct": 32.0,
-       "median_switches_per_year": 432.5
+       "median_switches_per_year": 432.2
       }
      },
      "test": {
       "bull": {
-       "n": 9002,
-       "days": 150,
+       "n": 9003,
+       "days": 151,
        "share": 21.0,
-       "excess_bp": 0.86,
-       "t": 0.67
+       "excess_bp": 0.89,
+       "t": 0.69
       },
       "bear": {
-       "n": 8776,
-       "days": 178,
-       "share": 20.5,
-       "excess_bp": -0.66,
-       "t": -0.39
+       "n": 8771,
+       "days": 177,
+       "share": 20.4,
+       "excess_bp": -0.63,
+       "t": -0.37
       },
       "long_only": {
        "median_sharpe": -2.91,
-       "median_hold_sharpe": -0.46,
-       "median_sharpe_gain": -2.38,
+       "median_hold_sharpe": -0.48,
+       "median_sharpe_gain": -2.35,
        "share_better": 0.0,
        "median_ann_pct": -55.1,
-       "median_hold_ann_pct": -36.4,
-       "median_mdd_pct": -55.7,
+       "median_hold_ann_pct": -37.1,
+       "median_mdd_pct": -55.6,
        "median_hold_mdd_pct": -64.1,
        "median_exposure_pct": 21.0,
-       "median_switches_per_year": 338.9
+       "median_switches_per_year": 340.8
+      }
+     }
+    },
+    "ia_ribbon_and_stop": {
+     "models": [
+      "ia_ribbon",
+      "ia_atr_stop"
+     ],
+     "threshold": 0.5,
+     "train": {
+      "bull": {
+       "n": 11415,
+       "days": 313,
+       "share": 26.5,
+       "excess_bp": 0.74,
+       "t": 0.6
+      },
+      "bear": {
+       "n": 10172,
+       "days": 310,
+       "share": 23.6,
+       "excess_bp": -0.25,
+       "t": -0.15
+      },
+      "long_only": {
+       "median_sharpe": -6.52,
+       "median_hold_sharpe": 0.88,
+       "median_sharpe_gain": -7.05,
+       "share_better": 0.0,
+       "median_ann_pct": -95.3,
+       "median_hold_ann_pct": 46.3,
+       "median_mdd_pct": -95.4,
+       "median_hold_mdd_pct": -66.3,
+       "median_exposure_pct": 26.0,
+       "median_switches_per_year": 1276.3
+      }
+     },
+     "test": {
+      "bull": {
+       "n": 10497,
+       "days": 295,
+       "share": 24.5,
+       "excess_bp": 0.12,
+       "t": 0.1
+      },
+      "bear": {
+       "n": 10933,
+       "days": 315,
+       "share": 25.5,
+       "excess_bp": 0.11,
+       "t": 0.09
+      },
+      "long_only": {
+       "median_sharpe": -8.81,
+       "median_hold_sharpe": -0.48,
+       "median_sharpe_gain": -8.66,
+       "share_better": 0.0,
+       "median_ann_pct": -94.6,
+       "median_hold_ann_pct": -37.1,
+       "median_mdd_pct": -94.6,
+       "median_hold_mdd_pct": -64.1,
+       "median_exposure_pct": 24.0,
+       "median_switches_per_year": 1131.6
       }
      }
     }
