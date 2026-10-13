@@ -50,19 +50,22 @@ BARS_PER_YEAR = {("stock", "1d"): 252, ("crypto", "1d"): 365, ("stock", "4h"): 5
 DAILY_SPLIT = pd.Timestamp("2021-01-01", tz="UTC")
 WARMUP = 250
 ORIGINAL = ["trend_classic", "meanrev_z", "confluence", "atr_layers", "momentum_classic"]
+IA = ["ia_ribbon", "ia_atr_stop", "ia_ath_discount"]   # InvestAnswers-style, from the screenshots
 SEGMENT_MODELS = {   # which models make sense to test where (gates need their outside data)
     "stock": ["rsi2_pullback", "ibs_reversal", "turn_of_month", "market_regime", "vix_backwardation",
-              "tsmom28", "sma_ensemble", "donchian_ensemble", "high_breakout_trail"] + ORIGINAL,
+              "tsmom28", "sma_ensemble", "donchian_ensemble", "high_breakout_trail"] + ORIGINAL + IA,
     "crypto": ["tsmom28", "sma_ensemble", "donchian_ensemble", "btc_trend_gate", "high_breakout_trail",
-               "rsi2_pullback", "ibs_reversal", "turn_of_month"] + ORIGINAL,
+               "rsi2_pullback", "ibs_reversal", "turn_of_month"] + ORIGINAL + IA,
 }
 
 
 # Model sets chosen from the PUBLISHED research (before our own test), evaluated as a whole.
 PRESETS = {
-    "stock": {"pullback_any": (["rsi2_pullback", "ibs_reversal", "vix_backwardation"], 0.0)},
+    "stock": {"pullback_any": (["rsi2_pullback", "ibs_reversal", "vix_backwardation"], 0.0),
+              "ia_ribbon_and_stop": (["ia_ribbon", "ia_atr_stop"], 0.5)},
     "crypto": {"trend4_majority": (["tsmom28", "sma_ensemble", "donchian_ensemble", "btc_trend_gate"], 0.0),
-               "trend4_3of4": (["tsmom28", "sma_ensemble", "donchian_ensemble", "btc_trend_gate"], 0.5)},
+               "trend4_3of4": (["tsmom28", "sma_ensemble", "donchian_ensemble", "btc_trend_gate"], 0.5),
+               "ia_ribbon_and_stop": (["ia_ribbon", "ia_atr_stop"], 0.5)},
 }
 
 

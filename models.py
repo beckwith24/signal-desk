@@ -20,6 +20,8 @@ Families and where they come from (see README / research notes):
                    donchian_ensemble (Zarattini, Pagani & Barbon), btc_trend_gate
   holding / exit   high_breakout_trail (Zarattini, Pagani & Wilcox: new highs + ATR trailing stop)
   original five    trend_classic, meanrev_z, confluence, atr_layers, momentum_classic
+  InvestAnswers    ia_ribbon, ia_atr_stop, ia_ath_discount — reverse-engineered from his TradingView
+                   indicators (see ia.py and research/ia_calibration.md)
 """
 from __future__ import annotations
 
@@ -29,6 +31,7 @@ from typing import Callable
 import numpy as np
 import pandas as pd
 
+import ia
 from signals import atr, ema, macd, rsi, sma, stochastic, supertrend
 
 
@@ -361,6 +364,58 @@ def momentum_describe(row, p):
     return f"{tag}, {p['roc_period']}-bar change {row.roc:+.1%}"
 
 
+# ============================================================================ InvestAnswers-style
+def ia_ribbon(df, ctx, p):
+    fast, slow = ia.ribbon(df, p["fast"], p["slow"])
+    gap = fast / slow - 1
+    vote = np.where(gap > 0, 1, np.where(gap < 0, -1, 0))
+    return _frame(df, vote, np.clip(gap.abs() / p["full"], 0.2, 1), fast=fast, slow=slow, gap=gap)
+
+
+def ia_ribbon_describe(row, p):
+    if row.vote > 0:
+        return f"Trend ribbon blue: fast line {row.gap:+.1%} above the slow line (uptrend)"
+    if row.vote < 0:
+        return f"Trend ribbon orange: fast line {row.gap:+.1%} below the slow line (downtrend)"
+    return "Trend ribbon still forming"
+
+
+def ia_atr_stop(df, ctx, p):
+    stop, up = ia.atr_stop(df, p["key_intraday"] if ia.is_intraday(df) else p["key"], p["atr_len"])
+    ready = stop.notna()
+    vote = np.where(~ready, 0, np.where(up, 1, -1))
+    flip = up.ne(up.shift(1)) & ready
+    since = flip.cumsum()
+    bars_since = since.groupby(since).cumcount()
+    a = atr(df, p["atr_len"])
+    dist = (df["close"] - stop) / a
+    return _frame(df, vote, np.clip(dist.abs() / 3, 0.3, 1), stop=stop, bars_since=bars_since, dist=dist)
+
+
+def ia_atr_stop_describe(row, p):
+    if row.vote == 0:
+        return "ATR stop not ready yet"
+    when = "this bar" if row.bars_since == 0 else f"{int(row.bars_since)} bars ago"
+    if row.vote > 0:
+        return f"Above the ATR stop ({row.dist:+.1f} ATR); buy signal {when}"
+    return f"Below the ATR stop ({row.dist:+.1f} ATR); sell signal {when}"
+
+
+def ia_ath_discount(df, ctx, p):
+    ath = ia.running_ath(df, ctx.get("ath_known") if isinstance(ctx, dict) else None)
+    frac = df["close"] / ath
+    vote = np.where(frac <= p["buy_below"], 1, 0)
+    return _frame(df, vote, np.clip((p["buy_below"] - frac) / 0.25 + 0.4, 0.4, 1), ath=ath, frac=frac)
+
+
+def ia_ath_describe(row, p):
+    lvl = ia.level_of(row.frac, 1.0)
+    where = f"{row.frac:.0%} of its all-time high (level {lvl:.1f} of 6)"
+    if row.vote > 0:
+        return f"Deep discount: {where}, at or below Level 4 (61.8%)"
+    return f"Not discounted: {where}"
+
+
 # ============================================================================ registry
 MODELS: dict[str, Model] = {m.key: m for m in [
     Model("rsi2_pullback", "RSI(2) pullback", "pullback", rsi2_pullback, rsi2_describe,
@@ -389,6 +444,12 @@ MODELS: dict[str, Model] = {m.key: m for m in [
           {"atr_period": 14, "anchor_ma": 50, "layer_step": 1.0, "max_layers": 4, "zone_layer": 2}),
     Model("momentum_classic", "Momentum (structure)", "original", momentum_classic, momentum_describe,
           {"roc_period": 20, "swing_lookback": 10, "roc_full_strength": 0.20}),
+    Model("ia_ribbon", "IA trend ribbon", "investanswers", ia_ribbon, ia_ribbon_describe,
+          {"fast": ia.RIBBON_FAST, "slow": ia.RIBBON_SLOW, "full": 0.05}),
+    Model("ia_atr_stop", "IA ATR buy/sell", "investanswers", ia_atr_stop, ia_atr_stop_describe,
+          {"key": ia.STOP_KEY, "key_intraday": ia.STOP_KEY_INTRADAY, "atr_len": ia.STOP_ATR}),
+    Model("ia_ath_discount", "IA all-time-high levels", "investanswers", ia_ath_discount, ia_ath_describe,
+          {"buy_below": 0.618}),
 ]}
 
 
