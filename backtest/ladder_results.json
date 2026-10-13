@@ -1,6 +1,6 @@
 {
  "meta": {
-  "generated": "2026-10-13 02:24 UTC",
+  "generated": "2026-10-13 02:29 UTC",
   "fee": 0.001,
   "ladder": {
    "enabled": true,
@@ -37,135 +37,189 @@
     "tickers": 5,
     "median_return": {
      "ladder": 13.4,
+     "core": 534.9,
+     "in_only": 2982.6,
      "lump": 23.3,
-     "hold": 2936.4
+     "hold": 2933.1
     },
     "median_max_drawdown": {
      "ladder": -78.1,
+     "core": -78.1,
+     "in_only": -90.2,
      "lump": -83.4,
      "hold": -90.2
     },
     "median_avg_invested": {
      "ladder": 43.1,
+     "core": 70.2,
+     "in_only": 99.0,
      "lump": 46.5,
      "hold": 100.0
     },
     "ladder_beats_lump": 4,
     "ladder_beats_hold": 0,
     "ladder_smaller_drawdown_than_lump": 4,
-    "ladder_smaller_drawdown_than_hold": 5
+    "ladder_smaller_drawdown_than_hold": 5,
+    "core_beats_hold": 2,
+    "in_only_beats_hold": 3,
+    "core_beats_ladder": 5
    },
    "stock": {
     "tickers": 13,
     "median_return": {
      "ladder": 131.9,
+     "core": 362.1,
+     "in_only": 869.8,
      "lump": 146.2,
      "hold": 835.0
     },
     "median_max_drawdown": {
      "ladder": -45.0,
+     "core": -45.0,
+     "in_only": -57.6,
      "lump": -48.3,
      "hold": -57.6
     },
     "median_avg_invested": {
      "ladder": 34.6,
+     "core": 60.7,
+     "in_only": 95.3,
      "lump": 36.8,
      "hold": 100.0
     },
     "ladder_beats_lump": 7,
     "ladder_beats_hold": 0,
     "ladder_smaller_drawdown_than_lump": 10,
-    "ladder_smaller_drawdown_than_hold": 13
+    "ladder_smaller_drawdown_than_hold": 13,
+    "core_beats_hold": 0,
+    "in_only_beats_hold": 5,
+    "core_beats_ladder": 13
    },
    "all": {
     "tickers": 18,
     "median_return": {
      "ladder": 131.45,
+     "core": 448.5,
+     "in_only": 1057.1,
      "lump": 132.1,
      "hold": 1124.6
     },
     "median_max_drawdown": {
      "ladder": -47.85,
+     "core": -53.3,
+     "in_only": -65.85,
      "lump": -49.25,
      "hold": -65.85
     },
     "median_avg_invested": {
      "ladder": 36.85,
+     "core": 60.900000000000006,
+     "in_only": 96.05,
      "lump": 39.599999999999994,
      "hold": 100.0
     },
     "ladder_beats_lump": 11,
     "ladder_beats_hold": 0,
     "ladder_smaller_drawdown_than_lump": 14,
-    "ladder_smaller_drawdown_than_hold": 18
+    "ladder_smaller_drawdown_than_hold": 18,
+    "core_beats_hold": 2,
+    "in_only_beats_hold": 8,
+    "core_beats_ladder": 18
    }
   },
   "4h": {
    "crypto": {
     "tickers": 5,
     "median_return": {
-     "ladder": -38.8,
-     "lump": -25.5,
-     "hold": -28.7
+     "ladder": -38.9,
+     "core": -42.4,
+     "in_only": -44.4,
+     "lump": -25.7,
+     "hold": -28.8
     },
     "median_max_drawdown": {
      "ladder": -57.3,
+     "core": -59.8,
+     "in_only": -73.8,
      "lump": -61.9,
      "hold": -76.5
     },
     "median_avg_invested": {
      "ladder": 47.7,
+     "core": 66.6,
+     "in_only": 97.5,
      "lump": 50.9,
      "hold": 100.0
     },
     "ladder_beats_lump": 4,
     "ladder_beats_hold": 4,
     "ladder_smaller_drawdown_than_lump": 3,
-    "ladder_smaller_drawdown_than_hold": 5
+    "ladder_smaller_drawdown_than_hold": 5,
+    "core_beats_hold": 4,
+    "in_only_beats_hold": 2,
+    "core_beats_ladder": 1
    },
    "stock": {
     "tickers": 13,
     "median_return": {
-     "ladder": 60.0,
+     "ladder": 60.3,
+     "core": 94.7,
+     "in_only": 126.8,
      "lump": 49.5,
      "hold": 138.8
     },
     "median_max_drawdown": {
      "ladder": -28.8,
+     "core": -30.7,
+     "in_only": -38.2,
      "lump": -29.5,
      "hold": -38.2
     },
     "median_avg_invested": {
-     "ladder": 37.5,
-     "lump": 39.8,
+     "ladder": 37.8,
+     "core": 61.8,
+     "in_only": 97.3,
+     "lump": 39.1,
      "hold": 100.0
     },
-    "ladder_beats_lump": 8,
+    "ladder_beats_lump": 9,
     "ladder_beats_hold": 2,
     "ladder_smaller_drawdown_than_lump": 10,
-    "ladder_smaller_drawdown_than_hold": 13
+    "ladder_smaller_drawdown_than_hold": 13,
+    "core_beats_hold": 3,
+    "in_only_beats_hold": 10,
+    "core_beats_ladder": 12
    },
    "all": {
     "tickers": 18,
     "median_return": {
-     "ladder": 36.0,
-     "lump": 28.9,
+     "ladder": 33.45,
+     "core": 52.7,
+     "in_only": 73.5,
+     "lump": 22.9,
      "hold": 81.5
     },
     "median_max_drawdown": {
      "ladder": -31.200000000000003,
+     "core": -35.5,
+     "in_only": -50.05,
      "lump": -35.25,
      "hold": -50.9
     },
     "median_avg_invested": {
-     "ladder": 40.65,
-     "lump": 44.55,
+     "ladder": 40.6,
+     "core": 64.69999999999999,
+     "in_only": 97.35,
+     "lump": 44.849999999999994,
      "hold": 100.0
     },
-    "ladder_beats_lump": 12,
+    "ladder_beats_lump": 13,
     "ladder_beats_hold": 6,
     "ladder_smaller_drawdown_than_lump": 13,
-    "ladder_smaller_drawdown_than_hold": 18
+    "ladder_smaller_drawdown_than_hold": 18,
+    "core_beats_hold": 7,
+    "in_only_beats_hold": 12,
+    "core_beats_ladder": 13
    }
   }
  },
@@ -183,6 +237,20 @@
     "avg_invested": 25.1,
     "trades": 76,
     "return_per_invested": 594.0
+   },
+   "core": {
+    "return": 769.8,
+    "max_drawdown": -52.5,
+    "avg_invested": 52.3,
+    "trades": 104,
+    "return_per_invested": 1471.9
+   },
+   "in_only": {
+    "return": 4278.7,
+    "max_drawdown": -66.3,
+    "avg_invested": 94.4,
+    "trades": 6,
+    "return_per_invested": 4532.5
    },
    "lump": {
     "return": 146.7,
@@ -217,6 +285,20 @@
     "trades": 90,
     "return_per_invested": 980.9
    },
+   "core": {
+    "return": 1563.2,
+    "max_drawdown": -53.5,
+    "avg_invested": 65.1,
+    "trades": 100,
+    "return_per_invested": 2401.2
+   },
+   "in_only": {
+    "return": 5361.3,
+    "max_drawdown": -65.4,
+    "avg_invested": 99.1,
+    "trades": 3,
+    "return_per_invested": 5410.0
+   },
    "lump": {
     "return": 281.7,
     "max_drawdown": -48.0,
@@ -249,6 +331,20 @@
     "avg_invested": 29.6,
     "trades": 92,
     "return_per_invested": 1139.2
+   },
+   "core": {
+    "return": 758.6,
+    "max_drawdown": -44.8,
+    "avg_invested": 56.2,
+    "trades": 106,
+    "return_per_invested": 1349.8
+   },
+   "in_only": {
+    "return": 1776.3,
+    "max_drawdown": -48.3,
+    "avg_invested": 96.7,
+    "trades": 3,
+    "return_per_invested": 1836.9
    },
    "lump": {
     "return": 357.8,
@@ -283,6 +379,20 @@
     "trades": 50,
     "return_per_invested": 133.4
    },
+   "core": {
+    "return": 224.3,
+    "max_drawdown": -66.0,
+    "avg_invested": 60.7,
+    "trades": 59,
+    "return_per_invested": 369.5
+   },
+   "in_only": {
+    "return": 869.8,
+    "max_drawdown": -72.5,
+    "avg_invested": 97.2,
+    "trades": 3,
+    "return_per_invested": 894.9
+   },
    "lump": {
     "return": 182.6,
     "max_drawdown": -60.4,
@@ -315,6 +425,20 @@
     "avg_invested": 43.8,
     "trades": 90,
     "return_per_invested": 917.1
+   },
+   "core": {
+    "return": 1104.5,
+    "max_drawdown": -59.0,
+    "avg_invested": 68.8,
+    "trades": 106,
+    "return_per_invested": 1605.4
+   },
+   "in_only": {
+    "return": 1699.0,
+    "max_drawdown": -73.6,
+    "avg_invested": 99.4,
+    "trades": 3,
+    "return_per_invested": 1709.3
    },
    "lump": {
     "return": 146.2,
@@ -349,6 +473,20 @@
     "trades": 94,
     "return_per_invested": 682.9
    },
+   "core": {
+    "return": 694.0,
+    "max_drawdown": -53.1,
+    "avg_invested": 62.6,
+    "trades": 104,
+    "return_per_invested": 1108.6
+   },
+   "in_only": {
+    "return": 1244.4,
+    "max_drawdown": -61.9,
+    "avg_invested": 94.8,
+    "trades": 8,
+    "return_per_invested": 1312.7
+   },
    "lump": {
     "return": 351.2,
     "max_drawdown": -49.6,
@@ -381,6 +519,20 @@
     "avg_invested": 36.1,
     "trades": 98,
     "return_per_invested": 896.4
+   },
+   "core": {
+    "return": 832.6,
+    "max_drawdown": -45.0,
+    "avg_invested": 60.7,
+    "trades": 104,
+    "return_per_invested": 1371.7
+   },
+   "in_only": {
+    "return": 2163.5,
+    "max_drawdown": -57.6,
+    "avg_invested": 93.7,
+    "trades": 5,
+    "return_per_invested": 2309.0
    },
    "lump": {
     "return": 608.1,
@@ -415,6 +567,20 @@
     "trades": 78,
     "return_per_invested": 351.2
    },
+   "core": {
+    "return": 242.9,
+    "max_drawdown": -40.2,
+    "avg_invested": 57.3,
+    "trades": 96,
+    "return_per_invested": 423.9
+   },
+   "in_only": {
+    "return": 593.5,
+    "max_drawdown": -44.3,
+    "avg_invested": 95.4,
+    "trades": 7,
+    "return_per_invested": 622.1
+   },
    "lump": {
     "return": 99.8,
     "max_drawdown": -29.9,
@@ -447,6 +613,20 @@
     "avg_invested": 33.6,
     "trades": 86,
     "return_per_invested": 389.9
+   },
+   "core": {
+    "return": 362.1,
+    "max_drawdown": -29.9,
+    "avg_invested": 60.7,
+    "trades": 101,
+    "return_per_invested": 596.5
+   },
+   "in_only": {
+    "return": 797.0,
+    "max_drawdown": -38.5,
+    "avg_invested": 96.6,
+    "trades": 3,
+    "return_per_invested": 825.1
    },
    "lump": {
     "return": 70.7,
@@ -481,6 +661,20 @@
     "trades": 70,
     "return_per_invested": 479.8
    },
+   "core": {
+    "return": 225.5,
+    "max_drawdown": -27.6,
+    "avg_invested": 48.2,
+    "trades": 91,
+    "return_per_invested": 467.8
+   },
+   "in_only": {
+    "return": 488.5,
+    "max_drawdown": -37.1,
+    "avg_invested": 89.1,
+    "trades": 15,
+    "return_per_invested": 548.3
+   },
    "lump": {
     "return": 133.0,
     "max_drawdown": -27.3,
@@ -513,6 +707,20 @@
     "avg_invested": 36.5,
     "trades": 74,
     "return_per_invested": 49.9
+   },
+   "core": {
+    "return": 151.0,
+    "max_drawdown": -74.8,
+    "avg_invested": 61.1,
+    "trades": 91,
+    "return_per_invested": 247.1
+   },
+   "in_only": {
+    "return": 365.5,
+    "max_drawdown": -76.7,
+    "avg_invested": 95.1,
+    "trades": 3,
+    "return_per_invested": 384.3
    },
    "lump": {
     "return": 3.4,
@@ -547,6 +755,20 @@
     "trades": 91,
     "return_per_invested": 492.2
    },
+   "core": {
+    "return": 224.9,
+    "max_drawdown": -25.7,
+    "avg_invested": 54.7,
+    "trades": 103,
+    "return_per_invested": 411.2
+   },
+   "in_only": {
+    "return": 385.1,
+    "max_drawdown": -35.1,
+    "avg_invested": 92.9,
+    "trades": 5,
+    "return_per_invested": 414.5
+   },
    "lump": {
     "return": 131.2,
     "max_drawdown": -22.4,
@@ -579,6 +801,20 @@
     "avg_invested": 23.9,
     "trades": 84,
     "return_per_invested": 262.8
+   },
+   "core": {
+    "return": 128.0,
+    "max_drawdown": -29.4,
+    "avg_invested": 50.1,
+    "trades": 107,
+    "return_per_invested": 255.5
+   },
+   "in_only": {
+    "return": 237.5,
+    "max_drawdown": -33.7,
+    "avg_invested": 95.3,
+    "trades": 7,
+    "return_per_invested": 249.2
    },
    "lump": {
     "return": 69.5,
@@ -613,6 +849,20 @@
     "trades": 134,
     "return_per_invested": 31.1
    },
+   "core": {
+    "return": 534.9,
+    "max_drawdown": -72.7,
+    "avg_invested": 70.2,
+    "trades": 140,
+    "return_per_invested": 762.0
+   },
+   "in_only": {
+    "return": 2982.6,
+    "max_drawdown": -82.9,
+    "avg_invested": 98.5,
+    "trades": 6,
+    "return_per_invested": 3028.0
+   },
    "lump": {
     "return": 23.3,
     "max_drawdown": -83.5,
@@ -621,7 +871,7 @@
     "return_per_invested": 49.7
    },
    "hold": {
-    "return": 2936.4,
+    "return": 2933.1,
     "max_drawdown": -83.4,
     "avg_invested": 100.0,
     "trades": 1
@@ -646,6 +896,20 @@
     "trades": 110,
     "return_per_invested": -58.2
    },
+   "core": {
+    "return": 131.8,
+    "max_drawdown": -78.1,
+    "avg_invested": 68.5,
+    "trades": 123,
+    "return_per_invested": 192.4
+   },
+   "in_only": {
+    "return": 544.4,
+    "max_drawdown": -79.4,
+    "avg_invested": 99.4,
+    "trades": 3,
+    "return_per_invested": 547.7
+   },
    "lump": {
     "return": -44.8,
     "max_drawdown": -80.0,
@@ -654,7 +918,7 @@
     "return_per_invested": -100.2
    },
    "hold": {
-    "return": 394.5,
+    "return": 394.0,
     "max_drawdown": -83.2,
     "avg_invested": 100.0,
     "trades": 1
@@ -678,6 +942,20 @@
     "avg_invested": 45.5,
     "trades": 92,
     "return_per_invested": 410.8
+   },
+   "core": {
+    "return": 3667.7,
+    "max_drawdown": -92.6,
+    "avg_invested": 75.9,
+    "trades": 99,
+    "return_per_invested": 4832.3
+   },
+   "in_only": {
+    "return": 5242.6,
+    "max_drawdown": -96.3,
+    "avg_invested": 99.0,
+    "trades": 8,
+    "return_per_invested": 5295.6
    },
    "lump": {
     "return": 79.6,
@@ -712,6 +990,20 @@
     "trades": 119,
     "return_per_invested": 6421.7
    },
+   "core": {
+    "return": 5573.9,
+    "max_drawdown": -72.6,
+    "avg_invested": 65.6,
+    "trades": 137,
+    "return_per_invested": 8496.8
+   },
+   "in_only": {
+    "return": 4992.7,
+    "max_drawdown": -90.2,
+    "avg_invested": 95.5,
+    "trades": 3,
+    "return_per_invested": 5228.0
+   },
    "lump": {
     "return": 305.6,
     "max_drawdown": -67.8,
@@ -720,7 +1012,7 @@
     "return_per_invested": 714.0
    },
    "hold": {
-    "return": 5035.3,
+    "return": 5024.9,
     "max_drawdown": -90.2,
     "avg_invested": 100.0,
     "trades": 1
@@ -745,6 +1037,20 @@
     "trades": 88,
     "return_per_invested": -127.6
    },
+   "core": {
+    "return": -9.8,
+    "max_drawdown": -86.7,
+    "avg_invested": 78.0,
+    "trades": 94,
+    "return_per_invested": -12.6
+   },
+   "in_only": {
+    "return": -32.2,
+    "max_drawdown": -95.6,
+    "avg_invested": 99.5,
+    "trades": 3,
+    "return_per_invested": -32.4
+   },
    "lump": {
     "return": -74.9,
     "max_drawdown": -83.4,
@@ -753,7 +1059,7 @@
     "return_per_invested": -137.2
    },
    "hold": {
-    "return": -38.4,
+    "return": -38.6,
     "max_drawdown": -95.6,
     "avg_invested": 100.0,
     "trades": 1
@@ -774,16 +1080,30 @@
    "ladder": {
     "return": 167.5,
     "max_drawdown": -22.9,
-    "avg_invested": 37.5,
-    "trades": 75,
-    "return_per_invested": 446.7
+    "avg_invested": 37.8,
+    "trades": 74,
+    "return_per_invested": 443.1
+   },
+   "core": {
+    "return": 209.4,
+    "max_drawdown": -27.2,
+    "avg_invested": 64.8,
+    "trades": 84,
+    "return_per_invested": 323.1
+   },
+   "in_only": {
+    "return": 177.5,
+    "max_drawdown": -38.2,
+    "avg_invested": 97.5,
+    "trades": 4,
+    "return_per_invested": 182.1
    },
    "lump": {
-    "return": 162.0,
+    "return": 164.1,
     "max_drawdown": -25.0,
-    "avg_invested": 43.8,
+    "avg_invested": 44.3,
     "trades": 28,
-    "return_per_invested": 369.9
+    "return_per_invested": 370.4
    },
    "hold": {
     "return": 155.5,
@@ -807,16 +1127,30 @@
    "ladder": {
     "return": 77.6,
     "max_drawdown": -31.8,
-    "avg_invested": 52.0,
+    "avg_invested": 52.2,
     "trades": 72,
-    "return_per_invested": 149.2
+    "return_per_invested": 148.7
+   },
+   "core": {
+    "return": 156.3,
+    "max_drawdown": -41.9,
+    "avg_invested": 75.3,
+    "trades": 73,
+    "return_per_invested": 207.6
+   },
+   "in_only": {
+    "return": 245.2,
+    "max_drawdown": -57.7,
+    "avg_invested": 99.2,
+    "trades": 3,
+    "return_per_invested": 247.2
    },
    "lump": {
     "return": 49.6,
     "max_drawdown": -35.3,
-    "avg_invested": 52.8,
+    "avg_invested": 53.0,
     "trades": 26,
-    "return_per_invested": 93.9
+    "return_per_invested": 93.6
    },
    "hold": {
     "return": 239.8,
@@ -838,18 +1172,32 @@
    "end": "2026-10-12",
    "years": 2.6,
    "ladder": {
-    "return": 75.3,
+    "return": 75.0,
     "max_drawdown": -37.7,
-    "avg_invested": 40.9,
+    "avg_invested": 40.7,
     "trades": 62,
-    "return_per_invested": 184.1
+    "return_per_invested": 184.3
+   },
+   "core": {
+    "return": 157.3,
+    "max_drawdown": -38.8,
+    "avg_invested": 64.6,
+    "trades": 72,
+    "return_per_invested": 243.5
+   },
+   "in_only": {
+    "return": 178.5,
+    "max_drawdown": -43.2,
+    "avg_invested": 94.9,
+    "trades": 11,
+    "return_per_invested": 188.1
    },
    "lump": {
     "return": 177.8,
     "max_drawdown": -35.2,
-    "avg_invested": 43.8,
+    "avg_invested": 43.7,
     "trades": 28,
-    "return_per_invested": 405.9
+    "return_per_invested": 406.9
    },
    "hold": {
     "return": 177.6,
@@ -871,18 +1219,32 @@
    "end": "2026-10-12",
    "years": 2.6,
    "ladder": {
-    "return": 145.6,
+    "return": 159.3,
     "max_drawdown": -30.6,
-    "avg_invested": 32.2,
-    "trades": 58,
-    "return_per_invested": 452.2
+    "avg_invested": 32.6,
+    "trades": 57,
+    "return_per_invested": 488.7
+   },
+   "core": {
+    "return": 273.1,
+    "max_drawdown": -31.5,
+    "avg_invested": 55.1,
+    "trades": 75,
+    "return_per_invested": 495.6
+   },
+   "in_only": {
+    "return": 851.7,
+    "max_drawdown": -48.3,
+    "avg_invested": 98.4,
+    "trades": 3,
+    "return_per_invested": 865.5
    },
    "lump": {
-    "return": 134.0,
+    "return": 178.1,
     "max_drawdown": -35.4,
-    "avg_invested": 35.9,
+    "avg_invested": 37.2,
     "trades": 22,
-    "return_per_invested": 373.3
+    "return_per_invested": 478.8
    },
    "hold": {
     "return": 772.7,
@@ -904,18 +1266,32 @@
    "end": "2026-10-12",
    "years": 2.6,
    "ladder": {
-    "return": 60.0,
+    "return": 60.3,
     "max_drawdown": -46.3,
-    "avg_invested": 47.2,
+    "avg_invested": 47.1,
     "trades": 62,
-    "return_per_invested": 127.1
+    "return_per_invested": 128.0
+   },
+   "core": {
+    "return": 94.7,
+    "max_drawdown": -49.8,
+    "avg_invested": 69.7,
+    "trades": 69,
+    "return_per_invested": 135.9
+   },
+   "in_only": {
+    "return": 126.8,
+    "max_drawdown": -53.9,
+    "avg_invested": 99.2,
+    "trades": 6,
+    "return_per_invested": 127.8
    },
    "lump": {
     "return": 27.2,
     "max_drawdown": -48.8,
-    "avg_invested": 49.3,
+    "avg_invested": 49.1,
     "trades": 18,
-    "return_per_invested": 55.2
+    "return_per_invested": 55.4
    },
    "hold": {
     "return": 119.7,
@@ -937,16 +1313,30 @@
    "end": "2026-10-12",
    "years": 2.6,
    "ladder": {
-    "return": 43.7,
+    "return": 47.8,
     "max_drawdown": -59.3,
-    "avg_invested": 36.8,
+    "avg_invested": 36.7,
     "trades": 57,
-    "return_per_invested": 118.8
+    "return_per_invested": 130.2
+   },
+   "core": {
+    "return": 174.5,
+    "max_drawdown": -59.3,
+    "avg_invested": 61.0,
+    "trades": 76,
+    "return_per_invested": 286.1
+   },
+   "in_only": {
+    "return": 312.1,
+    "max_drawdown": -61.6,
+    "avg_invested": 98.5,
+    "trades": 9,
+    "return_per_invested": 316.9
    },
    "lump": {
     "return": 3.6,
     "max_drawdown": -59.3,
-    "avg_invested": 38.3,
+    "avg_invested": 38.1,
     "trades": 18,
     "return_per_invested": 9.4
    },
@@ -970,18 +1360,32 @@
    "end": "2026-10-12",
    "years": 2.6,
    "ladder": {
-    "return": 265.5,
+    "return": 265.4,
     "max_drawdown": -30.6,
-    "avg_invested": 34.2,
+    "avg_invested": 34.3,
     "trades": 73,
-    "return_per_invested": 776.3
+    "return_per_invested": 773.8
+   },
+   "core": {
+    "return": 473.6,
+    "max_drawdown": -32.2,
+    "avg_invested": 61.8,
+    "trades": 77,
+    "return_per_invested": 766.3
+   },
+   "in_only": {
+    "return": 744.5,
+    "max_drawdown": -51.8,
+    "avg_invested": 91.9,
+    "trades": 4,
+    "return_per_invested": 810.1
    },
    "lump": {
     "return": 242.7,
     "max_drawdown": -33.6,
-    "avg_invested": 35.5,
+    "avg_invested": 35.6,
     "trades": 28,
-    "return_per_invested": 683.7
+    "return_per_invested": 681.7
    },
    "hold": {
     "return": 940.6,
@@ -1003,18 +1407,32 @@
    "end": "2026-10-12",
    "years": 2.6,
    "ladder": {
-    "return": 29.6,
+    "return": 22.7,
     "max_drawdown": -22.3,
-    "avg_invested": 39.5,
-    "trades": 53,
-    "return_per_invested": 74.9
+    "avg_invested": 39.6,
+    "trades": 49,
+    "return_per_invested": 57.3
+   },
+   "core": {
+    "return": 54.3,
+    "max_drawdown": -23.7,
+    "avg_invested": 59.8,
+    "trades": 55,
+    "return_per_invested": 90.8
+   },
+   "in_only": {
+    "return": 104.7,
+    "max_drawdown": -29.8,
+    "avg_invested": 88.3,
+    "trades": 3,
+    "return_per_invested": 118.6
    },
    "lump": {
-    "return": 35.0,
+    "return": 16.4,
     "max_drawdown": -25.6,
-    "avg_invested": 37.2,
-    "trades": 20,
-    "return_per_invested": 94.1
+    "avg_invested": 37.8,
+    "trades": 18,
+    "return_per_invested": 43.4
    },
    "hold": {
     "return": 138.8,
@@ -1036,18 +1454,32 @@
    "end": "2026-10-12",
    "years": 2.6,
    "ladder": {
-    "return": 42.4,
+    "return": 41.6,
     "max_drawdown": -24.1,
-    "avg_invested": 32.9,
+    "avg_invested": 32.6,
     "trades": 58,
-    "return_per_invested": 128.9
+    "return_per_invested": 127.6
+   },
+   "core": {
+    "return": 51.1,
+    "max_drawdown": -27.0,
+    "avg_invested": 52.6,
+    "trades": 67,
+    "return_per_invested": 97.1
+   },
+   "in_only": {
+    "return": 71.3,
+    "max_drawdown": -32.5,
+    "avg_invested": 86.6,
+    "trades": 7,
+    "return_per_invested": 82.3
    },
    "lump": {
-    "return": 60.9,
+    "return": 58.2,
     "max_drawdown": -27.7,
-    "avg_invested": 39.8,
+    "avg_invested": 39.1,
     "trades": 24,
-    "return_per_invested": 153.0
+    "return_per_invested": 148.8
    },
    "hold": {
     "return": 93.2,
@@ -1071,14 +1503,28 @@
    "ladder": {
     "return": 14.3,
     "max_drawdown": -23.9,
-    "avg_invested": 50.6,
+    "avg_invested": 50.4,
     "trades": 57,
-    "return_per_invested": 28.3
+    "return_per_invested": 28.4
+   },
+   "core": {
+    "return": 30.0,
+    "max_drawdown": -28.0,
+    "avg_invested": 71.3,
+    "trades": 66,
+    "return_per_invested": 42.1
+   },
+   "in_only": {
+    "return": 33.9,
+    "max_drawdown": -35.0,
+    "avg_invested": 97.2,
+    "trades": 3,
+    "return_per_invested": 34.9
    },
    "lump": {
     "return": 2.2,
     "max_drawdown": -21.7,
-    "avg_invested": 52.3,
+    "avg_invested": 52.1,
     "trades": 22,
     "return_per_invested": 4.2
    },
@@ -1102,18 +1548,32 @@
    "end": "2026-10-12",
    "years": 2.6,
    "ladder": {
-    "return": 79.3,
+    "return": 79.5,
     "max_drawdown": -28.8,
-    "avg_invested": 40.4,
+    "avg_invested": 40.5,
     "trades": 73,
     "return_per_invested": 196.3
+   },
+   "core": {
+    "return": 77.4,
+    "max_drawdown": -30.7,
+    "avg_invested": 64.6,
+    "trades": 77,
+    "return_per_invested": 119.8
+   },
+   "in_only": {
+    "return": 65.8,
+    "max_drawdown": -34.7,
+    "avg_invested": 96.6,
+    "trades": 3,
+    "return_per_invested": 68.1
    },
    "lump": {
     "return": 49.5,
     "max_drawdown": -29.5,
-    "avg_invested": 45.3,
+    "avg_invested": 45.4,
     "trades": 26,
-    "return_per_invested": 109.3
+    "return_per_invested": 109.0
    },
    "hold": {
     "return": 49.4,
@@ -1135,18 +1595,32 @@
    "end": "2026-10-12",
    "years": 2.6,
    "ladder": {
-    "return": 25.2,
+    "return": 25.3,
     "max_drawdown": -19.7,
     "avg_invested": 35.4,
     "trades": 63,
-    "return_per_invested": 71.2
+    "return_per_invested": 71.5
+   },
+   "core": {
+    "return": 49.5,
+    "max_drawdown": -19.8,
+    "avg_invested": 58.8,
+    "trades": 78,
+    "return_per_invested": 84.2
+   },
+   "in_only": {
+    "return": 75.7,
+    "max_drawdown": -22.9,
+    "avg_invested": 97.3,
+    "trades": 3,
+    "return_per_invested": 77.8
    },
    "lump": {
     "return": 30.6,
     "max_drawdown": -20.0,
-    "avg_invested": 37.8,
+    "avg_invested": 37.5,
     "trades": 24,
-    "return_per_invested": 81.0
+    "return_per_invested": 81.6
    },
    "hold": {
     "return": 69.8,
@@ -1168,18 +1642,32 @@
    "end": "2026-10-12",
    "years": 2.6,
    "ladder": {
-    "return": 19.9,
+    "return": 20.3,
     "max_drawdown": -16.4,
-    "avg_invested": 31.2,
+    "avg_invested": 32.1,
     "trades": 61,
-    "return_per_invested": 63.8
+    "return_per_invested": 63.2
+   },
+   "core": {
+    "return": 37.7,
+    "max_drawdown": -17.0,
+    "avg_invested": 57.3,
+    "trades": 74,
+    "return_per_invested": 65.8
+   },
+   "in_only": {
+    "return": 55.0,
+    "max_drawdown": -19.0,
+    "avg_invested": 97.4,
+    "trades": 3,
+    "return_per_invested": 56.5
    },
    "lump": {
-    "return": 24.9,
+    "return": 18.6,
     "max_drawdown": -17.1,
-    "avg_invested": 36.9,
-    "trades": 24,
-    "return_per_invested": 67.5
+    "avg_invested": 38.3,
+    "trades": 22,
+    "return_per_invested": 48.6
    },
    "hold": {
     "return": 50.7,
@@ -1188,7 +1676,7 @@
     "trades": 1
    },
    "dip_cycles": {
-    "reached_L-2": 17,
+    "reached_L-2": 18,
     "reached_L-3": 9,
     "reached_L-4": 6
    }
@@ -1201,21 +1689,35 @@
    "end": "2026-10-13",
    "years": 1.9,
    "ladder": {
-    "return": -2.7,
+    "return": -2.8,
     "max_drawdown": -41.0,
     "avg_invested": 47.7,
     "trades": 166,
-    "return_per_invested": -5.7
+    "return_per_invested": -5.9
+   },
+   "core": {
+    "return": -4.2,
+    "max_drawdown": -45.0,
+    "avg_invested": 66.6,
+    "trades": 192,
+    "return_per_invested": -6.3
+   },
+   "in_only": {
+    "return": -11.8,
+    "max_drawdown": -53.5,
+    "avg_invested": 97.6,
+    "trades": 4,
+    "return_per_invested": -12.1
    },
    "lump": {
-    "return": -10.9,
+    "return": -11.0,
     "max_drawdown": -40.5,
     "avg_invested": 48.9,
     "trades": 57,
-    "return_per_invested": -22.3
+    "return_per_invested": -22.5
    },
    "hold": {
-    "return": -12.8,
+    "return": -12.9,
     "max_drawdown": -53.5,
     "avg_invested": 100.0,
     "trades": 1
@@ -1234,18 +1736,32 @@
    "end": "2026-10-13",
    "years": 1.9,
    "ladder": {
-    "return": -42.9,
+    "return": -43.0,
     "max_drawdown": -57.6,
     "avg_invested": 46.8,
     "trades": 144,
-    "return_per_invested": -91.7
+    "return_per_invested": -91.9
+   },
+   "core": {
+    "return": -42.4,
+    "max_drawdown": -59.8,
+    "avg_invested": 65.5,
+    "trades": 157,
+    "return_per_invested": -64.7
+   },
+   "in_only": {
+    "return": -30.4,
+    "max_drawdown": -68.2,
+    "avg_invested": 97.0,
+    "trades": 4,
+    "return_per_invested": -31.3
    },
    "lump": {
-    "return": -50.9,
+    "return": -51.0,
     "max_drawdown": -65.6,
     "avg_invested": 48.1,
     "trades": 51,
-    "return_per_invested": -105.8
+    "return_per_invested": -106.0
    },
    "hold": {
     "return": -28.6,
@@ -1267,11 +1783,25 @@
    "end": "2026-10-13",
    "years": 1.9,
    "ladder": {
-    "return": -38.8,
+    "return": -38.9,
     "max_drawdown": -57.3,
     "avg_invested": 50.3,
     "trades": 173,
-    "return_per_invested": -77.1
+    "return_per_invested": -77.3
+   },
+   "core": {
+    "return": -46.5,
+    "max_drawdown": -69.1,
+    "avg_invested": 70.0,
+    "trades": 185,
+    "return_per_invested": -66.4
+   },
+   "in_only": {
+    "return": -51.9,
+    "max_drawdown": -78.6,
+    "avg_invested": 98.8,
+    "trades": 8,
+    "return_per_invested": -52.5
    },
    "lump": {
     "return": -47.3,
@@ -1300,21 +1830,35 @@
    "end": "2026-10-13",
    "years": 1.9,
    "ladder": {
-    "return": -14.7,
+    "return": -14.8,
     "max_drawdown": -50.1,
     "avg_invested": 47.7,
     "trades": 171,
-    "return_per_invested": -30.8
+    "return_per_invested": -31.0
+   },
+   "core": {
+    "return": -24.0,
+    "max_drawdown": -58.5,
+    "avg_invested": 66.6,
+    "trades": 193,
+    "return_per_invested": -36.0
+   },
+   "in_only": {
+    "return": -44.4,
+    "max_drawdown": -73.8,
+    "avg_invested": 97.1,
+    "trades": 4,
+    "return_per_invested": -45.7
    },
    "lump": {
-    "return": -25.5,
+    "return": -25.7,
     "max_drawdown": -59.4,
     "avg_invested": 50.9,
     "trades": 59,
-    "return_per_invested": -50.1
+    "return_per_invested": -50.5
    },
    "hold": {
-    "return": -28.7,
+    "return": -28.8,
     "max_drawdown": -76.5,
     "avg_invested": 100.0,
     "trades": 1
@@ -1333,18 +1877,32 @@
    "end": "2026-10-13",
    "years": 1.9,
    "ladder": {
-    "return": -41.2,
+    "return": -41.4,
     "max_drawdown": -64.0,
     "avg_invested": 54.6,
     "trades": 190,
-    "return_per_invested": -75.5
+    "return_per_invested": -75.8
+   },
+   "core": {
+    "return": -60.1,
+    "max_drawdown": -77.3,
+    "avg_invested": 71.6,
+    "trades": 208,
+    "return_per_invested": -83.9
+   },
+   "in_only": {
+    "return": -77.1,
+    "max_drawdown": -88.2,
+    "avg_invested": 97.5,
+    "trades": 5,
+    "return_per_invested": -79.1
    },
    "lump": {
-    "return": -4.4,
+    "return": -4.8,
     "max_drawdown": -61.9,
     "avg_invested": 56.0,
     "trades": 73,
-    "return_per_invested": -7.9
+    "return_per_invested": -8.6
    },
    "hold": {
     "return": -75.6,
