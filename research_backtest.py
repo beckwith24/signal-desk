@@ -96,11 +96,15 @@ def stats(bars: pd.DataFrame, col: str, asset: str, tf: str) -> dict:
         if len(sub) < 20:
             out[side] = {"n": int(len(sub))}
             continue
-        per_day = sub["x"].groupby(day[mask]).mean()
-        se = per_day.std(ddof=1) / np.sqrt(len(per_day)) if len(per_day) > 2 else np.nan
-        out[side] = {"n": int(len(sub)), "share": round(float(mask.mean()) * 100, 1),
-                     "excess_bp": round(float(sub["x"].mean()) * 1e4, 2),
-                     "t": round(float(per_day.mean() / se), 2) if se and se > 0 else None}
+        # t-stat of the pooled mean with standard errors clustered by calendar day (bars on the same
+        # day across tickers/hours are not independent).
+        mu = float(sub["x"].mean())
+        resid = (sub["x"] - mu).groupby(np.asarray(day[mask.values])).sum()
+        G, N = len(resid), len(sub)
+        se = float(np.sqrt((resid ** 2).sum() * G / max(G - 1, 1)) / N) if G > 2 else np.nan
+        out[side] = {"n": int(N), "days": int(G), "share": round(float(mask.mean()) * 100, 1),
+                     "excess_bp": round(mu * 1e4, 2),
+                     "t": round(mu / se, 2) if se and se > 0 else None}
     # long-only strategy per ticker
     bpy, cost = BARS_PER_YEAR[(asset, tf)], COST[asset]
     rows = []
@@ -133,6 +137,18 @@ def stats(bars: pd.DataFrame, col: str, asset: str, tf: str) -> dict:
     return out
 
 
+def consistent(m: dict) -> bool:
+    """Right direction in BOTH halves: bullish bars beat average, bearish bars (if any) lag it."""
+    ok = True
+    for part in ("train", "test"):
+        bull, bear = m[part]["bull"], m[part]["bear"]
+        if bull.get("n", 0) < 20 or (bull.get("excess_bp") or 0) <= 0:
+            return False
+        if bear.get("n", 0) >= 20 and (bear.get("excess_bp") or 0) >= 0:
+            ok = False
+    return ok
+
+
 def keep(s: dict) -> bool:
     bull, lo = s["bull"], s["long_only"]
     if bull.get("n", 0) < 20 or bull.get("excess_bp") is None or bull["excess_bp"] <= 0:
@@ -162,6 +178,7 @@ def run_segment(asset: str, tf: str, tickers: list[str], ctx_daily: dict, worker
         res["models"][c] = {"train": stats(train, c, asset, tf), "test": stats(test, c, asset, tf)}
     kept = [c for c in SEGMENT_MODELS[asset] if keep(res["models"][c]["train"])]
     res["kept"] = kept
+    res["consistent"] = [c for c in SEGMENT_MODELS[asset] if consistent(res["models"][c])]
     if kept:
         for part, data in (("train", train), ("test", test)):
             d = data.copy()
@@ -180,7 +197,8 @@ def markdown(all_res: dict, meta: dict) -> str:
     for seg, r in all_res.items():
         L += [f"## {seg}", "", f"Train {r['train_period'][0]} → {r['train_period'][1]} · Test {r['test_period'][0]} → "
               f"{r['test_period'][1]} · {len(r['tickers'])} tickers", "",
-              f"**Kept (from train):** {', '.join(r['kept']) or 'none'}", ""]
+              f"**Kept (from train, strict rule):** {', '.join(r['kept']) or 'none'}", "",
+              f"**Right direction in both halves:** {', '.join(r['consistent']) or 'none'}", ""]
         if r.get("ensemble"):
             for part in ("train", "test"):
                 e = r["ensemble"][part]["long_only"]
