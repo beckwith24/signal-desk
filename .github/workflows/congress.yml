@@ -1,0 +1,53 @@
+# Congressional trades: check the free data sources, then test whether copying disclosed trades works.
+# Actions tab -> "Congress trades" -> Run workflow. Results in research/congress*.
+name: Congress trades
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "probe = check data sources; test = full test"
+        type: choice
+        options: [probe, test]
+        default: probe
+
+permissions:
+  contents: write
+
+concurrency:
+  group: research
+  cancel-in-progress: false
+
+jobs:
+  congress:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install
+        run: pip install -r requirements.txt pdfplumber
+
+      - name: Run
+        env:
+          MODE: ${{ inputs.mode }}
+        run: |
+          case "$MODE" in
+            probe) python congress.py --probe ;;
+            test) python congress_research.py ;;
+            *) echo "::error::unknown mode"; exit 1 ;;
+          esac
+
+      - name: Save results
+        run: |
+          git config user.name "signal-desk-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research/congress* || true
+          git commit -m "Congress trades results" || exit 0
+          git checkout -- .
+          ok=0; for i in 1 2 3; do git pull --rebase && git push && ok=1 && break; sleep 5; done; [ "$ok" = 1 ]
