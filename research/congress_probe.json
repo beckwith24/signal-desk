@@ -1,0 +1,52 @@
+{
+ "checked": "2026-10-13 21:50 UTC",
+ "sources": {
+  "House Stock Watcher": {
+   "ok": false,
+   "error": "403 Client Error: Forbidden for url: https://house-stock-watcher-data.s3-us-west-2.amazonaws.com/data/all_transactions.j"
+  },
+  "Senate Stock Watcher": {
+   "ok": false,
+   "error": "403 Client Error: Forbidden for url: https://senate-stock-watcher-data.s3-us-west-2.amazonaws.com/aggregate/all_transact"
+  },
+  "House Clerk index 2025": {
+   "ok": true,
+   "filings": 2958,
+   "ptrs": 515,
+   "columns": [
+    "Prefix",
+    "Last",
+    "First",
+    "Suffix",
+    "FilingType",
+    "StateDst",
+    "Year",
+    "FilingDate",
+    "DocID"
+   ],
+   "latest_filing": "2026-01-16 00:00:00"
+  },
+  "House Clerk index 2026": {
+   "ok": true,
+   "filings": 1766,
+   "ptrs": 421,
+   "columns": [
+    "Prefix",
+    "Last",
+    "First",
+    "Suffix",
+    "FilingType",
+    "StateDst",
+    "Year",
+    "FilingDate",
+    "DocID"
+   ],
+   "latest_filing": "2026-10-12 00:00:00"
+  },
+  "Senate eFD site": {
+   "ok": true,
+   "status": 200
+  }
+ },
+ "usable_trades": 0
+}
