@@ -25,7 +25,7 @@ jobs:
           cache: pip
 
       - name: Install
-        run: pip install pandas numpy yfinance
+        run: pip install pandas numpy yfinance matplotlib
 
       - name: Calibrate
         run: python calibrate_ia.py

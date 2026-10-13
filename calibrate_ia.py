@@ -441,6 +441,186 @@ def rule_search(charts: list[dict]) -> list[dict]:
     return out
 
 
+# ----------------------------------------------------------------------------- stage 2
+def heikin_ashi_close(df):
+    return (df["open"] + df["high"] + df["low"] + df["close"]) / 4
+
+
+def supertrend_tv(df, n, f, src="hl2", kind="rma"):
+    """TradingView ta.supertrend (optionally on close / SMA-ATR). Returns uptrend bool array."""
+    pc = df["close"].shift(1)
+    tr = pd.concat([df["high"] - df["low"], (df["high"] - pc).abs(), (df["low"] - pc).abs()], axis=1).max(axis=1)
+    a = (rma if kind == "rma" else sma)(tr, n).tolist()
+    s_ = source(df, src).tolist(); c = df["close"].tolist()
+    N = len(c); up_tr = [False] * N
+    fu = fl = 0.0; st_is_upper = True; ready = False
+    for i in range(N):
+        ai = a[i]
+        if ai != ai:  # NaN
+            continue
+        ub, lb = s_[i] + f * ai, s_[i] - f * ai
+        cp = c[i - 1] if i else c[i]
+        nfl = lb if (lb > fl or cp < fl) else fl
+        nfu = ub if (ub < fu or cp > fu) else fu
+        if not ready:
+            d_up = False; ready = True
+        elif st_is_upper:
+            d_up = c[i] > nfu
+        else:
+            d_up = not (c[i] < nfl)
+        fl, fu = nfl, nfu
+        st_is_upper = not d_up
+        up_tr[i] = d_up
+    return np.array(up_tr)
+
+
+def ut_bot(df, a, c_, src="close"):
+    """The popular 'UT Bot' ATR trailing stop: flips when price crosses the stop."""
+    s_ = (heikin_ashi_close(df) if src == "ha" else df["close"]).tolist()
+    loss = (a * atr(df, c_)).tolist()
+    N = len(s_); stop = [0.0] * N; up_tr = [False] * N
+    for i in range(1, N):
+        nl = loss[i]
+        if nl != nl:
+            continue
+        p, x, xp = stop[i - 1], s_[i], s_[i - 1]
+        if x > p and xp > p: stop[i] = max(p, x - nl)
+        elif x < p and xp < p: stop[i] = min(p, x + nl)
+        elif x > p: stop[i] = x - nl
+        else: stop[i] = x + nl
+        up_tr[i] = x > stop[i]
+    return np.array(up_tr)
+
+
+def flips(up):
+    up = np.asarray(up, bool); prev = np.r_[False, up[:-1]]
+    return up & ~prev, ~up & prev
+
+
+def accounting(df, b, s, start=0) -> dict:
+    """The same trades priced several ways, to see which one could give the ATR-BT table."""
+    o, h, l, c = (df[k].to_numpy() for k in ("open", "high", "low", "close"))
+    pairs = [(i, j) for i, j in zip(b, s) if i >= start]
+    def summ(rets, open_=False):
+        if not rets:
+            return {"trades": 0}
+        return {"trades": len(rets), "win_pct": round(100 * float(np.mean([r > 0 for r in rets])), 1),
+                "sum_pct": round(100 * float(np.sum(rets)), 1),
+                "compound_pct": round(100 * (float(np.prod([1 + r for r in rets])) - 1), 1), "open": open_}
+    out = {"close_to_close": summ([c[j] / c[i] - 1 for i, j in pairs]),
+           "next_open": summ([o[j + 1] / o[i + 1] - 1 for i, j in pairs if j + 1 < len(o)]),
+           "hindsight_low_to_high": summ([h[j] / l[i] - 1 for i, j in pairs])}
+    ev = sorted([(i, 0) for i in b if i >= start] + [(j, 1) for j in s if j >= start])
+    pos, rets = None, []
+    for i, t in ev:
+        if t == 0 and pos is None:
+            pos = c[i]
+        elif t == 1 and pos is not None and c[i] > pos:
+            rets.append(c[i] / pos - 1); pos = None
+    out["sell_only_in_profit"] = summ(rets, pos is not None)
+    return out
+
+
+def stage2(data, charts, cb_t, bar_of, synthetic) -> dict:
+    out = {}
+    # ATH used for the levels
+    cb = data["CBRS"]
+    raw = [p for p in cb_t["levels"]]
+    implied = [round(p / f, 2) for p, f in zip(raw, (0.764, 0.618, 0.5))]
+    info = {"screenshot_levels": raw, "implied_ath_if_fib_0.764_0.618_0.5": implied,
+            "max_high_4h": round(float(cb["high"].max()), 2), "max_close_4h": round(float(cb["close"].max()), 2),
+            "first_bars": cb.head(4).round(2).reset_index().astype(str).to_dict("records")}
+    if not synthetic:
+        try:
+            d1 = yf_history("CBRS", "max", "1d")
+            info.update(max_high_1d=round(float(d1["high"].max()), 2), max_close_1d=round(float(d1["close"].max()), 2),
+                        first_days=d1.head(3).round(2).reset_index().astype(str).to_dict("records"))
+        except Exception as e:
+            info["daily_error"] = str(e)
+    out["cbrs_ath"] = info
+
+    # fine grid of ATR trailing-stop rules
+    rows = []
+    grids = [("supertrend", (n, f, src, kind)) for n in (3, 5, 7, 10, 12, 14, 17, 20, 25, 30)
+             for f in np.round(np.arange(0.5, 2.05, 0.1), 2) for src in ("hl2", "close") for kind in ("rma", "sma")]
+    grids += [("ut_bot", (a, c_, src)) for a in (0.5, 0.75, 1, 1.25, 1.5, 2, 2.5, 3)
+              for c_ in (1, 2, 3, 5, 7, 10, 14, 20, 30) for src in ("close", "ha")]
+    for fam, prm in grids:
+        row = {"family": fam, "params": prm}
+        for ch in charts:
+            up = supertrend_tv(ch["df"], *prm) if fam == "supertrend" else ut_bot(ch["df"], *prm)
+            b, s = alternate(*flips(up))
+            lo, hi = ch["window"]
+            inside = lambda i: lo <= i <= hi and not any(a <= i <= z for a, z in ch["exclude"])
+            pred = sorted([("buy", i) for i in b if inside(i)] + [("sell", i) for i in s if inside(i)], key=lambda p: p[1])
+            row[ch["name"]] = score(pred, ch["targets"], ch["tol"])
+            row["_bs_" + ch["name"]] = (b, s)
+            row["_pred_" + ch["name"]] = pred
+        row["mean_f1"] = round(float(np.mean([row[ch["name"]]["f1"] for ch in charts])), 3)
+        rows.append(row)
+    rows.sort(key=lambda r: -r["mean_f1"])
+    top = []
+    for r in rows[:12]:
+        f = [score([(sd, i + sh) for sd, i in r["_pred_" + ch["name"]]], ch["targets"], ch["tol"])["f1"]
+             for ch in charts for sh in (-15, -11, -7, 7, 11, 15)]
+        rec = {"family": r["family"], "params": list(map(str, r["params"])), "mean_f1": r["mean_f1"],
+               "placebo_f1": round(float(np.mean(f)), 3)}
+        for ch in charts:
+            rec[ch["name"]] = r[ch["name"]]
+            rec[ch["name"] + "_accounting"] = accounting(ch["df"], *r["_bs_" + ch["name"]])
+        top.append(rec)
+    out["atr_stop_top"] = top
+    # best per chart separately (the indicator may use different settings per timeframe)
+    for ch in charts:
+        best = max(rows, key=lambda r: r[ch["name"]]["f1"])
+        out["best_for_" + ch["name"]] = {"family": best["family"], "params": list(map(str, best["params"])), **best[ch["name"]]}
+    # the screenshot's own triangles, priced the same ways
+    cbt = charts[0]["targets"]
+    out["cbrs_markers_accounting"] = accounting(cb, [i for sd, i in cbt if sd == "buy"], [i for sd, i in cbt if sd == "sell"])
+    out["_best_signals"] = {ch["name"]: rows[0]["_bs_" + ch["name"]] for ch in charts}
+    out["_best_rule"] = (rows[0]["family"], rows[0]["params"])
+    return out
+
+
+def plot(res, data, charts, k_t):
+    import matplotlib
+    matplotlib.use("Agg")
+    import matplotlib.pyplot as plt
+    st2 = res["stage2"]
+    fam, prm = st2.pop("_best_rule"); sig = st2.pop("_best_signals")
+    fig, axes = plt.subplots(3, 1, figsize=(13, 14))
+    for ax, ch in zip(axes[:2], charts):
+        df = ch["df"]; lo, hi = ch["window"]
+        x = np.arange(lo, hi + 1)
+        ax.plot(x, df["close"].to_numpy()[lo:hi + 1], color="#4060f0", lw=1.2)
+        lw, hh = df["low"].to_numpy(), df["high"].to_numpy()
+        for sd, i in ch["targets"]:
+            if lo <= i <= hi:
+                ax.scatter(i, lw[i] * 0.97 if sd == "buy" else hh[i] * 1.03, marker="^" if sd == "buy" else "v",
+                           s=70, color="#2e9e4e" if sd == "buy" else "#d23c3c", zorder=3)
+        b, s = sig[ch["name"]]
+        for i in b:
+            if lo <= i <= hi:
+                ax.scatter(i, lw[i] * 0.94, marker="o", s=30, facecolors="none", edgecolors="#2e9e4e", zorder=3)
+        for i in s:
+            if lo <= i <= hi:
+                ax.scatter(i, hh[i] * 1.06, marker="o", s=30, facecolors="none", edgecolors="#d23c3c", zorder=3)
+        for a, z in ch["exclude"]:
+            ax.axvspan(a, z, color="#999", alpha=0.15)
+        ax.set_title(f"{ch['name']}: triangles = InvestAnswers screenshot, circles = {fam} {prm}")
+    sk = data["000660.KS"]
+    a = align_krx(k_t["sk"], sk); rib = a["ribbon"]
+    fast = ema(source(sk, "hlc3"), 15).to_numpy(); slow = ema(sk["close"], 34).to_numpy()
+    ax = axes[2]; x = rib.index.to_numpy()
+    ax.plot(x, sk["close"].to_numpy()[x], color="#4060f0", lw=1)
+    ax.plot(x, rib["fast"], color="#2e9e4e", lw=3, alpha=0.4, label="screenshot fast edge")
+    ax.plot(x, rib["slow"], color="#d28c28", lw=3, alpha=0.4, label="screenshot slow edge")
+    ax.plot(x, fast[x], color="#1d6b33", lw=1, label="EMA(hlc3,15)")
+    ax.plot(x, slow[x], color="#8a5310", lw=1, label="EMA(close,34)")
+    ax.legend(); ax.set_title("SK hynix: IA-Optimized-Trend ribbon vs fitted EMAs")
+    fig.tight_layout(); fig.savefig(OUT / "ia_calibration.png", dpi=80)
+
+
 # ----------------------------------------------------------------------------- report
 def md_table(rows: list[dict], cols: list[str]) -> str:
     out = ["| " + " | ".join(cols) + " |", "|" + "---|" * len(cols)]
@@ -477,14 +657,6 @@ def main() -> None:
     bt_targets = [(m["side"], btc_bar(bt, m["date"])) for m in bt_t["markers"]]
     excl = [(btc_bar(bt, bt_t["exclude"][0]), btc_bar(bt, bt_t["exclude"][1]))]
     win = (btc_bar(bt, bt_t["window"][0]), btc_bar(bt, bt_t["window"][1]))
-    # how well do triangles sit just under lows / over highs, for small date shifts?
-    shifts = {}
-    for sh in range(-3, 4):
-        e = []
-        for m, (side, i) in zip(bt_t["markers"], bt_targets):
-            j = min(max(i + sh, 0), len(bt) - 1)
-            e.append(abs(np.log(bt["low"].iloc[j] if side == "buy" else bt["high"].iloc[j])))
-        shifts[sh] = float(np.mean(e))
     res["btc_levels"] = levels_check(bt, win[1], bt_t["levels"])
     vis_b = [i for s, i in bt_targets if s == "buy"]; vis_s = [i for s, i in bt_targets if s == "sell"]
     res["btc_marker_trades"] = trade_stats(bt, *alternate(np.isin(np.arange(len(bt)), vis_b), np.isin(np.arange(len(bt)), vis_s)))
@@ -512,6 +684,13 @@ def main() -> None:
     for r in rows:
         best_by_family.setdefault(r["family"], r)
     res["rules_best_by_family"] = list(best_by_family.values())
+
+    # --- stage 2: fine search of ATR trailing-stop rules + how the ATR-BT table could be computed
+    res["stage2"] = stage2(data, charts, cb_t, bar_of, args.synthetic)
+    try:
+        plot(res, data, charts, k_t)
+    except Exception as e:   # the picture is a nice-to-have
+        log.warning("plot failed: %s", e)
 
     (OUT / "ia_calibration.json").write_text(json.dumps(res, indent=1, default=str))
     (OUT / "ia_calibration.md").write_text(report(res))
@@ -555,6 +734,25 @@ def report(r: dict) -> str:
              "BTC F1": x["BTC_1d"]["f1"], "BTC trades": x["BTC_1d_stats"].get("trades"),
              "BTC win%": x["BTC_1d_stats"].get("win_pct")} for x in r["rules_top"][:15]]
     L += [md_table(rows, list(rows[0].keys())), ""]
+    st = r.get("stage2")
+    if st:
+        L += ["## 4. Fine search: ATR trailing-stop rules (Supertrend / UT Bot)", ""]
+        rows = [{"rule": f"{x['family']} {', '.join(x['params'])}", "mean F1": x["mean_f1"], "placebo": x["placebo_f1"],
+                 "CBRS F1 (hits/targets, signals)": f"{x['CBRS_4h']['f1']} ({x['CBRS_4h']['hits']}/{x['CBRS_4h']['targets']}, {x['CBRS_4h']['signals']})",
+                 "BTC F1": f"{x['BTC_1d']['f1']} ({x['BTC_1d']['hits']}/{x['BTC_1d']['targets']}, {x['BTC_1d']['signals']})"}
+                for x in st["atr_stop_top"]]
+        L += [md_table(rows, list(rows[0].keys())), ""]
+        for k in ("best_for_CBRS_4h", "best_for_BTC_1d"):
+            L.append(f"- {k}: {st[k]}")
+        L += ["", "### How the ATR-BT table could have been computed (best rule)", ""]
+        best = st["atr_stop_top"][0]
+        for ch in ("CBRS_4h", "BTC_1d"):
+            for way, v in best[ch + "_accounting"].items():
+                L.append(f"- {ch} {way}: {v}")
+        L += ["", "Screenshot's own CBRS triangles priced the same ways:"]
+        for way, v in st["cbrs_markers_accounting"].items():
+            L.append(f"- {way}: {v}")
+        L += ["", f"CBRS all-time high check: {st['cbrs_ath']}", ""]
     return "\n".join(L)
 
 
