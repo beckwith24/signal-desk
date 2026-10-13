@@ -89,6 +89,13 @@ to switch **Daily / 4-hour / Hourly** on or off, change the **alert level** (Wat
 the chat every 5 minutes, so a tap takes effect within about 5–15 minutes, and the bot confirms it. Only your
 own chat ID is obeyed. The switches are saved in `settings.json` in the repo.
 
+**Adding and removing tickers:** in your bot chat send `/add TSM AMZN` (crypto must end in `-USD`, e.g.
+`/add DOGE-USD`), `/remove TSLA`, or `/list` to see your tickers as tap-to-remove buttons. The bot checks the
+symbol exists on Yahoo, saves the list to `settings.json` (it overrides the watchlist in `config.yaml`) and
+starts a scan so the new chart appears within minutes. The chart site has the same controls: **＋ Add ticker**
+on the main list and **Remove from watchlist** on each chart. Both open your bot; tap **Start** to confirm.
+Up to 40 tickers.
+
 **Charts on your phone:** every scan publishes a small website at
 `https://<your-github-username>.github.io/signal-desk`. It lists every ticker with its current signal and score.
 Tap a ticker for a candlestick chart with the Bollinger bands, ATR layers, EMAs, volume and past signal arrows,

@@ -66,6 +66,8 @@ jobs:
           fi
 
       - name: Build chart site
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
         run: python build_site.py
 
       - uses: actions/upload-pages-artifact@v3

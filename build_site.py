@@ -16,6 +16,7 @@ from pathlib import Path
 
 import requests
 
+import settings
 from chart_export import SITE_DIR, file_id
 from config import load_config
 from notify import DISCLAIMER
@@ -28,7 +29,7 @@ SUMMARY_KEYS = ["ticker", "tf", "asset", "updated", "price", "change_pct", "acti
 
 def main() -> None:
     logging.basicConfig(level=logging.INFO, format="%(levelname)s %(name)s: %(message)s")
-    cfg = load_config()
+    cfg = settings.apply(load_config(), settings.load(load_config()))   # includes Telegram watchlist edits
     data = SITE_DIR / "data"
     data.mkdir(parents=True, exist_ok=True)
     for f in (ROOT / "web").iterdir():
@@ -54,8 +55,16 @@ def main() -> None:
             if path.exists():
                 d = json.loads(path.read_text())
                 items.append({k: d.get(k) for k in SUMMARY_KEYS})
+    bot_name = ""
+    token = os.environ.get("TELEGRAM_BOT_TOKEN", "")
+    if token:   # the bot's @username, so the site can open it to add/remove tickers
+        try:
+            bot_name = requests.get(f"https://api.telegram.org/bot{token}/getMe", timeout=10).json()["result"]["username"]
+        except Exception as e:
+            log.info("Bot name unavailable: %s", e)
     index = {
         "generated": datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC"),
+        "bot": bot_name,
         "timeframes": cfg["timeframes"],
         "disclaimer": DISCLAIMER,
         "items": items,

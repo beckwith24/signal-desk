@@ -21,6 +21,9 @@ def load(cfg: dict) -> dict:
     except (FileNotFoundError, ValueError):
         saved = {}
     s["timeframes"].update({k: bool(v) for k, v in saved.get("timeframes", {}).items() if k in s["timeframes"]})
+    if isinstance(saved.get("watchlist"), dict):
+        s["watchlist"] = {"stocks": list(saved["watchlist"].get("stocks", [])),
+                          "crypto": list(saved["watchlist"].get("crypto", []))}
     for key in ("paused", "tg_offset", "ladder"):
         if key in saved:
             s[key] = saved[key]
@@ -42,4 +45,12 @@ def apply(cfg: dict, s: dict) -> dict:
     cfg["alert_timeframes"] = [tf for tf in cfg["timeframes"] if s["timeframes"].get(tf, True)]
     cfg["notifications"]["min_action"] = s["min_action"]
     cfg["ladder"]["enabled"] = bool(s.get("ladder", True))
+    if s.get("watchlist"):                 # tickers added/removed from Telegram override config.yaml
+        cfg["watchlist"] = s["watchlist"]
     return cfg
+
+
+def watchlist(cfg: dict, s: dict) -> dict:
+    """The current watchlist: Telegram edits if any, otherwise config.yaml."""
+    w = s.get("watchlist") or cfg["watchlist"]
+    return {"stocks": list(w["stocks"]), "crypto": list(w["crypto"])}

@@ -172,6 +172,16 @@ h3.sec { font: 700 13px var(--f-display); text-transform: uppercase; letter-spac
 .foot { color: var(--faint); font-size: 12px; margin-top: 28px; line-height: 1.5; }
 .disclaimer { color: var(--muted); font-size: 12px; padding: 10px 12px; border: 1px dashed var(--line); border-radius: 8px; margin-top: 18px; }
 .err { color: var(--down); }
+.addrow { display: flex; gap: 8px; align-items: center; margin: 4px 0 10px; flex-wrap: wrap; }
+.addrow input { flex: 1 1 140px; min-width: 0; font: 500 15px var(--f-mono); text-transform: uppercase; color: var(--ink);
+  background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 8px 10px; }
+.addrow input:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+.btn { border: 0; border-radius: 8px; padding: 8px 14px; font-weight: 600; cursor: pointer; background: var(--accent); color: var(--surface);
+  text-decoration: none; display: inline-flex; align-items: center; gap: 6px; font-size: 14px; }
+.btn.ghost { background: transparent; color: var(--accent); border: 1px solid var(--line); }
+.btn.danger { background: transparent; color: var(--down); border: 1px solid var(--line); }
+.hint { font-size: 12px; color: var(--muted); flex-basis: 100%; }
+.summary .spacer { flex: 1; }
 .tf-note { font-size: 13px; color: var(--muted); background: var(--flat-soft); border-radius: 8px; padding: 9px 11px; margin: 4px 0 8px; }
 .ladder-now { color: var(--muted); font-size: 14px; margin: 0 0 12px; }
 .ladder-now strong { color: var(--ink); font-weight: 600; }
@@ -216,6 +226,11 @@ h3.sec { font: 700 13px var(--f-display); text-transform: uppercase; letter-spac
 <main class="wrap">
   <section id="listView">
     <div class="summary" id="summary"></div>
+    <form class="addrow" id="addForm" hidden autocomplete="off">
+      <input id="addInput" placeholder="e.g. TSM or DOGE-USD" aria-label="Ticker to add" maxlength="20">
+      <button class="btn" type="submit">Add in Telegram</button>
+      <span class="hint" id="addHint">Opens your Signal Desk bot. Tap <b>Start</b> there to confirm. Crypto ends in -USD.</span>
+    </form>
     <p class="tf-note" id="tfNote" hidden></p>
     <ul class="list" id="list"></ul>
   </section>
@@ -248,6 +263,7 @@ h3.sec { font: 700 13px var(--f-display); text-transform: uppercase; letter-spac
     <h3 class="sec">Signal history</h3>
     <ul class="hist" id="dHist"></ul>
     <p class="foot" id="dFoot"></p>
+    <p><a class="btn danger" id="dRemove" hidden target="_blank" rel="noopener">Remove from watchlist</a></p>
   </section>
 
   <p class="disclaimer" id="disclaimer">Personal research tool only. Not financial advice. Signals can be wrong. Do your own research.</p>
@@ -351,6 +367,11 @@ h3.sec { font: 700 13px var(--f-display); text-transform: uppercase; letter-spac
     for (const [k, v] of [["Buy-side", buys], ["Sell-side", sells], ["Watching", watch], ["Tickers", items.length]]) {
       const span = el("span"); span.append(el("strong", null, String(v)), " " + k); s.append(span);
     }
+    s.append(el("span", "spacer"));
+    const addBtn = el("button", "btn ghost", $("addForm").hidden ? "＋ Add ticker" : "Close");
+    addBtn.type = "button";
+    addBtn.onclick = () => { $("addForm").hidden = !$("addForm").hidden; render(); if (!$("addForm").hidden) $("addInput").focus(); };
+    s.append(addBtn);
     const note = $("tfNote");
     const stockAbout = (idx.items.find((i) => i.tf === state.tf && i.asset === "stock") || {}).segment_about || "";
     note.hidden = state.tf === "1d" || !stockAbout;
@@ -423,6 +444,8 @@ h3.sec { font: 700 13px var(--f-display); text-transform: uppercase; letter-spac
       li.append(left, el("span", "num", fmtPrice(s.price, d.decimals)), el("span", "when", since(s.ts)));
       h.append(li);
     }
+    const rm = $("dRemove"), rmLink = botLink("rm", d.ticker);
+    rm.hidden = !rmLink; if (rmLink) { rm.href = rmLink; rm.textContent = "Remove " + d.ticker.replace("-USD", "") + " from watchlist"; }
     $("dFoot").textContent = "Latest bar " + d.bar_time.replace("+00:00", " UTC") + " · scanned " + since(d.updated) + ". Prices from Yahoo Finance (stocks) and Kraken (crypto).";
     drawChart();
     window.scrollTo(0, 0);
@@ -451,6 +474,7 @@ h3.sec { font: 700 13px var(--f-display); text-transform: uppercase; letter-spac
 
   function showDetailError(ticker, tf) {
     state.detail = { ticker }; $("listView").hidden = true; $("detailView").hidden = false;
+    $("dRemove").hidden = true;
     $("back").hidden = false; $("brand").hidden = true; renderControls();
     $("dTitle").textContent = ticker.replace("-USD", "");
     $("dAsset").innerHTML = ""; $("dAsset").append(el("span", "err", "No " + (TF_LABEL[tf] || tf) + " chart for this ticker yet."));
@@ -563,6 +587,24 @@ h3.sec { font: 700 13px var(--f-display); text-transform: uppercase; letter-spac
     const visible = window.innerWidth < 600 ? (d.tf === "1d" ? 80 : 90) : 160;
     chart.timeScale().setVisibleLogicalRange({ from: Math.max(0, bars.length - visible), to: bars.length + 3 });
   }
+
+  // ---------------------------------------------------------------- add / remove tickers via the bot
+  function botLink(cmd, sym) {
+    const bot = state.index && state.index.bot;
+    const clean = String(sym || "").trim().toUpperCase().replace(/^\$/, "").replace("/", "-");
+    if (!bot || !/^[A-Z0-9-]{1,20}$/.test(clean)) return null;
+    return "https://t.me/" + bot + "?start=" + cmd + "_" + clean;
+  }
+  $("addForm").addEventListener("submit", (e) => {
+    e.preventDefault();
+    const sym = $("addInput").value;
+    const link = botLink("add", sym);
+    if (!state.index || !state.index.bot) { $("addHint").textContent = "Send /add " + sym.toUpperCase() + " to your Signal Desk bot in Telegram."; return; }
+    if (!link) { $("addHint").textContent = "Use letters, numbers and - only (e.g. TSM, DOGE-USD). For other symbols send /add in Telegram."; return; }
+    const a = document.createElement("a"); a.href = link; a.target = "_blank"; a.rel = "noopener"; document.body.append(a); a.click(); a.remove();
+    $("addHint").textContent = "Opened Telegram. Tap Start there; the chart shows up after the next scan (a few minutes).";
+    $("addInput").value = "";
+  });
 
   // ---------------------------------------------------------------- routing & data
   function route() {
