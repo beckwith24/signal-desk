@@ -129,7 +129,7 @@ if (window.top !== window.self) { document.documentElement.style.display = "none
     return li;
   }
   function syncTabs() {
-    const cur = !$("settingsView").hidden ? "settings" : state.level === "all" ? "list" : "signals";
+    const cur = !$("settingsView").hidden ? "settings" : !$("infoView").hidden ? "info" : state.level === "all" ? "list" : "signals";
     for (const b of $("tabbar").querySelectorAll("button")) {
       if (b.dataset.tab === cur) b.setAttribute("aria-current", "page"); else b.removeAttribute("aria-current");
     }
@@ -191,7 +191,7 @@ if (window.top !== window.self) { document.documentElement.style.display = "none
   for (const b of $("tabbar").querySelectorAll("button")) {
     b.onclick = () => {
       const t = b.dataset.tab;
-      if (t === "settings") { if (location.hash !== "#settings") { state.fromList = true; location.hash = "settings"; } return; }
+      if (t === "settings" || t === "info") { if (location.hash !== "#" + t) { state.fromList = true; location.hash = t; } return; }
       state.level = t === "signals" ? "signals" : "all";
       if (location.hash.length > 1) { state.fromList = false; location.hash = ""; } else { render(); }
       window.scrollTo(0, 0);
@@ -707,26 +707,36 @@ if (window.top !== window.self) { document.documentElement.style.display = "none
       say("connectStatus", err.status ? "GitHub rejected this key. Copy it again, or create a new one." : err.message, "bad");
     }
   });
-  async function openSettings() {
+  function openPage(name) {            // full-screen pages: settings | info
     state.detail = null; if (state.chart) { state.chart.remove(); state.chart = null; }
-    $("listView").hidden = true; $("detailView").hidden = true; $("settingsView").hidden = false;
-    $("controls").hidden = true; $("back").hidden = false; $("brand").hidden = true; $("gear").hidden = true;
-    renderSettings(); syncTabs(); window.scrollTo(0, 0);
+    $("listView").hidden = true; $("detailView").hidden = true;
+    $("settingsView").hidden = name !== "settings"; $("infoView").hidden = name !== "info";
+    $("controls").hidden = true; $("back").hidden = false; $("brand").hidden = true;
+    $("gear").hidden = name === "settings"; $("infoBtn").hidden = name === "info";
+    syncTabs(); window.scrollTo(0, 0);
+  }
+  const onPage = () => !$("settingsView").hidden || !$("infoView").hidden;
+  async function openSettings() {
+    openPage("settings");
+    renderSettings();
     if (GH.token) {
       try { state.settings = (await loadSettings()).s; renderSettings(); say("sStatus", ""); }
       catch (e) { if (!authFail(e)) say("sStatus", e.message, "bad"); }
     }
   }
-  function leaveSettings() {
-    $("settingsView").hidden = true; $("controls").hidden = false; $("gear").hidden = false; syncTabs();
+  function leaveSettings() {           // leaves settings or info
+    $("settingsView").hidden = true; $("infoView").hidden = true;
+    $("controls").hidden = false; $("gear").hidden = false; $("infoBtn").hidden = false; syncTabs();
   }
   $("gear").onclick = () => { state.fromList = true; location.hash = "settings"; };
+  $("infoBtn").onclick = () => { state.fromList = true; location.hash = "info"; };
 
   // ---------------------------------------------------------------- routing & data
   function route() {
     const h = decodeURIComponent(location.hash.slice(1));
     if (h === "settings") { openSettings(); return; }
-    if (!$("settingsView").hidden) { leaveSettings(); if (!h) { $("listView").hidden = false; $("back").hidden = true; $("brand").hidden = false; renderControls(); render(); return; } }
+    if (h === "info") { openPage("info"); return; }
+    if (onPage()) { leaveSettings(); if (!h) { $("listView").hidden = false; $("back").hidden = true; $("brand").hidden = false; renderControls(); render(); return; } }
     const m = h.match(/^(.+)_(1d|4h|1h|1wk)$/);
     if (m) openDetail(m[1], m[2], false); else if (state.detail) closeDetail(); else { renderControls(); render(); }
   }
@@ -744,7 +754,7 @@ if (window.top !== window.self) { document.documentElement.style.display = "none
   $("back").onclick = () => {
     if (state.fromList) { state.fromList = false; history.back(); }
     else { history.replaceState(null, "", location.pathname + location.search);
-           if (!$("settingsView").hidden) { leaveSettings(); $("listView").hidden = false; $("back").hidden = true; $("brand").hidden = false; renderControls(); render(); }
+           if (onPage()) { leaveSettings(); $("listView").hidden = false; $("back").hidden = true; $("brand").hidden = false; renderControls(); render(); }
            else closeDetail(); }
   };
   window.addEventListener("hashchange", route);

@@ -106,7 +106,8 @@ Up to 60 tickers.
 `https://<your-github-username>.github.io/signal-desk`. Stocks and crypto are listed in separate panels (side by
 side on wide screens). Each row shows the daily signal (with a coloured stripe), a one-month mini chart, the
 price, and a dot per model (filled = that model says buy). The **Strong Buy** and **Buy** tiles at the top filter
-the list; on phones the bottom bar switches between Watchlist, Signals and Settings.
+the list; on phones the bottom bar switches between Watchlist, Signals, Info and Settings. **Info** explains each
+model in plain English and summarises the backtests (method, Strong Buy vs Buy, and what was tested and left out).
 Tap a ticker for a candlestick chart with the Bollinger bands, ATR layers, EMAs, volume and past signal arrows,
 plus each model's reading. Switch Daily / 4H / 1H at the top. The site is dark by default; the sun/moon button
 (or Settings → Theme: Dark / Light / Auto) changes it, remembered per device. In Safari, use Share → **Add to Home Screen**
