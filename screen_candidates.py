@@ -32,23 +32,19 @@ from config import load_config
 log = logging.getLogger("screen")
 OUT = Path(__file__).with_name("research")
 
-STOCKS = {
-    "AI chips & chip equipment": ["TSM", "ASML", "AMAT", "LRCX", "KLAC", "ARM", "ALAB", "CRDO", "INTC", "QCOM"],
-    "Memory & storage": ["SNDK", "WDC", "STX"],
-    "AI servers, networking & optics": ["DELL", "ANET", "VRT", "CLS", "LITE", "COHR", "CIEN", "HPE"],
-    "AI cloud": ["NBIS", "CRWV", "ORCL", "AMZN"],
-    "Software": ["CRWD", "PANW", "NET", "SNOW", "DDOG", "APP", "NOW", "SHOP", "FTNT", "UBER", "NFLX"],
-    "Fintech & crypto stocks": ["HOOD", "COIN", "SOFI", "MSTR", "CRCL"],
-    "Power for AI": ["BE", "VST", "CEG", "GEV", "OKLO"],
-    "Health & other": ["LLY", "RKLB", "ISRG"],
-    "Solana treasury stocks": ["DFDV", "UPXI", "FORD", "HSDT"],
-}
-CRYPTO = {
-    "Solana: DeFi & infrastructure": ["JUP", "JTO", "PYTH", "RAY", "ORCA", "KMNO", "DRIFT", "MET", "W", "2Z", "TNSR", "CLOUD"],
-    "Solana: launchpads & memes": ["PUMP", "BONK", "WIF", "TRUMP", "PENGU", "POPCAT", "FARTCOIN", "MEW", "GIGA", "SPX"],
-    "Solana: AI & DePIN": ["RENDER", "HNT", "GRASS", "IO", "NOS", "GEOD"],
-    "Other large coins": ["HYPE", "SUI", "XRP", "BNB", "DOGE", "TAO", "ENA", "AAVE", "NEAR", "ADA", "ONDO"],
-}
+def _universe() -> tuple[dict, dict]:
+    """S&P 100 and large coins that aren't on the watchlist yet."""
+    import settings
+    from factor_research import COINS, SP100
+    w = settings.watchlist(load_config(), settings.load(load_config()))
+    have = set(w["stocks"]) | {c.split("-")[0] for c in w["crypto"]}
+    return ({"S&P 100 (not on your list)": [t for t in SP100 if t not in have]},
+            {"Large coins (not on your list)": [c for c in COINS + ["TAO", "ENA", "ONDO", "SEI", "APT", "ARB", "OP",
+                                                                      "INJ", "TIA", "WLD", "POL", "RENDER"]
+                                                if c not in have]})
+
+
+STOCKS, CRYPTO = _universe()
 TREND4 = ["tsmom28", "sma_ensemble", "donchian_ensemble", "btc_trend_gate"]
 
 
