@@ -94,6 +94,134 @@ def clerk_index(year: int) -> pd.DataFrame:
     return df
 
 
+# ----------------------------------------------------------------------------- official House PTRs
+PTR_PDF = "https://disclosures-clerk.house.gov/public_disc/ptr-pdfs/{year}/{doc}.pdf"
+ROW = re.compile(
+    r"\(([A-Z][A-Z0-9.\-]{0,6})\)\s*\[([A-Z]{2})\]\s*(?:[A-Z]{1,2}\s+)?(P|S \(partial\)|S|E)\s+"
+    r"(\d{2}/\d{2}/\d{4})\s+(\d{2}/\d{2}/\d{4})\s+(\$[\d,]+(?:\s*-\s*\$[\d,]+)?|Over \$[\d,]+)")
+
+
+def parse_house_ptr(text: str) -> list[dict]:
+    """Transactions from an electronic House PTR's text. Stocks ([ST]) only."""
+    t = re.sub(r"\s+", " ", text.replace("\x00", " "))
+    out = []
+    for tk, kind, typ, tdate, _notified, amt in ROW.findall(t):
+        if kind != "ST":
+            continue
+        out.append({"ticker": _clean_ticker(tk), "side": "buy" if typ == "P" else ("sell" if typ.startswith("S") else None),
+                    "traded": _date(tdate), "amount_low": _amount_low(amt)})
+    return out
+
+
+def house_ptrs(years: list[int], skip_docs: set[str] | None = None, workers: int = 4) -> tuple[pd.DataFrame, dict]:
+    import pdfplumber
+    from concurrent.futures import ThreadPoolExecutor
+    skip_docs = skip_docs or set()
+    jobs = []
+    for y in years:
+        idx = clerk_index(y)
+        idx = idx[idx["FilingType"] == "P"]
+        for _, r in idx.iterrows():
+            doc = str(r["DocID"]).strip()
+            if doc in skip_docs:
+                continue
+            jobs.append((y, doc, f"{str(r.get('First') or '').strip()} {str(r.get('Last') or '').strip()}".strip(),
+                         _date(str(r["FilingDate"]))))
+    stats = {"filings": len(jobs), "parsed": 0, "no_text": 0, "errors": 0}
+
+    def one(job):
+        y, doc, member, filed = job
+        try:
+            r = requests.get(PTR_PDF.format(year=y, doc=doc), headers=UA, timeout=40)
+            if not r.ok:
+                return "err", []
+            with pdfplumber.open(io.BytesIO(r.content)) as pdf:
+                text = "\n".join((pg.extract_text() or "") for pg in pdf.pages)
+            if len(text.strip()) < 50:
+                return "no_text", []                       # scanned paper filing
+            rows = parse_house_ptr(text)
+            for x in rows:
+                x.update(chamber="House", member=member, disclosed=filed, doc=doc)
+            return "ok", rows
+        except Exception:
+            return "err", []
+
+    rows = []
+    with ThreadPoolExecutor(max_workers=workers) as pool:
+        for status, rs in pool.map(one, jobs):
+            stats["parsed" if status == "ok" else ("no_text" if status == "no_text" else "errors")] += 1
+            rows += rs
+    return pd.DataFrame(rows), stats
+
+
+# ----------------------------------------------------------------------------- official Senate PTRs (eFD)
+EFD = "https://efdsearch.senate.gov"
+
+
+def senate_ptrs(since: str = "01/01/2018", skip_docs: set[str] | None = None, workers: int = 4) -> tuple[pd.DataFrame, dict]:
+    from concurrent.futures import ThreadPoolExecutor
+    skip_docs = skip_docs or set()
+    s = requests.Session()
+    s.headers.update(UA)
+    home = s.get(f"{EFD}/search/home/", timeout=30)
+    token = re.search(r'name="csrfmiddlewaretoken" value="([^"]+)"', home.text).group(1)
+    s.post(f"{EFD}/search/home/", data={"csrfmiddlewaretoken": token, "prohibition_agreement": "1"},
+           headers={"Referer": f"{EFD}/search/home/"}, timeout=30)
+    csrf = s.cookies.get("csrftoken")
+    reports, start = [], 0
+    while True:
+        r = s.post(f"{EFD}/search/report/data/", timeout=60, headers={"Referer": f"{EFD}/search/", "X-CSRFToken": csrf},
+                   data={"start": start, "length": 100, "report_types": "[11]", "filer_types": "[]",
+                         "submitted_start_date": f"{since} 00:00:00", "submitted_end_date": "", "candidate_state": "",
+                         "senator_state": "", "office_id": "", "first_name": "", "last_name": "",
+                         "csrfmiddlewaretoken": csrf})
+        d = r.json()
+        batch = d.get("data", [])
+        reports += batch
+        start += len(batch)
+        if not batch or start >= int(d.get("recordsTotal", 0)):
+            break
+    jobs = []
+    for first, last, _office, link, filed in reports:
+        m = re.search(r'href="(/search/view/(ptr|paper)/([^/]+)/)"', link)
+        if not m:
+            continue
+        jobs.append((m.group(1), m.group(2), m.group(3), f"{first} {last}".strip(), _date(filed)))
+    stats = {"filings": len(jobs), "paper": sum(1 for j in jobs if j[1] == "paper"), "parsed": 0, "errors": 0}
+
+    def one(job):
+        path, kind, doc, member, filed = job
+        if kind != "ptr" or doc in skip_docs:
+            return "skip", []
+        try:
+            page = s.get(EFD + path, timeout=40, headers={"Referer": f"{EFD}/search/"})
+            tables = pd.read_html(io.StringIO(page.text))
+            if not tables:
+                return "err", []
+            t = tables[0]
+            t.columns = [str(c).strip().lower() for c in t.columns]
+            rows = []
+            for _, r in t.iterrows():
+                if "stock" not in str(r.get("asset type", "")).lower():
+                    continue
+                rows.append({"ticker": _clean_ticker(str(r.get("ticker", ""))), "side": _side(str(r.get("type", ""))),
+                             "traded": _date(str(r.get("transaction date", ""))), "amount_low": _amount_low(str(r.get("amount", ""))),
+                             "chamber": "Senate", "member": member, "disclosed": filed, "doc": doc})
+            return "ok", rows
+        except Exception:
+            return "err", []
+
+    rows = []
+    with ThreadPoolExecutor(max_workers=workers) as pool:
+        for status, rs in pool.map(one, jobs):
+            if status == "ok":
+                stats["parsed"] += 1
+            elif status == "err":
+                stats["errors"] += 1
+            rows += rs
+    return pd.DataFrame(rows), stats
+
+
 def load_trades() -> tuple[pd.DataFrame, dict]:
     """All usable trades (stock tickers, buy/sell, with a disclosure date). Also reports source status."""
     frames, status = [], {}
