@@ -38,4 +38,5 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add research/candidates.md research/candidates.json
           git commit -m "Candidate screen results" || exit 0
+          git checkout -- .   # drop side files the screen touched (e.g. ath.json) so the rebase can run
           ok=0; for i in 1 2 3; do git pull --rebase && git push && ok=1 && break; sleep 5; done; [ "$ok" = 1 ]
