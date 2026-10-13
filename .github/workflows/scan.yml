@@ -63,7 +63,14 @@ jobs:
           if [ -f ath.json ]; then git add ath.json; fi
           if ! git diff --cached --quiet; then
             git commit -m "Update signal history"
-            ok=0; for i in 1 2 3; do git pull --rebase && git push && ok=1 && break; sleep 5; done; [ "$ok" = 1 ]
+            changed=$(git status --short --untracked-files=no | tr '\n' ' ')
+            if [ -n "$changed" ]; then echo "::warning::Discarding unsaved changes before push: $changed"; git checkout -- .; fi
+            ok=0; for i in 1 2 3; do
+              if out=$(git pull --rebase 2>&1) && git push; then ok=1; break; fi
+              git rebase --abort 2>/dev/null || true
+              sleep 5
+            done
+            [ "$ok" = 1 ] || { echo "::error::Could not save signal history: $(echo "$out" | tail -3 | tr '\n' ' ')"; exit 1; }
           fi
 
       - name: Build chart site
