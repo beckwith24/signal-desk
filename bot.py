@@ -266,59 +266,10 @@ def process(cfg: dict | None = None, poll: int = 0, s: dict | None = None) -> tu
         s["tg_offset"] = max(offset, s.get("tg_offset") or 0)
     for u in updates:
         s["tg_offset"] = u["update_id"]
-        if (msg := u.get("message")) and str(msg["chat"]["id"]) == chat:
-            raw = (msg.get("text") or "").strip()
-            text = raw.lower()
-            words = raw.replace(",", " ").split()
-            # links from the chart site arrive as "/start add_TSM" or "/start rm_TSLA"
-            if text.startswith("/start ") and len(words) > 1 and words[1].lower().startswith(("add_", "rm_")):
-                cmd, _, sym = words[1].partition("_")
-                words, text = ["/add" if cmd.lower() == "add" else "/remove", sym], cmd.lower()
-                text = "/add" if cmd.lower() == "add" else "/remove"
-            if text.startswith(("/add", "add ")):
-                if len(words) < 2:
-                    call(token, "sendMessage", chat_id=chat, text="Usage: /add NVDA TSM  (crypto: /add DOGE-USD)")
-                else:
-                    reply = add_tickers(words[1:], cfg, s)
-                    call(token, "sendMessage", chat_id=chat, text=reply)
-                    if reply.startswith("✅"):
-                        changes.append("watchlist")
-            elif text.startswith(("/remove", "/rm", "/del", "remove ")):
-                if len(words) < 2:
-                    call(token, "sendMessage", chat_id=chat, text=list_text(cfg, s), reply_markup=list_keyboard(cfg, s))
-                else:
-                    reply = remove_tickers(words[1:], cfg, s)
-                    call(token, "sendMessage", chat_id=chat, text=reply)
-                    if reply.startswith("🗑"):
-                        changes.append("watchlist")
-            elif text.startswith(("/list", "/watchlist", "list")):
-                call(token, "sendMessage", chat_id=chat, text=list_text(cfg, s), reply_markup=list_keyboard(cfg, s))
-            elif text.startswith(("/settings", "/start", "settings")):
-                call(token, "sendMessage", chat_id=chat, text=settings_text(cfg, s), reply_markup=keyboard(cfg, s))
-            elif text.startswith(("/chart", "chart")):
-                url = os.environ.get("PAGES_URL", "")
-                call(token, "sendMessage", chat_id=chat,
-                     text=f"📈 Your charts: {url}" if url else "Charts aren't published yet.")
-            elif text.startswith(("/signals", "signals")):
-                refresh_repo()
-                call(token, "sendMessage", chat_id=chat, text=signals_text())
-            else:
-                call(token, "sendMessage", chat_id=chat, text=HELP)
-        elif (cq := u.get("callback_query")) and str(cq["message"]["chat"]["id"]) == chat:
-            data = cq.get("data", "")
-            note = handle_callback(data, cfg, s)
-            call(token, "answerCallbackQuery", callback_query_id=cq["id"], text=note[:190])
-            if data.startswith("rm:"):
-                call(token, "editMessageText", chat_id=chat, message_id=cq["message"]["message_id"],
-                     text=list_text(cfg, s), reply_markup=list_keyboard(cfg, s))
-                call(token, "sendMessage", chat_id=chat, text=note)
-                if note.startswith("🗑"):
-                    changes.append("watchlist")
-            else:
-                changes.append(note)
-                call(token, "editMessageText", chat_id=chat, message_id=cq["message"]["message_id"],
-                     text=settings_text(cfg, s), reply_markup=keyboard(cfg, s))
-                call(token, "sendMessage", chat_id=chat, text=f"✅ {note}")
+        try:
+            handle_update(u, token, chat, cfg, s, changes)
+        except Exception as e:             # a malformed update is skipped, never retried forever
+            log.error("Skipped Telegram update %s: %s", u.get("update_id"), e)
     if updates:
         S.save(s)
     if changes:
@@ -327,6 +278,76 @@ def process(cfg: dict | None = None, poll: int = 0, s: dict | None = None) -> tu
         trigger_scan()
     log.info("Processed %d Telegram updates", len(updates))
     return s, changes
+
+
+def _chat_id(obj: dict | None) -> str | None:
+    return str(((obj or {}).get("chat") or {}).get("id")) if obj else None
+
+
+def handle_update(u: dict, token: str, chat: str, cfg: dict, s: dict, changes: list[str]) -> None:
+    """Obey only your own chat. Everything else is ignored without a reply."""
+    if (msg := u.get("message")) and _chat_id(msg) == chat:
+        raw = (msg.get("text") or "").strip()
+        text = raw.lower()
+        words = raw.replace(",", " ").split()
+        # links from the chart site arrive as "/start add_TSM" or "/start rm_TSLA"
+        if text.startswith("/start ") and len(words) > 1 and words[1].lower().startswith("rm_"):
+            # Removing via a link needs a confirming tap, so a link someone else sends you can't
+            # quietly change your list.
+            sym = _clean(words[1][3:])
+            w = S.watchlist(cfg, s)
+            if sym in w["stocks"] + w["crypto"]:
+                call(token, "sendMessage", chat_id=chat, text=f"Remove {sym} from your watchlist?",
+                     reply_markup={"inline_keyboard": [[{"text": f"✖ Yes, remove {sym}", "callback_data": f"rm:{sym}"}]]})
+            else:
+                call(token, "sendMessage", chat_id=chat, text=f"{sym} isn't on your list.")
+            return
+        if text.startswith("/start ") and len(words) > 1 and words[1].lower().startswith("add_"):
+            words, text = ["/add", words[1][4:]], "/add"
+        if text.startswith(("/add", "add ")):
+            if len(words) < 2:
+                call(token, "sendMessage", chat_id=chat, text="Usage: /add NVDA TSM  (crypto: /add DOGE-USD)")
+            else:
+                reply = add_tickers(words[1:], cfg, s)
+                call(token, "sendMessage", chat_id=chat, text=reply)
+                if reply.startswith("✅"):
+                    changes.append("watchlist")
+        elif text.startswith(("/remove", "/rm", "/del", "remove ")):
+            if len(words) < 2:
+                call(token, "sendMessage", chat_id=chat, text=list_text(cfg, s), reply_markup=list_keyboard(cfg, s))
+            else:
+                reply = remove_tickers(words[1:], cfg, s)
+                call(token, "sendMessage", chat_id=chat, text=reply)
+                if reply.startswith("🗑"):
+                    changes.append("watchlist")
+        elif text.startswith(("/list", "/watchlist", "list")):
+            call(token, "sendMessage", chat_id=chat, text=list_text(cfg, s), reply_markup=list_keyboard(cfg, s))
+        elif text.startswith(("/settings", "/start", "settings")):
+            call(token, "sendMessage", chat_id=chat, text=settings_text(cfg, s), reply_markup=keyboard(cfg, s))
+        elif text.startswith(("/chart", "chart")):
+            url = os.environ.get("PAGES_URL", "")
+            call(token, "sendMessage", chat_id=chat,
+                 text=f"📈 Your charts: {url}" if url else "Charts aren't published yet.")
+        elif text.startswith(("/signals", "signals")):
+            refresh_repo()
+            call(token, "sendMessage", chat_id=chat, text=signals_text())
+        else:
+            call(token, "sendMessage", chat_id=chat, text=HELP)
+    elif (cq := u.get("callback_query")) and _chat_id(cq.get("message")) == chat:
+        data = cq.get("data", "")
+        note = handle_callback(data, cfg, s)
+        call(token, "answerCallbackQuery", callback_query_id=cq["id"], text=note[:190])
+        if data.startswith("rm:"):
+            call(token, "editMessageText", chat_id=chat, message_id=cq["message"]["message_id"],
+                 text=list_text(cfg, s), reply_markup=list_keyboard(cfg, s))
+            call(token, "sendMessage", chat_id=chat, text=note)
+            if note.startswith("🗑"):
+                changes.append("watchlist")
+        else:
+            changes.append(note)
+            call(token, "editMessageText", chat_id=chat, message_id=cq["message"]["message_id"],
+                 text=settings_text(cfg, s), reply_markup=keyboard(cfg, s))
+            call(token, "sendMessage", chat_id=chat, text=f"✅ {note}")
 
 
 def listen(minutes: float) -> None:

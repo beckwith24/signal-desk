@@ -32,7 +32,11 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Run research
-        run: python research_backtest.py --segments ${{ inputs.segments }}
+        env:
+          SEGMENTS: ${{ inputs.segments }}   # passed as data, never pasted into the script
+        run: |
+          case "$SEGMENTS" in *[!a-z0-9\ -]*) echo "::error::Bad segments: only names like stock-1d" ; exit 1;; esac
+          python research_backtest.py --segments $SEGMENTS
 
       - name: Save results
         run: |

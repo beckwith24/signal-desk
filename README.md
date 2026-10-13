@@ -254,6 +254,26 @@ So the IA view is for reading the chart the way you're used to. Alerts still com
 - Tune thresholds in the sidebar; changes apply to the next scan immediately, and **Save** writes them to
   `config.yaml` (which the runner uses).
 
+## Security
+
+Checked with a penetration test (October 2026). What protects what:
+
+- **Telegram bot:** obeys only your own chat (TELEGRAM_CHAT_ID). Messages and button taps from anyone else
+  are ignored without a reply. A "remove" link from the site asks you to confirm with a tap, so a link
+  someone sends you can't quietly change your list. A malformed update is skipped instead of stopping the bot.
+- **Chart site:** every ticker name and reason is shown as plain text (tested with script-injection names).
+  The page carries a Content-Security-Policy: scripts only from the site itself, and network calls only
+  to the site and api.github.com. That limits what a bad script could do with the GitHub key stored in
+  your browser. It refuses to run inside another site's frame.
+- **GitHub key on the site:** fine-grained, this repository only, Contents + Actions. It's stored only in
+  that browser; "Forget key on this device" removes it. Give it an expiry date when you create it.
+- **Workflows:** inputs are passed as data, never pasted into shell commands; the scan job can only write
+  repository contents, and only the publish job can deploy Pages. Secrets are masked in logs.
+- **Public by design:** the repository and chart site are public (free Actions minutes and free Pages), so
+  your watchlist, signal history and bot username are visible to anyone who finds them. No keys or tokens
+  are stored in the repository (history checked). Python packages aren't pinned, so fixes (often needed
+  for Yahoo) arrive automatically, at the cost of trusting new releases.
+
 ## Adding a model
 
 Write `def my_model(df, ctx, p)` in `models.py` returning a DataFrame with `vote` (+1/0/−1) and `strength`

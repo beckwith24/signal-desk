@@ -18,7 +18,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: backtest-${{ inputs.run }}
+  group: backtest
   cancel-in-progress: true
 
 jobs:
@@ -38,7 +38,11 @@ jobs:
 
       - name: Signal backtest
         if: inputs.run != 'ladder'
-        run: python backtest.py --tf ${{ inputs.timeframes }}
+        env:
+          TIMEFRAMES: ${{ inputs.timeframes }}   # passed as data, never pasted into the script
+        run: |
+          case "$TIMEFRAMES" in *[!a-z0-9\ ]*) echo "::error::Bad timeframes: use e.g. 1d 4h 1h" ; exit 1;; esac
+          python backtest.py --tf $TIMEFRAMES
 
       - name: Layer-in / layer-out backtest
         if: inputs.run != 'signals'

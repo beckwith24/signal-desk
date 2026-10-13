@@ -6,10 +6,12 @@ from __future__ import annotations
 
 import json
 import os
+import re
 from pathlib import Path
 
 SETTINGS_PATH = Path(os.environ.get("SIGNAL_DESK_SETTINGS", Path(__file__).with_name("settings.json")))
 LEVELS = ["Watch", "Buy", "Strong Buy"]
+SYMBOL = re.compile(r"^[A-Z0-9.=^-]{1,20}$")       # anything else in settings.json is ignored
 
 
 def load(cfg: dict) -> dict:
@@ -22,8 +24,9 @@ def load(cfg: dict) -> dict:
         saved = {}
     s["timeframes"].update({k: bool(v) for k, v in saved.get("timeframes", {}).items() if k in s["timeframes"]})
     if isinstance(saved.get("watchlist"), dict):
-        s["watchlist"] = {"stocks": list(saved["watchlist"].get("stocks", [])),
-                          "crypto": list(saved["watchlist"].get("crypto", []))}
+        ok = lambda xs: [x for x in xs if isinstance(x, str) and SYMBOL.match(x)][:60]
+        s["watchlist"] = {"stocks": ok(saved["watchlist"].get("stocks", [])),
+                          "crypto": ok(saved["watchlist"].get("crypto", []))}
     for key in ("paused", "tg_offset", "ladder"):
         if key in saved:
             s[key] = saved[key]

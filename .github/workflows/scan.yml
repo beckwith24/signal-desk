@@ -14,10 +14,7 @@ on:
         options: [all, stocks, crypto]
         default: all
 
-permissions:
-  contents: write                  # to save signals.db (history + alert de-duplication) back to the repo
-  pages: write                     # to publish the chart site
-  id-token: write
+permissions: {}                    # nothing by default; each job gets only what it needs
 
 concurrency:
   group: signal-scan
@@ -25,6 +22,8 @@ concurrency:
 
 jobs:
   scan:
+    permissions:
+      contents: write              # to save signals.db (history + alert de-duplication) back to the repo
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
@@ -49,10 +48,14 @@ jobs:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+          EVENT: ${{ github.event_name }}
+          ONLY: ${{ inputs.only }}
+          SCHEDULE: ${{ github.event.schedule }}
         run: |
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-            python runner.py --once --only "${{ inputs.only }}" --force
-          elif [ "${{ github.event.schedule }}" = "15 * * * *" ]; then
+          if [ "$EVENT" = "workflow_dispatch" ]; then
+            case "$ONLY" in all|stocks|crypto) ;; *) ONLY=all ;; esac
+            python runner.py --once --only "$ONLY" --force
+          elif [ "$SCHEDULE" = "15 * * * *" ]; then
             python runner.py --once --only crypto
           else
             python runner.py --once --only stocks
@@ -89,6 +92,9 @@ jobs:
   # (needs Settings → Pages → Source: GitHub Actions, switched on once).
   publish:
     needs: scan
+    permissions:
+      pages: write                 # to publish the chart site
+      id-token: write
     runs-on: ubuntu-latest
     continue-on-error: true
     environment:

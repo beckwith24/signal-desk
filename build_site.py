@@ -6,6 +6,7 @@ this run is copied from the live site. Then an index of every ticker/timeframe i
 """
 from __future__ import annotations
 
+import hashlib
 import json
 import logging
 import os
@@ -35,6 +36,11 @@ def main() -> None:
     for f in (ROOT / "web").iterdir():
         if f.is_file():
             shutil.copy(f, SITE_DIR / f.name)
+    page = (SITE_DIR / "index.html").read_text()
+    for js in ("app.js", "lightweight-charts.js"):     # new code reaches phones right away, not after a cache expires
+        ver = hashlib.sha256((ROOT / "web" / js).read_bytes()).hexdigest()[:10]
+        page = page.replace(f'src="{js}"', f'src="{js}?v={ver}"')
+    (SITE_DIR / "index.html").write_text(page)
     (SITE_DIR / ".nojekyll").touch()
 
     live = os.environ.get("PAGES_URL", "").rstrip("/")
