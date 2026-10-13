@@ -1,6 +1,6 @@
 {
  "meta": {
-  "generated": "2026-10-13 03:23 UTC",
+  "generated": "2026-10-13 03:26 UTC",
   "costs": {
    "stock": 0.0005,
    "crypto": 0.0025
@@ -127,9 +127,10 @@
      "train": {
       "bull": {
        "n": 1127,
+       "days": 374,
        "share": 11.6,
        "excess_bp": 6.42,
-       "t": 0.52
+       "t": 0.37
       },
       "bear": {
        "n": 0
@@ -150,9 +151,10 @@
      "test": {
       "bull": {
        "n": 2162,
+       "days": 728,
        "share": 11.6,
        "excess_bp": 21.8,
-       "t": 1.04
+       "t": 1.98
       },
       "bear": {
        "n": 0
@@ -174,10 +176,11 @@
     "ibs_reversal": {
      "train": {
       "bull": {
-       "n": 1416,
+       "n": 1415,
+       "days": 440,
        "share": 14.5,
-       "excess_bp": 11.54,
-       "t": 0.01
+       "excess_bp": 11.51,
+       "t": 1.0
       },
       "bear": {
        "n": 0
@@ -198,9 +201,10 @@
      "test": {
       "bull": {
        "n": 2588,
+       "days": 740,
        "share": 13.9,
        "excess_bp": 12.82,
-       "t": 1.16
+       "t": 1.34
       },
       "bear": {
        "n": 0
@@ -223,6 +227,7 @@
      "train": {
       "bull": {
        "n": 1824,
+       "days": 152,
        "share": 18.7,
        "excess_bp": 23.24,
        "t": 1.36
@@ -246,9 +251,10 @@
      "test": {
       "bull": {
        "n": 3567,
+       "days": 277,
        "share": 19.1,
        "excess_bp": -0.83,
-       "t": -0.06
+       "t": -0.07
       },
       "bear": {
        "n": 0
@@ -271,12 +277,14 @@
      "train": {
       "bull": {
        "n": 8220,
+       "days": 685,
        "share": 84.4,
        "excess_bp": -3.29,
        "t": -0.56
       },
       "bear": {
        "n": 1524,
+       "days": 127,
        "share": 15.6,
        "excess_bp": 17.74,
        "t": 0.57
@@ -297,12 +305,14 @@
      "test": {
       "bull": {
        "n": 15090,
+       "days": 1175,
        "share": 80.9,
        "excess_bp": 1.21,
-       "t": 0.24
+       "t": 0.25
       },
       "bear": {
        "n": 3562,
+       "days": 274,
        "share": 19.1,
        "excess_bp": -5.14,
        "t": -0.3
@@ -325,6 +335,7 @@
      "train": {
       "bull": {
        "n": 1428,
+       "days": 119,
        "share": 14.7,
        "excess_bp": 13.24,
        "t": 0.39
@@ -348,6 +359,7 @@
      "test": {
       "bull": {
        "n": 844,
+       "days": 65,
        "share": 4.5,
        "excess_bp": 35.24,
        "t": 0.79
@@ -373,15 +385,17 @@
      "train": {
       "bull": {
        "n": 6401,
+       "days": 786,
        "share": 65.7,
        "excess_bp": -2.24,
-       "t": -0.89
+       "t": -0.38
       },
       "bear": {
        "n": 3343,
+       "days": 689,
        "share": 34.3,
        "excess_bp": 4.29,
-       "t": -0.22
+       "t": 0.31
       },
       "long_only": {
        "median_sharpe": 0.79,
@@ -399,15 +413,17 @@
      "test": {
       "bull": {
        "n": 11135,
+       "days": 1380,
        "share": 59.7,
        "excess_bp": -0.28,
-       "t": 0.0
+       "t": -0.06
       },
       "bear": {
        "n": 7517,
+       "days": 1338,
        "share": 40.3,
        "excess_bp": 0.41,
-       "t": -0.54
+       "t": 0.05
       },
       "long_only": {
        "median_sharpe": 0.66,
@@ -427,15 +443,17 @@
      "train": {
       "bull": {
        "n": 6782,
+       "days": 792,
        "share": 69.6,
        "excess_bp": -2.5,
-       "t": -0.41
+       "t": -0.46
       },
       "bear": {
        "n": 1743,
+       "days": 516,
        "share": 17.9,
        "excess_bp": 18.72,
-       "t": 0.18
+       "t": 0.88
       },
       "long_only": {
        "median_sharpe": 0.82,
@@ -453,15 +471,17 @@
      "test": {
       "bull": {
        "n": 11606,
+       "days": 1375,
        "share": 62.2,
        "excess_bp": -0.04,
-       "t": -0.13
+       "t": -0.01
       },
       "bear": {
        "n": 4340,
+       "days": 1104,
        "share": 23.3,
        "excess_bp": 1.5,
-       "t": -0.23
+       "t": 0.13
       },
       "long_only": {
        "median_sharpe": 0.71,
@@ -481,15 +501,17 @@
      "train": {
       "bull": {
        "n": 4697,
+       "days": 710,
        "share": 48.2,
        "excess_bp": -3.33,
-       "t": -0.89
+       "t": -0.55
       },
       "bear": {
        "n": 1138,
+       "days": 450,
        "share": 11.7,
        "excess_bp": 5.92,
-       "t": 0.38
+       "t": 0.22
       },
       "long_only": {
        "median_sharpe": 0.62,
@@ -507,15 +529,17 @@
      "test": {
       "bull": {
        "n": 8904,
+       "days": 1235,
        "share": 47.7,
        "excess_bp": 0.96,
-       "t": -0.17
+       "t": 0.18
       },
       "bear": {
        "n": 2414,
+       "days": 795,
        "share": 12.9,
        "excess_bp": 2.55,
-       "t": 0.02
+       "t": 0.15
       },
       "long_only": {
        "median_sharpe": 0.69,
@@ -535,15 +559,17 @@
      "train": {
       "bull": {
        "n": 3070,
+       "days": 602,
        "share": 31.5,
        "excess_bp": 0.8,
-       "t": -0.24
+       "t": 0.12
       },
       "bear": {
        "n": 84,
+       "days": 45,
        "share": 0.9,
        "excess_bp": -37.4,
-       "t": -0.14
+       "t": -0.78
       },
       "long_only": {
        "median_sharpe": 0.55,
@@ -561,15 +587,17 @@
      "test": {
       "bull": {
        "n": 5244,
+       "days": 1068,
        "share": 28.1,
        "excess_bp": 3.38,
-       "t": -0.0
+       "t": 0.59
       },
       "bear": {
        "n": 156,
+       "days": 119,
        "share": 0.8,
        "excess_bp": 20.7,
-       "t": -0.21
+       "t": 0.71
       },
       "long_only": {
        "median_sharpe": 0.62,
@@ -589,15 +617,17 @@
      "train": {
       "bull": {
        "n": 7220,
+       "days": 799,
        "share": 74.1,
        "excess_bp": -3.23,
-       "t": -1.21
+       "t": -0.54
       },
       "bear": {
        "n": 2524,
+       "days": 614,
        "share": 25.9,
        "excess_bp": 9.23,
-       "t": -0.12
+       "t": 0.58
       },
       "long_only": {
        "median_sharpe": 0.72,
@@ -615,15 +645,17 @@
      "test": {
       "bull": {
        "n": 12480,
+       "days": 1346,
        "share": 66.9,
        "excess_bp": -0.72,
-       "t": 0.2
+       "t": -0.15
       },
       "bear": {
        "n": 6172,
+       "days": 1270,
        "share": 33.1,
        "excess_bp": 1.45,
-       "t": 0.3
+       "t": 0.14
       },
       "long_only": {
        "median_sharpe": 0.75,
@@ -643,15 +675,17 @@
      "train": {
       "bull": {
        "n": 406,
+       "days": 159,
        "share": 4.2,
        "excess_bp": 76.42,
-       "t": -0.57
+       "t": 1.96
       },
       "bear": {
        "n": 653,
+       "days": 326,
        "share": 6.7,
        "excess_bp": -1.94,
-       "t": 1.85
+       "t": -0.15
       },
       "long_only": {
        "median_sharpe": 0.82,
@@ -669,15 +703,17 @@
      "test": {
       "bull": {
        "n": 789,
+       "days": 339,
        "share": 4.2,
        "excess_bp": 21.71,
-       "t": 0.83
+       "t": 1.12
       },
       "bear": {
        "n": 1190,
+       "days": 569,
        "share": 6.4,
        "excess_bp": 4.64,
-       "t": 0.11
+       "t": 0.4
       },
       "long_only": {
        "median_sharpe": 0.41,
@@ -697,15 +733,17 @@
      "train": {
       "bull": {
        "n": 239,
+       "days": 152,
        "share": 2.5,
        "excess_bp": -41.49,
-       "t": -1.57
+       "t": -0.95
       },
       "bear": {
        "n": 1204,
+       "days": 480,
        "share": 12.4,
        "excess_bp": -3.07,
-       "t": 0.53
+       "t": -0.35
       },
       "long_only": {
        "median_sharpe": -0.01,
@@ -723,15 +761,17 @@
      "test": {
       "bull": {
        "n": 527,
+       "days": 347,
        "share": 2.8,
        "excess_bp": 27.66,
-       "t": 0.62
+       "t": 1.21
       },
       "bear": {
        "n": 2052,
+       "days": 799,
        "share": 11.0,
        "excess_bp": 3.87,
-       "t": 0.81
+       "t": 0.49
       },
       "long_only": {
        "median_sharpe": 0.31,
@@ -751,15 +791,17 @@
      "train": {
       "bull": {
        "n": 1213,
+       "days": 367,
        "share": 12.4,
        "excess_bp": 17.97,
-       "t": -0.11
+       "t": 0.68
       },
       "bear": {
        "n": 4133,
+       "days": 681,
        "share": 42.4,
        "excess_bp": -0.98,
-       "t": -0.97
+       "t": -0.16
       },
       "long_only": {
        "median_sharpe": 0.47,
@@ -777,15 +819,17 @@
      "test": {
       "bull": {
        "n": 2806,
+       "days": 850,
        "share": 15.0,
        "excess_bp": 15.38,
-       "t": -0.03
+       "t": 1.02
       },
       "bear": {
        "n": 6807,
+       "days": 1174,
        "share": 36.5,
        "excess_bp": 4.27,
-       "t": 0.89
+       "t": 0.75
       },
       "long_only": {
        "median_sharpe": 0.53,
@@ -805,14 +849,16 @@
      "train": {
       "bull": {
        "n": 4835,
+       "days": 701,
        "share": 49.6,
-       "excess_bp": -1.16,
-       "t": -0.44
+       "excess_bp": -1.02,
+       "t": -0.16
       },
       "bear": {
-       "n": 2139,
+       "n": 2140,
+       "days": 517,
        "share": 22.0,
-       "excess_bp": 4.51,
+       "excess_bp": 4.64,
        "t": 0.24
       },
       "long_only": {
@@ -831,15 +877,17 @@
      "test": {
       "bull": {
        "n": 8367,
+       "days": 1297,
        "share": 44.9,
        "excess_bp": 1.63,
-       "t": -0.05
+       "t": 0.29
       },
       "bear": {
        "n": 5295,
+       "days": 1097,
        "share": 28.4,
        "excess_bp": 1.72,
-       "t": 0.6
+       "t": 0.17
       },
       "long_only": {
        "median_sharpe": 0.66,
@@ -859,15 +907,17 @@
      "train": {
       "bull": {
        "n": 95,
+       "days": 72,
        "share": 1.0,
        "excess_bp": 45.95,
-       "t": -0.1
+       "t": 0.89
       },
       "bear": {
        "n": 42,
+       "days": 41,
        "share": 0.4,
        "excess_bp": -1.38,
-       "t": -0.24
+       "t": -0.04
       },
       "long_only": {
        "median_sharpe": 0.59,
@@ -885,15 +935,17 @@
      "test": {
       "bull": {
        "n": 177,
+       "days": 130,
        "share": 0.9,
        "excess_bp": 49.1,
-       "t": 1.4
+       "t": 1.68
       },
       "bear": {
        "n": 111,
+       "days": 87,
        "share": 0.6,
        "excess_bp": -20.73,
-       "t": -0.6
+       "t": -0.75
       },
       "long_only": {
        "median_sharpe": 0.37,
@@ -910,7 +962,12 @@
      }
     }
    },
-   "kept": []
+   "kept": [],
+   "consistent": [
+    "rsi2_pullback",
+    "ibs_reversal",
+    "vix_backwardation"
+   ]
   },
   "crypto-1d": {
    "split": "2021-01-01",
@@ -935,15 +992,17 @@
      "train": {
       "bull": {
        "n": 1841,
+       "days": 915,
        "share": 59.3,
        "excess_bp": 14.11,
-       "t": 0.56
+       "t": 0.92
       },
       "bear": {
        "n": 1264,
+       "days": 709,
        "share": 40.7,
        "excess_bp": -20.55,
-       "t": -1.42
+       "t": -0.97
       },
       "long_only": {
        "median_sharpe": 1.08,
@@ -961,15 +1020,17 @@
      "test": {
       "bull": {
        "n": 5245,
+       "days": 1482,
        "share": 50.4,
        "excess_bp": 17.66,
-       "t": 1.05
+       "t": 1.7
       },
       "bear": {
        "n": 5158,
+       "days": 1475,
        "share": 49.6,
        "excess_bp": -17.96,
-       "t": -1.42
+       "t": -1.51
       },
       "long_only": {
        "median_sharpe": 0.77,
@@ -989,15 +1050,17 @@
      "train": {
       "bull": {
        "n": 1782,
+       "days": 927,
        "share": 57.4,
        "excess_bp": 16.06,
-       "t": 0.65
+       "t": 1.03
       },
       "bear": {
        "n": 783,
+       "days": 477,
        "share": 25.2,
        "excess_bp": -25.88,
-       "t": -1.63
+       "t": -1.01
       },
       "long_only": {
        "median_sharpe": 1.33,
@@ -1015,15 +1078,17 @@
      "test": {
       "bull": {
        "n": 5150,
+       "days": 1439,
        "share": 49.5,
        "excess_bp": 16.04,
-       "t": 0.98
+       "t": 1.52
       },
       "bear": {
        "n": 3598,
+       "days": 1102,
        "share": 34.6,
-       "excess_bp": -16.25,
-       "t": -1.72
+       "excess_bp": -16.26,
+       "t": -1.11
       },
       "long_only": {
        "median_sharpe": 0.76,
@@ -1043,15 +1108,17 @@
      "train": {
       "bull": {
        "n": 953,
+       "days": 577,
        "share": 30.7,
        "excess_bp": 39.2,
-       "t": 1.28
+       "t": 1.7
       },
       "bear": {
        "n": 735,
+       "days": 453,
        "share": 23.7,
        "excess_bp": -24.18,
-       "t": -0.79
+       "t": -0.86
       },
       "long_only": {
        "median_sharpe": 1.21,
@@ -1069,15 +1136,17 @@
      "test": {
       "bull": {
        "n": 3079,
+       "days": 1056,
        "share": 29.6,
-       "excess_bp": 31.96,
-       "t": 2.22
+       "excess_bp": 31.95,
+       "t": 2.38
       },
       "bear": {
        "n": 3178,
+       "days": 1118,
        "share": 30.5,
        "excess_bp": -9.57,
-       "t": -0.86
+       "t": -0.6
       },
       "long_only": {
        "median_sharpe": 0.67,
@@ -1097,15 +1166,17 @@
      "train": {
       "bull": {
        "n": 1669,
+       "days": 695,
        "share": 53.8,
        "excess_bp": 17.32,
-       "t": 1.14
+       "t": 1.03
       },
       "bear": {
        "n": 1436,
+       "days": 596,
        "share": 46.2,
        "excess_bp": -20.13,
-       "t": -0.86
+       "t": -0.97
       },
       "long_only": {
        "median_sharpe": 1.35,
@@ -1123,15 +1194,17 @@
      "test": {
       "bull": {
        "n": 5501,
+       "days": 1123,
        "share": 52.9,
        "excess_bp": 22.16,
-       "t": 2.26
+       "t": 2.08
       },
       "bear": {
        "n": 4902,
+       "days": 987,
        "share": 47.1,
        "excess_bp": -24.87,
-       "t": -1.79
+       "t": -1.83
       },
       "long_only": {
        "median_sharpe": 0.89,
@@ -1151,15 +1224,17 @@
      "train": {
       "bull": {
        "n": 458,
+       "days": 326,
        "share": 14.8,
        "excess_bp": 52.98,
-       "t": 1.35
+       "t": 1.77
       },
       "bear": {
        "n": 21,
+       "days": 19,
        "share": 0.7,
        "excess_bp": -89.18,
-       "t": -0.36
+       "t": -0.34
       },
       "long_only": {
        "median_sharpe": 0.89,
@@ -1177,15 +1252,17 @@
      "test": {
       "bull": {
        "n": 1253,
+       "days": 652,
        "share": 12.0,
        "excess_bp": 36.34,
-       "t": 1.4
+       "t": 1.98
       },
       "bear": {
        "n": 50,
+       "days": 37,
        "share": 0.5,
        "excess_bp": 313.64,
-       "t": 2.12
+       "t": 3.21
       },
       "long_only": {
        "median_sharpe": 0.41,
@@ -1205,9 +1282,10 @@
      "train": {
       "bull": {
        "n": 335,
+       "days": 247,
        "share": 10.8,
        "excess_bp": -7.05,
-       "t": -0.81
+       "t": -0.15
       },
       "bear": {
        "n": 0
@@ -1228,9 +1306,10 @@
      "test": {
       "bull": {
        "n": 806,
+       "days": 396,
        "share": 7.7,
-       "excess_bp": 4.08,
-       "t": 0.25
+       "excess_bp": 4.07,
+       "t": 0.16
       },
       "bear": {
        "n": 0
@@ -1253,9 +1332,10 @@
      "train": {
       "bull": {
        "n": 280,
+       "days": 200,
        "share": 9.0,
        "excess_bp": 20.35,
-       "t": 0.06
+       "t": 0.52
       },
       "bear": {
        "n": 0
@@ -1276,9 +1356,10 @@
      "test": {
       "bull": {
        "n": 834,
+       "days": 422,
        "share": 8.0,
        "excess_bp": 0.87,
-       "t": -0.86
+       "t": 0.04
       },
       "bear": {
        "n": 0
@@ -1301,9 +1382,10 @@
      "train": {
       "bull": {
        "n": 441,
+       "days": 185,
        "share": 14.2,
        "excess_bp": -15.31,
-       "t": 0.06
+       "t": -0.5
       },
       "bear": {
        "n": 0
@@ -1324,9 +1406,10 @@
      "test": {
       "bull": {
        "n": 1531,
+       "days": 311,
        "share": 14.7,
        "excess_bp": -9.02,
-       "t": -0.21
+       "t": -0.41
       },
       "bear": {
        "n": 0
@@ -1349,15 +1432,17 @@
      "train": {
       "bull": {
        "n": 1807,
+       "days": 977,
        "share": 58.2,
        "excess_bp": 7.57,
-       "t": 0.04
+       "t": 0.46
       },
       "bear": {
        "n": 1298,
+       "days": 692,
        "share": 41.8,
        "excess_bp": -10.54,
-       "t": -1.08
+       "t": -0.58
       },
       "long_only": {
        "median_sharpe": 1.09,
@@ -1375,15 +1460,17 @@
      "test": {
       "bull": {
        "n": 4855,
+       "days": 1423,
        "share": 46.7,
        "excess_bp": 15.47,
-       "t": 0.47
+       "t": 1.39
       },
       "bear": {
        "n": 5548,
+       "days": 1493,
        "share": 53.3,
        "excess_bp": -13.54,
-       "t": -1.23
+       "t": -1.21
       },
       "long_only": {
        "median_sharpe": 0.78,
@@ -1403,15 +1490,17 @@
      "train": {
       "bull": {
        "n": 128,
+       "days": 87,
        "share": 4.1,
        "excess_bp": 1.04,
-       "t": -0.77
+       "t": 0.01
       },
       "bear": {
        "n": 261,
+       "days": 203,
        "share": 8.4,
        "excess_bp": 18.76,
-       "t": 0.63
+       "t": 0.52
       },
       "long_only": {
        "median_sharpe": 0.26,
@@ -1429,15 +1518,17 @@
      "test": {
       "bull": {
        "n": 465,
+       "days": 203,
        "share": 4.5,
-       "excess_bp": 34.78,
-       "t": -0.09
+       "excess_bp": 34.77,
+       "t": 0.67
       },
       "bear": {
        "n": 751,
+       "days": 425,
        "share": 7.2,
-       "excess_bp": 30.27,
-       "t": 0.52
+       "excess_bp": 30.26,
+       "t": 1.29
       },
       "long_only": {
        "median_sharpe": 0.21,
@@ -1457,15 +1548,17 @@
      "train": {
       "bull": {
        "n": 181,
+       "days": 130,
        "share": 5.8,
        "excess_bp": 12.71,
-       "t": 0.31
+       "t": 0.19
       },
       "bear": {
        "n": 252,
+       "days": 209,
        "share": 8.1,
        "excess_bp": 71.89,
-       "t": 2.36
+       "t": 1.99
       },
       "long_only": {
        "median_sharpe": -0.35,
@@ -1483,15 +1576,17 @@
      "test": {
       "bull": {
        "n": 522,
+       "days": 325,
        "share": 5.0,
        "excess_bp": 25.18,
-       "t": 1.46
+       "t": 0.66
       },
       "bear": {
        "n": 653,
+       "days": 434,
        "share": 6.3,
        "excess_bp": 35.74,
-       "t": 1.21
+       "t": 1.47
       },
       "long_only": {
        "median_sharpe": 0.08,
@@ -1511,15 +1606,17 @@
      "train": {
       "bull": {
        "n": 661,
+       "days": 428,
        "share": 21.3,
        "excess_bp": -10.71,
-       "t": -1.08
+       "t": -0.37
       },
       "bear": {
        "n": 1117,
+       "days": 643,
        "share": 36.0,
        "excess_bp": 31.45,
-       "t": 1.43
+       "t": 1.61
       },
       "long_only": {
        "median_sharpe": 0.22,
@@ -1537,15 +1634,17 @@
      "test": {
       "bull": {
        "n": 2560,
+       "days": 888,
        "share": 24.6,
        "excess_bp": -17.1,
-       "t": -2.05
+       "t": -0.97
       },
       "bear": {
        "n": 2715,
+       "days": 975,
        "share": 26.1,
        "excess_bp": 33.42,
-       "t": 1.96
+       "t": 2.39
       },
       "long_only": {
        "median_sharpe": -0.09,
@@ -1565,15 +1664,17 @@
      "train": {
       "bull": {
        "n": 1257,
+       "days": 723,
        "share": 40.5,
        "excess_bp": 31.2,
-       "t": 1.52
+       "t": 1.72
       },
       "bear": {
        "n": 784,
+       "days": 485,
        "share": 25.2,
        "excess_bp": -26.78,
-       "t": -0.82
+       "t": -0.95
       },
       "long_only": {
        "median_sharpe": 1.2,
@@ -1591,15 +1692,17 @@
      "test": {
       "bull": {
        "n": 3823,
+       "days": 1238,
        "share": 36.7,
        "excess_bp": 15.17,
-       "t": 0.92
+       "t": 1.25
       },
       "bear": {
        "n": 3310,
+       "days": 1122,
        "share": 31.8,
-       "excess_bp": -12.31,
-       "t": -0.63
+       "excess_bp": -12.3,
+       "t": -0.82
       },
       "long_only": {
        "median_sharpe": 0.62,
@@ -1619,15 +1722,17 @@
      "train": {
       "bull": {
        "n": 26,
+       "days": 26,
        "share": 0.8,
        "excess_bp": 99.04,
        "t": 0.65
       },
       "bear": {
        "n": 34,
+       "days": 31,
        "share": 1.1,
        "excess_bp": -28.75,
-       "t": -0.4
+       "t": -0.38
       },
       "long_only": {
        "median_sharpe": 0.19,
@@ -1645,15 +1750,17 @@
      "test": {
       "bull": {
        "n": 58,
+       "days": 52,
        "share": 0.6,
        "excess_bp": 153.02,
-       "t": 1.37
+       "t": 1.44
       },
       "bear": {
        "n": 110,
+       "days": 87,
        "share": 1.1,
        "excess_bp": 4.87,
-       "t": -0.22
+       "t": 0.11
       },
       "long_only": {
        "median_sharpe": 0.24,
@@ -1670,7 +1777,16 @@
      }
     }
    },
-   "kept": []
+   "kept": [],
+   "consistent": [
+    "tsmom28",
+    "sma_ensemble",
+    "donchian_ensemble",
+    "btc_trend_gate",
+    "ibs_reversal",
+    "trend_classic",
+    "momentum_classic"
+   ]
   },
   "stock-4h": {
    "split": "2025-07-01",
@@ -1703,9 +1819,10 @@
      "train": {
       "bull": {
        "n": 1109,
+       "days": 180,
        "share": 11.8,
        "excess_bp": -8.41,
-       "t": 0.17
+       "t": -0.94
       },
       "bear": {
        "n": 0
@@ -1726,9 +1843,10 @@
      "test": {
       "bull": {
        "n": 1327,
+       "days": 223,
        "share": 14.1,
        "excess_bp": 4.19,
-       "t": -0.08
+       "t": 0.49
       },
       "bear": {
        "n": 0
@@ -1751,9 +1869,10 @@
      "train": {
       "bull": {
        "n": 1042,
+       "days": 248,
        "share": 11.1,
        "excess_bp": -2.18,
-       "t": 0.75
+       "t": -0.28
       },
       "bear": {
        "n": 0
@@ -1774,9 +1893,10 @@
      "test": {
       "bull": {
        "n": 1242,
+       "days": 290,
        "share": 13.2,
        "excess_bp": 6.38,
-       "t": 0.41
+       "t": 0.63
       },
       "bear": {
        "n": 0
@@ -1799,9 +1919,10 @@
      "train": {
       "bull": {
        "n": 1768,
+       "days": 60,
        "share": 18.9,
        "excess_bp": 0.31,
-       "t": -0.05
+       "t": 0.02
       },
       "bear": {
        "n": 0
@@ -1822,9 +1943,10 @@
      "test": {
       "bull": {
        "n": 1820,
+       "days": 63,
        "share": 19.3,
        "excess_bp": 6.21,
-       "t": 0.79
+       "t": 0.63
       },
       "bear": {
        "n": 0
@@ -1847,12 +1969,14 @@
      "train": {
       "bull": {
        "n": 8281,
+       "days": 278,
        "share": 88.3,
        "excess_bp": -2.46,
-       "t": -0.33
+       "t": -0.56
       },
       "bear": {
        "n": 1092,
+       "days": 42,
        "share": 11.7,
        "excess_bp": 18.69,
        "t": 0.76
@@ -1873,12 +1997,14 @@
      "test": {
       "bull": {
        "n": 9100,
+       "days": 311,
        "share": 96.7,
        "excess_bp": -0.33,
-       "t": 0.18
+       "t": -0.09
       },
       "bear": {
        "n": 312,
+       "days": 12,
        "share": 3.3,
        "excess_bp": 9.7,
        "t": 0.26
@@ -1901,6 +2027,7 @@
      "train": {
       "bull": {
        "n": 1001,
+       "days": 35,
        "share": 10.7,
        "excess_bp": 15.57,
        "t": 0.68
@@ -1924,9 +2051,10 @@
      "test": {
       "bull": {
        "n": 377,
+       "days": 13,
        "share": 4.0,
        "excess_bp": 39.37,
-       "t": 1.28
+       "t": 1.36
       },
       "bear": {
        "n": 0
@@ -1949,15 +2077,17 @@
      "train": {
       "bull": {
        "n": 5414,
+       "days": 300,
        "share": 57.8,
        "excess_bp": -0.78,
-       "t": -1.3
+       "t": -0.16
       },
       "bear": {
        "n": 3959,
+       "days": 297,
        "share": 42.2,
        "excess_bp": 1.07,
-       "t": 1.12
+       "t": 0.14
       },
       "long_only": {
        "median_sharpe": 0.52,
@@ -1975,15 +2105,17 @@
      "test": {
       "bull": {
        "n": 5445,
+       "days": 321,
        "share": 57.9,
        "excess_bp": -2.26,
-       "t": 0.16
+       "t": -0.51
       },
       "bear": {
        "n": 3967,
+       "days": 312,
        "share": 42.1,
        "excess_bp": 3.1,
-       "t": 0.71
+       "t": 0.58
       },
       "long_only": {
        "median_sharpe": 0.14,
@@ -2003,15 +2135,17 @@
      "train": {
       "bull": {
        "n": 5490,
+       "days": 310,
        "share": 58.6,
        "excess_bp": -0.53,
-       "t": -0.67
+       "t": -0.11
       },
       "bear": {
        "n": 2561,
+       "days": 263,
        "share": 27.3,
        "excess_bp": 2.59,
-       "t": 1.07
+       "t": 0.23
       },
       "long_only": {
        "median_sharpe": 0.58,
@@ -2029,15 +2163,17 @@
      "test": {
       "bull": {
        "n": 5666,
+       "days": 323,
        "share": 60.2,
        "excess_bp": -3.39,
-       "t": -0.12
+       "t": -0.79
       },
       "bear": {
        "n": 2335,
+       "days": 264,
        "share": 24.8,
        "excess_bp": 5.15,
-       "t": 1.53
+       "t": 0.76
       },
       "long_only": {
        "median_sharpe": 0.35,
@@ -2057,15 +2193,17 @@
      "train": {
       "bull": {
        "n": 3603,
+       "days": 277,
        "share": 38.4,
        "excess_bp": 1.19,
-       "t": 0.27
+       "t": 0.24
       },
       "bear": {
        "n": 1742,
+       "days": 257,
        "share": 18.6,
        "excess_bp": 10.32,
-       "t": 1.99
+       "t": 0.68
       },
       "long_only": {
        "median_sharpe": 0.42,
@@ -2083,15 +2221,17 @@
      "test": {
       "bull": {
        "n": 4321,
+       "days": 316,
        "share": 45.9,
        "excess_bp": -0.14,
-       "t": -0.07
+       "t": -0.03
       },
       "bear": {
        "n": 1161,
+       "days": 196,
        "share": 12.3,
        "excess_bp": 1.64,
-       "t": 0.29
+       "t": 0.21
       },
       "long_only": {
        "median_sharpe": 0.57,
@@ -2111,15 +2251,17 @@
      "train": {
       "bull": {
        "n": 1804,
+       "days": 228,
        "share": 19.2,
        "excess_bp": -2.15,
-       "t": -1.28
+       "t": -0.37
       },
       "bear": {
        "n": 65,
+       "days": 38,
        "share": 0.7,
        "excess_bp": 7.28,
-       "t": 0.65
+       "t": 0.28
       },
       "long_only": {
        "median_sharpe": 0.38,
@@ -2137,15 +2279,17 @@
      "test": {
       "bull": {
        "n": 2436,
+       "days": 273,
        "share": 25.9,
        "excess_bp": -0.93,
-       "t": -0.37
+       "t": -0.16
       },
       "bear": {
        "n": 78,
+       "days": 49,
        "share": 0.8,
        "excess_bp": -1.95,
-       "t": -0.48
+       "t": -0.09
       },
       "long_only": {
        "median_sharpe": 0.28,
@@ -2165,15 +2309,17 @@
      "train": {
       "bull": {
        "n": 5771,
+       "days": 304,
        "share": 61.6,
        "excess_bp": -2.22,
-       "t": -0.59
+       "t": -0.49
       },
       "bear": {
        "n": 3602,
+       "days": 306,
        "share": 38.4,
        "excess_bp": 3.56,
-       "t": 1.4
+       "t": 0.42
       },
       "long_only": {
        "median_sharpe": 0.52,
@@ -2191,15 +2337,17 @@
      "test": {
       "bull": {
        "n": 6007,
+       "days": 323,
        "share": 63.8,
        "excess_bp": -1.74,
        "t": -0.39
       },
       "bear": {
        "n": 3405,
+       "days": 307,
        "share": 36.2,
        "excess_bp": 3.07,
-       "t": 0.37
+       "t": 0.55
       },
       "long_only": {
        "median_sharpe": 0.99,
@@ -2219,15 +2367,17 @@
      "train": {
       "bull": {
        "n": 490,
+       "days": 112,
        "share": 5.2,
        "excess_bp": -9.76,
-       "t": 1.97
+       "t": -0.62
       },
       "bear": {
        "n": 589,
+       "days": 164,
        "share": 6.3,
        "excess_bp": 5.35,
-       "t": -1.74
+       "t": 0.62
       },
       "long_only": {
        "median_sharpe": -0.32,
@@ -2245,15 +2395,17 @@
      "test": {
       "bull": {
        "n": 415,
+       "days": 121,
        "share": 4.4,
        "excess_bp": -3.01,
-       "t": 0.25
+       "t": -0.27
       },
       "bear": {
        "n": 535,
+       "days": 181,
        "share": 5.7,
        "excess_bp": -3.59,
-       "t": -1.58
+       "t": -0.43
       },
       "long_only": {
        "median_sharpe": 0.21,
@@ -2273,15 +2425,17 @@
      "train": {
       "bull": {
        "n": 457,
+       "days": 146,
        "share": 4.9,
        "excess_bp": 7.86,
-       "t": -0.09
+       "t": 0.54
       },
       "bear": {
        "n": 1044,
+       "days": 231,
        "share": 11.1,
        "excess_bp": -6.91,
-       "t": 0.26
+       "t": -1.04
       },
       "long_only": {
        "median_sharpe": 0.23,
@@ -2299,15 +2453,17 @@
      "test": {
       "bull": {
        "n": 363,
+       "days": 146,
        "share": 3.9,
        "excess_bp": 22.24,
-       "t": 0.93
+       "t": 1.37
       },
       "bear": {
        "n": 1155,
+       "days": 258,
        "share": 12.3,
        "excess_bp": 7.77,
-       "t": 0.81
+       "t": 0.98
       },
       "long_only": {
        "median_sharpe": 0.72,
@@ -2327,15 +2483,17 @@
      "train": {
       "bull": {
        "n": 1974,
+       "days": 211,
        "share": 21.1,
        "excess_bp": 5.41,
-       "t": 1.89
+       "t": 0.45
       },
       "bear": {
        "n": 3307,
+       "days": 265,
        "share": 35.3,
        "excess_bp": -2.94,
-       "t": -1.59
+       "t": -0.54
       },
       "long_only": {
        "median_sharpe": 0.58,
@@ -2353,15 +2511,17 @@
      "test": {
       "bull": {
        "n": 1528,
+       "days": 240,
        "share": 16.2,
        "excess_bp": 14.9,
-       "t": 0.83
+       "t": 1.7
       },
       "bear": {
        "n": 3252,
+       "days": 308,
        "share": 34.6,
        "excess_bp": -1.29,
-       "t": -0.78
+       "t": -0.24
       },
       "long_only": {
        "median_sharpe": 1.31,
@@ -2381,15 +2541,17 @@
      "train": {
       "bull": {
        "n": 3979,
+       "days": 289,
        "share": 42.5,
        "excess_bp": -3.52,
-       "t": -1.12
+       "t": -0.66
       },
       "bear": {
        "n": 2827,
+       "days": 261,
        "share": 30.2,
        "excess_bp": 0.28,
-       "t": 1.19
+       "t": 0.03
       },
       "long_only": {
        "median_sharpe": 0.39,
@@ -2407,15 +2569,17 @@
      "test": {
       "bull": {
        "n": 3969,
+       "days": 311,
        "share": 42.2,
        "excess_bp": -1.1,
-       "t": -0.55
+       "t": -0.23
       },
       "bear": {
        "n": 2699,
+       "days": 286,
        "share": 28.7,
        "excess_bp": 11.33,
-       "t": 0.87
+       "t": 1.7
       },
       "long_only": {
        "median_sharpe": 0.49,
@@ -2435,15 +2599,17 @@
      "train": {
       "bull": {
        "n": 102,
+       "days": 53,
        "share": 1.1,
        "excess_bp": 6.44,
-       "t": 1.39
+       "t": 0.34
       },
       "bear": {
        "n": 47,
+       "days": 31,
        "share": 0.5,
        "excess_bp": -38.19,
-       "t": -1.51
+       "t": -1.26
       },
       "long_only": {
        "median_sharpe": 0.37,
@@ -2461,15 +2627,17 @@
      "test": {
       "bull": {
        "n": 79,
+       "days": 48,
        "share": 0.8,
        "excess_bp": 49.4,
-       "t": 1.42
+       "t": 1.9
       },
       "bear": {
        "n": 75,
+       "days": 50,
        "share": 0.8,
        "excess_bp": 8.53,
-       "t": 0.06
+       "t": 0.27
       },
       "long_only": {
        "median_sharpe": 0.78,
@@ -2486,7 +2654,12 @@
      }
     }
    },
-   "kept": []
+   "kept": [],
+   "consistent": [
+    "turn_of_month",
+    "vix_backwardation",
+    "atr_layers"
+   ]
   },
   "crypto-4h": {
    "split": "2025-11-03",
@@ -2511,15 +2684,17 @@
      "train": {
       "bull": {
        "n": 5129,
+       "days": 284,
        "share": 49.9,
        "excess_bp": 0.08,
-       "t": -2.95
+       "t": 0.02
       },
       "bear": {
        "n": 5156,
+       "days": 290,
        "share": 50.1,
        "excess_bp": -0.08,
-       "t": 1.97
+       "t": -0.02
       },
       "long_only": {
        "median_sharpe": -0.97,
@@ -2537,23 +2712,25 @@
      "test": {
       "bull": {
        "n": 4773,
+       "days": 273,
        "share": 46.5,
-       "excess_bp": -1.6,
-       "t": -3.02
+       "excess_bp": -1.61,
+       "t": -0.46
       },
       "bear": {
        "n": 5502,
+       "days": 296,
        "share": 53.5,
-       "excess_bp": 1.39,
-       "t": 2.54
+       "excess_bp": 1.4,
+       "t": 0.38
       },
       "long_only": {
        "median_sharpe": -1.92,
-       "median_hold_sharpe": -0.38,
+       "median_hold_sharpe": -0.37,
        "median_sharpe_gain": -1.5,
        "share_better": 0.0,
        "median_ann_pct": -46.4,
-       "median_hold_ann_pct": -32.6,
+       "median_hold_ann_pct": -32.5,
        "median_mdd_pct": -63.7,
        "median_hold_mdd_pct": -57.7,
        "median_exposure_pct": 47.0,
@@ -2565,15 +2742,17 @@
      "train": {
       "bull": {
        "n": 4942,
+       "days": 279,
        "share": 48.1,
        "excess_bp": 1.02,
-       "t": -3.83
+       "t": 0.24
       },
       "bear": {
        "n": 3508,
+       "days": 245,
        "share": 34.1,
        "excess_bp": -0.38,
-       "t": 3.86
+       "t": -0.06
       },
       "long_only": {
        "median_sharpe": -0.77,
@@ -2591,23 +2770,25 @@
      "test": {
       "bull": {
        "n": 4721,
+       "days": 260,
        "share": 45.9,
        "excess_bp": -1.07,
-       "t": -3.64
+       "t": -0.3
       },
       "bear": {
        "n": 3732,
+       "days": 246,
        "share": 36.3,
-       "excess_bp": -0.09,
-       "t": 3.67
+       "excess_bp": -0.08,
+       "t": -0.02
       },
       "long_only": {
        "median_sharpe": -1.47,
-       "median_hold_sharpe": -0.38,
+       "median_hold_sharpe": -0.37,
        "median_sharpe_gain": -1.09,
        "share_better": 0.0,
        "median_ann_pct": -47.1,
-       "median_hold_ann_pct": -32.6,
+       "median_hold_ann_pct": -32.5,
        "median_mdd_pct": -51.8,
        "median_hold_mdd_pct": -57.7,
        "median_exposure_pct": 46.0,
@@ -2619,15 +2800,17 @@
      "train": {
       "bull": {
        "n": 2732,
+       "days": 204,
        "share": 26.6,
        "excess_bp": 2.12,
-       "t": -2.88
+       "t": 0.42
       },
       "bear": {
        "n": 2576,
+       "days": 213,
        "share": 25.0,
        "excess_bp": 2.7,
-       "t": 3.32
+       "t": 0.34
       },
       "long_only": {
        "median_sharpe": -0.05,
@@ -2645,23 +2828,25 @@
      "test": {
       "bull": {
        "n": 2446,
+       "days": 175,
        "share": 23.8,
-       "excess_bp": 0.92,
-       "t": -2.31
+       "excess_bp": 0.91,
+       "t": 0.19
       },
       "bear": {
        "n": 3022,
+       "days": 231,
        "share": 29.4,
        "excess_bp": -0.07,
-       "t": 3.76
+       "t": -0.01
       },
       "long_only": {
        "median_sharpe": -0.82,
-       "median_hold_sharpe": -0.38,
+       "median_hold_sharpe": -0.37,
        "median_sharpe_gain": -0.44,
        "share_better": 0.2,
        "median_ann_pct": -20.6,
-       "median_hold_ann_pct": -32.6,
+       "median_hold_ann_pct": -32.5,
        "median_mdd_pct": -34.5,
        "median_hold_mdd_pct": -57.7,
        "median_exposure_pct": 25.0,
@@ -2673,15 +2858,17 @@
      "train": {
       "bull": {
        "n": 6130,
+       "days": 205,
        "share": 59.6,
        "excess_bp": 0.15,
-       "t": 0.0
+       "t": 0.04
       },
       "bear": {
        "n": 4155,
+       "days": 139,
        "share": 40.4,
        "excess_bp": -0.23,
-       "t": -0.09
+       "t": -0.04
       },
       "long_only": {
        "median_sharpe": 0.1,
@@ -2699,23 +2886,25 @@
      "test": {
       "bull": {
        "n": 4800,
+       "days": 160,
        "share": 46.7,
-       "excess_bp": 3.35,
+       "excess_bp": 3.36,
        "t": 1.02
       },
       "bear": {
        "n": 5475,
+       "days": 184,
        "share": 53.3,
        "excess_bp": -2.94,
-       "t": -0.59
+       "t": -0.72
       },
       "long_only": {
        "median_sharpe": 0.56,
-       "median_hold_sharpe": -0.38,
+       "median_hold_sharpe": -0.37,
        "median_sharpe_gain": 0.81,
        "share_better": 1.0,
-       "median_ann_pct": 14.4,
-       "median_hold_ann_pct": -32.6,
+       "median_ann_pct": 14.6,
+       "median_hold_ann_pct": -32.5,
        "median_mdd_pct": -27.4,
        "median_hold_mdd_pct": -57.7,
        "median_exposure_pct": 47.0,
@@ -2727,15 +2916,17 @@
      "train": {
       "bull": {
        "n": 1239,
+       "days": 119,
        "share": 12.0,
        "excess_bp": 4.92,
-       "t": -0.57
+       "t": 0.63
       },
       "bear": {
        "n": 46,
+       "days": 30,
        "share": 0.4,
        "excess_bp": -4.77,
-       "t": 0.07
+       "t": -0.17
       },
       "long_only": {
        "median_sharpe": 0.52,
@@ -2753,23 +2944,25 @@
      "test": {
       "bull": {
        "n": 968,
+       "days": 94,
        "share": 9.4,
        "excess_bp": 5.7,
-       "t": -0.44
+       "t": 0.71
       },
       "bear": {
        "n": 35,
+       "days": 25,
        "share": 0.3,
        "excess_bp": 5.39,
-       "t": 0.82
+       "t": 0.32
       },
       "long_only": {
        "median_sharpe": 0.36,
-       "median_hold_sharpe": -0.38,
+       "median_hold_sharpe": -0.37,
        "median_sharpe_gain": 0.7,
        "share_better": 0.8,
        "median_ann_pct": 6.2,
-       "median_hold_ann_pct": -32.6,
+       "median_hold_ann_pct": -32.5,
        "median_mdd_pct": -15.7,
        "median_hold_mdd_pct": -57.7,
        "median_exposure_pct": 10.0,
@@ -2781,9 +2974,10 @@
      "train": {
       "bull": {
        "n": 984,
+       "days": 148,
        "share": 9.6,
        "excess_bp": -2.77,
-       "t": 2.88
+       "t": -0.34
       },
       "bear": {
        "n": 0
@@ -2804,20 +2998,21 @@
      "test": {
       "bull": {
        "n": 895,
+       "days": 112,
        "share": 8.7,
-       "excess_bp": -1.11,
-       "t": 3.13
+       "excess_bp": -1.09,
+       "t": -0.22
       },
       "bear": {
        "n": 0
       },
       "long_only": {
        "median_sharpe": -1.68,
-       "median_hold_sharpe": -0.38,
+       "median_hold_sharpe": -0.37,
        "median_sharpe_gain": -1.28,
        "share_better": 0.0,
-       "median_ann_pct": -21.4,
-       "median_hold_ann_pct": -32.6,
+       "median_ann_pct": -21.3,
+       "median_hold_ann_pct": -32.5,
        "median_mdd_pct": -22.7,
        "median_hold_mdd_pct": -57.7,
        "median_exposure_pct": 8.0,
@@ -2829,9 +3024,10 @@
      "train": {
       "bull": {
        "n": 1122,
+       "days": 219,
        "share": 10.9,
        "excess_bp": 0.66,
-       "t": 1.55
+       "t": 0.08
       },
       "bear": {
        "n": 0
@@ -2852,20 +3048,21 @@
      "test": {
       "bull": {
        "n": 843,
+       "days": 183,
        "share": 8.2,
        "excess_bp": 5.48,
-       "t": 2.19
+       "t": 0.85
       },
       "bear": {
        "n": 0
       },
       "long_only": {
        "median_sharpe": -4.43,
-       "median_hold_sharpe": -0.38,
+       "median_hold_sharpe": -0.37,
        "median_sharpe_gain": -4.06,
        "share_better": 0.0,
        "median_ann_pct": -46.9,
-       "median_hold_ann_pct": -32.6,
+       "median_hold_ann_pct": -32.5,
        "median_mdd_pct": -48.0,
        "median_hold_mdd_pct": -57.7,
        "median_exposure_pct": 8.0,
@@ -2877,9 +3074,10 @@
      "train": {
       "bull": {
        "n": 1550,
+       "days": 63,
        "share": 15.1,
        "excess_bp": -1.65,
-       "t": -0.29
+       "t": -0.14
       },
       "bear": {
        "n": 0
@@ -2900,20 +3098,21 @@
      "test": {
       "bull": {
        "n": 1495,
+       "days": 63,
        "share": 14.5,
-       "excess_bp": 1.42,
-       "t": -0.23
+       "excess_bp": 1.41,
+       "t": 0.18
       },
       "bear": {
        "n": 0
       },
       "long_only": {
        "median_sharpe": -0.24,
-       "median_hold_sharpe": -0.38,
-       "median_sharpe_gain": 0.12,
+       "median_hold_sharpe": -0.37,
+       "median_sharpe_gain": 0.11,
        "share_better": 0.8,
        "median_ann_pct": -5.8,
-       "median_hold_ann_pct": -32.6,
+       "median_hold_ann_pct": -32.5,
        "median_mdd_pct": -21.7,
        "median_hold_mdd_pct": -57.7,
        "median_exposure_pct": 15.0,
@@ -2925,15 +3124,17 @@
      "train": {
       "bull": {
        "n": 4781,
+       "days": 246,
        "share": 46.5,
        "excess_bp": 1.74,
-       "t": -2.54
+       "t": 0.43
       },
       "bear": {
        "n": 5504,
+       "days": 276,
        "share": 53.5,
        "excess_bp": -1.51,
-       "t": 1.01
+       "t": -0.3
       },
       "long_only": {
        "median_sharpe": -0.02,
@@ -2951,23 +3152,25 @@
      "test": {
       "bull": {
        "n": 4621,
+       "days": 230,
        "share": 45.0,
        "excess_bp": -0.45,
-       "t": -1.85
+       "t": -0.14
       },
       "bear": {
        "n": 5654,
+       "days": 264,
        "share": 55.0,
        "excess_bp": 0.37,
-       "t": 1.68
+       "t": 0.1
       },
       "long_only": {
        "median_sharpe": -0.39,
-       "median_hold_sharpe": -0.38,
+       "median_hold_sharpe": -0.37,
        "median_sharpe_gain": 0.03,
        "share_better": 0.6,
        "median_ann_pct": -20.0,
-       "median_hold_ann_pct": -32.6,
+       "median_hold_ann_pct": -32.5,
        "median_mdd_pct": -44.7,
        "median_hold_mdd_pct": -57.7,
        "median_exposure_pct": 46.0,
@@ -2979,15 +3182,17 @@
      "train": {
       "bull": {
        "n": 585,
+       "days": 106,
        "share": 5.7,
        "excess_bp": -19.71,
-       "t": 2.61
+       "t": -1.04
       },
       "bear": {
        "n": 647,
+       "days": 127,
        "share": 6.3,
        "excess_bp": 4.94,
-       "t": -3.01
+       "t": 0.54
       },
       "long_only": {
        "median_sharpe": -1.6,
@@ -3005,23 +3210,25 @@
      "test": {
       "bull": {
        "n": 575,
+       "days": 111,
        "share": 5.6,
-       "excess_bp": 3.86,
-       "t": 3.78
+       "excess_bp": 3.91,
+       "t": 0.31
       },
       "bear": {
        "n": 603,
+       "days": 115,
        "share": 5.9,
        "excess_bp": -4.18,
-       "t": -4.27
+       "t": -0.49
       },
       "long_only": {
-       "median_sharpe": -1.34,
-       "median_hold_sharpe": -0.38,
-       "median_sharpe_gain": -0.92,
+       "median_sharpe": -1.33,
+       "median_hold_sharpe": -0.37,
+       "median_sharpe_gain": -0.91,
        "share_better": 0.0,
-       "median_ann_pct": -22.1,
-       "median_hold_ann_pct": -32.6,
+       "median_ann_pct": -22.0,
+       "median_hold_ann_pct": -32.5,
        "median_mdd_pct": -27.5,
        "median_hold_mdd_pct": -57.7,
        "median_exposure_pct": 6.0,
@@ -3033,15 +3240,17 @@
      "train": {
       "bull": {
        "n": 796,
+       "days": 194,
        "share": 7.7,
        "excess_bp": -0.47,
-       "t": 0.39
+       "t": -0.04
       },
       "bear": {
        "n": 880,
+       "days": 188,
        "share": 8.6,
        "excess_bp": 5.92,
-       "t": -0.21
+       "t": 0.7
       },
       "long_only": {
        "median_sharpe": -2.43,
@@ -3059,23 +3268,25 @@
      "test": {
       "bull": {
        "n": 884,
+       "days": 198,
        "share": 8.6,
        "excess_bp": -3.18,
-       "t": -0.99
+       "t": -0.39
       },
       "bear": {
        "n": 674,
+       "days": 168,
        "share": 6.6,
-       "excess_bp": 7.1,
-       "t": 0.66
+       "excess_bp": 7.12,
+       "t": 1.03
       },
       "long_only": {
        "median_sharpe": -3.29,
-       "median_hold_sharpe": -0.38,
+       "median_hold_sharpe": -0.37,
        "median_sharpe_gain": -3.34,
        "share_better": 0.0,
        "median_ann_pct": -48.5,
-       "median_hold_ann_pct": -32.6,
+       "median_hold_ann_pct": -32.5,
        "median_mdd_pct": -48.6,
        "median_hold_mdd_pct": -57.7,
        "median_exposure_pct": 9.0,
@@ -3087,15 +3298,17 @@
      "train": {
       "bull": {
        "n": 2490,
+       "days": 187,
        "share": 24.2,
        "excess_bp": 3.69,
-       "t": 3.39
+       "t": 0.45
       },
       "bear": {
        "n": 2422,
+       "days": 185,
        "share": 23.5,
        "excess_bp": 5.98,
-       "t": -2.5
+       "t": 1.11
       },
       "long_only": {
        "median_sharpe": -0.2,
@@ -3113,23 +3326,25 @@
      "test": {
       "bull": {
        "n": 2351,
+       "days": 170,
        "share": 22.9,
-       "excess_bp": 0.05,
-       "t": 3.32
+       "excess_bp": 0.07,
+       "t": 0.01
       },
       "bear": {
        "n": 1913,
+       "days": 157,
        "share": 18.6,
        "excess_bp": 0.71,
-       "t": -2.81
+       "t": 0.12
       },
       "long_only": {
        "median_sharpe": -0.86,
-       "median_hold_sharpe": -0.38,
+       "median_hold_sharpe": -0.37,
        "median_sharpe_gain": -0.74,
        "share_better": 0.0,
-       "median_ann_pct": -32.4,
-       "median_hold_ann_pct": -32.6,
+       "median_ann_pct": -32.3,
+       "median_hold_ann_pct": -32.5,
        "median_mdd_pct": -43.7,
        "median_hold_mdd_pct": -57.7,
        "median_exposure_pct": 23.0,
@@ -3141,15 +3356,17 @@
      "train": {
       "bull": {
        "n": 3691,
+       "days": 253,
        "share": 35.9,
        "excess_bp": -1.77,
-       "t": -2.95
+       "t": -0.35
       },
       "bear": {
        "n": 3344,
+       "days": 236,
        "share": 32.5,
        "excess_bp": -1.96,
-       "t": 1.88
+       "t": -0.31
       },
       "long_only": {
        "median_sharpe": -1.36,
@@ -3167,23 +3384,25 @@
      "test": {
       "bull": {
        "n": 3293,
+       "days": 225,
        "share": 32.0,
        "excess_bp": -3.88,
-       "t": -2.31
+       "t": -0.86
       },
       "bear": {
        "n": 3564,
+       "days": 237,
        "share": 34.7,
        "excess_bp": 0.97,
-       "t": 2.71
+       "t": 0.2
       },
       "long_only": {
        "median_sharpe": -2.33,
-       "median_hold_sharpe": -0.38,
+       "median_hold_sharpe": -0.37,
        "median_sharpe_gain": -1.99,
        "share_better": 0.0,
        "median_ann_pct": -51.0,
-       "median_hold_ann_pct": -32.6,
+       "median_hold_ann_pct": -32.5,
        "median_mdd_pct": -61.0,
        "median_hold_mdd_pct": -57.7,
        "median_exposure_pct": 33.0,
@@ -3195,15 +3414,17 @@
      "train": {
       "bull": {
        "n": 139,
+       "days": 77,
        "share": 1.4,
        "excess_bp": -1.23,
-       "t": 0.07
+       "t": -0.06
       },
       "bear": {
        "n": 114,
+       "days": 63,
        "share": 1.1,
        "excess_bp": -37.36,
-       "t": -1.14
+       "t": -1.67
       },
       "long_only": {
        "median_sharpe": -1.04,
@@ -3221,23 +3442,25 @@
      "test": {
       "bull": {
        "n": 135,
+       "days": 72,
        "share": 1.3,
-       "excess_bp": 17.27,
-       "t": 1.48
+       "excess_bp": 17.26,
+       "t": 0.95
       },
       "bear": {
        "n": 160,
+       "days": 71,
        "share": 1.6,
-       "excess_bp": -1.43,
-       "t": -0.67
+       "excess_bp": -1.32,
+       "t": -0.1
       },
       "long_only": {
        "median_sharpe": -1.13,
-       "median_hold_sharpe": -0.38,
+       "median_hold_sharpe": -0.37,
        "median_sharpe_gain": -0.75,
        "share_better": 0.2,
        "median_ann_pct": -8.2,
-       "median_hold_ann_pct": -32.6,
+       "median_hold_ann_pct": -32.5,
        "median_mdd_pct": -8.6,
        "median_hold_mdd_pct": -57.7,
        "median_exposure_pct": 1.0,
@@ -3246,7 +3469,11 @@
      }
     }
    },
-   "kept": []
+   "kept": [],
+   "consistent": [
+    "btc_trend_gate",
+    "ibs_reversal"
+   ]
   },
   "stock-1h": {
    "split": "2025-05-26",
@@ -3279,9 +3506,10 @@
      "train": {
       "bull": {
        "n": 3459,
+       "days": 260,
        "share": 11.0,
        "excess_bp": -0.59,
-       "t": 2.7
+       "t": -0.2
       },
       "bear": {
        "n": 0
@@ -3302,9 +3530,10 @@
      "test": {
       "bull": {
        "n": 4032,
+       "days": 292,
        "share": 12.9,
        "excess_bp": 0.9,
-       "t": 1.97
+       "t": 0.43
       },
       "bear": {
        "n": 0
@@ -3327,9 +3556,10 @@
      "train": {
       "bull": {
        "n": 3274,
+       "days": 326,
        "share": 10.5,
        "excess_bp": -0.02,
-       "t": 0.58
+       "t": -0.01
       },
       "bear": {
        "n": 0
@@ -3350,9 +3580,10 @@
      "test": {
       "bull": {
        "n": 3774,
+       "days": 344,
        "share": 12.1,
        "excess_bp": -0.48,
-       "t": 0.37
+       "t": -0.17
       },
       "bear": {
        "n": 0
@@ -3375,9 +3606,10 @@
      "train": {
       "bull": {
        "n": 5629,
+       "days": 63,
        "share": 18.0,
        "excess_bp": 0.23,
-       "t": 0.28
+       "t": 0.05
       },
       "bear": {
        "n": 0
@@ -3398,9 +3630,10 @@
      "test": {
       "bull": {
        "n": 5966,
+       "days": 68,
        "share": 19.1,
        "excess_bp": 1.11,
-       "t": 0.07
+       "t": 0.35
       },
       "bear": {
        "n": 0
@@ -3423,12 +3656,14 @@
      "train": {
       "bull": {
        "n": 27482,
+       "days": 304,
        "share": 87.8,
        "excess_bp": -0.66,
-       "t": -0.28
+       "t": -0.46
       },
       "bear": {
        "n": 3822,
+       "days": 42,
        "share": 12.2,
        "excess_bp": 4.75,
        "t": 0.6
@@ -3449,12 +3684,14 @@
      "test": {
       "bull": {
        "n": 30198,
+       "days": 335,
        "share": 96.5,
        "excess_bp": 0.05,
-       "t": -0.09
+       "t": 0.04
       },
       "bear": {
        "n": 1092,
+       "days": 12,
        "share": 3.5,
        "excess_bp": -1.32,
        "t": -0.12
@@ -3477,6 +3714,7 @@
      "train": {
       "bull": {
        "n": 3185,
+       "days": 35,
        "share": 10.2,
        "excess_bp": 6.44,
        "t": 0.75
@@ -3500,6 +3738,7 @@
      "test": {
       "bull": {
        "n": 1183,
+       "days": 13,
        "share": 3.8,
        "excess_bp": 14.19,
        "t": 1.62
@@ -3525,15 +3764,17 @@
      "train": {
       "bull": {
        "n": 17326,
+       "days": 332,
        "share": 55.3,
        "excess_bp": -0.43,
-       "t": -2.47
+       "t": -0.28
       },
       "bear": {
        "n": 13978,
+       "days": 333,
        "share": 44.7,
        "excess_bp": 0.54,
-       "t": 0.19
+       "t": 0.21
       },
       "long_only": {
        "median_sharpe": 0.32,
@@ -3551,15 +3792,17 @@
      "test": {
       "bull": {
        "n": 17999,
+       "days": 344,
        "share": 57.5,
        "excess_bp": -0.46,
-       "t": -1.04
+       "t": -0.35
       },
       "bear": {
        "n": 13291,
+       "days": 340,
        "share": 42.5,
        "excess_bp": 0.62,
-       "t": 0.64
+       "t": 0.33
       },
       "long_only": {
        "median_sharpe": 0.83,
@@ -3579,15 +3822,17 @@
      "train": {
       "bull": {
        "n": 17671,
+       "days": 335,
        "share": 56.4,
        "excess_bp": 0.01,
-       "t": -1.96
+       "t": 0.01
       },
       "bear": {
        "n": 8666,
+       "days": 306,
        "share": 27.7,
        "excess_bp": 0.36,
-       "t": 2.74
+       "t": 0.12
       },
       "long_only": {
        "median_sharpe": -0.01,
@@ -3605,15 +3850,17 @@
      "test": {
       "bull": {
        "n": 18418,
+       "days": 345,
        "share": 58.9,
        "excess_bp": -0.71,
-       "t": -2.28
+       "t": -0.55
       },
       "bear": {
        "n": 8203,
+       "days": 310,
        "share": 26.2,
        "excess_bp": 1.87,
-       "t": 2.12
+       "t": 0.78
       },
       "long_only": {
        "median_sharpe": 0.53,
@@ -3633,15 +3880,17 @@
      "train": {
       "bull": {
        "n": 11935,
+       "days": 312,
        "share": 38.1,
        "excess_bp": 0.1,
-       "t": -2.11
+       "t": 0.06
       },
       "bear": {
        "n": 5952,
+       "days": 295,
        "share": 19.0,
        "excess_bp": -0.01,
-       "t": 2.11
+       "t": -0.0
       },
       "long_only": {
        "median_sharpe": 0.47,
@@ -3659,15 +3908,17 @@
      "test": {
       "bull": {
        "n": 13077,
+       "days": 342,
        "share": 41.8,
        "excess_bp": -1.2,
-       "t": -2.57
+       "t": -0.88
       },
       "bear": {
        "n": 5019,
+       "days": 282,
        "share": 16.0,
        "excess_bp": 3.54,
-       "t": 1.67
+       "t": 1.18
       },
       "long_only": {
        "median_sharpe": 0.36,
@@ -3687,15 +3938,17 @@
      "train": {
       "bull": {
        "n": 6014,
+       "days": 239,
        "share": 19.2,
        "excess_bp": 0.35,
-       "t": -1.59
+       "t": 0.19
       },
       "bear": {
        "n": 182,
+       "days": 89,
        "share": 0.6,
        "excess_bp": 4.91,
-       "t": 1.19
+       "t": 0.65
       },
       "long_only": {
        "median_sharpe": 0.28,
@@ -3713,15 +3966,17 @@
      "test": {
       "bull": {
        "n": 7238,
+       "days": 294,
        "share": 23.1,
        "excess_bp": -0.73,
-       "t": -2.71
+       "t": -0.43
       },
       "bear": {
        "n": 216,
+       "days": 115,
        "share": 0.7,
        "excess_bp": -11.52,
-       "t": -1.39
+       "t": -1.73
       },
       "long_only": {
        "median_sharpe": 0.37,
@@ -3741,15 +3996,17 @@
      "train": {
       "bull": {
        "n": 18244,
+       "days": 332,
        "share": 58.3,
        "excess_bp": 0.31,
-       "t": -1.12
+       "t": 0.21
       },
       "bear": {
        "n": 13060,
+       "days": 334,
        "share": 41.7,
        "excess_bp": -0.44,
-       "t": 0.62
+       "t": -0.16
       },
       "long_only": {
        "median_sharpe": 0.61,
@@ -3767,15 +4024,17 @@
      "test": {
       "bull": {
        "n": 19242,
+       "days": 347,
        "share": 61.5,
        "excess_bp": -0.32,
-       "t": -0.64
+       "t": -0.26
       },
       "bear": {
        "n": 12048,
+       "days": 334,
        "share": 38.5,
        "excess_bp": 0.51,
-       "t": 0.68
+       "t": 0.26
       },
       "long_only": {
        "median_sharpe": 0.79,
@@ -3795,15 +4054,17 @@
      "train": {
       "bull": {
        "n": 1591,
+       "days": 209,
        "share": 5.1,
        "excess_bp": -2.4,
-       "t": 2.43
+       "t": -0.56
       },
       "bear": {
        "n": 1862,
+       "days": 253,
        "share": 5.9,
        "excess_bp": -3.36,
-       "t": -4.29
+       "t": -1.14
       },
       "long_only": {
        "median_sharpe": -0.63,
@@ -3821,15 +4082,17 @@
      "test": {
       "bull": {
        "n": 1517,
+       "days": 228,
        "share": 4.8,
        "excess_bp": 7.35,
-       "t": 4.06
+       "t": 2.03
       },
       "bear": {
        "n": 1741,
+       "days": 276,
        "share": 5.6,
        "excess_bp": -2.27,
-       "t": -4.42
+       "t": -1.0
       },
       "long_only": {
        "median_sharpe": 0.31,
@@ -3849,15 +4112,17 @@
      "train": {
       "bull": {
        "n": 2250,
+       "days": 289,
        "share": 7.2,
        "excess_bp": -0.77,
-       "t": -0.4
+       "t": -0.18
       },
       "bear": {
        "n": 3956,
+       "days": 307,
        "share": 12.6,
        "excess_bp": -0.79,
-       "t": -0.9
+       "t": -0.34
       },
       "long_only": {
        "median_sharpe": -0.73,
@@ -3875,15 +4140,17 @@
      "test": {
       "bull": {
        "n": 2087,
+       "days": 290,
        "share": 6.7,
        "excess_bp": 1.12,
-       "t": 0.62
+       "t": 0.31
       },
       "bear": {
        "n": 3969,
+       "days": 329,
        "share": 12.7,
        "excess_bp": -2.44,
-       "t": -2.37
+       "t": -1.02
       },
       "long_only": {
        "median_sharpe": 0.37,
@@ -3903,15 +4170,17 @@
      "train": {
       "bull": {
        "n": 7321,
+       "days": 290,
        "share": 23.4,
        "excess_bp": 2.04,
-       "t": 2.74
+       "t": 0.62
       },
       "bear": {
        "n": 10895,
+       "days": 297,
        "share": 34.8,
        "excess_bp": 1.02,
-       "t": -2.89
+       "t": 0.63
       },
       "long_only": {
        "median_sharpe": 0.73,
@@ -3929,15 +4198,17 @@
      "test": {
       "bull": {
        "n": 6258,
+       "days": 289,
        "share": 20.0,
        "excess_bp": 3.43,
-       "t": 1.62
+       "t": 1.25
       },
       "bear": {
        "n": 10669,
+       "days": 328,
        "share": 34.1,
        "excess_bp": -1.2,
-       "t": -3.19
+       "t": -0.78
       },
       "long_only": {
        "median_sharpe": 0.86,
@@ -3957,15 +4228,17 @@
      "train": {
       "bull": {
        "n": 12608,
+       "days": 327,
        "share": 40.3,
        "excess_bp": 0.18,
-       "t": -1.33
+       "t": 0.1
       },
       "bear": {
        "n": 9611,
+       "days": 310,
        "share": 30.7,
        "excess_bp": -0.23,
-       "t": 1.08
+       "t": -0.08
       },
       "long_only": {
        "median_sharpe": 0.02,
@@ -3983,15 +4256,17 @@
      "test": {
       "bull": {
        "n": 12867,
+       "days": 338,
        "share": 41.1,
        "excess_bp": -1.23,
-       "t": -1.86
+       "t": -0.88
       },
       "bear": {
        "n": 9456,
+       "days": 326,
        "share": 30.2,
        "excess_bp": 1.29,
-       "t": 1.24
+       "t": 0.6
       },
       "long_only": {
        "median_sharpe": 0.13,
@@ -4011,15 +4286,17 @@
      "train": {
       "bull": {
        "n": 386,
+       "days": 140,
        "share": 1.2,
        "excess_bp": 7.2,
-       "t": 1.49
+       "t": 1.39
       },
       "bear": {
        "n": 263,
+       "days": 117,
        "share": 0.8,
        "excess_bp": -6.17,
-       "t": -0.92
+       "t": -0.48
       },
       "long_only": {
        "median_sharpe": -0.26,
@@ -4037,15 +4314,17 @@
      "test": {
       "bull": {
        "n": 397,
+       "days": 153,
        "share": 1.3,
        "excess_bp": -9.24,
-       "t": -0.26
+       "t": -2.16
       },
       "bear": {
        "n": 269,
+       "days": 131,
        "share": 0.9,
        "excess_bp": -4.38,
-       "t": -0.33
+       "t": -0.69
       },
       "long_only": {
        "median_sharpe": -0.63,
@@ -4062,7 +4341,11 @@
      }
     }
    },
-   "kept": []
+   "kept": [],
+   "consistent": [
+    "turn_of_month",
+    "vix_backwardation"
+   ]
   },
   "crypto-1h": {
    "split": "2025-10-19",
@@ -4087,15 +4370,17 @@
      "train": {
       "bull": {
        "n": 21760,
+       "days": 339,
        "share": 50.6,
        "excess_bp": 0.1,
-       "t": -5.25
+       "t": 0.1
       },
       "bear": {
        "n": 21285,
+       "days": 340,
        "share": 49.4,
        "excess_bp": -0.11,
-       "t": 3.88
+       "t": -0.09
       },
       "long_only": {
        "median_sharpe": -2.57,
@@ -4113,23 +4398,25 @@
      "test": {
       "bull": {
        "n": 21212,
+       "days": 335,
        "share": 49.4,
        "excess_bp": -0.05,
-       "t": -4.39
+       "t": -0.07
       },
       "bear": {
        "n": 21693,
+       "days": 346,
        "share": 50.6,
        "excess_bp": 0.05,
-       "t": 4.98
+       "t": 0.06
       },
       "long_only": {
        "median_sharpe": -5.15,
-       "median_hold_sharpe": -0.47,
+       "median_hold_sharpe": -0.46,
        "median_sharpe_gain": -4.68,
        "share_better": 0.0,
        "median_ann_pct": -88.3,
-       "median_hold_ann_pct": -36.5,
+       "median_hold_ann_pct": -36.4,
        "median_mdd_pct": -88.4,
        "median_hold_mdd_pct": -64.1,
        "median_exposure_pct": 49.0,
@@ -4141,15 +4428,17 @@
      "train": {
       "bull": {
        "n": 21990,
+       "days": 339,
        "share": 51.1,
        "excess_bp": 0.59,
-       "t": -5.45
+       "t": 0.58
       },
       "bear": {
        "n": 13899,
+       "days": 305,
        "share": 32.3,
        "excess_bp": -0.68,
-       "t": 5.73
+       "t": -0.45
       },
       "long_only": {
        "median_sharpe": -1.85,
@@ -4167,23 +4456,25 @@
      "test": {
       "bull": {
        "n": 20845,
+       "days": 330,
        "share": 48.6,
-       "excess_bp": -0.18,
-       "t": -5.61
+       "excess_bp": -0.19,
+       "t": -0.23
       },
       "bear": {
        "n": 14598,
+       "days": 308,
        "share": 34.0,
-       "excess_bp": 0.22,
-       "t": 6.63
+       "excess_bp": 0.23,
+       "t": 0.2
       },
       "long_only": {
        "median_sharpe": -4.96,
-       "median_hold_sharpe": -0.47,
+       "median_hold_sharpe": -0.46,
        "median_sharpe_gain": -4.39,
        "share_better": 0.0,
        "median_ann_pct": -85.2,
-       "median_hold_ann_pct": -36.5,
+       "median_hold_ann_pct": -36.4,
        "median_mdd_pct": -85.0,
        "median_hold_mdd_pct": -64.1,
        "median_exposure_pct": 49.0,
@@ -4195,15 +4486,17 @@
      "train": {
       "bull": {
        "n": 12844,
+       "days": 277,
        "share": 29.8,
        "excess_bp": 1.32,
-       "t": -4.87
+       "t": 1.08
       },
       "bear": {
        "n": 10100,
+       "days": 266,
        "share": 23.5,
        "excess_bp": -1.39,
-       "t": 4.26
+       "t": -0.77
       },
       "long_only": {
        "median_sharpe": -0.84,
@@ -4221,23 +4514,25 @@
      "test": {
       "bull": {
        "n": 10568,
+       "days": 256,
        "share": 24.6,
        "excess_bp": 0.15,
-       "t": -4.66
+       "t": 0.12
       },
       "bear": {
        "n": 11926,
+       "days": 290,
        "share": 27.8,
-       "excess_bp": 0.32,
-       "t": 4.96
+       "excess_bp": 0.33,
+       "t": 0.24
       },
       "long_only": {
        "median_sharpe": -3.18,
-       "median_hold_sharpe": -0.47,
+       "median_hold_sharpe": -0.46,
        "median_sharpe_gain": -2.69,
        "share_better": 0.0,
        "median_ann_pct": -62.9,
-       "median_hold_ann_pct": -36.5,
+       "median_hold_ann_pct": -36.4,
        "median_mdd_pct": -68.3,
        "median_hold_mdd_pct": -64.1,
        "median_exposure_pct": 25.0,
@@ -4249,12 +4544,14 @@
      "train": {
       "bull": {
        "n": 28140,
+       "days": 235,
        "share": 65.4,
        "excess_bp": 0.25,
-       "t": 0.19
+       "t": 0.25
       },
       "bear": {
        "n": 14905,
+       "days": 125,
        "share": 34.6,
        "excess_bp": -0.46,
        "t": -0.29
@@ -4275,23 +4572,25 @@
      "test": {
       "bull": {
        "n": 19330,
+       "days": 162,
        "share": 45.1,
        "excess_bp": 0.81,
-       "t": 1.31
+       "t": 0.96
       },
       "bear": {
        "n": 23575,
+       "days": 198,
        "share": 54.9,
        "excess_bp": -0.67,
-       "t": -0.74
+       "t": -0.69
       },
       "long_only": {
-       "median_sharpe": 0.43,
-       "median_hold_sharpe": -0.47,
+       "median_sharpe": 0.44,
+       "median_hold_sharpe": -0.46,
        "median_sharpe_gain": 0.89,
        "share_better": 1.0,
-       "median_ann_pct": 9.5,
-       "median_hold_ann_pct": -36.5,
+       "median_ann_pct": 9.7,
+       "median_hold_ann_pct": -36.4,
        "median_mdd_pct": -27.1,
        "median_hold_mdd_pct": -64.1,
        "median_exposure_pct": 45.0,
@@ -4303,15 +4602,17 @@
      "train": {
       "bull": {
        "n": 5304,
+       "days": 156,
        "share": 12.3,
        "excess_bp": 1.81,
-       "t": -3.55
+       "t": 1.11
       },
       "bear": {
        "n": 208,
+       "days": 103,
        "share": 0.5,
        "excess_bp": 6.39,
-       "t": 1.25
+       "t": 0.9
       },
       "long_only": {
        "median_sharpe": 0.51,
@@ -4329,23 +4630,25 @@
      "test": {
       "bull": {
        "n": 3994,
+       "days": 119,
        "share": 9.3,
        "excess_bp": 0.52,
-       "t": -2.79
+       "t": 0.29
       },
       "bear": {
        "n": 162,
+       "days": 73,
        "share": 0.4,
        "excess_bp": 11.01,
-       "t": 1.48
+       "t": 1.8
       },
       "long_only": {
        "median_sharpe": -0.83,
-       "median_hold_sharpe": -0.47,
+       "median_hold_sharpe": -0.46,
        "median_sharpe_gain": -0.26,
        "share_better": 0.2,
        "median_ann_pct": -16.8,
-       "median_hold_ann_pct": -36.5,
+       "median_hold_ann_pct": -36.4,
        "median_mdd_pct": -34.0,
        "median_hold_mdd_pct": -64.1,
        "median_exposure_pct": 10.0,
@@ -4357,9 +4660,10 @@
      "train": {
       "bull": {
        "n": 3831,
+       "days": 249,
        "share": 8.9,
        "excess_bp": 0.35,
-       "t": 5.53
+       "t": 0.18
       },
       "bear": {
        "n": 0
@@ -4380,20 +4684,21 @@
      "test": {
       "bull": {
        "n": 3604,
+       "days": 225,
        "share": 8.4,
        "excess_bp": -0.37,
-       "t": 3.51
+       "t": -0.24
       },
       "bear": {
        "n": 0
       },
       "long_only": {
        "median_sharpe": -5.08,
-       "median_hold_sharpe": -0.47,
-       "median_sharpe_gain": -5.03,
+       "median_hold_sharpe": -0.46,
+       "median_sharpe_gain": -5.04,
        "share_better": 0.0,
        "median_ann_pct": -59.2,
-       "median_hold_ann_pct": -36.5,
+       "median_hold_ann_pct": -36.4,
        "median_mdd_pct": -58.7,
        "median_hold_mdd_pct": -64.1,
        "median_exposure_pct": 8.0,
@@ -4405,9 +4710,10 @@
      "train": {
       "bull": {
        "n": 5662,
+       "days": 285,
        "share": 13.2,
        "excess_bp": 2.61,
-       "t": -0.28
+       "t": 1.58
       },
       "bear": {
        "n": 0
@@ -4428,20 +4734,21 @@
      "test": {
       "bull": {
        "n": 4292,
+       "days": 269,
        "share": 10.0,
        "excess_bp": -1.83,
-       "t": -1.75
+       "t": -1.22
       },
       "bear": {
        "n": 0
       },
       "long_only": {
        "median_sharpe": -18.03,
-       "median_hold_sharpe": -0.47,
+       "median_hold_sharpe": -0.46,
        "median_sharpe_gain": -17.48,
        "share_better": 0.0,
        "median_ann_pct": -97.6,
-       "median_hold_ann_pct": -36.5,
+       "median_hold_ann_pct": -36.4,
        "median_mdd_pct": -97.4,
        "median_hold_mdd_pct": -64.1,
        "median_exposure_pct": 10.0,
@@ -4453,9 +4760,10 @@
      "train": {
       "bull": {
        "n": 6240,
+       "days": 64,
        "share": 14.5,
        "excess_bp": -1.02,
-       "t": -1.27
+       "t": -0.38
       },
       "bear": {
        "n": 0
@@ -4476,20 +4784,21 @@
      "test": {
       "bull": {
        "n": 6385,
+       "days": 66,
        "share": 14.9,
        "excess_bp": -0.53,
-       "t": -0.01
+       "t": -0.28
       },
       "bear": {
        "n": 0
       },
       "long_only": {
        "median_sharpe": -0.53,
-       "median_hold_sharpe": -0.47,
-       "median_sharpe_gain": -0.19,
+       "median_hold_sharpe": -0.46,
+       "median_sharpe_gain": -0.2,
        "share_better": 0.2,
        "median_ann_pct": -17.4,
-       "median_hold_ann_pct": -36.5,
+       "median_hold_ann_pct": -36.4,
        "median_mdd_pct": -28.7,
        "median_hold_mdd_pct": -64.1,
        "median_exposure_pct": 15.0,
@@ -4501,15 +4810,17 @@
      "train": {
       "bull": {
        "n": 21602,
+       "days": 311,
        "share": 50.2,
        "excess_bp": 0.36,
-       "t": -4.37
+       "t": 0.34
       },
       "bear": {
        "n": 21443,
+       "days": 312,
        "share": 49.8,
        "excess_bp": -0.36,
-       "t": 3.76
+       "t": -0.3
       },
       "long_only": {
        "median_sharpe": -0.4,
@@ -4527,23 +4838,25 @@
      "test": {
       "bull": {
        "n": 19903,
+       "days": 289,
        "share": 46.4,
        "excess_bp": -0.62,
-       "t": -4.68
+       "t": -0.72
       },
       "bear": {
        "n": 23002,
+       "days": 318,
        "share": 53.6,
        "excess_bp": 0.54,
-       "t": 4.0
+       "t": 0.59
       },
       "long_only": {
        "median_sharpe": -2.5,
-       "median_hold_sharpe": -0.47,
+       "median_hold_sharpe": -0.46,
        "median_sharpe_gain": -2.01,
        "share_better": 0.0,
        "median_ann_pct": -64.4,
-       "median_hold_ann_pct": -36.5,
+       "median_hold_ann_pct": -36.4,
        "median_mdd_pct": -65.0,
        "median_hold_mdd_pct": -64.1,
        "median_exposure_pct": 47.0,
@@ -4555,15 +4868,17 @@
      "train": {
       "bull": {
        "n": 2404,
+       "days": 262,
        "share": 5.6,
        "excess_bp": 0.48,
-       "t": 7.09
+       "t": 0.11
       },
       "bear": {
        "n": 2540,
+       "days": 265,
        "share": 5.9,
        "excess_bp": 3.61,
-       "t": -4.33
+       "t": 1.24
       },
       "long_only": {
        "median_sharpe": -4.52,
@@ -4581,23 +4896,25 @@
      "test": {
       "bull": {
        "n": 2511,
+       "days": 247,
        "share": 5.9,
        "excess_bp": -3.62,
-       "t": 4.23
+       "t": -1.3
       },
       "bear": {
        "n": 2442,
+       "days": 251,
        "share": 5.7,
        "excess_bp": 4.2,
-       "t": -4.51
+       "t": 1.56
       },
       "long_only": {
        "median_sharpe": -7.14,
-       "median_hold_sharpe": -0.47,
+       "median_hold_sharpe": -0.46,
        "median_sharpe_gain": -6.68,
        "share_better": 0.0,
        "median_ann_pct": -75.1,
-       "median_hold_ann_pct": -36.5,
+       "median_hold_ann_pct": -36.4,
        "median_mdd_pct": -74.9,
        "median_hold_mdd_pct": -64.1,
        "median_exposure_pct": 6.0,
@@ -4609,15 +4926,17 @@
      "train": {
       "bull": {
        "n": 3300,
+       "days": 318,
        "share": 7.7,
        "excess_bp": -0.43,
-       "t": 2.44
+       "t": -0.16
       },
       "bear": {
        "n": 3558,
+       "days": 315,
        "share": 8.3,
        "excess_bp": -0.61,
-       "t": -2.27
+       "t": -0.28
       },
       "long_only": {
        "median_sharpe": -7.9,
@@ -4635,23 +4954,25 @@
      "test": {
       "bull": {
        "n": 3478,
+       "days": 314,
        "share": 8.1,
        "excess_bp": 2.35,
-       "t": 3.0
+       "t": 1.15
       },
       "bear": {
        "n": 3119,
+       "days": 307,
        "share": 7.3,
-       "excess_bp": 1.9,
-       "t": -1.79
+       "excess_bp": 1.89,
+       "t": 1.07
       },
       "long_only": {
        "median_sharpe": -9.76,
-       "median_hold_sharpe": -0.47,
-       "median_sharpe_gain": -9.29,
+       "median_hold_sharpe": -0.46,
+       "median_sharpe_gain": -9.3,
        "share_better": 0.0,
        "median_ann_pct": -84.9,
-       "median_hold_ann_pct": -36.5,
+       "median_hold_ann_pct": -36.4,
        "median_mdd_pct": -84.5,
        "median_hold_mdd_pct": -64.1,
        "median_exposure_pct": 8.0,
@@ -4663,15 +4984,17 @@
      "train": {
       "bull": {
        "n": 10719,
+       "days": 270,
        "share": 24.9,
        "excess_bp": -1.16,
-       "t": 3.99
+       "t": -0.66
       },
       "bear": {
        "n": 11876,
+       "days": 283,
        "share": 27.6,
        "excess_bp": 1.64,
-       "t": -6.32
+       "t": 1.26
       },
       "long_only": {
        "median_sharpe": -2.81,
@@ -4689,23 +5012,25 @@
      "test": {
       "bull": {
        "n": 10810,
+       "days": 258,
        "share": 25.2,
        "excess_bp": -0.45,
-       "t": 6.04
+       "t": -0.32
       },
       "bear": {
        "n": 9547,
+       "days": 253,
        "share": 22.3,
        "excess_bp": 0.17,
-       "t": -5.2
+       "t": 0.13
       },
       "long_only": {
        "median_sharpe": -3.65,
-       "median_hold_sharpe": -0.47,
+       "median_hold_sharpe": -0.46,
        "median_sharpe_gain": -3.1,
        "share_better": 0.0,
        "median_ann_pct": -77.3,
-       "median_hold_ann_pct": -36.5,
+       "median_hold_ann_pct": -36.4,
        "median_mdd_pct": -78.4,
        "median_hold_mdd_pct": -64.1,
        "median_exposure_pct": 25.0,
@@ -4717,15 +5042,17 @@
      "train": {
       "bull": {
        "n": 15616,
+       "days": 340,
        "share": 36.3,
        "excess_bp": 1.19,
-       "t": -4.69
+       "t": 1.03
       },
       "bear": {
        "n": 14589,
+       "days": 340,
        "share": 33.9,
        "excess_bp": -1.02,
-       "t": 5.16
+       "t": -0.73
       },
       "long_only": {
        "median_sharpe": -2.91,
@@ -4743,23 +5070,25 @@
      "test": {
       "bull": {
        "n": 13861,
+       "days": 328,
        "share": 32.3,
        "excess_bp": 0.41,
-       "t": -5.08
+       "t": 0.37
       },
       "bear": {
        "n": 13913,
+       "days": 339,
        "share": 32.4,
        "excess_bp": -0.44,
-       "t": 5.41
+       "t": -0.4
       },
       "long_only": {
        "median_sharpe": -5.07,
-       "median_hold_sharpe": -0.47,
+       "median_hold_sharpe": -0.46,
        "median_sharpe_gain": -4.67,
        "share_better": 0.0,
        "median_ann_pct": -85.1,
-       "median_hold_ann_pct": -36.5,
+       "median_hold_ann_pct": -36.4,
        "median_mdd_pct": -85.8,
        "median_hold_mdd_pct": -64.1,
        "median_exposure_pct": 33.0,
@@ -4771,15 +5100,17 @@
      "train": {
       "bull": {
        "n": 596,
+       "days": 194,
        "share": 1.4,
        "excess_bp": 1.38,
-       "t": 0.45
+       "t": 0.31
       },
       "bear": {
        "n": 537,
+       "days": 184,
        "share": 1.2,
        "excess_bp": 3.29,
-       "t": -0.31
+       "t": 0.63
       },
       "long_only": {
        "median_sharpe": -3.98,
@@ -4797,23 +5128,25 @@
      "test": {
       "bull": {
        "n": 508,
+       "days": 178,
        "share": 1.2,
        "excess_bp": -4.47,
-       "t": 0.09
+       "t": -1.01
       },
       "bear": {
        "n": 508,
+       "days": 169,
        "share": 1.2,
-       "excess_bp": -0.0,
-       "t": -0.01
+       "excess_bp": -0.01,
+       "t": -0.0
       },
       "long_only": {
        "median_sharpe": -5.91,
-       "median_hold_sharpe": -0.47,
-       "median_sharpe_gain": -5.44,
+       "median_hold_sharpe": -0.46,
+       "median_sharpe_gain": -5.45,
        "share_better": 0.0,
        "median_ann_pct": -34.3,
-       "median_hold_ann_pct": -36.5,
+       "median_hold_ann_pct": -36.4,
        "median_mdd_pct": -33.8,
        "median_hold_mdd_pct": -64.1,
        "median_exposure_pct": 1.0,
@@ -4822,7 +5155,11 @@
      }
     }
    },
-   "kept": []
+   "kept": [],
+   "consistent": [
+    "btc_trend_gate",
+    "momentum_classic"
+   ]
   }
  }
 }
