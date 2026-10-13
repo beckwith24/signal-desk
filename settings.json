@@ -7,7 +7,7 @@
   "paused": false,
   "ladder": true,
   "min_action": "Buy",
-  "tg_offset": 498513498,
+  "tg_offset": 498513500,
   "watchlist": {
     "stocks": [
       "NVDA",
@@ -30,7 +30,8 @@
       "DELL",
       "BE",
       "LLY",
-      "HOOD"
+      "HOOD",
+      "SPCX"
     ],
     "crypto": [
       "BTC-USD",
