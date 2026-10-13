@@ -58,6 +58,14 @@ SEGMENT_MODELS = {   # which models make sense to test where (gates need their o
 }
 
 
+# Model sets chosen from the PUBLISHED research (before our own test), evaluated as a whole.
+PRESETS = {
+    "stock": {"pullback_any": (["rsi2_pullback", "ibs_reversal", "vix_backwardation"], 0.0)},
+    "crypto": {"trend4_majority": (["tsmom28", "sma_ensemble", "donchian_ensemble", "btc_trend_gate"], 0.0),
+               "trend4_3of4": (["tsmom28", "sma_ensemble", "donchian_ensemble", "btc_trend_gate"], 0.5)},
+}
+
+
 def old_ensemble(v: pd.DataFrame) -> pd.Series:
     """The original Signal Desk rule (3 of 5 agree + falling-knife guard) as a vote."""
     o = v[ORIGINAL]
@@ -184,6 +192,12 @@ def run_segment(asset: str, tf: str, tickers: list[str], ctx_daily: dict, worker
             d = data.copy()
             d["new_ensemble"] = np.sign(d[kept].mean(axis=1)).astype(int)
             res.setdefault("ensemble", {})[part] = stats(d, "new_ensemble", asset, tf)
+    for name, (cols_, thr) in PRESETS[asset].items():
+        for part, data in (("train", train), ("test", test)):
+            d = data.copy()
+            m = d[cols_].mean(axis=1)
+            d[name] = np.where(m > thr, 1, np.where(m < -thr if thr else m < 0, -1, 0))
+            res.setdefault("presets", {}).setdefault(name, {"models": cols_, "threshold": thr})[part] = stats(d, name, asset, tf)
     log.info("%s-%s: kept %s", asset, tf, kept)
     return res
 
@@ -208,6 +222,15 @@ def markdown(all_res: dict, meta: dict) -> str:
                          f"{e['median_hold_ann_pct']}%; worst dip {e['median_mdd_pct']}% vs {e['median_hold_mdd_pct']}%; "
                          f"invested {e['median_exposure_pct']:.0f}%; bullish excess {b.get('excess_bp')} bp (t {b.get('t')})")
             L.append("")
+        for name, pr in r.get("presets", {}).items():
+            L.append(f"- Preset **{name}** ({', '.join(pr['models'])}; bullish when average vote > {pr['threshold']}):")
+            for part in ("train", "test"):
+                e, b, br = pr[part]["long_only"], pr[part]["bull"], pr[part]["bear"]
+                L.append(f"  - {part}: bullish {b.get('excess_bp')} bp (t {b.get('t')}), bearish {br.get('excess_bp')} bp "
+                         f"(t {br.get('t')}); long-only Sharpe {e['median_sharpe']} vs hold {e['median_hold_sharpe']}, "
+                         f"return {e['median_ann_pct']}%/yr vs {e['median_hold_ann_pct']}%, worst dip {e['median_mdd_pct']}% "
+                         f"vs {e['median_hold_mdd_pct']}%, invested {e['median_exposure_pct']:.0f}%")
+        L.append("")
         L += ["| Model | Train bull bp (t) | Train bear bp (t) | Train Sharpe gain | Test bull bp (t) | Test bear bp (t) | Test Sharpe gain | Test invested |",
               "|---|---|---|---|---|---|---|---|"]
         for m, s in r["models"].items():
