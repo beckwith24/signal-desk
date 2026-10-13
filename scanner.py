@@ -61,8 +61,15 @@ def scan_one(ticker: str, tf: str, cfg: dict) -> dict:
     return res
 
 
+REPEAT_HOURS = 20    # the same alert for the same ticker isn't repeated within this many hours
+
+
 def should_alert(res: dict, prev: dict | None, cfg: dict) -> bool:
-    """Alert on a NEW qualifying signal, a direction flip, or a strengthening (e.g. Buy -> Strong Buy)."""
+    """Alert on a NEW qualifying signal, a direction flip, or a strengthening (e.g. Buy -> Strong Buy).
+
+    A signal that flickers (Strong Buy -> Buy -> Strong Buy during the day, as the day's bar forms)
+    doesn't alert again within REPEAT_HOURS.
+    """
     n = cfg["notifications"]
     min_rank = MIN_RANK.get(n["min_action"], 2)
     rank = res["rank"]
@@ -71,15 +78,19 @@ def should_alert(res: dict, prev: dict | None, cfg: dict) -> bool:
     if prev is None:
         return bool(n.get("alert_on_first_scan", False))
     p = prev["rank"]
-    return abs(p) < min_rank or (rank > 0) != (p > 0) or abs(rank) > abs(p)
+    if not (abs(p) < min_rank or (rank > 0) != (p > 0) or abs(rank) > abs(p)):
+        return False
+    return not storage.recently_notified(res["ticker"], res["timeframe"], res["action"], REPEAT_HOURS)
 
 
 def is_exit(res: dict, prev: dict | None, cfg: dict) -> bool:
-    """Trend segments: a Buy you were alerted to has ended (but hasn't flipped to Sell)."""
+    """Trend segments: a Buy you were alerted to has ended (dropped below Buy, even via a weaker Buy first)."""
     if not res.get("exit_alerts") or prev is None:
         return False
+    if not (prev["rank"] >= 2 and res["rank"] < 2):
+        return False
     min_rank = MIN_RANK.get(cfg["notifications"]["min_action"], 2)
-    return prev["rank"] >= max(min_rank, 2) and -2 < res["rank"] < 2
+    return storage.episode_alerted(res["ticker"], res["timeframe"], max(min_rank, 2))
 
 
 def handle_result(res: dict, cfg: dict, notify: bool = True) -> bool:

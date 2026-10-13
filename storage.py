@@ -103,6 +103,33 @@ def last_entry(ticker: str, tf: str) -> dict | None:
     return dict(zip(["ts", "action", "price"], row)) if row else None
 
 
+def episode_alerted(ticker: str, tf: str, min_rank: int) -> bool:
+    """Was an alert sent during the current Buy run (the latest rows with rank >= 2) at your alert level?"""
+    with _conn() as c:
+        rows = c.execute("SELECT rank, notified FROM signals WHERE ticker=? AND timeframe=? ORDER BY id DESC LIMIT 50",
+                         (ticker, tf)).fetchall()
+    for rank, notified in rows:
+        if rank < 2:
+            return False
+        if notified and rank >= min_rank:
+            return True
+    return False
+
+
+def recently_notified(ticker: str, tf: str, action: str, hours: float) -> bool:
+    """Was this same alert sent for this ticker/timeframe within the last `hours`?"""
+    with _conn() as c:
+        row = c.execute("SELECT ts FROM signals WHERE ticker=? AND timeframe=? AND action=? AND notified=1 "
+                        "ORDER BY id DESC LIMIT 1", (ticker, tf, action)).fetchone()
+    if not row:
+        return False
+    try:
+        when = pd.Timestamp(row[0].replace(" UTC", ""), tz="UTC")
+    except ValueError:
+        return False
+    return pd.Timestamp.now(tz="UTC") - when < pd.Timedelta(hours=hours)
+
+
 def get_ladder(ticker: str, tf: str) -> tuple[int, int] | None:
     with _conn() as c:
         row = c.execute("SELECT buy_tier, sell_tier FROM ladder_state WHERE ticker=? AND timeframe=?",
