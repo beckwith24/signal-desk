@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-13 17:19 UTC",
+ "generated": "2026-10-14 02:29 UTC",
  "tickers": {
   "stock": [
    "NVDA",
@@ -23,7 +23,19 @@
    "BE",
    "LLY",
    "HOOD",
-   "SPCX"
+   "SPCX",
+   "PANW",
+   "INTC",
+   "NOW",
+   "CSCO",
+   "CRM",
+   "TXN",
+   "ANET",
+   "V",
+   "ABBV",
+   "XOM",
+   "AMAT",
+   "TMO"
   ],
   "crypto": [
    "BTC-USD",
@@ -37,105 +49,135 @@
   "stock": {
    "all": {
     "Hold": {
-     "ticker_days": 30093,
+     "ticker_days": 49851,
      "dates": 2077,
-     "share_pct": 72.2,
-     "next_day_excess_bp": -3.4,
-     "t": -0.84,
+     "share_pct": 72.5,
+     "next_day_excess_bp": -3.1,
+     "t": -0.91,
      "next_5d_excess_pct": -0.14,
-     "t5": -1.49,
-     "next_5d_win_pct": 55.5
+     "t5": -1.78,
+     "next_5d_win_pct": 55.1
     },
     "Buy": {
-     "ticker_days": 9478,
-     "dates": 1864,
-     "share_pct": 22.8,
-     "next_day_excess_bp": 1.1,
-     "t": 0.12,
-     "next_5d_excess_pct": 0.27,
-     "t5": 1.64,
-     "next_5d_win_pct": 58.1
+     "ticker_days": 15598,
+     "dates": 2055,
+     "share_pct": 22.7,
+     "next_day_excess_bp": 1.7,
+     "t": 0.21,
+     "next_5d_excess_pct": 0.28,
+     "t5": 1.93,
+     "next_5d_win_pct": 58.2
     },
     "Strong Buy": {
-     "ticker_days": 2082,
-     "dates": 676,
-     "share_pct": 5.0,
-     "next_day_excess_bp": 44.4,
-     "t": 2.79,
-     "next_5d_excess_pct": 0.76,
-     "t5": 2.18,
-     "next_5d_win_pct": 60.6
+     "ticker_days": 3035,
+     "dates": 898,
+     "share_pct": 4.4,
+     "next_day_excess_bp": 38.0,
+     "t": 2.85,
+     "next_5d_excess_pct": 0.66,
+     "t5": 2.4,
+     "next_5d_win_pct": 60.1
     },
-    "strong_minus_buy_next_day_bp": 43.2,
-    "strong_minus_buy_5d_pct": 0.48
+    "Panic Buy": {
+     "ticker_days": 285,
+     "dates": 76,
+     "share_pct": 0.4,
+     "next_day_excess_bp": 45.4,
+     "t": 1.09,
+     "next_5d_excess_pct": 1.49,
+     "t5": 2.24,
+     "next_5d_win_pct": 63.9
+    },
+    "strong_minus_buy_next_day_bp": 36.3,
+    "strong_minus_buy_5d_pct": 0.38
    },
    "train": {
     "Hold": {
-     "ticker_days": 8985,
+     "ticker_days": 15606,
      "dates": 692,
-     "share_pct": 67.3,
-     "next_day_excess_bp": -1.8,
-     "t": -0.32,
-     "next_5d_excess_pct": -0.14,
-     "t5": -1.1,
-     "next_5d_win_pct": 58.3
+     "share_pct": 67.6,
+     "next_day_excess_bp": -2.2,
+     "t": -0.45,
+     "next_5d_excess_pct": -0.15,
+     "t5": -1.35,
+     "next_5d_win_pct": 57.3
     },
     "Buy": {
-     "ticker_days": 3497,
-     "dates": 682,
-     "share_pct": 26.2,
-     "next_day_excess_bp": -3.2,
-     "t": -0.2,
-     "next_5d_excess_pct": 0.23,
-     "t5": 0.78,
-     "next_5d_win_pct": 59.9
+     "ticker_days": 6033,
+     "dates": 742,
+     "share_pct": 26.1,
+     "next_day_excess_bp": -1.4,
+     "t": -0.09,
+     "next_5d_excess_pct": 0.27,
+     "t5": 1.0,
+     "next_5d_win_pct": 60.4
     },
     "Strong Buy": {
-     "ticker_days": 875,
-     "dates": 249,
-     "share_pct": 6.6,
-     "next_day_excess_bp": 31.0,
-     "t": 1.15,
-     "next_5d_excess_pct": 0.52,
-     "t5": 1.05,
-     "next_5d_win_pct": 61.9
+     "ticker_days": 1227,
+     "dates": 312,
+     "share_pct": 5.3,
+     "next_day_excess_bp": 32.7,
+     "t": 1.38,
+     "next_5d_excess_pct": 0.55,
+     "t5": 1.31,
+     "next_5d_win_pct": 61.6
     },
-    "strong_minus_buy_next_day_bp": 34.2,
-    "strong_minus_buy_5d_pct": 0.29
+    "Panic Buy": {
+     "ticker_days": 207,
+     "dates": 45,
+     "share_pct": 0.9,
+     "next_day_excess_bp": 12.2,
+     "t": 0.24,
+     "next_5d_excess_pct": 0.34,
+     "t5": 0.47,
+     "next_5d_win_pct": 57.5
+    },
+    "strong_minus_buy_next_day_bp": 34.0,
+    "strong_minus_buy_5d_pct": 0.27
    },
    "test": {
     "Hold": {
-     "ticker_days": 21108,
+     "ticker_days": 34245,
      "dates": 1385,
-     "share_pct": 74.6,
-     "next_day_excess_bp": -4.1,
-     "t": -0.77,
-     "next_5d_excess_pct": -0.14,
-     "t5": -1.14,
-     "next_5d_win_pct": 54.3
+     "share_pct": 74.9,
+     "next_day_excess_bp": -3.5,
+     "t": -0.78,
+     "next_5d_excess_pct": -0.13,
+     "t5": -1.26,
+     "next_5d_win_pct": 54.0
     },
     "Buy": {
-     "ticker_days": 5981,
-     "dates": 1182,
-     "share_pct": 21.1,
-     "next_day_excess_bp": 3.8,
-     "t": 0.34,
-     "next_5d_excess_pct": 0.3,
-     "t5": 1.51,
-     "next_5d_win_pct": 57.0
+     "ticker_days": 9565,
+     "dates": 1313,
+     "share_pct": 20.9,
+     "next_day_excess_bp": 3.5,
+     "t": 0.38,
+     "next_5d_excess_pct": 0.28,
+     "t5": 1.71,
+     "next_5d_win_pct": 56.8
     },
     "Strong Buy": {
-     "ticker_days": 1207,
-     "dates": 427,
-     "share_pct": 4.3,
-     "next_day_excess_bp": 53.9,
-     "t": 2.8,
-     "next_5d_excess_pct": 0.91,
-     "t5": 1.91,
-     "next_5d_win_pct": 59.6
+     "ticker_days": 1808,
+     "dates": 586,
+     "share_pct": 4.0,
+     "next_day_excess_bp": 41.0,
+     "t": 2.63,
+     "next_5d_excess_pct": 0.71,
+     "t5": 1.94,
+     "next_5d_win_pct": 59.1
     },
-    "strong_minus_buy_next_day_bp": 50.1,
-    "strong_minus_buy_5d_pct": 0.62
+    "Panic Buy": {
+     "ticker_days": 78,
+     "dates": 31,
+     "share_pct": 0.2,
+     "next_day_excess_bp": 130.6,
+     "t": 2.13,
+     "next_5d_excess_pct": 4.37,
+     "t5": 4.63,
+     "next_5d_win_pct": 80.8
+    },
+    "strong_minus_buy_next_day_bp": 37.5,
+    "strong_minus_buy_5d_pct": 0.43
    }
   },
   "crypto": {
@@ -151,61 +193,67 @@
      "next_5d_win_pct": 49.6
     },
     "Buy": {
-     "ticker_days": 2027,
-     "dates": 1013,
-     "share_pct": 15.0,
-     "next_day_excess_bp": 7.2,
-     "t": 0.57,
-     "next_5d_excess_pct": 0.43,
-     "t5": 1.34,
-     "next_5d_win_pct": 52.6
+     "ticker_days": 2633,
+     "dates": 1102,
+     "share_pct": 19.5,
+     "next_day_excess_bp": 8.7,
+     "t": 0.73,
+     "next_5d_excess_pct": 0.25,
+     "t5": 0.83,
+     "next_5d_win_pct": 51.2
     },
     "Strong Buy": {
-     "ticker_days": 3321,
-     "dates": 1315,
-     "share_pct": 24.6,
-     "next_day_excess_bp": 44.3,
-     "t": 3.55,
-     "next_5d_excess_pct": 1.94,
-     "t5": 6.87,
-     "next_5d_win_pct": 54.5
+     "ticker_days": 2714,
+     "dates": 1062,
+     "share_pct": 20.1,
+     "next_day_excess_bp": 51.2,
+     "t": 3.59,
+     "next_5d_excess_pct": 2.46,
+     "t5": 7.68,
+     "next_5d_win_pct": 56.3
     },
-    "strong_minus_buy_next_day_bp": 37.1,
-    "strong_minus_buy_5d_pct": 1.5
+    "Panic Buy": {
+     "days": 0
+    },
+    "strong_minus_buy_next_day_bp": 42.4,
+    "strong_minus_buy_5d_pct": 2.21
    },
    "train": {
     "Hold": {
      "ticker_days": 1753,
      "dates": 819,
      "share_pct": 56.5,
-     "next_day_excess_bp": -21.6,
+     "next_day_excess_bp": -21.7,
      "t": -1.21,
      "next_5d_excess_pct": -1.15,
      "t5": -2.9,
      "next_5d_win_pct": 51.6
     },
     "Buy": {
-     "ticker_days": 548,
-     "dates": 333,
-     "share_pct": 17.6,
-     "next_day_excess_bp": -12.2,
-     "t": -0.58,
-     "next_5d_excess_pct": -0.48,
-     "t5": -1.01,
-     "next_5d_win_pct": 55.7
+     "ticker_days": 687,
+     "dates": 372,
+     "share_pct": 22.1,
+     "next_day_excess_bp": 2.8,
+     "t": 0.13,
+     "next_5d_excess_pct": 0.29,
+     "t5": 0.58,
+     "next_5d_win_pct": 55.6
     },
     "Strong Buy": {
-     "ticker_days": 804,
-     "dates": 449,
-     "share_pct": 25.9,
-     "next_day_excess_bp": 55.5,
-     "t": 2.21,
-     "next_5d_excess_pct": 2.84,
-     "t5": 4.96,
-     "next_5d_win_pct": 60.0
+     "ticker_days": 664,
+     "dates": 370,
+     "share_pct": 21.4,
+     "next_day_excess_bp": 54.4,
+     "t": 1.97,
+     "next_5d_excess_pct": 2.74,
+     "t5": 4.32,
+     "next_5d_win_pct": 61.0
     },
-    "strong_minus_buy_next_day_bp": 67.6,
-    "strong_minus_buy_5d_pct": 3.31
+    "Panic Buy": {
+     "days": 0
+    },
+    "strong_minus_buy_next_day_bp": 51.6,
+    "strong_minus_buy_5d_pct": 2.45
    },
    "test": {
     "Hold": {
@@ -219,27 +267,30 @@
      "next_5d_win_pct": 49.1
     },
     "Buy": {
-     "ticker_days": 1479,
-     "dates": 680,
-     "share_pct": 14.2,
-     "next_day_excess_bp": 13.0,
-     "t": 0.83,
-     "next_5d_excess_pct": 0.71,
-     "t5": 1.72,
-     "next_5d_win_pct": 51.5
+     "ticker_days": 1946,
+     "dates": 730,
+     "share_pct": 18.7,
+     "next_day_excess_bp": 9.7,
+     "t": 0.68,
+     "next_5d_excess_pct": 0.17,
+     "t5": 0.48,
+     "next_5d_win_pct": 49.7
     },
     "Strong Buy": {
-     "ticker_days": 2517,
-     "dates": 866,
-     "share_pct": 24.2,
-     "next_day_excess_bp": 40.8,
-     "t": 2.83,
-     "next_5d_excess_pct": 1.66,
-     "t5": 5.15,
-     "next_5d_win_pct": 52.7
+     "ticker_days": 2050,
+     "dates": 692,
+     "share_pct": 19.7,
+     "next_day_excess_bp": 50.3,
+     "t": 3.03,
+     "next_5d_excess_pct": 2.38,
+     "t5": 6.44,
+     "next_5d_win_pct": 54.7
     },
-    "strong_minus_buy_next_day_bp": 27.8,
-    "strong_minus_buy_5d_pct": 0.96
+    "Panic Buy": {
+     "days": 0
+    },
+    "strong_minus_buy_next_day_bp": 40.6,
+    "strong_minus_buy_5d_pct": 2.21
    }
   }
  }
