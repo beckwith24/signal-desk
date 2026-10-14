@@ -9,6 +9,7 @@
   "ladder": true,
   "min_action": "Strong Buy",
   "tg_offset": 498513501,
+  "trading": true,
   "watchlist": {
     "stocks": [
       "NVDA",
