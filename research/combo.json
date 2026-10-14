@@ -1,0 +1,371 @@
+{
+ "generated": "2026-10-14 02:23 UTC",
+ "segments": {
+  "stock": {
+   "tickers": 98,
+   "train": {
+    "Current Strong Buy (2+ dip models)": {
+     "excess": {
+      "n": 19406,
+      "dates": 2559,
+      "x5_pct": 0.45,
+      "t": 4.16,
+      "win5_pct": 60.6,
+      "share_pct": 5.4
+     },
+     "strategy": {
+      "rule": {
+       "cagr": 2.0,
+       "mdd": -6.6,
+       "sharpe": 0.57
+      },
+      "hold": {
+       "cagr": 16.9,
+       "mdd": -46.7,
+       "sharpe": 0.87
+      }
+     }
+    },
+    "A: Strong Buy + own weekly trend up": {
+     "excess": {
+      "n": 18137,
+      "dates": 2511,
+      "x5_pct": 0.47,
+      "t": 4.51,
+      "win5_pct": 60.8,
+      "share_pct": 5.1
+     },
+     "strategy": {
+      "rule": {
+       "cagr": 1.7,
+       "mdd": -6.6,
+       "sharpe": 0.53
+      },
+      "hold": {
+       "cagr": 16.9,
+       "mdd": -46.7,
+       "sharpe": 0.87
+      }
+     }
+    },
+    "B: market-panic dip (RSI2<5, VIX panic, above 200d)": {
+     "excess": {
+      "n": 4569,
+      "dates": 522,
+      "x5_pct": 0.56,
+      "t": 2.53,
+      "win5_pct": 60.4,
+      "share_pct": 1.3
+     },
+     "strategy": {
+      "rule": {
+       "cagr": 0.7,
+       "mdd": -4.8,
+       "sharpe": 0.37
+      },
+      "hold": {
+       "cagr": 16.9,
+       "mdd": -46.7,
+       "sharpe": 0.87
+      }
+     }
+    },
+    "D1: Strong Buy + S&P weekly trend up": {
+     "excess": {
+      "n": 15687,
+      "dates": 2079,
+      "x5_pct": 0.47,
+      "t": 3.98,
+      "win5_pct": 60.9,
+      "share_pct": 4.4
+     },
+     "strategy": {
+      "rule": {
+       "cagr": 1.1,
+       "mdd": -6.8,
+       "sharpe": 0.36
+      },
+      "hold": {
+       "cagr": 16.9,
+       "mdd": -46.7,
+       "sharpe": 0.87
+      }
+     }
+    }
+   },
+   "test": {
+    "Current Strong Buy (2+ dip models)": {
+     "excess": {
+      "n": 5792,
+      "dates": 1003,
+      "x5_pct": 0.39,
+      "t": 2.42,
+      "win5_pct": 56.8,
+      "share_pct": 4.1
+     },
+     "strategy": {
+      "rule": {
+       "cagr": 1.7,
+       "mdd": -3.2,
+       "sharpe": 0.83
+      },
+      "hold": {
+       "cagr": 19.2,
+       "mdd": -23.0,
+       "sharpe": 1.2
+      }
+     }
+    },
+    "A: Strong Buy + own weekly trend up": {
+     "excess": {
+      "n": 5496,
+      "dates": 992,
+      "x5_pct": 0.37,
+      "t": 2.33,
+      "win5_pct": 56.6,
+      "share_pct": 3.9
+     },
+     "strategy": {
+      "rule": {
+       "cagr": 1.5,
+       "mdd": -3.0,
+       "sharpe": 0.82
+      },
+      "hold": {
+       "cagr": 19.2,
+       "mdd": -23.0,
+       "sharpe": 1.2
+      }
+     }
+    },
+    "B: market-panic dip (RSI2<5, VIX panic, above 200d)": {
+     "excess": {
+      "n": 807,
+      "dates": 127,
+      "x5_pct": 2.01,
+      "t": 5.48,
+      "win5_pct": 69.8,
+      "share_pct": 0.6
+     },
+     "strategy": {
+      "rule": {
+       "cagr": 0.8,
+       "mdd": -0.6,
+       "sharpe": 1.0
+      },
+      "hold": {
+       "cagr": 19.2,
+       "mdd": -23.0,
+       "sharpe": 1.2
+      }
+     }
+    },
+    "D1: Strong Buy + S&P weekly trend up": {
+     "excess": {
+      "n": 4785,
+      "dates": 835,
+      "x5_pct": 0.33,
+      "t": 1.91,
+      "win5_pct": 56.2,
+      "share_pct": 3.4
+     },
+     "strategy": {
+      "rule": {
+       "cagr": 1.5,
+       "mdd": -2.0,
+       "sharpe": 0.87
+      },
+      "hold": {
+       "cagr": 19.2,
+       "mdd": -23.0,
+       "sharpe": 1.2
+      }
+     }
+    }
+   }
+  },
+  "crypto": {
+   "tickers": 29,
+   "train": {
+    "Current trend rule (3 of 4)": {
+     "excess": {
+      "n": 6705,
+      "dates": 902,
+      "x5_pct": 1.15,
+      "t": 3.0,
+      "win5_pct": 51.4,
+      "share_pct": 35.7
+     },
+     "strategy": {
+      "rule": {
+       "cagr": 105.6,
+       "mdd": -50.2,
+       "sharpe": 1.58
+      },
+      "hold": {
+       "cagr": 163.3,
+       "mdd": -89.2,
+       "sharpe": 1.54
+      }
+     }
+    },
+    "C: trend rule, volatility-sized": {
+     "excess": {
+      "n": 6705,
+      "dates": 902,
+      "x5_pct": 1.15,
+      "t": 3.0,
+      "win5_pct": 51.4,
+      "share_pct": 35.7
+     },
+     "strategy": {
+      "rule": {
+       "cagr": 69.1,
+       "mdd": -29.9,
+       "sharpe": 1.8
+      },
+      "hold": {
+       "cagr": 163.3,
+       "mdd": -89.2,
+       "sharpe": 1.54
+      }
+     }
+    },
+    "D2: trend rule + Bitcoin weekly trend up": {
+     "excess": {
+      "n": 4329,
+      "dates": 695,
+      "x5_pct": 0.71,
+      "t": 1.47,
+      "win5_pct": 49.8,
+      "share_pct": 23.0
+     },
+     "strategy": {
+      "rule": {
+       "cagr": 80.1,
+       "mdd": -45.2,
+       "sharpe": 1.39
+      },
+      "hold": {
+       "cagr": 163.3,
+       "mdd": -89.2,
+       "sharpe": 1.54
+      }
+     }
+    },
+    "E: trend rule on weekly bars": {
+     "excess": {
+      "n": 4751,
+      "dates": 872,
+      "x5_pct": 0.73,
+      "t": 1.69,
+      "win5_pct": 51.2,
+      "share_pct": 25.3
+     },
+     "strategy": {
+      "rule": {
+       "cagr": 127.6,
+       "mdd": -43.7,
+       "sharpe": 1.79
+      },
+      "hold": {
+       "cagr": 163.3,
+       "mdd": -89.2,
+       "sharpe": 1.54
+      }
+     }
+    }
+   },
+   "test": {
+    "Current trend rule (3 of 4)": {
+     "excess": {
+      "n": 18944,
+      "dates": 1120,
+      "x5_pct": 1.7,
+      "t": 5.25,
+      "win5_pct": 50.8,
+      "share_pct": 31.7
+     },
+     "strategy": {
+      "rule": {
+       "cagr": 65.7,
+       "mdd": -46.8,
+       "sharpe": 1.49
+      },
+      "hold": {
+       "cagr": 29.0,
+       "mdd": -81.7,
+       "sharpe": 0.72
+      }
+     }
+    },
+    "C: trend rule, volatility-sized": {
+     "excess": {
+      "n": 18944,
+      "dates": 1120,
+      "x5_pct": 1.7,
+      "t": 5.25,
+      "win5_pct": 50.8,
+      "share_pct": 31.7
+     },
+     "strategy": {
+      "rule": {
+       "cagr": 35.2,
+       "mdd": -30.5,
+       "sharpe": 1.32
+      },
+      "hold": {
+       "cagr": 29.0,
+       "mdd": -81.7,
+       "sharpe": 0.72
+      }
+     }
+    },
+    "D2: trend rule + Bitcoin weekly trend up": {
+     "excess": {
+      "n": 13302,
+      "dates": 780,
+      "x5_pct": 2.63,
+      "t": 6.37,
+      "win5_pct": 52.1,
+      "share_pct": 22.1
+     },
+     "strategy": {
+      "rule": {
+       "cagr": 67.3,
+       "mdd": -37.9,
+       "sharpe": 1.63
+      },
+      "hold": {
+       "cagr": 29.0,
+       "mdd": -81.7,
+       "sharpe": 0.72
+      }
+     }
+    },
+    "E: trend rule on weekly bars": {
+     "excess": {
+      "n": 12584,
+      "dates": 1043,
+      "x5_pct": 1.49,
+      "t": 3.53,
+      "win5_pct": 50.3,
+      "share_pct": 21.1
+     },
+     "strategy": {
+      "rule": {
+       "cagr": 38.8,
+       "mdd": -51.2,
+       "sharpe": 1.11
+      },
+      "hold": {
+       "cagr": 29.0,
+       "mdd": -81.7,
+       "sharpe": 0.72
+      }
+     }
+    }
+   }
+  }
+ }
+}
