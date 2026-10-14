@@ -41,12 +41,23 @@ def pct(x, nd=0, sign=True):
     return "–" if x is None else (f"{x:+.{nd}f}%" if sign else f"{x:.{nd}f}%")
 
 
-def headlines(tk, days: int = 14, n: int = 3) -> list[dict]:
+NEWS_DEBUG: list[str] = []
+
+
+def headlines(tk, days: int = 21, n: int = 3) -> list[dict]:
     out = []
+    items = []
     try:
-        items = tk.news or []
-    except Exception:
-        return out
+        items = list(tk.news or [])
+    except Exception as e:
+        NEWS_DEBUG.append(f"{tk.ticker} news: {type(e).__name__} {str(e)[:80]}")
+    if not items:
+        try:
+            import yfinance as yf
+            items = list(yf.Search(tk.ticker, news_count=8).news or [])
+        except Exception as e:
+            NEWS_DEBUG.append(f"{tk.ticker} search: {type(e).__name__} {str(e)[:80]}")
+    NEWS_DEBUG.append(f"{tk.ticker}: {len(items)} raw" + (f", keys {sorted(items[0].keys())[:6]}" if items else ""))
     cut = time.time() - days * 86400
     for it in items:
         c = it.get("content", it)                          # newer yfinance nests the story under "content"
@@ -189,7 +200,7 @@ def main() -> None:
         except Exception as e:
             log.warning("%s: %s", t, e)
         time.sleep(0.3)
-    OUT.write_text(json.dumps(clean({"generated": datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC"), "notes": notes}),
+    OUT.write_text(json.dumps(clean({"generated": datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC"), "notes": notes, "news_debug": NEWS_DEBUG[:12]}),
                               indent=1, default=str, allow_nan=False))
     log.info("notes for %d tickers", len(notes))
 
