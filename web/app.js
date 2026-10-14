@@ -527,7 +527,7 @@ if (window.top !== window.self) { document.documentElement.style.display = "none
       layout: { background: { type: "solid", color: C.surface }, textColor: C.muted, fontFamily: "IBM Plex Mono, ui-monospace, monospace", fontSize: 11 },
       grid: { vertLines: { color: css("--grid") }, horzLines: { color: css("--grid") } },
       rightPriceScale: { borderColor: C.line },
-      timeScale: { borderColor: C.line, timeVisible: intraday, secondsVisible: false, rightOffset: 4 },
+      timeScale: { borderColor: C.line, timeVisible: intraday, secondsVisible: false, rightOffset: window.innerWidth < 600 ? 30 : 20 },
       crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
       localization: { locale: LOC, priceFormatter: (p) => fmtPrice(p, d.decimals) },
       handleScroll: { vertTouchDrag: false },
@@ -640,7 +640,10 @@ if (window.top !== window.self) { document.documentElement.style.display = "none
       }
     });
     const visible = window.innerWidth < 600 ? (d.tf === "1d" ? 80 : 90) : 160;
-    chart.timeScale().setVisibleLogicalRange({ from: Math.max(0, bars.length - visible), to: bars.length + 3 });
+    // Leave empty room on the right so the newest candles aren't hidden behind the level labels
+    // ("L+2 304.22", "Level 4" ...), which on a phone cover roughly the right quarter of the plot.
+    const pad = Math.round(visible * (window.innerWidth < 600 ? 0.38 : 0.15));
+    chart.timeScale().setVisibleLogicalRange({ from: Math.max(0, bars.length - visible), to: bars.length + pad });
   }
 
   // ---------------------------------------------------------------- add / remove tickers via the bot
