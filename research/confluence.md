@@ -53,16 +53,20 @@ Screenshot's table: {'profit': 143847, 'roi_pct': 143.85, 'win_pct': 100.0, 'buy
 
 ## Best match on the watchlist stocks (34 tickers, hourly, ~2 years)
 
-| Version | Win % | ROI % | Worst drop % | Beat holding |
-|---|---|---|---|---|
-| Normal sells (sell all on a sell signal) | 78.2 | 69.6 | -28.5 | 4 of 34 |
-| Sell half, only above cost | 100.0 | 109.1 | -35.1 | 7 of 34 |
-| Just holding | – | 188.2 | -42.5 | – |
+Medians across tickers. Rule: the best triangle match above, buying half the cash on each buy.
 
-## Best match on the watchlist cryptos (16 tickers, hourly, ~2 years)
+| Version | Win % | ROI % | Worst drop % | Still held vs cost % | Beat holding |
+|---|---|---|---|---|---|
+| Normal sells (sell all on a sell signal) | 77.9 | 44.4 | -28.4 | -1.1 | 4 of 34 |
+| Sell half, only above cost | 100.0 | 72.0 | -34.5 | 0.3 | 7 of 34 |
+| Just holding | – | 99.5 | -43.2 | – | – |
 
-| Version | Win % | ROI % | Worst drop % | Beat holding |
-|---|---|---|---|---|
-| Normal sells (sell all on a sell signal) | 65.6 | 1383992.1 | -52.5 | 13 of 16 |
-| Sell half, only above cost | 100.0 | 3139.9 | -76.5 | 7 of 16 |
-| Just holding | – | -3.1 | -82.2 | – |
+## Best match on the watchlist cryptos (14 tickers, hourly, ~2 years)
+
+Medians across tickers. Rule: the best triangle match above, buying half the cash on each buy.
+
+| Version | Win % | ROI % | Worst drop % | Still held vs cost % | Beat holding |
+|---|---|---|---|---|---|
+| Normal sells (sell all on a sell signal) | 64.3 | 5.2 | -46.7 | 1.0 | 11 of 14 |
+| Sell half, only above cost | 100.0 | -34.9 | -75.2 | -52.0 | 5 of 14 |
+| Just holding | – | -19.1 | -82.2 | – | – |

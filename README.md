@@ -218,6 +218,13 @@ The copy-Congress ETFs since Feb 2023: NANC +110%, GOP +82%, SPY +99%. Reported 
 pages and as a 🏛 tag on the list (last 30 days) but never trigger a signal. The daily `Congress trades` job
 adds new filings.
 
+**InvestAnswers-style backtests** (`ia_tuning_research.py`, `conf_research.py`, notes in `research/ia_notes.md`):
+tuning the ATR Model per ticker the way IA's demo does always ends up choosing "only sell in profit", which
+gives 100% wins in and out of sample, but after 2022 it made a median +144% on 29 stocks vs +293% for
+holding, with the same drawdowns. The Confluence Model rebuilt from a screenshot (Bollinger Bands, about 4
+days, 2 standard deviations; re-entries match 9 of 24 of its triangles) also trailed holding on stocks; on
+crypto, its "sell only above cost" version left coins ~50% under cost. None of this is used for signals.
+
 **Strong Buy vs Buy** (`strength_research.py`, results in `research/strength.md`, ~10 years): on stocks,
 Strong Buy days (2+ dip signals) beat the stock's normal next day by 0.44% (t 2.8) and its normal 5 days by
 0.76%; single-signal Buys were close to random (+0.01% next day). On crypto, all-4 Strong Buys beat normal

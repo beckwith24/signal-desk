@@ -339,9 +339,12 @@ def main() -> None:
     log.info("done")
 
 
-def _m(xs):
+YAHOO_OTHER_COIN = {"JUP-USD", "MET-USD"}     # Yahoo's symbol is an older, different token than the one we track
+
+
+def _m(xs):                                 # medians: one bad price print shouldn't decide the summary
     xs = [x for x in xs if x is not None]
-    return round(float(np.mean(xs)), 1) if xs else None
+    return round(float(np.median(xs)), 1) if xs else None
 
 
 def report(r: dict) -> str:
@@ -367,17 +370,18 @@ def report(r: dict) -> str:
         L.append(f"| {k} | {a['buys']} | {a['sells']} | {a['win_pct']} | {a['roi_pct']} | {a['max_dd_pct']} | "
                  f"{a['open_pct_of_equity']} | {a['open_vs_cost_pct']} | {a['hold_roi_pct']} |")
     for asset in ("stock", "crypto"):
-        wl = {t: v for t, v in r["watchlist"].items() if v["asset"] == asset}
+        wl = {t: v for t, v in r["watchlist"].items() if v["asset"] == asset and t not in YAHOO_OTHER_COIN}
         if not wl:
             continue
         L += ["", f"## Best match on the watchlist {asset}s ({len(wl)} tickers, hourly, ~2 years)", "",
-              "| Version | Win % | ROI % | Worst drop % | Beat holding |", "|---|---|---|---|---|"]
+              "Medians across tickers. Rule: the best triangle match above, buying half the cash on each buy.", "",
+              "| Version | Win % | ROI % | Worst drop % | Still held vs cost % | Beat holding |", "|---|---|---|---|---|---|"]
         for k, nm in (("normal", "Normal sells (sell all on a sell signal)"), ("only_above_cost", "Sell half, only above cost")):
             L.append(f"| {nm} | {_m([v[k]['win_pct'] for v in wl.values()])} | {_m([v[k]['roi_pct'] for v in wl.values()])} | "
-                     f"{_m([v[k]['max_dd_pct'] for v in wl.values()])} | "
+                     f"{_m([v[k]['max_dd_pct'] for v in wl.values()])} | {_m([v[k]['open_vs_cost_pct'] for v in wl.values()])} | "
                      f"{sum(v[k]['roi_pct'] > v[k]['hold_roi_pct'] for v in wl.values())} of {len(wl)} |")
         L.append(f"| Just holding | – | {_m([v['normal']['hold_roi_pct'] for v in wl.values()])} | "
-                 f"{_m([v['normal']['hold_dd_pct'] for v in wl.values()])} | – |")
+                 f"{_m([v['normal']['hold_dd_pct'] for v in wl.values()])} | – | – |")
     return "\n".join(L) + "\n"
 
 

@@ -685,6 +685,11 @@ h3.sec { font: 700 12px/1.2 var(--f-display); text-transform: uppercase; letter-
             trend, new-high breakouts, turn of the month): no reliable edge.</li>
           <li><strong>InvestAnswers ribbon and ATR line as signals:</strong> no clear edge on their own, so they're a
             chart view.</li>
+          <li><strong>"100% win" backtests:</strong> tuning the ATR model per stock the way InvestAnswers' demo does
+            always picks "only sell in profit". That keeps a 100% win rate, but from 2023 it made +144% vs +293% for
+            just holding (median of 29 stocks), with the same drops. Losing positions aren't sold, they're held.</li>
+          <li><strong>Confluence model</strong> (rebuilt from your UMAC chart: Bollinger-band re-entries): trailed
+            holding on stocks; on crypto its "only sell above cost" version left coins about 50% under cost.</li>
           <li><strong>Ranking stocks by recent strength:</strong> about +3% a year, but not reliable (t 0.8).</li>
           <li><strong>Buying after strong earnings:</strong> too weak to use.</li>
           <li><strong>Copying Congress:</strong> 22,800 reported trades by 266 members since 2018. Once a buy was
