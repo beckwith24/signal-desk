@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-14 01:45 UTC",
+ "generated": "2026-10-14 01:48 UTC",
  "notes": {
   "NVDA": {
    "text": [
@@ -8,7 +8,26 @@
     "No clear gap between the latest results and the price move."
    ],
    "extra": "Next earnings: Nov 17; analysts' average target +44% away (59 analysts, 'strong_buy')",
-   "news": [],
+   "news": [
+    {
+     "title": "Here's Where Netflix and 3 Other Streaming and Media Stocks Could Be by 2030",
+     "url": "https://finance.yahoo.com/media-advertising/articles/heres-where-netflix-3-other-013356320.html",
+     "source": "Motley Fool",
+     "date": "2026-10-14"
+    },
+    {
+     "title": "Harvard's Judgment Professor: The Curse of Optionality and One Habit That Builds Better Judgment",
+     "url": "https://finance.yahoo.com/small-business/articles/harvards-judgment-professor-curse-optionality-005754163.html",
+     "source": "Motley Fool",
+     "date": "2026-10-14"
+    },
+    {
+     "title": "Why Valero Energy Stock Triumphed Today",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/why-valero-energy-stock-triumphed-003248062.html",
+     "source": "Motley Fool",
+     "date": "2026-10-14"
+    }
+   ],
    "data": {
     "rev_growth": 105.9,
     "eps_growth": 127.8,
@@ -28,7 +47,26 @@
     "No clear gap between the latest results and the price move."
    ],
    "extra": "Next earnings: Nov 3; analysts' average target +5% away (50 analysts, 'strong_buy')",
-   "news": [],
+   "news": [
+    {
+     "title": "Dow Jones Futures: Stock Market Holds Up As Meta, AMD Lead Buys; ASML, CPI Inflation Due",
+     "url": "https://finance.yahoo.com/m/02b2fe19-36e5-3f96-ac0e-2dc2cf84ceb1/dow-jones-futures%3A-stock.html",
+     "source": "Investor's Business Daily",
+     "date": "2026-10-14"
+    },
+    {
+     "title": "Stock Market Today, Oct. 13: Fermi Surges 14% on AMD Credit Support for Project Matador",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/stock-market-today-oct-13-211426384.html",
+     "source": "Motley Fool",
+     "date": "2026-10-13"
+    },
+    {
+     "title": "AMD Stocks Slip 1.2% Although Sweden Deployment Broadens Its AI Reach",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/amd-stocks-slip-1-2-190816978.html",
+     "source": "GuruFocus.com",
+     "date": "2026-10-13"
+    }
+   ],
    "data": {
     "rev_growth": 50.1,
     "eps_growth": 159.5,
@@ -48,7 +86,26 @@
     "The latest results were strong, so the drop from the high isn't explained by the last report: it's coming from outlook, valuation or the wider market."
    ],
    "extra": "Next earnings: Dec 9; analysts' average target +49% away (47 analysts, 'strong_buy')",
-   "news": [],
+   "news": [
+    {
+     "title": "U.S. stock futures muted after chip losses drag Wall Street; CPI data awaited",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/u-stock-futures-muted-chip-012425121.html",
+     "source": "Investing.com",
+     "date": "2026-10-14"
+    },
+    {
+     "title": "Was There Any Sign Coherent Stock Would Run?",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/sign-coherent-stock-run-001938712.html",
+     "source": "Trefis",
+     "date": "2026-10-14"
+    },
+    {
+     "title": "Stock market today: Dow, S&P 500, Nasdaq slip as chip stocks fall, earnings roll in",
+     "url": "https://finance.yahoo.com/markets/live/stock-market-today-tuesday-october-13-dow-sp-500-nasdaq-chip-stocks-192419999.html",
+     "source": "Yahoo Finance",
+     "date": "2026-10-13"
+    }
+   ],
    "data": {
     "rev_growth": 85.5,
     "eps_growth": 215.3,
@@ -68,7 +125,26 @@
     "Strong results and a price near its high: business and stock are moving together."
    ],
    "extra": "Next earnings: Nov 2; analysts' average target -2% away (26 analysts, 'buy')",
-   "news": [],
+   "news": [
+    {
+     "title": "Palantir CTO Blasts Silicon Valley\u2019s \u2018Doomsday Cult\u2019 Over AI Safety \u2014 Says Pentagon Has 'Already Replaced' Anthropic",
+     "url": "https://finance.yahoo.com/technology/ai/articles/palantir-cto-blasts-silicon-valley-003014629.html",
+     "source": "Benzinga",
+     "date": "2026-10-14"
+    },
+    {
+     "title": "CrowdStrike vs. Palantir Technologies: What Revenue Trends Tell Investors About These High-Growth Tech Companies",
+     "url": "https://finance.yahoo.com/technology/articles/crowdstrike-vs-palantir-technologies-revenue-235549445.html",
+     "source": "Motley Fool",
+     "date": "2026-10-13"
+    },
+    {
+     "title": "Dan Ives Names Top Tech Stocks for $4 Trillion AI Boom",
+     "url": "https://finance.yahoo.com/technology/ai/articles/dan-ives-names-top-tech-212240164.html",
+     "source": "GuruFocus.com",
+     "date": "2026-10-13"
+    }
+   ],
    "data": {
     "rev_growth": 92.8,
     "eps_growth": 215.4,
@@ -88,7 +164,26 @@
     "The latest results were strong, so the drop from the high isn't explained by the last report: it's coming from outlook, valuation or the wider market."
    ],
    "extra": "Next earnings: Oct 21; analysts' average target +6% away (38 analysts, 'buy')",
-   "news": [],
+   "news": [
+    {
+     "title": "Uber Robotaxi Leader to Depart Next Month",
+     "url": "https://finance.yahoo.com/m/221ee01a-c156-3163-8628-831b5757edbe/uber-robotaxi-leader-to.html",
+     "source": "The Wall Street Journal",
+     "date": "2026-10-13"
+    },
+    {
+     "title": "Rivian spinoff Mind Robotics hires ex-Ford EV chief Doug Field",
+     "url": "https://finance.yahoo.com/markets/article/rivian-spinoff-mind-robotics-hires-ex-ford-ev-chief-doug-field-213702515.html",
+     "source": "Yahoo Finance",
+     "date": "2026-10-13"
+    },
+    {
+     "title": "Tesla Robotaxi Fleet in Austin Soars 8x in a Month While Elon Musk Admits TSLA Is Still Working on Not Running Over Cats",
+     "url": "https://finance.yahoo.com/technology/ai/articles/tesla-robotaxi-fleet-austin-soars-213024117.html",
+     "source": "Benzinga",
+     "date": "2026-10-13"
+    }
+   ],
    "data": {
     "rev_growth": 25.5,
     "eps_growth": -3.0,
@@ -108,7 +203,26 @@
     "The latest results were strong, so the drop from the high isn't explained by the last report: it's coming from outlook, valuation or the wider market."
    ],
    "extra": "analysts' average target +26% away (44 analysts, 'strong_buy')",
-   "news": [],
+   "news": [
+    {
+     "title": "Marvell Stocks Fall Although New AI Links Reach Customer Sampling",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/marvell-stocks-fall-although-ai-210556001.html",
+     "source": "GuruFocus.com",
+     "date": "2026-10-13"
+    },
+    {
+     "title": "Marvell Is Up 214% in 2026 While Broadcom Is Only Up 3%: Take Profits on MRVL Stock, or Hold On for the Ride?",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/marvell-214-2026-while-broadcom-190011776.html",
+     "source": "24/7 Wall St.",
+     "date": "2026-10-13"
+    },
+    {
+     "title": "CyberTAN Unveils Pallas Series Liquid-Cooled 102.4 Tbps Ethernet Switch Platform Blueprint at OCP Global Summit 2026",
+     "url": "https://finance.yahoo.com/technology/articles/cybertan-unveils-pallas-series-liquid-190000490.html",
+     "source": "PR Newswire",
+     "date": "2026-10-13"
+    }
+   ],
    "data": {
     "rev_growth": 36.5,
     "eps_growth": 50.0,
@@ -128,7 +242,26 @@
     "The latest results were strong, so the drop from the high isn't explained by the last report: it's coming from outlook, valuation or the wider market."
    ],
    "extra": "analysts' average target +64% away (46 analysts, 'strong_buy')",
-   "news": [],
+   "news": [
+    {
+     "title": "Dow Jones Futures: Stock Market Holds Up As Meta, AMD Lead Buys; ASML, CPI Inflation Due",
+     "url": "https://finance.yahoo.com/m/02b2fe19-36e5-3f96-ac0e-2dc2cf84ceb1/dow-jones-futures%3A-stock.html",
+     "source": "Investor's Business Daily",
+     "date": "2026-10-14"
+    },
+    {
+     "title": "U.S. stock futures muted after chip losses drag Wall Street; CPI data awaited",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/u-stock-futures-muted-chip-012425121.html",
+     "source": "Investing.com",
+     "date": "2026-10-14"
+    },
+    {
+     "title": "Micron Technology (MU) Dropped, What Is Driving Attention Now?",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/micron-technology-mu-dropped-driving-012009860.html",
+     "source": "Simply Wall St.",
+     "date": "2026-10-14"
+    }
+   ],
    "data": {
     "rev_growth": 379.3,
     "eps_growth": 1059.5,
@@ -148,7 +281,26 @@
     "No clear gap between the latest results and the price move."
    ],
    "extra": "Next earnings: Oct 28; analysts' average target +22% away (54 analysts, 'strong_buy')",
-   "news": [],
+   "news": [
+    {
+     "title": "Here's Where Netflix and 3 Other Streaming and Media Stocks Could Be by 2030",
+     "url": "https://finance.yahoo.com/media-advertising/articles/heres-where-netflix-3-other-013356320.html",
+     "source": "Motley Fool",
+     "date": "2026-10-14"
+    },
+    {
+     "title": "CrowdStrike vs. Palantir Technologies: What Revenue Trends Tell Investors About These High-Growth Tech Companies",
+     "url": "https://finance.yahoo.com/technology/articles/crowdstrike-vs-palantir-technologies-revenue-235549445.html",
+     "source": "Motley Fool",
+     "date": "2026-10-13"
+    },
+    {
+     "title": "Franklin Templeton CEO says AI is hiding a bigger tech story",
+     "url": "https://finance.yahoo.com/technology/ai/articles/franklin-templeton-ceo-says-ai-223300032.html",
+     "source": "TheStreet",
+     "date": "2026-10-13"
+    }
+   ],
    "data": {
     "rev_growth": 24.2,
     "eps_growth": 294.0,
@@ -168,7 +320,26 @@
     "Strong results and a price near its high: business and stock are moving together."
    ],
    "extra": "Next earnings: Nov 2; analysts' average target -3% away (39 analysts, 'buy')",
-   "news": [],
+   "news": [
+    {
+     "title": "Elon Musk's SpaceX could change how Americans buy iPhones",
+     "url": "https://finance.yahoo.com/technology/articles/elon-musks-spacex-could-change-000300075.html",
+     "source": "TheStreet",
+     "date": "2026-10-14"
+    },
+    {
+     "title": "John Ternus Takes Next Big Swing as Apple CEO With HomeView Tablet",
+     "url": "https://finance.yahoo.com/m/4f8d1fa4-6787-31f5-8846-d2ef0058cf40/john-ternus-takes-next-big.html",
+     "source": "The Wall Street Journal",
+     "date": "2026-10-14"
+    },
+    {
+     "title": "If You Own SPY, This Lower-Cost Fund Tracks Identical Holdings for Less Than Half the Fee",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/own-spy-lower-cost-fund-233353554.html",
+     "source": "24/7 Wall St.",
+     "date": "2026-10-13"
+    }
+   ],
    "data": {
     "rev_growth": 16.4,
     "eps_growth": 28.7,
@@ -188,7 +359,26 @@
     "Strong results and a price near its high: business and stock are moving together."
    ],
    "extra": "Next earnings: Oct 28; analysts' average target +8% away (53 analysts, 'strong_buy')",
-   "news": [],
+   "news": [
+    {
+     "title": "Dow Jones Futures: Stock Market Holds Up As Meta, AMD Lead Buys; ASML, CPI Inflation Due",
+     "url": "https://finance.yahoo.com/m/02b2fe19-36e5-3f96-ac0e-2dc2cf84ceb1/dow-jones-futures%3A-stock.html",
+     "source": "Investor's Business Daily",
+     "date": "2026-10-14"
+    },
+    {
+     "title": "His Silicon Valley Pay Will Jump Above $184,500. Social Security Won\u2019t Credit Every Extra Dollar Toward His Future Benefit",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/silicon-valley-pay-jump-above-010027984.html",
+     "source": "24/7 Wall St.",
+     "date": "2026-10-14"
+    },
+    {
+     "title": "GreenCore Solutions Corp. (GSC) Releases gtinfetch.ai -- the GTIN Resolver for AI Agents",
+     "url": "https://finance.yahoo.com/technology/ai/articles/greencore-solutions-corp-gsc-releases-002700692.html",
+     "source": "PR Newswire",
+     "date": "2026-10-14"
+    }
+   ],
    "data": {
     "rev_growth": 17.7,
     "eps_growth": 31.7,
@@ -208,7 +398,26 @@
     "The price is near its high even though the latest results slowed: the market is looking past them."
    ],
    "extra": "Next earnings: Oct 21; analysts' average target +6% away (58 analysts, 'strong_buy')",
-   "news": [],
+   "news": [
+    {
+     "title": "Dow Jones Futures: Stock Market Holds Up As Meta, AMD Lead Buys; ASML, CPI Inflation Due",
+     "url": "https://finance.yahoo.com/m/02b2fe19-36e5-3f96-ac0e-2dc2cf84ceb1/dow-jones-futures%3A-stock.html",
+     "source": "Investor's Business Daily",
+     "date": "2026-10-14"
+    },
+    {
+     "title": "John Ternus Takes Next Big Swing as Apple CEO With HomeView Tablet",
+     "url": "https://finance.yahoo.com/m/4f8d1fa4-6787-31f5-8846-d2ef0058cf40/john-ternus-takes-next-big.html",
+     "source": "The Wall Street Journal",
+     "date": "2026-10-14"
+    },
+    {
+     "title": "Microsoft Weighs 20% Cost Cuts In Azure Vertical Amid Soaring AI Data Center Spending: Report",
+     "url": "https://finance.yahoo.com/technology/ai/articles/microsoft-weighs-20-cost-cuts-234048608.html",
+     "source": "Stocktwits",
+     "date": "2026-10-13"
+    }
+   ],
    "data": {
     "rev_growth": 28.0,
     "eps_growth": -13.4,
@@ -226,7 +435,26 @@
     "Stock: +5% this month, +27% over a year, 3% below its 52-week high; ahead of the S&P 500 by 0 points over 3 months."
    ],
    "extra": "",
-   "news": [],
+   "news": [
+    {
+     "title": "Marvell Is Up 214% in 2026 While Broadcom Is Only Up 3%: Take Profits on MRVL Stock, or Hold On for the Ride?",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/marvell-214-2026-while-broadcom-190011776.html",
+     "source": "24/7 Wall St.",
+     "date": "2026-10-13"
+    },
+    {
+     "title": "U.S. Economy Faces New Shock as Americans Absorb $2,000 Hit",
+     "url": "https://finance.yahoo.com/economy/articles/u-economy-faces-shock-americans-184317010.html",
+     "source": "GuruFocus.com",
+     "date": "2026-10-13"
+    },
+    {
+     "title": "Why Money Market Funds Are So Popular",
+     "url": "https://finance.yahoo.com/markets/options/articles/why-money-market-funds-popular-184000720.html",
+     "source": "Zacks",
+     "date": "2026-10-13"
+    }
+   ],
    "data": {
     "rev_growth": null,
     "eps_growth": null,
@@ -244,7 +472,26 @@
     "Stock: +3% this month, +20% over a year, 0% below its 52-week high; ahead of the S&P 500 by 0 points over 3 months."
    ],
    "extra": "",
-   "news": [],
+   "news": [
+    {
+     "title": "S&P 500 Ends Flat, While Nasdaq Drops As Memory Chipmakers Sell Off \u2014 BAC, GME, SPCX, ARM, QCOM In Focus",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/p-500-ends-flat-while-233715763.html",
+     "source": "Stocktwits",
+     "date": "2026-10-13"
+    },
+    {
+     "title": "If You Own SPY, This Lower-Cost Fund Tracks Identical Holdings for Less Than Half the Fee",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/own-spy-lower-cost-fund-233353554.html",
+     "source": "24/7 Wall St.",
+     "date": "2026-10-13"
+    },
+    {
+     "title": "Is Spotify (SPOT) a Good or Bad Investment at Today\u2019s Price?",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/spotify-spot-good-bad-investment-231059679.html",
+     "source": "Insider Monkey",
+     "date": "2026-10-13"
+    }
+   ],
    "data": {
     "rev_growth": null,
     "eps_growth": null,
@@ -264,7 +511,26 @@
     "No clear gap between the latest results and the price move."
    ],
    "extra": "Next earnings: Oct 15; analysts' average target +30% away (20 analysts, 'strong_buy')",
-   "news": [],
+   "news": [
+    {
+     "title": "You Bought a Semiconductor Fund. On $500,000, $87,743 of It Is NVIDIA",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/bought-semiconductor-fund-500-000-210309579.html",
+     "source": "24/7 Wall St.",
+     "date": "2026-10-13"
+    },
+    {
+     "title": "TSMC Stocks Slip as Thursday's Earnings Put AI Margins Under Scrutiny",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/tsmc-stocks-slip-thursdays-earnings-205453172.html",
+     "source": "GuruFocus.com",
+     "date": "2026-10-13"
+    },
+    {
+     "title": "ASML Is About to Kick Off Tech Earnings. It\u2019s a Big Deal for Chip Stocks.",
+     "url": "https://finance.yahoo.com/m/6f0ac73f-c2ff-31c0-9b56-25953c6e6942/asml-is-about-to-kick-off.html",
+     "source": "Barrons.com",
+     "date": "2026-10-13"
+    }
+   ],
    "data": {
     "rev_growth": 36.0,
     "eps_growth": 77.4,
@@ -284,7 +550,26 @@
     "The latest results were strong, so the drop from the high isn't explained by the last report: it's coming from outlook, valuation or the wider market."
    ],
    "extra": "analysts' average target +41% away (20 analysts, 'strong_buy')",
-   "news": [],
+   "news": [
+    {
+     "title": "Credo Technology Group Holding Insider Sold Shares Worth $1,613,831, According to a Recent SEC Filing",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/credo-technology-group-holding-insider-200813753.html",
+     "source": "MT Newswires",
+     "date": "2026-10-13"
+    },
+    {
+     "title": "Credo Stocks Fall 5.1% as AI Cable's 2027 Timeline Takes Focus",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/credo-stocks-fall-5-1-192133895.html",
+     "source": "GuruFocus.com",
+     "date": "2026-10-13"
+    },
+    {
+     "title": "Does The Drop In Credo Stock Change Anything?",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/does-drop-credo-stock-change-180510335.html",
+     "source": "Trefis",
+     "date": "2026-10-13"
+    }
+   ],
    "data": {
     "rev_growth": 114.7,
     "eps_growth": 97.1,
@@ -304,7 +589,26 @@
     "The latest results were strong, so the drop from the high isn't explained by the last report: it's coming from outlook, valuation or the wider market."
    ],
    "extra": "Next earnings: Nov 3; analysts' average target +20% away (22 analysts, 'buy')",
-   "news": [],
+   "news": [
+    {
+     "title": "Does The Drop In Credo Stock Change Anything?",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/does-drop-credo-stock-change-180510335.html",
+     "source": "Trefis",
+     "date": "2026-10-13"
+    },
+    {
+     "title": "Lumentum (LITE) Is Down 8.8% After Long\u2011Term AI Optics Commitments Raise New Demand Questions",
+     "url": "https://finance.yahoo.com/technology/ai/articles/lumentum-lite-down-8-8-151309863.html",
+     "source": "Simply Wall St.",
+     "date": "2026-10-13"
+    },
+    {
+     "title": "Credo's SRMO Workstream: Can Micro-Emitter Optics Unlock AI Growth?",
+     "url": "https://finance.yahoo.com/technology/ai/articles/credos-srmo-workstream-micro-emitter-130300498.html",
+     "source": "Zacks",
+     "date": "2026-10-13"
+    }
+   ],
    "data": {
     "rev_growth": 104.5,
     "eps_growth": 186.2,
@@ -324,7 +628,26 @@
     "No clear gap between the latest results and the price move."
    ],
    "extra": "Next earnings: Nov 5; analysts' average target +19% away (26 analysts, 'strong_buy')",
-   "news": [],
+   "news": [
+    {
+     "title": "Was There Any Sign Coherent Stock Would Run?",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/sign-coherent-stock-run-001938712.html",
+     "source": "Trefis",
+     "date": "2026-10-14"
+    },
+    {
+     "title": "Applied Optoelectronics Is Up 175% in 2026 and Lumentum Is Up 164%: Take Profits, or Hold On for the Ride?",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/applied-optoelectronics-175-2026-lumentum-191047976.html",
+     "source": "24/7 Wall St.",
+     "date": "2026-10-13"
+    },
+    {
+     "title": "Coherent Stock Falls Nearly 8% as Ciena and Lumentum Drop About 10%. Here\u2019s Where the Stock Could Go by 2031",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/coherent-stock-falls-nearly-8-165354917.html",
+     "source": "TIKR",
+     "date": "2026-10-13"
+    }
+   ],
    "data": {
     "rev_growth": 109.3,
     "eps_growth": null,
@@ -344,7 +667,26 @@
     "Strong results and a price near its high: business and stock are moving together."
    ],
    "extra": "analysts' average target +4% away (25 analysts, 'buy')",
-   "news": [],
+   "news": [
+    {
+     "title": "Accenture (ACN) Deepens AI Push With New Deals And A Customer Data Buy",
+     "url": "https://finance.yahoo.com/technology/ai/articles/accenture-acn-deepens-ai-push-211441147.html",
+     "source": "Simply Wall St.",
+     "date": "2026-10-13"
+    },
+    {
+     "title": "The Best \"Strong Buy\" Momentum Stocks to Buy Now in October",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/best-strong-buy-momentum-stocks-191100718.html",
+     "source": "Zacks",
+     "date": "2026-10-13"
+    },
+    {
+     "title": "What Would Weak iPhone Demand Do To Apple Stock?",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/weak-iphone-demand-apple-stock-183440971.html",
+     "source": "Trefis",
+     "date": "2026-10-13"
+    }
+   ],
    "data": {
     "rev_growth": 57.7,
     "eps_growth": 272.9,
@@ -364,7 +706,26 @@
     "The latest results were strong, so the drop from the high isn't explained by the last report: it's coming from outlook, valuation or the wider market."
    ],
    "extra": "Next earnings: Oct 22; analysts' average target +7% away (26 analysts, 'buy')",
-   "news": [],
+   "news": [
+    {
+     "title": "What Is Driving The Move In Bloom Energy Stock?",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/driving-move-bloom-energy-stock-231208866.html",
+     "source": "Trefis",
+     "date": "2026-10-13"
+    },
+    {
+     "title": "Oracle urges FERC to expedite New Mexico gas pipeline for Project Jupiter",
+     "url": "https://finance.yahoo.com/energy/articles/oracle-urges-ferc-expedite-mexico-215237380.html",
+     "source": "Investing.com",
+     "date": "2026-10-13"
+    },
+    {
+     "title": "What Needs To Be True To Buy Plug Power Stock?",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/needs-true-buy-plug-power-214924754.html",
+     "source": "Trefis",
+     "date": "2026-10-13"
+    }
+   ],
    "data": {
     "rev_growth": 165.5,
     "eps_growth": null,
@@ -384,7 +745,26 @@
     "No clear gap between the latest results and the price move."
    ],
    "extra": "Next earnings: Oct 29; analysts' average target +14% away (29 analysts, 'buy')",
-   "news": [],
+   "news": [
+    {
+     "title": "Bristol Myers Squibb vs. Eli Lilly: Which Healthcare Stock Is a Better Buy in 2026?",
+     "url": "https://finance.yahoo.com/healthcare/articles/bristol-myers-squibb-vs-eli-211202124.html",
+     "source": "Motley Fool",
+     "date": "2026-10-13"
+    },
+    {
+     "title": "How Early Taltz and Zepbound Biomarker Synergies At Eli Lilly (LLY) Have Changed Its Investment Story",
+     "url": "https://finance.yahoo.com/healthcare/articles/early-taltz-zepbound-biomarker-synergies-211035515.html",
+     "source": "Simply Wall St.",
+     "date": "2026-10-13"
+    },
+    {
+     "title": "Here's Why Eli Lilly (LLY) Fell More Than Broader Market",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/heres-why-eli-lilly-lly-204504911.html",
+     "source": "Zacks",
+     "date": "2026-10-13"
+    }
+   ],
    "data": {
     "rev_growth": 47.7,
     "eps_growth": 26.2,
@@ -404,7 +784,26 @@
     "The latest results were strong, so the drop from the high isn't explained by the last report: it's coming from outlook, valuation or the wider market."
    ],
    "extra": "Next earnings: Oct 27; analysts' average target +22% away (29 analysts, 'buy')",
-   "news": [],
+   "news": [
+    {
+     "title": "Robinhood Expands Social Trading Push With U.S. Rollout",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/robinhood-expands-social-trading-push-000800407.html",
+     "source": "CryptoProwl",
+     "date": "2026-10-14"
+    },
+    {
+     "title": "Why the Market Dipped But Robinhood Markets, Inc. (HOOD) Gained Today",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/why-market-dipped-robinhood-markets-204503617.html",
+     "source": "Zacks",
+     "date": "2026-10-13"
+    },
+    {
+     "title": "3 Financial Stocks Riding Fixed Income Trading Demand In US Markets",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/3-financial-stocks-riding-fixed-171158045.html",
+     "source": "Simply Wall St.",
+     "date": "2026-10-13"
+    }
+   ],
    "data": {
     "rev_growth": 32.3,
     "eps_growth": 47.6,
@@ -424,7 +823,26 @@
     "The latest results were strong, so the drop from the high isn't explained by the last report: it's coming from outlook, valuation or the wider market."
    ],
    "extra": "analysts' average target +41% away (31 analysts, 'buy')",
-   "news": [],
+   "news": [
+    {
+     "title": "Elon Musk's SpaceX could change how Americans buy iPhones",
+     "url": "https://finance.yahoo.com/technology/articles/elon-musks-spacex-could-change-000300075.html",
+     "source": "TheStreet",
+     "date": "2026-10-14"
+    },
+    {
+     "title": "How Much Could You Lose In T-Mobile Stock?",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/much-could-lose-t-mobile-235648480.html",
+     "source": "Trefis",
+     "date": "2026-10-13"
+    },
+    {
+     "title": "SpaceX Stock Has Climbed About 50% Through 6 Insider Share Unlocks. The Biggest Is Still Ahead.",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/spacex-stock-climbed-50-6-233901246.html",
+     "source": "Motley Fool",
+     "date": "2026-10-13"
+    }
+   ],
    "data": {
     "rev_growth": 91.9,
     "eps_growth": null,
@@ -444,7 +862,26 @@
     "No clear gap between the latest results and the price move."
    ],
    "extra": "analysts' average target +0% away (50 analysts, 'buy')",
-   "news": [],
+   "news": [
+    {
+     "title": "What Was Cloudflare Telling You Before Its Stock Ran?",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/cloudflare-telling-stock-ran-204824765.html",
+     "source": "Trefis",
+     "date": "2026-10-13"
+    },
+    {
+     "title": "As Geopolitical Risk Ramps Up, These Are Wall Street\u2019s Top Cybersecurity Stock Picks for October 2026",
+     "url": "https://finance.yahoo.com/technology/articles/geopolitical-risk-ramps-wall-street-193129057.html",
+     "source": "Barchart",
+     "date": "2026-10-13"
+    },
+    {
+     "title": "Should You Trim Or Add To Your CrowdStrike Position Now?",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/trim-add-crowdstrike-position-now-185758199.html",
+     "source": "Trefis",
+     "date": "2026-10-13"
+    }
+   ],
    "data": {
     "rev_growth": 34.5,
     "eps_growth": null,
@@ -464,7 +901,26 @@
     "The latest results were strong, so the drop from the high isn't explained by the last report: it's coming from outlook, valuation or the wider market."
    ],
    "extra": "Next earnings: Oct 29; analysts' average target +15% away (43 analysts, 'buy')",
-   "news": [],
+   "news": [
+    {
+     "title": "SUSS Expands Innovation Ecosystem Through Strategic Partnership With Ignite Next",
+     "url": "https://finance.yahoo.com/technology/articles/suss-expands-innovation-ecosystem-strategic-212348757.html",
+     "source": "NewMediaWire",
+     "date": "2026-10-13"
+    },
+    {
+     "title": "What Is Next For Micron Stock?",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/next-micron-stock-190643974.html",
+     "source": "Trefis",
+     "date": "2026-10-13"
+    },
+    {
+     "title": "INTC Stock: What to Watch Before Earnings on October 22",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/intc-stock-watch-earnings-october-181941210.html",
+     "source": "Barchart",
+     "date": "2026-10-13"
+    }
+   ],
    "data": {
     "rev_growth": 25.4,
     "eps_growth": null,
@@ -484,7 +940,26 @@
     "The latest results were strong, so the drop from the high isn't explained by the last report: it's coming from outlook, valuation or the wider market."
    ],
    "extra": "Next earnings: Oct 28; analysts' average target +8% away (46 analysts, 'strong_buy')",
-   "news": [],
+   "news": [
+    {
+     "title": "Micron Technology (MU) Dropped, What Is Driving Attention Now?",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/micron-technology-mu-dropped-driving-012009860.html",
+     "source": "Simply Wall St.",
+     "date": "2026-10-14"
+    },
+    {
+     "title": "Should You Sell Your Fair Isaac Stock Now?",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/sell-fair-isaac-stock-now-000320532.html",
+     "source": "Trefis",
+     "date": "2026-10-14"
+    },
+    {
+     "title": "Access To Power Now The No. 1 Force Shaping U.S. Site Selection Decisions",
+     "url": "https://finance.yahoo.com/real-estate/articles/access-power-now-no-1-235152778.html",
+     "source": "Bisnow",
+     "date": "2026-10-13"
+    }
+   ],
    "data": {
     "rev_growth": 24.0,
     "eps_growth": -21.9,
@@ -504,7 +979,26 @@
     "No clear gap between the latest results and the price move."
    ],
    "extra": "Next earnings: Nov 12; analysts' average target +18% away (25 analysts, 'buy')",
-   "news": [],
+   "news": [
+    {
+     "title": "Cisco Stocks Fall Roughly 1% Although Its AI Launch Includes Production Deployments",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/cisco-stocks-fall-roughly-1-204722108.html",
+     "source": "GuruFocus.com",
+     "date": "2026-10-13"
+    },
+    {
+     "title": "What Changed For HPE Stock, And What Did Not?",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/changed-hpe-stock-did-not-181943794.html",
+     "source": "Trefis",
+     "date": "2026-10-13"
+    },
+    {
+     "title": "Cisco vs. IBM: Why the Stock Nobody Wants Could Be the Better Retirement Buy",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/cisco-vs-ibm-why-stock-154555229.html",
+     "source": "24/7 Wall St.",
+     "date": "2026-10-13"
+    }
+   ],
    "data": {
     "rev_growth": 17.6,
     "eps_growth": 52.1,
@@ -524,7 +1018,26 @@
     "No clear gap between the latest results and the price move."
    ],
    "extra": "analysts' average target +20% away (54 analysts, 'buy')",
-   "news": [],
+   "news": [
+    {
+     "title": "Stock Market Today: Dow Wastes Early Gain But Nasdaq Cuts Loss; Cheesecake Breaks Out",
+     "url": "https://finance.yahoo.com/m/53f0b0da-d3c5-3ed1-b95b-353bb359f22f/stock-market-today%3A-dow.html",
+     "source": "Investor's Business Daily",
+     "date": "2026-10-13"
+    },
+    {
+     "title": "What Is Adobe No Longer Telling You?",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/adobe-no-longer-telling-202928403.html",
+     "source": "Trefis",
+     "date": "2026-10-13"
+    },
+    {
+     "title": "What Would It Take For Salesforce Stock To Move Higher?",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/salesforce-stock-move-higher-191752282.html",
+     "source": "Trefis",
+     "date": "2026-10-13"
+    }
+   ],
    "data": {
     "rev_growth": 10.8,
     "eps_growth": 118.9,
@@ -544,7 +1057,26 @@
     "No clear gap between the latest results and the price move."
    ],
    "extra": "Next earnings: Oct 21; analysts' average target +13% away (31 analysts, 'buy')",
-   "news": [],
+   "news": [
+    {
+     "title": "ON Could Be One of the Semiconductor Sector\u2019s Biggest Comeback Stories",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/could-one-semiconductor-sector-biggest-173012160.html",
+     "source": "24/7 Wall St.",
+     "date": "2026-10-13"
+    },
+    {
+     "title": "How Much Of Qualcomm Stock Rides On One Business?",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/much-qualcomm-stock-rides-one-162455837.html",
+     "source": "Trefis",
+     "date": "2026-10-13"
+    },
+    {
+     "title": "What Changed In Qualcomm's Story?",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/changed-qualcomms-story-215537410.html",
+     "source": "Trefis",
+     "date": "2026-10-12"
+    }
+   ],
    "data": {
     "rev_growth": 22.8,
     "eps_growth": 51.8,
@@ -564,7 +1096,26 @@
     "No clear gap between the latest results and the price move."
    ],
    "extra": "Next earnings: Nov 3; analysts' average target +19% away (29 analysts, 'strong_buy')",
-   "news": [],
+   "news": [
+    {
+     "title": "Dow Jones Futures: Stock Market Holds Up As Meta, AMD Lead Buys; ASML, CPI Inflation Due",
+     "url": "https://finance.yahoo.com/m/02b2fe19-36e5-3f96-ac0e-2dc2cf84ceb1/dow-jones-futures%3A-stock.html",
+     "source": "Investor's Business Daily",
+     "date": "2026-10-14"
+    },
+    {
+     "title": "Arista Stocks Fall 5.65% Although Networking Demand Earns New Analyst Support",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/arista-stocks-fall-5-65-212024381.html",
+     "source": "GuruFocus.com",
+     "date": "2026-10-13"
+    },
+    {
+     "title": "Arista Networks (ANET) Registers a Bigger Fall Than the Market: Important Facts to Note",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/arista-networks-anet-registers-bigger-204502419.html",
+     "source": "Zacks",
+     "date": "2026-10-13"
+    }
+   ],
    "data": {
     "rev_growth": 37.7,
     "eps_growth": 35.7,
@@ -584,7 +1135,26 @@
     "No clear gap between the latest results and the price move."
    ],
    "extra": "Next earnings: Oct 27; analysts' average target +6% away (37 analysts, 'strong_buy')",
-   "news": [],
+   "news": [
+    {
+     "title": "2 Financial Stocks to Buy That Berkshire Hathaway Kept While Selling Visa and Mastercard",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/2-financial-stocks-buy-berkshire-215000773.html",
+     "source": "Motley Fool",
+     "date": "2026-10-13"
+    },
+    {
+     "title": "Stocks to Watch Recap: UnitedHealth, J&J, JPMorgan, Micron",
+     "url": "https://finance.yahoo.com/m/970b88dd-f7ff-3c76-ad72-aeb4453783b3/stocks-to-watch-recap%3A.html",
+     "source": "The Wall Street Journal",
+     "date": "2026-10-13"
+    },
+    {
+     "title": "Stock Market Today: Dow Wastes Early Gain But Nasdaq Cuts Loss; Cheesecake Breaks Out",
+     "url": "https://finance.yahoo.com/m/53f0b0da-d3c5-3ed1-b95b-353bb359f22f/stock-market-today%3A-dow.html",
+     "source": "Investor's Business Daily",
+     "date": "2026-10-13"
+    }
+   ],
    "data": {
     "rev_growth": 14.4,
     "eps_growth": 10.2,
@@ -604,7 +1174,26 @@
     "Strong results and a price near its high: business and stock are moving together."
    ],
    "extra": "Next earnings: Oct 30; analysts' average target +3% away (28 analysts, 'buy')",
-   "news": [],
+   "news": [
+    {
+     "title": "Is Amgen Stock Worth More Than Its Competitors?",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/amgen-stock-worth-more-competitors-234851729.html",
+     "source": "Trefis",
+     "date": "2026-10-13"
+    },
+    {
+     "title": "AbbVie vs. Novo Nordisk: Which Healthcare Stock Is a Better Buy in 2026?",
+     "url": "https://finance.yahoo.com/healthcare/articles/abbvie-vs-novo-nordisk-healthcare-214201291.html",
+     "source": "Motley Fool",
+     "date": "2026-10-13"
+    },
+    {
+     "title": "What Does Bristol-Myers Squibb Offer That Pfizer Does Not?",
+     "url": "https://finance.yahoo.com/healthcare/articles/does-bristol-myers-squibb-offer-195931395.html",
+     "source": "Trefis",
+     "date": "2026-10-13"
+    }
+   ],
    "data": {
     "rev_growth": 10.2,
     "eps_growth": 290.4,
@@ -624,7 +1213,26 @@
     "Strong results and a price near its high: business and stock are moving together."
    ],
    "extra": "analysts' average target -0% away (22 analysts, 'buy')",
-   "news": [],
+   "news": [
+    {
+     "title": "Behind the Ticker: Going Upstream with CCNR",
+     "url": "https://finance.yahoo.com/markets/commodities/articles/behind-ticker-going-upstream-ccnr-215326946.html",
+     "source": "etf.com",
+     "date": "2026-10-13"
+    },
+    {
+     "title": "ExxonMobil to Receive Port Houston\u2019s 4th Annual Lone Star Award at HIMC",
+     "url": "https://finance.yahoo.com/energy/articles/exxonmobil-receive-port-houston-4th-201600492.html",
+     "source": "Business Wire",
+     "date": "2026-10-13"
+    },
+    {
+     "title": "Is Occidental Petroleum Stock A Good Fit For Your Portfolio?",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/occidental-petroleum-stock-good-fit-175543923.html",
+     "source": "Trefis",
+     "date": "2026-10-13"
+    }
+   ],
    "data": {
     "rev_growth": 44.1,
     "eps_growth": 112.8,
@@ -644,7 +1252,26 @@
     "The latest results were strong, so the drop from the high isn't explained by the last report: it's coming from outlook, valuation or the wider market."
    ],
    "extra": "Next earnings: Nov 12; analysts' average target +37% away (36 analysts, 'strong_buy')",
-   "news": [],
+   "news": [
+    {
+     "title": "U.S. stock futures muted after chip losses drag Wall Street; CPI data awaited",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/u-stock-futures-muted-chip-012425121.html",
+     "source": "Investing.com",
+     "date": "2026-10-14"
+    },
+    {
+     "title": "Applied Materials (AMAT) Backs AI Physics Modeling Push For Faster Chip R And D",
+     "url": "https://finance.yahoo.com/technology/ai/articles/applied-materials-amat-backs-ai-221553774.html",
+     "source": "Simply Wall St.",
+     "date": "2026-10-13"
+    },
+    {
+     "title": "Applied Materials Targets AI-Led Market Share Gains and Higher Margins by 2030",
+     "url": "https://finance.yahoo.com/technology/ai/articles/applied-materials-targets-ai-led-220210141.html",
+     "source": "MarketBeat",
+     "date": "2026-10-13"
+    }
+   ],
    "data": {
     "rev_growth": 24.8,
     "eps_growth": 42.8,
@@ -664,7 +1291,26 @@
     "No clear gap between the latest results and the price move."
    ],
    "extra": "Next earnings: Oct 21; analysts' average target +3% away (25 analysts, 'strong_buy')",
-   "news": [],
+   "news": [
+    {
+     "title": "Biotech and Pharma Rebound Strengthen Thermo\u2019s (TMO) Organic Growth",
+     "url": "https://finance.yahoo.com/healthcare/articles/biotech-pharma-rebound-strengthen-thermo-135425420.html",
+     "source": "Insider Monkey",
+     "date": "2026-10-13"
+    },
+    {
+     "title": "Thermo Fisher to Report Q3 Earnings: What's in the Cards?",
+     "url": "https://finance.yahoo.com/healthcare/articles/thermo-fisher-report-q3-earnings-132500188.html",
+     "source": "Zacks",
+     "date": "2026-10-13"
+    },
+    {
+     "title": "Thermo Fisher\u2019s Expanded Drug Lifecycle Role Might Change The Case For Investing In Thermo Fisher Scientific (TMO)",
+     "url": "https://finance.yahoo.com/healthcare/articles/thermo-fisher-expanded-drug-lifecycle-121613217.html",
+     "source": "Simply Wall St.",
+     "date": "2026-10-13"
+    }
+   ],
    "data": {
     "rev_growth": 10.5,
     "eps_growth": 9.4,
@@ -683,7 +1329,26 @@
     "Coins have no sales or earnings to compare; the headlines below are the best guide to what's moving it."
    ],
    "extra": "",
-   "news": []
+   "news": [
+    {
+     "title": "BTC USD Survives an $820M Liquidation Bloodbath: Can Bulls Handle CPI Next?",
+     "url": "https://finance.yahoo.com/markets/crypto/articles/btc-usd-survives-820m-liquidation-112509475.html",
+     "source": "99bitcoins",
+     "date": "2026-10-13"
+    },
+    {
+     "title": "Jeonbuk\u2019s BTC USD Loan Terms Remain Unclear as Banks Test Collateral",
+     "url": "https://finance.yahoo.com/markets/crypto/articles/jeonbuk-btc-usd-loan-terms-114102074.html",
+     "source": "99bitcoins",
+     "date": "2026-10-12"
+    },
+    {
+     "title": "BTC USD Outlook: Thailand Opens Bitcoin ETF Route on Oct 16",
+     "url": "https://finance.yahoo.com/markets/crypto/articles/btc-usd-outlook-thailand-opens-161455545.html",
+     "source": "99bitcoins",
+     "date": "2026-10-09"
+    }
+   ]
   },
   "ETH-USD": {
    "text": [
@@ -703,7 +1368,7 @@
   },
   "LINK-USD": {
    "text": [
-    "Price: -1% this month, +37% over a year, 18% below its 52-week high; ahead of Bitcoin by 16 points over 3 months.",
+    "Price: -1% this month, +37% over a year, 18% below its 52-week high; ahead of Bitcoin by 17 points over 3 months.",
     "Coins have no sales or earnings to compare; the headlines below are the best guide to what's moving it."
    ],
    "extra": "",
@@ -732,7 +1397,7 @@
   },
   "RAY-USD": {
    "text": [
-    "Price: +13% this month, +205% over a year, 19% below its 52-week high; ahead of Bitcoin by 193 points over 3 months.",
+    "Price: +13% this month, +206% over a year, 19% below its 52-week high; ahead of Bitcoin by 195 points over 3 months.",
     "Coins have no sales or earnings to compare; the headlines below are the best guide to what's moving it."
    ],
    "extra": "",
@@ -740,7 +1405,7 @@
   },
   "RENDER-USD": {
    "text": [
-    "Price: +11% this month, +33% over a year, 16% below its 52-week high; ahead of Bitcoin by 31 points over 3 months.",
+    "Price: +11% this month, +33% over a year, 15% below its 52-week high; ahead of Bitcoin by 32 points over 3 months.",
     "Coins have no sales or earnings to compare; the headlines below are the best guide to what's moving it."
    ],
    "extra": "",
@@ -812,7 +1477,26 @@
   "UNI-USD": {
    "text": [],
    "extra": "",
-   "news": []
+   "news": [
+    {
+     "title": "Sold the Business at 63 and the Proceeds Are Sitting in the Bank? Idle Money Has a Cost Too. These 3 ETFs Turn One Payday Into Decades of Income",
+     "url": "https://finance.yahoo.com/markets/options/articles/sold-business-63-proceeds-sitting-210322308.html",
+     "source": "24/7 Wall St.",
+     "date": "2026-10-12"
+    },
+    {
+     "title": "Retiring With Half Your Wealth in One Stock? One Bad Quarter Can Reset Your Retirement Date. These 3 ETFs Spread the Risk",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/retiring-half-wealth-one-stock-203327193.html",
+     "source": "24/7 Wall St.",
+     "date": "2026-10-05"
+    },
+    {
+     "title": "Retirees Who Check Their Balance Every Day Sell at the Worst Times. These 3 ETFs Are Built to Be Ignored for a Decade",
+     "url": "https://finance.yahoo.com/markets/options/articles/retirees-check-balance-every-day-212650864.html",
+     "source": "24/7 Wall St.",
+     "date": "2026-09-23"
+    }
+   ]
   },
   "XLM-USD": {
    "text": [
@@ -824,7 +1508,7 @@
   },
   "ONDO-USD": {
    "text": [
-    "Price: +6% this month, +69% over a year, 23% below its 52-week high; ahead of Bitcoin by 9 points over 3 months.",
+    "Price: +6% this month, +69% over a year, 22% below its 52-week high; ahead of Bitcoin by 9 points over 3 months.",
     "Coins have no sales or earnings to compare; the headlines below are the best guide to what's moving it."
    ],
    "extra": "",
@@ -874,11 +1558,25 @@
   },
   "MON-USD": {
    "text": [
-    "Price: -10% this month, +41% over a year, 34% below its 52-week high; behind Bitcoin by 16 points over 3 months.",
+    "Price: -10% this month, +40% over a year, 34% below its 52-week high; behind Bitcoin by 16 points over 3 months.",
     "Coins have no sales or earnings to compare; the headlines below are the best guide to what's moving it."
    ],
    "extra": "",
    "news": []
   }
- }
+ },
+ "news_debug": [
+  "NVDA: 8 raw, keys ['link', 'providerPublishTime', 'publisher', 'relatedTickers', 'thumbnail', 'title']",
+  "AMD: 8 raw, keys ['link', 'providerPublishTime', 'publisher', 'relatedTickers', 'thumbnail', 'title']",
+  "AVGO: 8 raw, keys ['link', 'providerPublishTime', 'publisher', 'relatedTickers', 'title', 'type']",
+  "PLTR: 8 raw, keys ['link', 'providerPublishTime', 'publisher', 'relatedTickers', 'thumbnail', 'title']",
+  "TSLA: 7 raw, keys ['link', 'providerPublishTime', 'publisher', 'relatedTickers', 'thumbnail', 'title']",
+  "MRVL: 8 raw, keys ['link', 'providerPublishTime', 'publisher', 'relatedTickers', 'title', 'type']",
+  "MU: 8 raw, keys ['link', 'providerPublishTime', 'publisher', 'relatedTickers', 'thumbnail', 'title']",
+  "GOOGL: 8 raw, keys ['link', 'providerPublishTime', 'publisher', 'relatedTickers', 'thumbnail', 'title']",
+  "AAPL: 7 raw, keys ['link', 'providerPublishTime', 'publisher', 'relatedTickers', 'thumbnail', 'title']",
+  "MSFT: 8 raw, keys ['link', 'providerPublishTime', 'publisher', 'relatedTickers', 'thumbnail', 'title']",
+  "META: 8 raw, keys ['link', 'providerPublishTime', 'publisher', 'relatedTickers', 'thumbnail', 'title']",
+  "QQQ: 8 raw, keys ['link', 'providerPublishTime', 'publisher', 'relatedTickers', 'thumbnail', 'title']"
+ ]
 }
