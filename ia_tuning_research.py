@@ -172,7 +172,7 @@ def main() -> None:
                 "best_roi": {"settings": list(best_roi["combo"]), "is": best_roi["is"], "oos": best_roi["oos"]},
                 "default": {"is": default["is"], "oos": default["oos"]},
                 "oos_median_all_settings_roi": float(np.median(oos_all)) if oos_all else None,
-                "rank_corr_is_oos": round(float(is_rank.corr(oos_rank, method="spearman")), 2),
+                "rank_corr_is_oos": round(float(is_rank.corr(oos_rank)), 2),
             }
             log.info("%s done (%s)", t, "picked " + "/".join(map(str, chosen["combo"])) if chosen else "skipped")
     OUT.mkdir(exist_ok=True)
