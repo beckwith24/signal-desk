@@ -370,4 +370,10 @@ def report(r: dict) -> str:
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except Exception:                       # keep the error readable in the results file (Actions logs aren't always reachable)
+        import traceback
+        OUT.mkdir(exist_ok=True)
+        (OUT / "confluence.md").write_text("# Run failed\n\n```\n" + traceback.format_exc() + "```\n")
+        raise SystemExit(0)
