@@ -92,7 +92,7 @@ def signals_text() -> str:
     return "\n".join(lines)
 
 
-MAX_TICKERS = 60      # a full scan (3 timeframes each) still finishes well inside the 30-minute schedule
+MAX_TICKERS = 70      # a full scan (3 timeframes each) still finishes well inside the 30-minute schedule
 
 
 def _clean(raw: str) -> str:

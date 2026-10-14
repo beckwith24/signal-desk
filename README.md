@@ -100,7 +100,7 @@ timeframes and level, switch layer alerts, pause alerts and start a scan, all sa
 symbol exists on Yahoo, saves the list to `settings.json` (it overrides the watchlist in `config.yaml`) and
 starts a scan so the new chart appears within minutes. The chart site has the same controls: **＋ Add ticker**
 on the main list and **Remove from watchlist** on each chart. Both open your bot; tap **Start** to confirm.
-Up to 60 tickers.
+Up to 70 tickers.
 
 **Charts on your phone:** every scan publishes a small website at
 `https://<your-github-username>.github.io/signal-desk`, with four sections (bottom bar on phones, top bar on

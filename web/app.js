@@ -694,7 +694,7 @@ if (window.top !== window.self) { document.documentElement.style.display = "none
       const saved = await saveSettings("add " + t, (s) => {
         const w = s.watchlist;
         if (w.stocks.includes(t) || w.crypto.includes(t)) return false;
-        if (w.stocks.length + w.crypto.length >= 60) throw new Error("Your list is full (60). Remove a ticker first.");
+        if (w.stocks.length + w.crypto.length >= 70) throw new Error("Your list is full (70). Remove a ticker first.");
         w[k].push(t);
       });
       if (!saved) { say("sAddStatus", t + " is already on your list."); renderSettings(); return; }

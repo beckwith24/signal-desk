@@ -67,7 +67,13 @@
       "UNI-USD",
       "XLM-USD",
       "ONDO-USD",
-      "KMNO-USD"
+      "KMNO-USD",
+      "PYTH-USD",
+      "GRASS-USD",
+      "ENA-USD",
+      "APT-USD",
+      "SEI-USD",
+      "MON-USD"
     ]
   }
 }
