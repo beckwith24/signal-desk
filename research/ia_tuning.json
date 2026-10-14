@@ -1,0 +1,4002 @@
+{
+ "generated": "2026-10-14 00:43 UTC",
+ "split": "2023-01-01",
+ "assets": {
+  "NVDA": {
+   "asset": "stock",
+   "from": "2016-10-14",
+   "chosen": {
+    "settings": [
+     "trend",
+     "none",
+     "heikin-ashi",
+     true
+    ],
+    "is": {
+     "roi_pct": 378.8,
+     "cagr_pct": 29.9,
+     "win_pct": 100.0,
+     "sells": 36,
+     "buys": 38,
+     "max_dd_pct": -66.8,
+     "hold_roi_pct": 481.1,
+     "hold_dd_pct": -66.3,
+     "invested_pct": 99.6,
+     "open_lots": 2,
+     "worst_open_lot_pct": -55.9
+    },
+    "oos": {
+     "roi_pct": 755.3,
+     "cagr_pct": 76.7,
+     "win_pct": 100.0,
+     "sells": 28,
+     "buys": 29,
+     "max_dd_pct": -38.4,
+     "hold_roi_pct": 1486.3,
+     "hold_dd_pct": -36.9,
+     "invested_pct": 99.2,
+     "open_lots": 1,
+     "worst_open_lot_pct": 7.2
+    }
+   },
+   "best_roi": {
+    "settings": [
+     "deviation",
+     "low",
+     "candles",
+     false
+    ],
+    "is": {
+     "roi_pct": 353.5,
+     "cagr_pct": 28.7,
+     "win_pct": 80.6,
+     "sells": 31,
+     "buys": 32,
+     "max_dd_pct": -33.5,
+     "hold_roi_pct": 481.1,
+     "hold_dd_pct": -66.3,
+     "invested_pct": 47.8,
+     "open_lots": 1,
+     "worst_open_lot_pct": -3.1
+    },
+    "oos": {
+     "roi_pct": 224.5,
+     "cagr_pct": 36.7,
+     "win_pct": 94.4,
+     "sells": 18,
+     "buys": 18,
+     "max_dd_pct": -32.7,
+     "hold_roi_pct": 1486.3,
+     "hold_dd_pct": -36.9,
+     "invested_pct": 46.9,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    }
+   },
+   "default": {
+    "is": {
+     "roi_pct": 17.2,
+     "cagr_pct": 2.7,
+     "win_pct": 42.2,
+     "sells": 90,
+     "buys": 90,
+     "max_dd_pct": -39.9,
+     "hold_roi_pct": 481.1,
+     "hold_dd_pct": -66.3,
+     "invested_pct": 60.3,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    },
+    "oos": {
+     "roi_pct": 82.5,
+     "cagr_pct": 17.3,
+     "win_pct": 45.9,
+     "sells": 61,
+     "buys": 61,
+     "max_dd_pct": -23.8,
+     "hold_roi_pct": 1486.3,
+     "hold_dd_pct": -36.9,
+     "invested_pct": 62.9,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    }
+   },
+   "oos_median_all_settings_roi": 224.4,
+   "rank_corr_is_oos": 0.77
+  },
+  "AMD": {
+   "asset": "stock",
+   "from": "2016-10-14",
+   "chosen": {
+    "settings": [
+     "trend",
+     "high",
+     "heikin-ashi",
+     true
+    ],
+    "is": {
+     "roi_pct": 352.0,
+     "cagr_pct": 28.6,
+     "win_pct": 100.0,
+     "sells": 18,
+     "buys": 20,
+     "max_dd_pct": -63.1,
+     "hold_roi_pct": 466.7,
+     "hold_dd_pct": -65.4,
+     "invested_pct": 98.2,
+     "open_lots": 2,
+     "worst_open_lot_pct": -58.5
+    },
+    "oos": {
+     "roi_pct": 411.7,
+     "cagr_pct": 54.2,
+     "win_pct": 100.0,
+     "sells": 10,
+     "buys": 12,
+     "max_dd_pct": -58.7,
+     "hold_roi_pct": 828.2,
+     "hold_dd_pct": -63.0,
+     "invested_pct": 95.0,
+     "open_lots": 2,
+     "worst_open_lot_pct": 8.6
+    }
+   },
+   "best_roi": {
+    "settings": [
+     "deviation",
+     "none",
+     "candles",
+     false
+    ],
+    "is": {
+     "roi_pct": 277.7,
+     "cagr_pct": 24.8,
+     "win_pct": 70.3,
+     "sells": 37,
+     "buys": 39,
+     "max_dd_pct": -40.6,
+     "hold_roi_pct": 466.7,
+     "hold_dd_pct": -65.4,
+     "invested_pct": 66.9,
+     "open_lots": 2,
+     "worst_open_lot_pct": -2.3
+    },
+    "oos": {
+     "roi_pct": 66.6,
+     "cagr_pct": 14.5,
+     "win_pct": 72.2,
+     "sells": 18,
+     "buys": 18,
+     "max_dd_pct": -43.0,
+     "hold_roi_pct": 828.2,
+     "hold_dd_pct": -63.0,
+     "invested_pct": 56.7,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    }
+   },
+   "default": {
+    "is": {
+     "roi_pct": 57.0,
+     "cagr_pct": 7.8,
+     "win_pct": 32.5,
+     "sells": 80,
+     "buys": 80,
+     "max_dd_pct": -29.9,
+     "hold_roi_pct": 466.7,
+     "hold_dd_pct": -65.4,
+     "invested_pct": 51.1,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    },
+    "oos": {
+     "roi_pct": 57.4,
+     "cagr_pct": 12.8,
+     "win_pct": 41.4,
+     "sells": 58,
+     "buys": 58,
+     "max_dd_pct": -24.9,
+     "hold_roi_pct": 828.2,
+     "hold_dd_pct": -63.0,
+     "invested_pct": 54.6,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    }
+   },
+   "oos_median_all_settings_roi": 253.95000000000002,
+   "rank_corr_is_oos": 0.52
+  },
+  "AVGO": {
+   "asset": "stock",
+   "from": "2016-10-14",
+   "chosen": {
+    "settings": [
+     "trend",
+     "none",
+     "candles",
+     true
+    ],
+    "is": {
+     "roi_pct": 193.3,
+     "cagr_pct": 19.7,
+     "win_pct": 100.0,
+     "sells": 40,
+     "buys": 42,
+     "max_dd_pct": -48.2,
+     "hold_roi_pct": 286.2,
+     "hold_dd_pct": -48.3,
+     "invested_pct": 99.0,
+     "open_lots": 2,
+     "worst_open_lot_pct": -5.2
+    },
+    "oos": {
+     "roi_pct": 378.8,
+     "cagr_pct": 51.5,
+     "win_pct": 100.0,
+     "sells": 40,
+     "buys": 42,
+     "max_dd_pct": -42.0,
+     "hold_roi_pct": 574.0,
+     "hold_dd_pct": -41.1,
+     "invested_pct": 97.8,
+     "open_lots": 2,
+     "worst_open_lot_pct": -17.8
+    }
+   },
+   "best_roi": {
+    "settings": [
+     "deviation",
+     "high",
+     "candles",
+     false
+    ],
+    "is": {
+     "roi_pct": 131.2,
+     "cagr_pct": 15.0,
+     "win_pct": 88.2,
+     "sells": 17,
+     "buys": 17,
+     "max_dd_pct": -39.5,
+     "hold_roi_pct": 286.2,
+     "hold_dd_pct": -48.3,
+     "invested_pct": 42.3,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    },
+    "oos": {
+     "roi_pct": 62.8,
+     "cagr_pct": 13.8,
+     "win_pct": 85.7,
+     "sells": 7,
+     "buys": 9,
+     "max_dd_pct": -31.6,
+     "hold_roi_pct": 574.0,
+     "hold_dd_pct": -41.1,
+     "invested_pct": 41.7,
+     "open_lots": 2,
+     "worst_open_lot_pct": -4.6
+    }
+   },
+   "default": {
+    "is": {
+     "roi_pct": -16.7,
+     "cagr_pct": -3.0,
+     "win_pct": 37.6,
+     "sells": 101,
+     "buys": 101,
+     "max_dd_pct": -37.0,
+     "hold_roi_pct": 286.2,
+     "hold_dd_pct": -48.3,
+     "invested_pct": 61.8,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    },
+    "oos": {
+     "roi_pct": 35.1,
+     "cagr_pct": 8.3,
+     "win_pct": 38.3,
+     "sells": 60,
+     "buys": 60,
+     "max_dd_pct": -19.3,
+     "hold_roi_pct": 574.0,
+     "hold_dd_pct": -41.1,
+     "invested_pct": 56.1,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    }
+   },
+   "oos_median_all_settings_roi": 153.3,
+   "rank_corr_is_oos": 0.84
+  },
+  "TSLA": {
+   "asset": "stock",
+   "from": "2016-10-14",
+   "chosen": {
+    "settings": [
+     "trend",
+     "low",
+     "heikin-ashi",
+     true
+    ],
+    "is": {
+     "roi_pct": 464.7,
+     "cagr_pct": 33.5,
+     "win_pct": 100.0,
+     "sells": 20,
+     "buys": 22,
+     "max_dd_pct": -71.4,
+     "hold_roi_pct": 751.5,
+     "hold_dd_pct": -73.4,
+     "invested_pct": 97.7,
+     "open_lots": 2,
+     "worst_open_lot_pct": -66.6
+    },
+    "oos": {
+     "roi_pct": 129.4,
+     "cagr_pct": 24.6,
+     "win_pct": 100.0,
+     "sells": 8,
+     "buys": 10,
+     "max_dd_pct": -53.7,
+     "hold_roi_pct": 249.7,
+     "hold_dd_pct": -53.8,
+     "invested_pct": 99.0,
+     "open_lots": 2,
+     "worst_open_lot_pct": -15.1
+    }
+   },
+   "best_roi": {
+    "settings": [
+     "trend",
+     "none",
+     "candles",
+     false
+    ],
+    "is": {
+     "roi_pct": 232.7,
+     "cagr_pct": 22.2,
+     "win_pct": 41.0,
+     "sells": 134,
+     "buys": 135,
+     "max_dd_pct": -24.3,
+     "hold_roi_pct": 751.5,
+     "hold_dd_pct": -73.4,
+     "invested_pct": 55.6,
+     "open_lots": 1,
+     "worst_open_lot_pct": 2.6
+    },
+    "oos": {
+     "roi_pct": 7.9,
+     "cagr_pct": 2.0,
+     "win_pct": 36.2,
+     "sells": 94,
+     "buys": 95,
+     "max_dd_pct": -32.5,
+     "hold_roi_pct": 249.7,
+     "hold_dd_pct": -53.8,
+     "invested_pct": 52.7,
+     "open_lots": 1,
+     "worst_open_lot_pct": 2.4
+    }
+   },
+   "default": {
+    "is": {
+     "roi_pct": 152.0,
+     "cagr_pct": 16.7,
+     "win_pct": 48.2,
+     "sells": 83,
+     "buys": 83,
+     "max_dd_pct": -20.6,
+     "hold_roi_pct": 751.5,
+     "hold_dd_pct": -73.4,
+     "invested_pct": 54.6,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    },
+    "oos": {
+     "roi_pct": 86.6,
+     "cagr_pct": 18.0,
+     "win_pct": 41.2,
+     "sells": 51,
+     "buys": 52,
+     "max_dd_pct": -19.2,
+     "hold_roi_pct": 249.7,
+     "hold_dd_pct": -53.8,
+     "invested_pct": 53.4,
+     "open_lots": 1,
+     "worst_open_lot_pct": 2.4
+    }
+   },
+   "oos_median_all_settings_roi": 97.2,
+   "rank_corr_is_oos": 0.43
+  },
+  "MRVL": {
+   "asset": "stock",
+   "from": "2016-10-14",
+   "chosen": {
+    "settings": [
+     "trend",
+     "none",
+     "heikin-ashi",
+     true
+    ],
+    "is": {
+     "roi_pct": 150.4,
+     "cagr_pct": 16.6,
+     "win_pct": 100.0,
+     "sells": 40,
+     "buys": 42,
+     "max_dd_pct": -60.0,
+     "hold_roi_pct": 177.4,
+     "hold_dd_pct": -61.2,
+     "invested_pct": 99.7,
+     "open_lots": 2,
+     "worst_open_lot_pct": -56.9
+    },
+    "oos": {
+     "roi_pct": 364.9,
+     "cagr_pct": 50.3,
+     "win_pct": 100.0,
+     "sells": 20,
+     "buys": 22,
+     "max_dd_pct": -60.5,
+     "hold_roi_pct": 648.8,
+     "hold_dd_pct": -60.8,
+     "invested_pct": 98.6,
+     "open_lots": 2,
+     "worst_open_lot_pct": -10.4
+    }
+   },
+   "best_roi": {
+    "settings": [
+     "deviation",
+     "medium",
+     "heikin-ashi",
+     false
+    ],
+    "is": {
+     "roi_pct": 95.0,
+     "cagr_pct": 11.8,
+     "win_pct": 84.2,
+     "sells": 19,
+     "buys": 21,
+     "max_dd_pct": -49.3,
+     "hold_roi_pct": 177.4,
+     "hold_dd_pct": -61.2,
+     "invested_pct": 63.5,
+     "open_lots": 2,
+     "worst_open_lot_pct": -46.0
+    },
+    "oos": {
+     "roi_pct": 154.9,
+     "cagr_pct": 28.2,
+     "win_pct": 83.3,
+     "sells": 12,
+     "buys": 12,
+     "max_dd_pct": -52.9,
+     "hold_roi_pct": 648.8,
+     "hold_dd_pct": -60.8,
+     "invested_pct": 39.8,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    }
+   },
+   "default": {
+    "is": {
+     "roi_pct": 27.7,
+     "cagr_pct": 4.2,
+     "win_pct": 47.0,
+     "sells": 83,
+     "buys": 83,
+     "max_dd_pct": -39.7,
+     "hold_roi_pct": 177.4,
+     "hold_dd_pct": -61.2,
+     "invested_pct": 53.2,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    },
+    "oos": {
+     "roi_pct": 82.4,
+     "cagr_pct": 17.3,
+     "win_pct": 41.8,
+     "sells": 55,
+     "buys": 56,
+     "max_dd_pct": -24.2,
+     "hold_roi_pct": 648.8,
+     "hold_dd_pct": -60.8,
+     "invested_pct": 56.2,
+     "open_lots": 1,
+     "worst_open_lot_pct": 16.6
+    }
+   },
+   "oos_median_all_settings_roi": 205.3,
+   "rank_corr_is_oos": 0.58
+  },
+  "MU": {
+   "asset": "stock",
+   "from": "2016-10-14",
+   "chosen": {
+    "settings": [
+     "deviation",
+     "low",
+     "heikin-ashi",
+     true
+    ],
+    "is": {
+     "roi_pct": 112.3,
+     "cagr_pct": 13.4,
+     "win_pct": 100.0,
+     "sells": 11,
+     "buys": 13,
+     "max_dd_pct": -49.0,
+     "hold_roi_pct": 123.9,
+     "hold_dd_pct": -53.7,
+     "invested_pct": 80.3,
+     "open_lots": 2,
+     "worst_open_lot_pct": -37.0
+    },
+    "oos": {
+     "roi_pct": 175.2,
+     "cagr_pct": 30.8,
+     "win_pct": 100.0,
+     "sells": 10,
+     "buys": 10,
+     "max_dd_pct": -40.2,
+     "hold_roi_pct": 1893.2,
+     "hold_dd_pct": -57.6,
+     "invested_pct": 42.2,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    }
+   },
+   "best_roi": {
+    "settings": [
+     "deviation",
+     "none",
+     "heikin-ashi",
+     false
+    ],
+    "is": {
+     "roi_pct": 97.7,
+     "cagr_pct": 12.1,
+     "win_pct": 60.7,
+     "sells": 28,
+     "buys": 30,
+     "max_dd_pct": -50.1,
+     "hold_roi_pct": 123.9,
+     "hold_dd_pct": -53.7,
+     "invested_pct": 64.2,
+     "open_lots": 2,
+     "worst_open_lot_pct": -5.7
+    },
+    "oos": {
+     "roi_pct": 195.6,
+     "cagr_pct": 33.3,
+     "win_pct": 90.5,
+     "sells": 21,
+     "buys": 21,
+     "max_dd_pct": -25.4,
+     "hold_roi_pct": 1893.2,
+     "hold_dd_pct": -57.6,
+     "invested_pct": 36.3,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    }
+   },
+   "default": {
+    "is": {
+     "roi_pct": -11.8,
+     "cagr_pct": -2.1,
+     "win_pct": 33.7,
+     "sells": 86,
+     "buys": 86,
+     "max_dd_pct": -37.5,
+     "hold_roi_pct": 123.9,
+     "hold_dd_pct": -53.7,
+     "invested_pct": 52.8,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    },
+    "oos": {
+     "roi_pct": 293.1,
+     "cagr_pct": 43.8,
+     "win_pct": 59.6,
+     "sells": 52,
+     "buys": 52,
+     "max_dd_pct": -26.2,
+     "hold_roi_pct": 1893.2,
+     "hold_dd_pct": -57.6,
+     "invested_pct": 57.6,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    }
+   },
+   "oos_median_all_settings_roi": 255.75,
+   "rank_corr_is_oos": 0.32
+  },
+  "GOOGL": {
+   "asset": "stock",
+   "from": "2016-10-14",
+   "chosen": {
+    "settings": [
+     "trend",
+     "high",
+     "heikin-ashi",
+     true
+    ],
+    "is": {
+     "roi_pct": 100.7,
+     "cagr_pct": 12.3,
+     "win_pct": 100.0,
+     "sells": 18,
+     "buys": 20,
+     "max_dd_pct": -45.0,
+     "hold_roi_pct": 118.4,
+     "hold_dd_pct": -44.3,
+     "invested_pct": 97.8,
+     "open_lots": 2,
+     "worst_open_lot_pct": -40.7
+    },
+    "oos": {
+     "roi_pct": 224.5,
+     "cagr_pct": 36.7,
+     "win_pct": 100.0,
+     "sells": 15,
+     "buys": 17,
+     "max_dd_pct": -21.2,
+     "hold_roi_pct": 299.5,
+     "hold_dd_pct": -29.8,
+     "invested_pct": 98.6,
+     "open_lots": 2,
+     "worst_open_lot_pct": -4.4
+    }
+   },
+   "best_roi": {
+    "settings": [
+     "deviation",
+     "high",
+     "heikin-ashi",
+     false
+    ],
+    "is": {
+     "roi_pct": 52.3,
+     "cagr_pct": 7.3,
+     "win_pct": 100.0,
+     "sells": 12,
+     "buys": 14,
+     "max_dd_pct": -42.0,
+     "hold_roi_pct": 118.4,
+     "hold_dd_pct": -44.3,
+     "invested_pct": 57.5,
+     "open_lots": 2,
+     "worst_open_lot_pct": -34.2
+    },
+    "oos": {
+     "roi_pct": 80.8,
+     "cagr_pct": 17.0,
+     "win_pct": 100.0,
+     "sells": 7,
+     "buys": 9,
+     "max_dd_pct": -15.6,
+     "hold_roi_pct": 299.5,
+     "hold_dd_pct": -29.8,
+     "invested_pct": 45.5,
+     "open_lots": 2,
+     "worst_open_lot_pct": 1.1
+    }
+   },
+   "default": {
+    "is": {
+     "roi_pct": 7.5,
+     "cagr_pct": 1.2,
+     "win_pct": 44.8,
+     "sells": 87,
+     "buys": 87,
+     "max_dd_pct": -24.0,
+     "hold_roi_pct": 118.4,
+     "hold_dd_pct": -44.3,
+     "invested_pct": 60.9,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    },
+    "oos": {
+     "roi_pct": 36.9,
+     "cagr_pct": 8.7,
+     "win_pct": 41.1,
+     "sells": 56,
+     "buys": 57,
+     "max_dd_pct": -15.5,
+     "hold_roi_pct": 299.5,
+     "hold_dd_pct": -29.8,
+     "invested_pct": 59.2,
+     "open_lots": 1,
+     "worst_open_lot_pct": -0.2
+    }
+   },
+   "oos_median_all_settings_roi": 72.9,
+   "rank_corr_is_oos": 0.89
+  },
+  "AAPL": {
+   "asset": "stock",
+   "from": "2016-10-14",
+   "chosen": {
+    "settings": [
+     "trend",
+     "none",
+     "candles",
+     true
+    ],
+    "is": {
+     "roi_pct": 247.3,
+     "cagr_pct": 23.1,
+     "win_pct": 100.0,
+     "sells": 47,
+     "buys": 49,
+     "max_dd_pct": -38.1,
+     "hold_roi_pct": 378.1,
+     "hold_dd_pct": -38.5,
+     "invested_pct": 98.9,
+     "open_lots": 2,
+     "worst_open_lot_pct": -27.1
+    },
+    "oos": {
+     "roi_pct": 144.3,
+     "cagr_pct": 26.7,
+     "win_pct": 100.0,
+     "sells": 31,
+     "buys": 33,
+     "max_dd_pct": -30.7,
+     "hold_roi_pct": 177.5,
+     "hold_dd_pct": -33.4,
+     "invested_pct": 99.4,
+     "open_lots": 2,
+     "worst_open_lot_pct": 2.0
+    }
+   },
+   "best_roi": {
+    "settings": [
+     "trend",
+     "high",
+     "heikin-ashi",
+     false
+    ],
+    "is": {
+     "roi_pct": 109.3,
+     "cagr_pct": 13.1,
+     "win_pct": 54.5,
+     "sells": 33,
+     "buys": 33,
+     "max_dd_pct": -16.1,
+     "hold_roi_pct": 378.1,
+     "hold_dd_pct": -38.5,
+     "invested_pct": 58.2,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    },
+    "oos": {
+     "roi_pct": 26.0,
+     "cagr_pct": 6.3,
+     "win_pct": 47.8,
+     "sells": 23,
+     "buys": 24,
+     "max_dd_pct": -11.9,
+     "hold_roi_pct": 177.5,
+     "hold_dd_pct": -33.4,
+     "invested_pct": 63.0,
+     "open_lots": 1,
+     "worst_open_lot_pct": 4.3
+    }
+   },
+   "default": {
+    "is": {
+     "roi_pct": 21.0,
+     "cagr_pct": 3.2,
+     "win_pct": 41.9,
+     "sells": 86,
+     "buys": 86,
+     "max_dd_pct": -17.4,
+     "hold_roi_pct": 378.1,
+     "hold_dd_pct": -38.5,
+     "invested_pct": 60.3,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    },
+    "oos": {
+     "roi_pct": 40.3,
+     "cagr_pct": 9.4,
+     "win_pct": 55.8,
+     "sells": 43,
+     "buys": 44,
+     "max_dd_pct": -8.2,
+     "hold_roi_pct": 177.5,
+     "hold_dd_pct": -33.4,
+     "invested_pct": 60.0,
+     "open_lots": 1,
+     "worst_open_lot_pct": 2.7
+    }
+   },
+   "oos_median_all_settings_roi": 63.599999999999994,
+   "rank_corr_is_oos": 0.64
+  },
+  "MSFT": {
+   "asset": "stock",
+   "from": "2016-10-14",
+   "chosen": {
+    "settings": [
+     "trend",
+     "none",
+     "candles",
+     true
+    ],
+    "is": {
+     "roi_pct": 208.8,
+     "cagr_pct": 20.7,
+     "win_pct": 100.0,
+     "sells": 63,
+     "buys": 65,
+     "max_dd_pct": -36.9,
+     "hold_roi_pct": 316.0,
+     "hold_dd_pct": -37.1,
+     "invested_pct": 99.7,
+     "open_lots": 2,
+     "worst_open_lot_pct": -28.2
+    },
+    "oos": {
+     "roi_pct": 95.9,
+     "cagr_pct": 19.5,
+     "win_pct": 100.0,
+     "sells": 25,
+     "buys": 27,
+     "max_dd_pct": -34.4,
+     "hold_roi_pct": 132.7,
+     "hold_dd_pct": -34.5,
+     "invested_pct": 98.9,
+     "open_lots": 2,
+     "worst_open_lot_pct": 1.7
+    }
+   },
+   "best_roi": {
+    "settings": [
+     "deviation",
+     "low",
+     "heikin-ashi",
+     false
+    ],
+    "is": {
+     "roi_pct": 101.5,
+     "cagr_pct": 12.4,
+     "win_pct": 78.9,
+     "sells": 19,
+     "buys": 19,
+     "max_dd_pct": -19.1,
+     "hold_roi_pct": 316.0,
+     "hold_dd_pct": -37.1,
+     "invested_pct": 41.3,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    },
+    "oos": {
+     "roi_pct": 53.3,
+     "cagr_pct": 12.0,
+     "win_pct": 84.6,
+     "sells": 13,
+     "buys": 13,
+     "max_dd_pct": -28.4,
+     "hold_roi_pct": 132.7,
+     "hold_dd_pct": -34.5,
+     "invested_pct": 51.7,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    }
+   },
+   "default": {
+    "is": {
+     "roi_pct": -0.2,
+     "cagr_pct": -0.0,
+     "win_pct": 39.8,
+     "sells": 93,
+     "buys": 93,
+     "max_dd_pct": -22.6,
+     "hold_roi_pct": 316.0,
+     "hold_dd_pct": -37.1,
+     "invested_pct": 64.0,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    },
+    "oos": {
+     "roi_pct": 38.3,
+     "cagr_pct": 9.0,
+     "win_pct": 46.9,
+     "sells": 49,
+     "buys": 50,
+     "max_dd_pct": -14.5,
+     "hold_roi_pct": 132.7,
+     "hold_dd_pct": -34.5,
+     "invested_pct": 56.4,
+     "open_lots": 1,
+     "worst_open_lot_pct": 7.0
+    }
+   },
+   "oos_median_all_settings_roi": 53.65,
+   "rank_corr_is_oos": 0.75
+  },
+  "META": {
+   "asset": "stock",
+   "from": "2016-10-14",
+   "chosen": {
+    "settings": [
+     "trend",
+     "none",
+     "candles",
+     true
+    ],
+    "is": {
+     "roi_pct": -9.8,
+     "cagr_pct": -1.7,
+     "win_pct": 100.0,
+     "sells": 37,
+     "buys": 39,
+     "max_dd_pct": -74.7,
+     "hold_roi_pct": 3.0,
+     "hold_dd_pct": -76.7,
+     "invested_pct": 99.8,
+     "open_lots": 2,
+     "worst_open_lot_pct": -68.4
+    },
+    "oos": {
+     "roi_pct": 244.0,
+     "cagr_pct": 38.8,
+     "win_pct": 100.0,
+     "sells": 35,
+     "buys": 37,
+     "max_dd_pct": -33.9,
+     "hold_roi_pct": 501.3,
+     "hold_dd_pct": -34.2,
+     "invested_pct": 98.1,
+     "open_lots": 2,
+     "worst_open_lot_pct": -5.8
+    }
+   },
+   "best_roi": {
+    "settings": [
+     "trend",
+     "high",
+     "heikin-ashi",
+     false
+    ],
+    "is": {
+     "roi_pct": 6.4,
+     "cagr_pct": 1.0,
+     "win_pct": 31.6,
+     "sells": 38,
+     "buys": 39,
+     "max_dd_pct": -31.5,
+     "hold_roi_pct": 3.0,
+     "hold_dd_pct": -76.7,
+     "invested_pct": 60.3,
+     "open_lots": 1,
+     "worst_open_lot_pct": 10.1
+    },
+    "oos": {
+     "roi_pct": 85.7,
+     "cagr_pct": 17.8,
+     "win_pct": 42.9,
+     "sells": 21,
+     "buys": 22,
+     "max_dd_pct": -11.9,
+     "hold_roi_pct": 501.3,
+     "hold_dd_pct": -34.2,
+     "invested_pct": 62.5,
+     "open_lots": 1,
+     "worst_open_lot_pct": 21.4
+    }
+   },
+   "default": {
+    "is": {
+     "roi_pct": -31.6,
+     "cagr_pct": -6.1,
+     "win_pct": 40.2,
+     "sells": 82,
+     "buys": 82,
+     "max_dd_pct": -43.9,
+     "hold_roi_pct": 3.0,
+     "hold_dd_pct": -76.7,
+     "invested_pct": 59.7,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    },
+    "oos": {
+     "roi_pct": 72.5,
+     "cagr_pct": 15.6,
+     "win_pct": 46.0,
+     "sells": 50,
+     "buys": 50,
+     "max_dd_pct": -12.7,
+     "hold_roi_pct": 501.3,
+     "hold_dd_pct": -34.2,
+     "invested_pct": 55.1,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    }
+   },
+   "oos_median_all_settings_roi": 95.15,
+   "rank_corr_is_oos": -0.06
+  },
+  "QQQ": {
+   "asset": "stock",
+   "from": "2016-10-14",
+   "chosen": {
+    "settings": [
+     "trend",
+     "none",
+     "candles",
+     true
+    ],
+    "is": {
+     "roi_pct": 95.5,
+     "cagr_pct": 11.8,
+     "win_pct": 100.0,
+     "sells": 59,
+     "buys": 61,
+     "max_dd_pct": -34.2,
+     "hold_roi_pct": 132.7,
+     "hold_dd_pct": -35.1,
+     "invested_pct": 99.6,
+     "open_lots": 2,
+     "worst_open_lot_pct": -32.6
+    },
+    "oos": {
+     "roi_pct": 116.2,
+     "cagr_pct": 22.7,
+     "win_pct": 100.0,
+     "sells": 41,
+     "buys": 42,
+     "max_dd_pct": -21.5,
+     "hold_roi_pct": 188.1,
+     "hold_dd_pct": -22.8,
+     "invested_pct": 98.4,
+     "open_lots": 1,
+     "worst_open_lot_pct": 3.6
+    }
+   },
+   "best_roi": {
+    "settings": [
+     "deviation",
+     "low",
+     "candles",
+     false
+    ],
+    "is": {
+     "roi_pct": 47.0,
+     "cagr_pct": 6.6,
+     "win_pct": 67.9,
+     "sells": 28,
+     "buys": 30,
+     "max_dd_pct": -24.3,
+     "hold_roi_pct": 132.7,
+     "hold_dd_pct": -35.1,
+     "invested_pct": 47.3,
+     "open_lots": 2,
+     "worst_open_lot_pct": -0.9
+    },
+    "oos": {
+     "roi_pct": 60.7,
+     "cagr_pct": 13.4,
+     "win_pct": 93.3,
+     "sells": 15,
+     "buys": 15,
+     "max_dd_pct": -15.8,
+     "hold_roi_pct": 188.1,
+     "hold_dd_pct": -22.8,
+     "invested_pct": 47.9,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    }
+   },
+   "default": {
+    "is": {
+     "roi_pct": 14.7,
+     "cagr_pct": 2.3,
+     "win_pct": 41.3,
+     "sells": 92,
+     "buys": 92,
+     "max_dd_pct": -18.9,
+     "hold_roi_pct": 132.7,
+     "hold_dd_pct": -35.1,
+     "invested_pct": 68.4,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    },
+    "oos": {
+     "roi_pct": 40.6,
+     "cagr_pct": 9.5,
+     "win_pct": 47.1,
+     "sells": 51,
+     "buys": 52,
+     "max_dd_pct": -7.8,
+     "hold_roi_pct": 188.1,
+     "hold_dd_pct": -22.8,
+     "invested_pct": 65.6,
+     "open_lots": 1,
+     "worst_open_lot_pct": 2.4
+    }
+   },
+   "oos_median_all_settings_roi": 65.25,
+   "rank_corr_is_oos": 0.88
+  },
+  "SPY": {
+   "asset": "stock",
+   "from": "2016-10-14",
+   "chosen": {
+    "settings": [
+     "trend",
+     "low",
+     "candles",
+     true
+    ],
+    "is": {
+     "roi_pct": 76.5,
+     "cagr_pct": 10.0,
+     "win_pct": 100.0,
+     "sells": 43,
+     "buys": 45,
+     "max_dd_pct": -33.7,
+     "hold_roi_pct": 88.5,
+     "hold_dd_pct": -33.7,
+     "invested_pct": 99.1,
+     "open_lots": 2,
+     "worst_open_lot_pct": -15.6
+    },
+    "oos": {
+     "roi_pct": 83.3,
+     "cagr_pct": 17.4,
+     "win_pct": 100.0,
+     "sells": 37,
+     "buys": 39,
+     "max_dd_pct": -18.4,
+     "hold_roi_pct": 114.2,
+     "hold_dd_pct": -18.8,
+     "invested_pct": 99.6,
+     "open_lots": 2,
+     "worst_open_lot_pct": 1.0
+    }
+   },
+   "best_roi": {
+    "settings": [
+     "deviation",
+     "medium",
+     "heikin-ashi",
+     false
+    ],
+    "is": {
+     "roi_pct": 46.8,
+     "cagr_pct": 6.6,
+     "win_pct": 83.3,
+     "sells": 18,
+     "buys": 18,
+     "max_dd_pct": -16.2,
+     "hold_roi_pct": 88.5,
+     "hold_dd_pct": -33.7,
+     "invested_pct": 41.4,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    },
+    "oos": {
+     "roi_pct": 37.3,
+     "cagr_pct": 8.8,
+     "win_pct": 100.0,
+     "sells": 9,
+     "buys": 9,
+     "max_dd_pct": -16.2,
+     "hold_roi_pct": 114.2,
+     "hold_dd_pct": -18.8,
+     "invested_pct": 34.0,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    }
+   },
+   "default": {
+    "is": {
+     "roi_pct": 15.3,
+     "cagr_pct": 2.4,
+     "win_pct": 51.1,
+     "sells": 88,
+     "buys": 88,
+     "max_dd_pct": -10.7,
+     "hold_roi_pct": 88.5,
+     "hold_dd_pct": -33.7,
+     "invested_pct": 71.6,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    },
+    "oos": {
+     "roi_pct": 23.4,
+     "cagr_pct": 5.7,
+     "win_pct": 50.9,
+     "sells": 53,
+     "buys": 54,
+     "max_dd_pct": -7.1,
+     "hold_roi_pct": 114.2,
+     "hold_dd_pct": -18.8,
+     "invested_pct": 68.7,
+     "open_lots": 1,
+     "worst_open_lot_pct": -0.1
+    }
+   },
+   "oos_median_all_settings_roi": 41.900000000000006,
+   "rank_corr_is_oos": 0.77
+  },
+  "TSM": {
+   "asset": "stock",
+   "from": "2016-10-14",
+   "chosen": {
+    "settings": [
+     "trend",
+     "low",
+     "heikin-ashi",
+     true
+    ],
+    "is": {
+     "roi_pct": 255.8,
+     "cagr_pct": 23.6,
+     "win_pct": 100.0,
+     "sells": 28,
+     "buys": 30,
+     "max_dd_pct": -49.4,
+     "hold_roi_pct": 203.5,
+     "hold_dd_pct": -56.5,
+     "invested_pct": 99.8,
+     "open_lots": 2,
+     "worst_open_lot_pct": -37.4
+    },
+    "oos": {
+     "roi_pct": 262.7,
+     "cagr_pct": 40.7,
+     "win_pct": 100.0,
+     "sells": 28,
+     "buys": 30,
+     "max_dd_pct": -39.0,
+     "hold_roi_pct": 533.9,
+     "hold_dd_pct": -36.8,
+     "invested_pct": 99.4,
+     "open_lots": 2,
+     "worst_open_lot_pct": -4.8
+    }
+   },
+   "best_roi": {
+    "settings": [
+     "trend",
+     "low",
+     "heikin-ashi",
+     false
+    ],
+    "is": {
+     "roi_pct": 90.7,
+     "cagr_pct": 11.4,
+     "win_pct": 50.0,
+     "sells": 74,
+     "buys": 74,
+     "max_dd_pct": -17.0,
+     "hold_roi_pct": 203.5,
+     "hold_dd_pct": -56.5,
+     "invested_pct": 57.0,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    },
+    "oos": {
+     "roi_pct": 33.7,
+     "cagr_pct": 8.0,
+     "win_pct": 43.9,
+     "sells": 57,
+     "buys": 57,
+     "max_dd_pct": -23.7,
+     "hold_roi_pct": 533.9,
+     "hold_dd_pct": -36.8,
+     "invested_pct": 56.3,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    }
+   },
+   "default": {
+    "is": {
+     "roi_pct": 50.6,
+     "cagr_pct": 7.1,
+     "win_pct": 49.5,
+     "sells": 93,
+     "buys": 94,
+     "max_dd_pct": -19.5,
+     "hold_roi_pct": 203.5,
+     "hold_dd_pct": -56.5,
+     "invested_pct": 56.8,
+     "open_lots": 1,
+     "worst_open_lot_pct": 0.2
+    },
+    "oos": {
+     "roi_pct": 8.1,
+     "cagr_pct": 2.1,
+     "win_pct": 37.7,
+     "sells": 61,
+     "buys": 61,
+     "max_dd_pct": -26.6,
+     "hold_roi_pct": 533.9,
+     "hold_dd_pct": -36.8,
+     "invested_pct": 56.1,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    }
+   },
+   "oos_median_all_settings_roi": 125.1,
+   "rank_corr_is_oos": 0.4
+  },
+  "LITE": {
+   "asset": "stock",
+   "from": "2016-10-14",
+   "chosen": {
+    "settings": [
+     "deviation",
+     "high",
+     "candles",
+     true
+    ],
+    "is": {
+     "roi_pct": 183.3,
+     "cagr_pct": 19.0,
+     "win_pct": 100.0,
+     "sells": 16,
+     "buys": 18,
+     "max_dd_pct": -49.9,
+     "hold_roi_pct": 39.9,
+     "hold_dd_pct": -54.6,
+     "invested_pct": 75.6,
+     "open_lots": 2,
+     "worst_open_lot_pct": -47.3
+    },
+    "oos": {
+     "roi_pct": 73.6,
+     "cagr_pct": 15.8,
+     "win_pct": 100.0,
+     "sells": 10,
+     "buys": 10,
+     "max_dd_pct": -39.2,
+     "hold_roi_pct": 1787.4,
+     "hold_dd_pct": -50.6,
+     "invested_pct": 41.8,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    }
+   },
+   "best_roi": {
+    "settings": [
+     "deviation",
+     "high",
+     "heikin-ashi",
+     false
+    ],
+    "is": {
+     "roi_pct": 171.9,
+     "cagr_pct": 18.2,
+     "win_pct": 100.0,
+     "sells": 12,
+     "buys": 14,
+     "max_dd_pct": -40.2,
+     "hold_roi_pct": 39.9,
+     "hold_dd_pct": -54.6,
+     "invested_pct": 58.4,
+     "open_lots": 2,
+     "worst_open_lot_pct": -35.4
+    },
+    "oos": {
+     "roi_pct": 112.3,
+     "cagr_pct": 22.1,
+     "win_pct": 85.7,
+     "sells": 7,
+     "buys": 7,
+     "max_dd_pct": -32.3,
+     "hold_roi_pct": 1787.4,
+     "hold_dd_pct": -50.6,
+     "invested_pct": 26.9,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    }
+   },
+   "default": {
+    "is": {
+     "roi_pct": -28.4,
+     "cagr_pct": -5.4,
+     "win_pct": 35.8,
+     "sells": 81,
+     "buys": 81,
+     "max_dd_pct": -42.9,
+     "hold_roi_pct": 39.9,
+     "hold_dd_pct": -54.6,
+     "invested_pct": 54.6,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    },
+    "oos": {
+     "roi_pct": 61.6,
+     "cagr_pct": 13.6,
+     "win_pct": 44.4,
+     "sells": 54,
+     "buys": 55,
+     "max_dd_pct": -39.3,
+     "hold_roi_pct": 1787.4,
+     "hold_dd_pct": -50.6,
+     "invested_pct": 54.4,
+     "open_lots": 1,
+     "worst_open_lot_pct": 3.7
+    }
+   },
+   "oos_median_all_settings_roi": 112.5,
+   "rank_corr_is_oos": -0.03
+  },
+  "DELL": {
+   "asset": "stock",
+   "from": "2016-10-14",
+   "chosen": {
+    "settings": [
+     "trend",
+     "low",
+     "candles",
+     true
+    ],
+    "is": {
+     "roi_pct": 203.3,
+     "cagr_pct": 20.4,
+     "win_pct": 100.0,
+     "sells": 31,
+     "buys": 33,
+     "max_dd_pct": -51.1,
+     "hold_roi_pct": 169.1,
+     "hold_dd_pct": -58.6,
+     "invested_pct": 98.9,
+     "open_lots": 2,
+     "worst_open_lot_pct": -31.6
+    },
+    "oos": {
+     "roi_pct": 779.4,
+     "cagr_pct": 78.0,
+     "win_pct": 100.0,
+     "sells": 35,
+     "buys": 37,
+     "max_dd_pct": -60.5,
+     "hold_roi_pct": 1415.0,
+     "hold_dd_pct": -59.6,
+     "invested_pct": 98.1,
+     "open_lots": 2,
+     "worst_open_lot_pct": -2.8
+    }
+   },
+   "best_roi": {
+    "settings": [
+     "deviation",
+     "medium",
+     "heikin-ashi",
+     false
+    ],
+    "is": {
+     "roi_pct": 120.4,
+     "cagr_pct": 14.1,
+     "win_pct": 84.2,
+     "sells": 19,
+     "buys": 19,
+     "max_dd_pct": -40.1,
+     "hold_roi_pct": 169.1,
+     "hold_dd_pct": -58.6,
+     "invested_pct": 46.3,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    },
+    "oos": {
+     "roi_pct": 70.2,
+     "cagr_pct": 15.1,
+     "win_pct": 87.5,
+     "sells": 8,
+     "buys": 8,
+     "max_dd_pct": -42.3,
+     "hold_roi_pct": 1415.0,
+     "hold_dd_pct": -59.6,
+     "invested_pct": 36.5,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    }
+   },
+   "default": {
+    "is": {
+     "roi_pct": 42.1,
+     "cagr_pct": 6.0,
+     "win_pct": 43.0,
+     "sells": 79,
+     "buys": 79,
+     "max_dd_pct": -21.0,
+     "hold_roi_pct": 169.1,
+     "hold_dd_pct": -58.6,
+     "invested_pct": 61.9,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    },
+    "oos": {
+     "roi_pct": 158.3,
+     "cagr_pct": 28.6,
+     "win_pct": 49.1,
+     "sells": 57,
+     "buys": 58,
+     "max_dd_pct": -22.8,
+     "hold_roi_pct": 1415.0,
+     "hold_dd_pct": -59.6,
+     "invested_pct": 55.2,
+     "open_lots": 1,
+     "worst_open_lot_pct": 1.3
+    }
+   },
+   "oos_median_all_settings_roi": 177.0,
+   "rank_corr_is_oos": 0.52
+  },
+  "BE": {
+   "asset": "stock",
+   "from": "2018-07-25",
+   "chosen": {
+    "settings": [
+     "deviation",
+     "high",
+     "candles",
+     true
+    ],
+    "is": {
+     "roi_pct": 190.6,
+     "cagr_pct": 28.4,
+     "win_pct": 100.0,
+     "sells": 9,
+     "buys": 11,
+     "max_dd_pct": -84.6,
+     "hold_roi_pct": -40.7,
+     "hold_dd_pct": -92.5,
+     "invested_pct": 92.3,
+     "open_lots": 2,
+     "worst_open_lot_pct": -10.2
+    },
+    "oos": {
+     "roi_pct": 142.7,
+     "cagr_pct": 26.5,
+     "win_pct": 100.0,
+     "sells": 5,
+     "buys": 6,
+     "max_dd_pct": -57.0,
+     "hold_roi_pct": 1266.8,
+     "hold_dd_pct": -66.5,
+     "invested_pct": 67.8,
+     "open_lots": 1,
+     "worst_open_lot_pct": 37.6
+    }
+   },
+   "best_roi": {
+    "settings": [
+     "trend",
+     "high",
+     "heikin-ashi",
+     false
+    ],
+    "is": {
+     "roi_pct": 207.6,
+     "cagr_pct": 30.1,
+     "win_pct": 47.4,
+     "sells": 19,
+     "buys": 19,
+     "max_dd_pct": -39.1,
+     "hold_roi_pct": -40.7,
+     "hold_dd_pct": -92.5,
+     "invested_pct": 42.3,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    },
+    "oos": {
+     "roi_pct": 119.0,
+     "cagr_pct": 23.1,
+     "win_pct": 40.9,
+     "sells": 22,
+     "buys": 23,
+     "max_dd_pct": -33.2,
+     "hold_roi_pct": 1266.8,
+     "hold_dd_pct": -66.5,
+     "invested_pct": 48.0,
+     "open_lots": 1,
+     "worst_open_lot_pct": 17.1
+    }
+   },
+   "default": {
+    "is": {
+     "roi_pct": 88.0,
+     "cagr_pct": 16.0,
+     "win_pct": 45.8,
+     "sells": 48,
+     "buys": 48,
+     "max_dd_pct": -36.3,
+     "hold_roi_pct": -40.7,
+     "hold_dd_pct": -92.5,
+     "invested_pct": 47.6,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    },
+    "oos": {
+     "roi_pct": 188.8,
+     "cagr_pct": 32.5,
+     "win_pct": 40.8,
+     "sells": 49,
+     "buys": 50,
+     "max_dd_pct": -30.3,
+     "hold_roi_pct": 1266.8,
+     "hold_dd_pct": -66.5,
+     "invested_pct": 53.5,
+     "open_lots": 1,
+     "worst_open_lot_pct": 10.7
+    }
+   },
+   "oos_median_all_settings_roi": 336.35,
+   "rank_corr_is_oos": -0.12
+  },
+  "LLY": {
+   "asset": "stock",
+   "from": "2016-10-14",
+   "chosen": {
+    "settings": [
+     "trend",
+     "none",
+     "candles",
+     true
+    ],
+    "is": {
+     "roi_pct": 387.5,
+     "cagr_pct": 30.3,
+     "win_pct": 100.0,
+     "sells": 46,
+     "buys": 48,
+     "max_dd_pct": -21.8,
+     "hold_roi_pct": 453.7,
+     "hold_dd_pct": -22.5,
+     "invested_pct": 98.1,
+     "open_lots": 2,
+     "worst_open_lot_pct": 0.4
+    },
+    "oos": {
+     "roi_pct": 209.3,
+     "cagr_pct": 34.9,
+     "win_pct": 100.0,
+     "sells": 24,
+     "buys": 26,
+     "max_dd_pct": -35.6,
+     "hold_roi_pct": 233.4,
+     "hold_dd_pct": -34.5,
+     "invested_pct": 99.3,
+     "open_lots": 2,
+     "worst_open_lot_pct": 0.8
+    }
+   },
+   "best_roi": {
+    "settings": [
+     "deviation",
+     "medium",
+     "heikin-ashi",
+     false
+    ],
+    "is": {
+     "roi_pct": 191.4,
+     "cagr_pct": 19.6,
+     "win_pct": 100.0,
+     "sells": 18,
+     "buys": 18,
+     "max_dd_pct": -9.8,
+     "hold_roi_pct": 453.7,
+     "hold_dd_pct": -22.5,
+     "invested_pct": 56.0,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    },
+    "oos": {
+     "roi_pct": 113.9,
+     "cagr_pct": 22.3,
+     "win_pct": 100.0,
+     "sells": 9,
+     "buys": 9,
+     "max_dd_pct": -18.4,
+     "hold_roi_pct": 233.4,
+     "hold_dd_pct": -34.5,
+     "invested_pct": 36.7,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    }
+   },
+   "default": {
+    "is": {
+     "roi_pct": 57.4,
+     "cagr_pct": 7.9,
+     "win_pct": 34.2,
+     "sells": 76,
+     "buys": 76,
+     "max_dd_pct": -14.9,
+     "hold_roi_pct": 453.7,
+     "hold_dd_pct": -22.5,
+     "invested_pct": 57.8,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    },
+    "oos": {
+     "roi_pct": 21.0,
+     "cagr_pct": 5.2,
+     "win_pct": 36.0,
+     "sells": 50,
+     "buys": 51,
+     "max_dd_pct": -24.8,
+     "hold_roi_pct": 233.4,
+     "hold_dd_pct": -34.5,
+     "invested_pct": 58.4,
+     "open_lots": 1,
+     "worst_open_lot_pct": 3.1
+    }
+   },
+   "oos_median_all_settings_roi": 113.9,
+   "rank_corr_is_oos": 0.79
+  },
+  "PANW": {
+   "asset": "stock",
+   "from": "2016-10-14",
+   "chosen": {
+    "settings": [
+     "deviation",
+     "medium",
+     "candles",
+     true
+    ],
+    "is": {
+     "roi_pct": 288.2,
+     "cagr_pct": 25.4,
+     "win_pct": 100.0,
+     "sells": 21,
+     "buys": 23,
+     "max_dd_pct": -19.7,
+     "hold_roi_pct": 229.8,
+     "hold_dd_pct": -48.0,
+     "invested_pct": 57.0,
+     "open_lots": 2,
+     "worst_open_lot_pct": -15.1
+    },
+    "oos": {
+     "roi_pct": 243.7,
+     "cagr_pct": 38.8,
+     "win_pct": 100.0,
+     "sells": 13,
+     "buys": 13,
+     "max_dd_pct": -26.5,
+     "hold_roi_pct": 483.4,
+     "hold_dd_pct": -36.0,
+     "invested_pct": 48.0,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    }
+   },
+   "best_roi": {
+    "settings": [
+     "deviation",
+     "medium",
+     "candles",
+     false
+    ],
+    "is": {
+     "roi_pct": 215.8,
+     "cagr_pct": 21.2,
+     "win_pct": 87.0,
+     "sells": 23,
+     "buys": 25,
+     "max_dd_pct": -19.3,
+     "hold_roi_pct": 229.8,
+     "hold_dd_pct": -48.0,
+     "invested_pct": 53.0,
+     "open_lots": 2,
+     "worst_open_lot_pct": -15.1
+    },
+    "oos": {
+     "roi_pct": 85.0,
+     "cagr_pct": 17.7,
+     "win_pct": 84.6,
+     "sells": 13,
+     "buys": 13,
+     "max_dd_pct": -26.5,
+     "hold_roi_pct": 483.4,
+     "hold_dd_pct": -36.0,
+     "invested_pct": 40.9,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    }
+   },
+   "default": {
+    "is": {
+     "roi_pct": 106.9,
+     "cagr_pct": 12.9,
+     "win_pct": 51.3,
+     "sells": 78,
+     "buys": 78,
+     "max_dd_pct": -12.9,
+     "hold_roi_pct": 229.8,
+     "hold_dd_pct": -48.0,
+     "invested_pct": 60.7,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    },
+    "oos": {
+     "roi_pct": 59.2,
+     "cagr_pct": 13.1,
+     "win_pct": 51.9,
+     "sells": 52,
+     "buys": 52,
+     "max_dd_pct": -16.8,
+     "hold_roi_pct": 483.4,
+     "hold_dd_pct": -36.0,
+     "invested_pct": 58.3,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    }
+   },
+   "oos_median_all_settings_roi": 120.0,
+   "rank_corr_is_oos": 0.76
+  },
+  "INTC": {
+   "asset": "stock",
+   "from": "2016-10-14",
+   "chosen": {
+    "settings": [
+     "trend",
+     "none",
+     "candles",
+     true
+    ],
+    "is": {
+     "roi_pct": 1.9,
+     "cagr_pct": 0.3,
+     "win_pct": 100.0,
+     "sells": 21,
+     "buys": 23,
+     "max_dd_pct": -56.3,
+     "hold_roi_pct": -14.7,
+     "hold_dd_pct": -61.6,
+     "invested_pct": 98.7,
+     "open_lots": 2,
+     "worst_open_lot_pct": -56.2
+    },
+    "oos": {
+     "roi_pct": 238.8,
+     "cagr_pct": 38.2,
+     "win_pct": 100.0,
+     "sells": 20,
+     "buys": 22,
+     "max_dd_pct": -64.9,
+     "hold_roi_pct": 293.2,
+     "hold_dd_pct": -63.8,
+     "invested_pct": 98.6,
+     "open_lots": 2,
+     "worst_open_lot_pct": -25.0
+    }
+   },
+   "best_roi": {
+    "settings": [
+     "deviation",
+     "medium",
+     "heikin-ashi",
+     false
+    ],
+    "is": {
+     "roi_pct": 10.4,
+     "cagr_pct": 1.7,
+     "win_pct": 76.5,
+     "sells": 17,
+     "buys": 19,
+     "max_dd_pct": -44.8,
+     "hold_roi_pct": -14.7,
+     "hold_dd_pct": -61.6,
+     "invested_pct": 53.6,
+     "open_lots": 2,
+     "worst_open_lot_pct": -0.7
+    },
+    "oos": {
+     "roi_pct": 110.3,
+     "cagr_pct": 21.8,
+     "win_pct": 83.3,
+     "sells": 12,
+     "buys": 12,
+     "max_dd_pct": -37.4,
+     "hold_roi_pct": 293.2,
+     "hold_dd_pct": -63.8,
+     "invested_pct": 43.6,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    }
+   },
+   "default": {
+    "is": {
+     "roi_pct": -17.2,
+     "cagr_pct": -3.1,
+     "win_pct": 37.5,
+     "sells": 80,
+     "buys": 80,
+     "max_dd_pct": -33.4,
+     "hold_roi_pct": -14.7,
+     "hold_dd_pct": -61.6,
+     "invested_pct": 52.5,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    },
+    "oos": {
+     "roi_pct": 64.7,
+     "cagr_pct": 14.2,
+     "win_pct": 42.9,
+     "sells": 56,
+     "buys": 56,
+     "max_dd_pct": -28.0,
+     "hold_roi_pct": 293.2,
+     "hold_dd_pct": -63.8,
+     "invested_pct": 46.6,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    }
+   },
+   "oos_median_all_settings_roi": 143.35000000000002,
+   "rank_corr_is_oos": 0.21
+  },
+  "NOW": {
+   "asset": "stock",
+   "from": "2016-10-14",
+   "chosen": {
+    "settings": [
+     "trend",
+     "none",
+     "heikin-ashi",
+     true
+    ],
+    "is": {
+     "roi_pct": 239.4,
+     "cagr_pct": 22.6,
+     "win_pct": 100.0,
+     "sells": 44,
+     "buys": 46,
+     "max_dd_pct": -50.8,
+     "hold_roi_pct": 413.2,
+     "hold_dd_pct": -51.3,
+     "invested_pct": 99.2,
+     "open_lots": 2,
+     "worst_open_lot_pct": -44.6
+    },
+    "oos": {
+     "roi_pct": 55.6,
+     "cagr_pct": 12.4,
+     "win_pct": 100.0,
+     "sells": 17,
+     "buys": 19,
+     "max_dd_pct": -64.3,
+     "hold_roi_pct": 82.0,
+     "hold_dd_pct": -64.5,
+     "invested_pct": 97.3,
+     "open_lots": 2,
+     "worst_open_lot_pct": -36.3
+    }
+   },
+   "best_roi": {
+    "settings": [
+     "deviation",
+     "none",
+     "candles",
+     false
+    ],
+    "is": {
+     "roi_pct": 243.8,
+     "cagr_pct": 22.9,
+     "win_pct": 77.5,
+     "sells": 40,
+     "buys": 41,
+     "max_dd_pct": -27.6,
+     "hold_roi_pct": 413.2,
+     "hold_dd_pct": -51.3,
+     "invested_pct": 52.5,
+     "open_lots": 1,
+     "worst_open_lot_pct": 3.5
+    },
+    "oos": {
+     "roi_pct": 54.8,
+     "cagr_pct": 12.3,
+     "win_pct": 72.7,
+     "sells": 22,
+     "buys": 22,
+     "max_dd_pct": -48.2,
+     "hold_roi_pct": 82.0,
+     "hold_dd_pct": -64.5,
+     "invested_pct": 72.2,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    }
+   },
+   "default": {
+    "is": {
+     "roi_pct": 21.6,
+     "cagr_pct": 3.3,
+     "win_pct": 40.2,
+     "sells": 92,
+     "buys": 92,
+     "max_dd_pct": -24.8,
+     "hold_roi_pct": 413.2,
+     "hold_dd_pct": -51.3,
+     "invested_pct": 64.0,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    },
+    "oos": {
+     "roi_pct": 36.7,
+     "cagr_pct": 8.6,
+     "win_pct": 44.9,
+     "sells": 49,
+     "buys": 50,
+     "max_dd_pct": -22.3,
+     "hold_roi_pct": 82.0,
+     "hold_dd_pct": -64.5,
+     "invested_pct": 56.7,
+     "open_lots": 1,
+     "worst_open_lot_pct": 0.6
+    }
+   },
+   "oos_median_all_settings_roi": 30.75,
+   "rank_corr_is_oos": 0.56
+  },
+  "CSCO": {
+   "asset": "stock",
+   "from": "2016-10-14",
+   "chosen": {
+    "settings": [
+     "trend",
+     "none",
+     "candles",
+     true
+    ],
+    "is": {
+     "roi_pct": 102.3,
+     "cagr_pct": 12.5,
+     "win_pct": 100.0,
+     "sells": 33,
+     "buys": 35,
+     "max_dd_pct": -38.3,
+     "hold_roi_pct": 88.0,
+     "hold_dd_pct": -42.0,
+     "invested_pct": 99.9,
+     "open_lots": 2,
+     "worst_open_lot_pct": -20.7
+    },
+    "oos": {
+     "roi_pct": 140.6,
+     "cagr_pct": 26.2,
+     "win_pct": 100.0,
+     "sells": 35,
+     "buys": 37,
+     "max_dd_pct": -17.9,
+     "hold_roi_pct": 167.5,
+     "hold_dd_pct": -20.2,
+     "invested_pct": 99.9,
+     "open_lots": 2,
+     "worst_open_lot_pct": -5.1
+    }
+   },
+   "best_roi": {
+    "settings": [
+     "deviation",
+     "medium",
+     "candles",
+     false
+    ],
+    "is": {
+     "roi_pct": 88.0,
+     "cagr_pct": 11.1,
+     "win_pct": 81.5,
+     "sells": 27,
+     "buys": 27,
+     "max_dd_pct": -26.2,
+     "hold_roi_pct": 88.0,
+     "hold_dd_pct": -42.0,
+     "invested_pct": 54.8,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    },
+    "oos": {
+     "roi_pct": 31.7,
+     "cagr_pct": 7.6,
+     "win_pct": 84.6,
+     "sells": 13,
+     "buys": 13,
+     "max_dd_pct": -13.4,
+     "hold_roi_pct": 167.5,
+     "hold_dd_pct": -20.2,
+     "invested_pct": 41.8,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    }
+   },
+   "default": {
+    "is": {
+     "roi_pct": -0.0,
+     "cagr_pct": -0.0,
+     "win_pct": 41.8,
+     "sells": 79,
+     "buys": 79,
+     "max_dd_pct": -22.2,
+     "hold_roi_pct": 88.0,
+     "hold_dd_pct": -42.0,
+     "invested_pct": 60.9,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    },
+    "oos": {
+     "roi_pct": 17.1,
+     "cagr_pct": 4.3,
+     "win_pct": 40.0,
+     "sells": 50,
+     "buys": 51,
+     "max_dd_pct": -10.3,
+     "hold_roi_pct": 167.5,
+     "hold_dd_pct": -20.2,
+     "invested_pct": 56.4,
+     "open_lots": 1,
+     "worst_open_lot_pct": 2.9
+    }
+   },
+   "oos_median_all_settings_roi": 41.9,
+   "rank_corr_is_oos": 0.73
+  },
+  "CRM": {
+   "asset": "stock",
+   "from": "2016-10-14",
+   "chosen": {
+    "settings": [
+     "trend",
+     "none",
+     "candles",
+     true
+    ],
+    "is": {
+     "roi_pct": 69.5,
+     "cagr_pct": 9.2,
+     "win_pct": 100.0,
+     "sells": 43,
+     "buys": 45,
+     "max_dd_pct": -57.9,
+     "hold_roi_pct": 88.0,
+     "hold_dd_pct": -58.6,
+     "invested_pct": 99.7,
+     "open_lots": 2,
+     "worst_open_lot_pct": -56.8
+    },
+    "oos": {
+     "roi_pct": 24.0,
+     "cagr_pct": 5.9,
+     "win_pct": 100.0,
+     "sells": 20,
+     "buys": 22,
+     "max_dd_pct": -58.8,
+     "hold_roi_pct": 76.9,
+     "hold_dd_pct": -58.7,
+     "invested_pct": 98.2,
+     "open_lots": 2,
+     "worst_open_lot_pct": -34.8
+    }
+   },
+   "best_roi": {
+    "settings": [
+     "deviation",
+     "none",
+     "candles",
+     false
+    ],
+    "is": {
+     "roi_pct": 58.8,
+     "cagr_pct": 8.0,
+     "win_pct": 83.8,
+     "sells": 37,
+     "buys": 39,
+     "max_dd_pct": -32.5,
+     "hold_roi_pct": 88.0,
+     "hold_dd_pct": -58.6,
+     "invested_pct": 50.1,
+     "open_lots": 2,
+     "worst_open_lot_pct": -8.7
+    },
+    "oos": {
+     "roi_pct": 24.9,
+     "cagr_pct": 6.1,
+     "win_pct": 63.2,
+     "sells": 19,
+     "buys": 21,
+     "max_dd_pct": -25.2,
+     "hold_roi_pct": 76.9,
+     "hold_dd_pct": -58.7,
+     "invested_pct": 58.9,
+     "open_lots": 2,
+     "worst_open_lot_pct": 0.9
+    }
+   },
+   "default": {
+    "is": {
+     "roi_pct": -0.8,
+     "cagr_pct": -0.1,
+     "win_pct": 39.3,
+     "sells": 84,
+     "buys": 84,
+     "max_dd_pct": -32.1,
+     "hold_roi_pct": 88.0,
+     "hold_dd_pct": -58.6,
+     "invested_pct": 61.0,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    },
+    "oos": {
+     "roi_pct": 18.9,
+     "cagr_pct": 4.7,
+     "win_pct": 42.3,
+     "sells": 52,
+     "buys": 52,
+     "max_dd_pct": -29.3,
+     "hold_roi_pct": 76.9,
+     "hold_dd_pct": -58.7,
+     "invested_pct": 52.6,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    }
+   },
+   "oos_median_all_settings_roi": 31.2,
+   "rank_corr_is_oos": 0.36
+  },
+  "TXN": {
+   "asset": "stock",
+   "from": "2016-10-14",
+   "chosen": {
+    "settings": [
+     "trend",
+     "none",
+     "candles",
+     true
+    ],
+    "is": {
+     "roi_pct": 140.6,
+     "cagr_pct": 15.8,
+     "win_pct": 100.0,
+     "sells": 46,
+     "buys": 48,
+     "max_dd_pct": -29.6,
+     "hold_roi_pct": 163.1,
+     "hold_dd_pct": -29.9,
+     "invested_pct": 99.7,
+     "open_lots": 2,
+     "worst_open_lot_pct": -12.5
+    },
+    "oos": {
+     "roi_pct": 90.0,
+     "cagr_pct": 18.6,
+     "win_pct": 100.0,
+     "sells": 18,
+     "buys": 20,
+     "max_dd_pct": -31.4,
+     "hold_roi_pct": 92.2,
+     "hold_dd_pct": -33.4,
+     "invested_pct": 98.5,
+     "open_lots": 2,
+     "worst_open_lot_pct": -11.1
+    }
+   },
+   "best_roi": {
+    "settings": [
+     "deviation",
+     "medium",
+     "candles",
+     false
+    ],
+    "is": {
+     "roi_pct": 108.9,
+     "cagr_pct": 13.1,
+     "win_pct": 87.5,
+     "sells": 24,
+     "buys": 25,
+     "max_dd_pct": -27.0,
+     "hold_roi_pct": 163.1,
+     "hold_dd_pct": -29.9,
+     "invested_pct": 48.3,
+     "open_lots": 1,
+     "worst_open_lot_pct": 1.3
+    },
+    "oos": {
+     "roi_pct": 87.8,
+     "cagr_pct": 18.2,
+     "win_pct": 80.0,
+     "sells": 15,
+     "buys": 15,
+     "max_dd_pct": -19.3,
+     "hold_roi_pct": 92.2,
+     "hold_dd_pct": -33.4,
+     "invested_pct": 43.4,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    }
+   },
+   "default": {
+    "is": {
+     "roi_pct": -21.2,
+     "cagr_pct": -3.9,
+     "win_pct": 32.0,
+     "sells": 97,
+     "buys": 97,
+     "max_dd_pct": -34.8,
+     "hold_roi_pct": 163.1,
+     "hold_dd_pct": -29.9,
+     "invested_pct": 57.5,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    },
+    "oos": {
+     "roi_pct": 34.5,
+     "cagr_pct": 8.2,
+     "win_pct": 43.8,
+     "sells": 48,
+     "buys": 48,
+     "max_dd_pct": -13.5,
+     "hold_roi_pct": 92.2,
+     "hold_dd_pct": -33.4,
+     "invested_pct": 50.1,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    }
+   },
+   "oos_median_all_settings_roi": 68.5,
+   "rank_corr_is_oos": 0.69
+  },
+  "ANET": {
+   "asset": "stock",
+   "from": "2016-10-14",
+   "chosen": {
+    "settings": [
+     "trend",
+     "low",
+     "heikin-ashi",
+     true
+    ],
+    "is": {
+     "roi_pct": 432.5,
+     "cagr_pct": 32.2,
+     "win_pct": 100.0,
+     "sells": 25,
+     "buys": 27,
+     "max_dd_pct": -42.8,
+     "hold_roi_pct": 400.1,
+     "hold_dd_pct": -52.2,
+     "invested_pct": 97.7,
+     "open_lots": 2,
+     "worst_open_lot_pct": -9.1
+    },
+    "oos": {
+     "roi_pct": 317.9,
+     "cagr_pct": 46.1,
+     "win_pct": 100.0,
+     "sells": 25,
+     "buys": 27,
+     "max_dd_pct": -50.3,
+     "hold_roi_pct": 597.6,
+     "hold_dd_pct": -50.4,
+     "invested_pct": 96.0,
+     "open_lots": 2,
+     "worst_open_lot_pct": 2.4
+    }
+   },
+   "best_roi": {
+    "settings": [
+     "deviation",
+     "none",
+     "candles",
+     false
+    ],
+    "is": {
+     "roi_pct": 242.0,
+     "cagr_pct": 22.8,
+     "win_pct": 77.1,
+     "sells": 35,
+     "buys": 37,
+     "max_dd_pct": -30.9,
+     "hold_roi_pct": 400.1,
+     "hold_dd_pct": -52.2,
+     "invested_pct": 58.4,
+     "open_lots": 2,
+     "worst_open_lot_pct": -2.1
+    },
+    "oos": {
+     "roi_pct": 199.6,
+     "cagr_pct": 33.8,
+     "win_pct": 87.5,
+     "sells": 24,
+     "buys": 24,
+     "max_dd_pct": -44.1,
+     "hold_roi_pct": 597.6,
+     "hold_dd_pct": -50.4,
+     "invested_pct": 41.1,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    }
+   },
+   "default": {
+    "is": {
+     "roi_pct": 82.4,
+     "cagr_pct": 10.6,
+     "win_pct": 48.7,
+     "sells": 76,
+     "buys": 76,
+     "max_dd_pct": -24.3,
+     "hold_roi_pct": 400.1,
+     "hold_dd_pct": -52.2,
+     "invested_pct": 60.5,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    },
+    "oos": {
+     "roi_pct": 66.8,
+     "cagr_pct": 14.5,
+     "win_pct": 44.2,
+     "sells": 52,
+     "buys": 53,
+     "max_dd_pct": -17.4,
+     "hold_roi_pct": 597.6,
+     "hold_dd_pct": -50.4,
+     "invested_pct": 61.9,
+     "open_lots": 1,
+     "worst_open_lot_pct": 4.2
+    }
+   },
+   "oos_median_all_settings_roi": 180.3,
+   "rank_corr_is_oos": 0.84
+  },
+  "V": {
+   "asset": "stock",
+   "from": "2016-10-14",
+   "chosen": {
+    "settings": [
+     "trend",
+     "none",
+     "candles",
+     true
+    ],
+    "is": {
+     "roi_pct": 131.1,
+     "cagr_pct": 15.0,
+     "win_pct": 100.0,
+     "sells": 49,
+     "buys": 51,
+     "max_dd_pct": -36.4,
+     "hold_roi_pct": 172.0,
+     "hold_dd_pct": -36.4,
+     "invested_pct": 99.2,
+     "open_lots": 2,
+     "worst_open_lot_pct": -13.9
+    },
+    "oos": {
+     "roi_pct": 67.7,
+     "cagr_pct": 14.7,
+     "win_pct": 100.0,
+     "sells": 27,
+     "buys": 29,
+     "max_dd_pct": -19.6,
+     "hold_roi_pct": 93.1,
+     "hold_dd_pct": -20.4,
+     "invested_pct": 98.1,
+     "open_lots": 2,
+     "worst_open_lot_pct": 2.3
+    }
+   },
+   "best_roi": {
+    "settings": [
+     "deviation",
+     "none",
+     "candles",
+     false
+    ],
+    "is": {
+     "roi_pct": 94.4,
+     "cagr_pct": 11.7,
+     "win_pct": 85.7,
+     "sells": 35,
+     "buys": 37,
+     "max_dd_pct": -16.1,
+     "hold_roi_pct": 172.0,
+     "hold_dd_pct": -36.4,
+     "invested_pct": 37.0,
+     "open_lots": 2,
+     "worst_open_lot_pct": 0.8
+    },
+    "oos": {
+     "roi_pct": 60.2,
+     "cagr_pct": 13.3,
+     "win_pct": 82.6,
+     "sells": 23,
+     "buys": 24,
+     "max_dd_pct": -13.5,
+     "hold_roi_pct": 93.1,
+     "hold_dd_pct": -20.4,
+     "invested_pct": 60.8,
+     "open_lots": 1,
+     "worst_open_lot_pct": 8.6
+    }
+   },
+   "default": {
+    "is": {
+     "roi_pct": 5.9,
+     "cagr_pct": 1.0,
+     "win_pct": 42.2,
+     "sells": 83,
+     "buys": 83,
+     "max_dd_pct": -16.4,
+     "hold_roi_pct": 172.0,
+     "hold_dd_pct": -36.4,
+     "invested_pct": 64.3,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    },
+    "oos": {
+     "roi_pct": 3.2,
+     "cagr_pct": 0.8,
+     "win_pct": 28.8,
+     "sells": 52,
+     "buys": 53,
+     "max_dd_pct": -14.5,
+     "hold_roi_pct": 93.1,
+     "hold_dd_pct": -20.4,
+     "invested_pct": 60.5,
+     "open_lots": 1,
+     "worst_open_lot_pct": 5.5
+    }
+   },
+   "oos_median_all_settings_roi": 49.0,
+   "rank_corr_is_oos": 0.84
+  },
+  "ABBV": {
+   "asset": "stock",
+   "from": "2016-10-14",
+   "chosen": {
+    "settings": [
+     "trend",
+     "none",
+     "heikin-ashi",
+     true
+    ],
+    "is": {
+     "roi_pct": 255.9,
+     "cagr_pct": 23.6,
+     "win_pct": 100.0,
+     "sells": 22,
+     "buys": 23,
+     "max_dd_pct": -38.4,
+     "hold_roi_pct": 238.5,
+     "hold_dd_pct": -45.1,
+     "invested_pct": 96.8,
+     "open_lots": 1,
+     "worst_open_lot_pct": 14.6
+    },
+    "oos": {
+     "roi_pct": 95.3,
+     "cagr_pct": 19.4,
+     "win_pct": 100.0,
+     "sells": 12,
+     "buys": 14,
+     "max_dd_pct": -20.3,
+     "hold_roi_pct": 97.8,
+     "hold_dd_pct": -20.7,
+     "invested_pct": 99.6,
+     "open_lots": 2,
+     "worst_open_lot_pct": 4.7
+    }
+   },
+   "best_roi": {
+    "settings": [
+     "deviation",
+     "none",
+     "heikin-ashi",
+     false
+    ],
+    "is": {
+     "roi_pct": 100.4,
+     "cagr_pct": 12.3,
+     "win_pct": 77.8,
+     "sells": 27,
+     "buys": 27,
+     "max_dd_pct": -28.4,
+     "hold_roi_pct": 238.5,
+     "hold_dd_pct": -45.1,
+     "invested_pct": 58.9,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    },
+    "oos": {
+     "roi_pct": 42.5,
+     "cagr_pct": 9.9,
+     "win_pct": 73.3,
+     "sells": 15,
+     "buys": 15,
+     "max_dd_pct": -13.6,
+     "hold_roi_pct": 97.8,
+     "hold_dd_pct": -20.7,
+     "invested_pct": 63.0,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    }
+   },
+   "default": {
+    "is": {
+     "roi_pct": 70.6,
+     "cagr_pct": 9.3,
+     "win_pct": 41.8,
+     "sells": 67,
+     "buys": 67,
+     "max_dd_pct": -27.8,
+     "hold_roi_pct": 238.5,
+     "hold_dd_pct": -45.1,
+     "invested_pct": 58.9,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    },
+    "oos": {
+     "roi_pct": 14.9,
+     "cagr_pct": 3.8,
+     "win_pct": 37.8,
+     "sells": 45,
+     "buys": 46,
+     "max_dd_pct": -11.8,
+     "hold_roi_pct": 97.8,
+     "hold_dd_pct": -20.7,
+     "invested_pct": 57.1,
+     "open_lots": 1,
+     "worst_open_lot_pct": 7.4
+    }
+   },
+   "oos_median_all_settings_roi": 55.7,
+   "rank_corr_is_oos": 0.54
+  },
+  "XOM": {
+   "asset": "stock",
+   "from": "2016-10-14",
+   "chosen": {
+    "settings": [
+     "deviation",
+     "medium",
+     "candles",
+     true
+    ],
+    "is": {
+     "roi_pct": 117.6,
+     "cagr_pct": 13.9,
+     "win_pct": 100.0,
+     "sells": 22,
+     "buys": 23,
+     "max_dd_pct": -53.7,
+     "hold_roi_pct": 63.8,
+     "hold_dd_pct": -61.0,
+     "invested_pct": 77.2,
+     "open_lots": 1,
+     "worst_open_lot_pct": 6.2
+    },
+    "oos": {
+     "roi_pct": 64.8,
+     "cagr_pct": 14.2,
+     "win_pct": 100.0,
+     "sells": 15,
+     "buys": 15,
+     "max_dd_pct": -13.6,
+     "hold_roi_pct": 82.8,
+     "hold_dd_pct": -20.1,
+     "invested_pct": 56.5,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    }
+   },
+   "best_roi": {
+    "settings": [
+     "trend",
+     "low",
+     "heikin-ashi",
+     false
+    ],
+    "is": {
+     "roi_pct": 62.4,
+     "cagr_pct": 8.4,
+     "win_pct": 49.2,
+     "sells": 65,
+     "buys": 66,
+     "max_dd_pct": -14.4,
+     "hold_roi_pct": 63.8,
+     "hold_dd_pct": -61.0,
+     "invested_pct": 54.8,
+     "open_lots": 1,
+     "worst_open_lot_pct": 2.1
+    },
+    "oos": {
+     "roi_pct": -3.1,
+     "cagr_pct": -0.8,
+     "win_pct": 34.7,
+     "sells": 49,
+     "buys": 50,
+     "max_dd_pct": -20.2,
+     "hold_roi_pct": 82.8,
+     "hold_dd_pct": -20.1,
+     "invested_pct": 56.0,
+     "open_lots": 1,
+     "worst_open_lot_pct": 7.4
+    }
+   },
+   "default": {
+    "is": {
+     "roi_pct": 52.8,
+     "cagr_pct": 7.3,
+     "win_pct": 42.9,
+     "sells": 77,
+     "buys": 78,
+     "max_dd_pct": -20.9,
+     "hold_roi_pct": 63.8,
+     "hold_dd_pct": -61.0,
+     "invested_pct": 52.4,
+     "open_lots": 1,
+     "worst_open_lot_pct": 2.1
+    },
+    "oos": {
+     "roi_pct": -2.0,
+     "cagr_pct": -0.5,
+     "win_pct": 30.5,
+     "sells": 59,
+     "buys": 60,
+     "max_dd_pct": -20.2,
+     "hold_roi_pct": 82.8,
+     "hold_dd_pct": -20.1,
+     "invested_pct": 54.7,
+     "open_lots": 1,
+     "worst_open_lot_pct": 6.5
+    }
+   },
+   "oos_median_all_settings_roi": 60.05,
+   "rank_corr_is_oos": 0.36
+  },
+  "AMAT": {
+   "asset": "stock",
+   "from": "2016-10-14",
+   "chosen": {
+    "settings": [
+     "trend",
+     "none",
+     "candles",
+     true
+    ],
+    "is": {
+     "roi_pct": 184.0,
+     "cagr_pct": 19.0,
+     "win_pct": 100.0,
+     "sells": 35,
+     "buys": 37,
+     "max_dd_pct": -55.1,
+     "hold_roi_pct": 228.0,
+     "hold_dd_pct": -55.1,
+     "invested_pct": 98.7,
+     "open_lots": 2,
+     "worst_open_lot_pct": -40.1
+    },
+    "oos": {
+     "roi_pct": 261.0,
+     "cagr_pct": 40.6,
+     "win_pct": 100.0,
+     "sells": 36,
+     "buys": 38,
+     "max_dd_pct": -46.6,
+     "hold_roi_pct": 430.3,
+     "hold_dd_pct": -49.9,
+     "invested_pct": 97.7,
+     "open_lots": 2,
+     "worst_open_lot_pct": -28.6
+    }
+   },
+   "best_roi": {
+    "settings": [
+     "deviation",
+     "none",
+     "heikin-ashi",
+     false
+    ],
+    "is": {
+     "roi_pct": 157.9,
+     "cagr_pct": 17.1,
+     "win_pct": 74.3,
+     "sells": 35,
+     "buys": 36,
+     "max_dd_pct": -35.0,
+     "hold_roi_pct": 228.0,
+     "hold_dd_pct": -55.1,
+     "invested_pct": 50.1,
+     "open_lots": 1,
+     "worst_open_lot_pct": 0.7
+    },
+    "oos": {
+     "roi_pct": 78.5,
+     "cagr_pct": 16.6,
+     "win_pct": 73.7,
+     "sells": 19,
+     "buys": 20,
+     "max_dd_pct": -29.8,
+     "hold_roi_pct": 430.3,
+     "hold_dd_pct": -49.9,
+     "invested_pct": 51.0,
+     "open_lots": 1,
+     "worst_open_lot_pct": -7.7
+    }
+   },
+   "default": {
+    "is": {
+     "roi_pct": 36.8,
+     "cagr_pct": 5.4,
+     "win_pct": 41.5,
+     "sells": 82,
+     "buys": 82,
+     "max_dd_pct": -30.3,
+     "hold_roi_pct": 228.0,
+     "hold_dd_pct": -55.1,
+     "invested_pct": 59.7,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    },
+    "oos": {
+     "roi_pct": 50.2,
+     "cagr_pct": 11.4,
+     "win_pct": 47.5,
+     "sells": 59,
+     "buys": 59,
+     "max_dd_pct": -18.8,
+     "hold_roi_pct": 430.3,
+     "hold_dd_pct": -49.9,
+     "invested_pct": 54.3,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    }
+   },
+   "oos_median_all_settings_roi": 71.6,
+   "rank_corr_is_oos": 0.71
+  },
+  "TMO": {
+   "asset": "stock",
+   "from": "2016-10-14",
+   "chosen": {
+    "settings": [
+     "trend",
+     "none",
+     "candles",
+     true
+    ],
+    "is": {
+     "roi_pct": 223.3,
+     "cagr_pct": 21.7,
+     "win_pct": 100.0,
+     "sells": 48,
+     "buys": 50,
+     "max_dd_pct": -27.5,
+     "hold_roi_pct": 289.3,
+     "hold_dd_pct": -27.2,
+     "invested_pct": 98.5,
+     "open_lots": 2,
+     "worst_open_lot_pct": -17.1
+    },
+    "oos": {
+     "roi_pct": 22.4,
+     "cagr_pct": 5.5,
+     "win_pct": 100.0,
+     "sells": 10,
+     "buys": 11,
+     "max_dd_pct": -38.4,
+     "hold_roi_pct": 21.1,
+     "hold_dd_pct": -37.3,
+     "invested_pct": 98.8,
+     "open_lots": 1,
+     "worst_open_lot_pct": -3.1
+    }
+   },
+   "best_roi": {
+    "settings": [
+     "deviation",
+     "low",
+     "heikin-ashi",
+     false
+    ],
+    "is": {
+     "roi_pct": 186.5,
+     "cagr_pct": 19.2,
+     "win_pct": 89.3,
+     "sells": 28,
+     "buys": 28,
+     "max_dd_pct": -21.6,
+     "hold_roi_pct": 289.3,
+     "hold_dd_pct": -27.2,
+     "invested_pct": 54.7,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    },
+    "oos": {
+     "roi_pct": 3.1,
+     "cagr_pct": 0.8,
+     "win_pct": 64.3,
+     "sells": 14,
+     "buys": 14,
+     "max_dd_pct": -33.0,
+     "hold_roi_pct": 21.1,
+     "hold_dd_pct": -37.3,
+     "invested_pct": 64.7,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    }
+   },
+   "default": {
+    "is": {
+     "roi_pct": 28.0,
+     "cagr_pct": 4.2,
+     "win_pct": 40.5,
+     "sells": 84,
+     "buys": 85,
+     "max_dd_pct": -24.2,
+     "hold_roi_pct": 289.3,
+     "hold_dd_pct": -27.2,
+     "invested_pct": 63.0,
+     "open_lots": 1,
+     "worst_open_lot_pct": -0.4
+    },
+    "oos": {
+     "roi_pct": -4.4,
+     "cagr_pct": -1.2,
+     "win_pct": 42.2,
+     "sells": 45,
+     "buys": 45,
+     "max_dd_pct": -14.7,
+     "hold_roi_pct": 21.1,
+     "hold_dd_pct": -37.3,
+     "invested_pct": 48.9,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    }
+   },
+   "oos_median_all_settings_roi": 20.15,
+   "rank_corr_is_oos": 0.17
+  },
+  "BTC-USD": {
+   "asset": "crypto",
+   "from": "2016-10-14",
+   "chosen": {
+    "settings": [
+     "trend",
+     "none",
+     "candles",
+     true
+    ],
+    "is": {
+     "roi_pct": 1621.9,
+     "cagr_pct": 60.7,
+     "win_pct": 100.0,
+     "sells": 32,
+     "buys": 34,
+     "max_dd_pct": -80.8,
+     "hold_roi_pct": 1557.5,
+     "hold_dd_pct": -83.4,
+     "invested_pct": 98.8,
+     "open_lots": 2,
+     "worst_open_lot_pct": -72.8
+    },
+    "oos": {
+     "roi_pct": 247.9,
+     "cagr_pct": 39.0,
+     "win_pct": 100.0,
+     "sells": 30,
+     "buys": 32,
+     "max_dd_pct": -51.3,
+     "hold_roi_pct": 402.5,
+     "hold_dd_pct": -53.1,
+     "invested_pct": 99.5,
+     "open_lots": 2,
+     "worst_open_lot_pct": -27.6
+    }
+   },
+   "best_roi": {
+    "settings": [
+     "trend",
+     "high",
+     "heikin-ashi",
+     false
+    ],
+    "is": {
+     "roi_pct": 783.9,
+     "cagr_pct": 43.8,
+     "win_pct": 48.8,
+     "sells": 41,
+     "buys": 41,
+     "max_dd_pct": -39.9,
+     "hold_roi_pct": 1557.5,
+     "hold_dd_pct": -83.4,
+     "invested_pct": 48.3,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    },
+    "oos": {
+     "roi_pct": 82.0,
+     "cagr_pct": 17.1,
+     "win_pct": 38.5,
+     "sells": 26,
+     "buys": 27,
+     "max_dd_pct": -27.2,
+     "hold_roi_pct": 402.5,
+     "hold_dd_pct": -53.1,
+     "invested_pct": 55.6,
+     "open_lots": 1,
+     "worst_open_lot_pct": 30.6
+    }
+   },
+   "default": {
+    "is": {
+     "roi_pct": 475.5,
+     "cagr_pct": 33.9,
+     "win_pct": 43.5,
+     "sells": 108,
+     "buys": 108,
+     "max_dd_pct": -49.3,
+     "hold_roi_pct": 1557.5,
+     "hold_dd_pct": -83.4,
+     "invested_pct": 53.0,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    },
+    "oos": {
+     "roi_pct": 57.2,
+     "cagr_pct": 12.7,
+     "win_pct": 35.9,
+     "sells": 64,
+     "buys": 64,
+     "max_dd_pct": -17.4,
+     "hold_roi_pct": 402.5,
+     "hold_dd_pct": -53.1,
+     "invested_pct": 53.5,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    }
+   },
+   "oos_median_all_settings_roi": 78.9,
+   "rank_corr_is_oos": 0.35
+  },
+  "ETH-USD": {
+   "asset": "crypto",
+   "from": "2017-11-09",
+   "chosen": {
+    "settings": [
+     "deviation",
+     "high",
+     "heikin-ashi",
+     true
+    ],
+    "is": {
+     "roi_pct": 102.4,
+     "cagr_pct": 15.2,
+     "win_pct": 100.0,
+     "sells": 5,
+     "buys": 7,
+     "max_dd_pct": -84.1,
+     "hold_roi_pct": 4.2,
+     "hold_dd_pct": -94.0,
+     "invested_pct": 82.1,
+     "open_lots": 2,
+     "worst_open_lot_pct": -46.8
+    },
+    "oos": {
+     "roi_pct": 53.6,
+     "cagr_pct": 12.0,
+     "win_pct": 100.0,
+     "sells": 5,
+     "buys": 7,
+     "max_dd_pct": -44.6,
+     "hold_roi_pct": 109.4,
+     "hold_dd_pct": -67.6,
+     "invested_pct": 45.4,
+     "open_lots": 2,
+     "worst_open_lot_pct": -9.3
+    }
+   },
+   "best_roi": {
+    "settings": [
+     "trend",
+     "high",
+     "heikin-ashi",
+     false
+    ],
+    "is": {
+     "roi_pct": 243.7,
+     "cagr_pct": 28.2,
+     "win_pct": 56.2,
+     "sells": 32,
+     "buys": 32,
+     "max_dd_pct": -33.2,
+     "hold_roi_pct": 4.2,
+     "hold_dd_pct": -94.0,
+     "invested_pct": 41.8,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    },
+    "oos": {
+     "roi_pct": 36.4,
+     "cagr_pct": 8.5,
+     "win_pct": 38.5,
+     "sells": 26,
+     "buys": 26,
+     "max_dd_pct": -39.7,
+     "hold_roi_pct": 109.4,
+     "hold_dd_pct": -67.6,
+     "invested_pct": 46.2,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    }
+   },
+   "default": {
+    "is": {
+     "roi_pct": 27.2,
+     "cagr_pct": 5.0,
+     "win_pct": 37.8,
+     "sells": 90,
+     "buys": 90,
+     "max_dd_pct": -44.3,
+     "hold_roi_pct": 4.2,
+     "hold_dd_pct": -94.0,
+     "invested_pct": 52.2,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    },
+    "oos": {
+     "roi_pct": 36.5,
+     "cagr_pct": 8.6,
+     "win_pct": 35.0,
+     "sells": 60,
+     "buys": 60,
+     "max_dd_pct": -34.9,
+     "hold_roi_pct": 109.4,
+     "hold_dd_pct": -67.6,
+     "invested_pct": 48.6,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    }
+   },
+   "oos_median_all_settings_roi": 32.05,
+   "rank_corr_is_oos": 0.31
+  },
+  "LINK-USD": {
+   "asset": "crypto",
+   "from": "2017-11-09",
+   "chosen": {
+    "settings": [
+     "trend",
+     "none",
+     "heikin-ashi",
+     true
+    ],
+    "is": {
+     "roi_pct": 1310.6,
+     "cagr_pct": 70.2,
+     "win_pct": 100.0,
+     "sells": 18,
+     "buys": 20,
+     "max_dd_pct": -81.5,
+     "hold_roi_pct": 304.3,
+     "hold_dd_pct": -89.5,
+     "invested_pct": 99.3,
+     "open_lots": 2,
+     "worst_open_lot_pct": -84.9
+    },
+    "oos": {
+     "roi_pct": 72.2,
+     "cagr_pct": 15.4,
+     "win_pct": 100.0,
+     "sells": 14,
+     "buys": 16,
+     "max_dd_pct": -72.1,
+     "hold_roi_pct": 131.2,
+     "hold_dd_pct": -75.5,
+     "invested_pct": 99.3,
+     "open_lots": 2,
+     "worst_open_lot_pct": -55.7
+    }
+   },
+   "best_roi": {
+    "settings": [
+     "trend",
+     "medium",
+     "heikin-ashi",
+     false
+    ],
+    "is": {
+     "roi_pct": 616.9,
+     "cagr_pct": 48.5,
+     "win_pct": 48.9,
+     "sells": 47,
+     "buys": 47,
+     "max_dd_pct": -33.6,
+     "hold_roi_pct": 304.3,
+     "hold_dd_pct": -89.5,
+     "invested_pct": 51.6,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    },
+    "oos": {
+     "roi_pct": 26.3,
+     "cagr_pct": 6.4,
+     "win_pct": 45.2,
+     "sells": 42,
+     "buys": 42,
+     "max_dd_pct": -41.5,
+     "hold_roi_pct": 131.2,
+     "hold_dd_pct": -75.5,
+     "invested_pct": 45.7,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    }
+   },
+   "default": {
+    "is": {
+     "roi_pct": 130.2,
+     "cagr_pct": 18.2,
+     "win_pct": 41.1,
+     "sells": 90,
+     "buys": 90,
+     "max_dd_pct": -62.0,
+     "hold_roi_pct": 304.3,
+     "hold_dd_pct": -89.5,
+     "invested_pct": 50.5,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    },
+    "oos": {
+     "roi_pct": -5.8,
+     "cagr_pct": -1.6,
+     "win_pct": 36.1,
+     "sells": 72,
+     "buys": 72,
+     "max_dd_pct": -60.3,
+     "hold_roi_pct": 131.2,
+     "hold_dd_pct": -75.5,
+     "invested_pct": 48.9,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    }
+   },
+   "oos_median_all_settings_roi": 60.349999999999994,
+   "rank_corr_is_oos": 0.17
+  },
+  "JUP-USD": {
+   "asset": "crypto",
+   "from": "2017-11-09",
+   "chosen": {
+    "settings": [
+     "deviation",
+     "medium",
+     "candles",
+     true
+    ],
+    "is": {
+     "roi_pct": 5259.2,
+     "cagr_pct": 122.5,
+     "win_pct": 100.0,
+     "sells": 9,
+     "buys": 11,
+     "max_dd_pct": -91.9,
+     "hold_roi_pct": -98.9,
+     "hold_dd_pct": -100.0,
+     "invested_pct": 82.4,
+     "open_lots": 2,
+     "worst_open_lot_pct": -90.3
+    },
+    "oos": {
+     "roi_pct": 1212411.1,
+     "cagr_pct": 1100.3,
+     "win_pct": 100.0,
+     "sells": 5,
+     "buys": 5,
+     "max_dd_pct": -95.2,
+     "hold_roi_pct": -93.9,
+     "hold_dd_pct": -100.0,
+     "invested_pct": 35.0,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    }
+   },
+   "best_roi": {
+    "settings": [
+     "deviation",
+     "none",
+     "candles",
+     false
+    ],
+    "is": {
+     "roi_pct": 27328.5,
+     "cagr_pct": 208.9,
+     "win_pct": 67.6,
+     "sells": 34,
+     "buys": 35,
+     "max_dd_pct": -91.0,
+     "hold_roi_pct": -98.9,
+     "hold_dd_pct": -100.0,
+     "invested_pct": 66.8,
+     "open_lots": 1,
+     "worst_open_lot_pct": -61.7
+    },
+    "oos": {
+     "roi_pct": 4626.8,
+     "cagr_pct": 177.1,
+     "win_pct": 60.0,
+     "sells": 10,
+     "buys": 11,
+     "max_dd_pct": -97.1,
+     "hold_roi_pct": -93.9,
+     "hold_dd_pct": -100.0,
+     "invested_pct": 71.0,
+     "open_lots": 1,
+     "worst_open_lot_pct": 420.7
+    }
+   },
+   "default": {
+    "is": {
+     "roi_pct": -100.0,
+     "cagr_pct": -89.3,
+     "win_pct": 21.2,
+     "sells": 85,
+     "buys": 85,
+     "max_dd_pct": -100.0,
+     "hold_roi_pct": -98.9,
+     "hold_dd_pct": -100.0,
+     "invested_pct": 32.2,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    },
+    "oos": {
+     "roi_pct": -100.0,
+     "cagr_pct": -99.0,
+     "win_pct": 11.7,
+     "sells": 60,
+     "buys": 60,
+     "max_dd_pct": -100.0,
+     "hold_roi_pct": -93.9,
+     "hold_dd_pct": -100.0,
+     "invested_pct": 33.6,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    }
+   },
+   "oos_median_all_settings_roi": 22.15,
+   "rank_corr_is_oos": 0.94
+  },
+  "MET-USD": {
+   "asset": "crypto",
+   "from": "2018-06-26",
+   "chosen": {
+    "settings": [
+     "deviation",
+     "none",
+     "heikin-ashi",
+     true
+    ],
+    "is": {
+     "roi_pct": 14.6,
+     "cagr_pct": 3.2,
+     "win_pct": 100.0,
+     "sells": 11,
+     "buys": 13,
+     "max_dd_pct": -96.1,
+     "hold_roi_pct": -30.1,
+     "hold_dd_pct": -99.4,
+     "invested_pct": 82.8,
+     "open_lots": 2,
+     "worst_open_lot_pct": -80.7
+    },
+    "oos": {
+     "roi_pct": -24.7,
+     "cagr_pct": -7.2,
+     "win_pct": 100.0,
+     "sells": 2,
+     "buys": 4,
+     "max_dd_pct": -80.8,
+     "hold_roi_pct": -43.1,
+     "hold_dd_pct": -96.2,
+     "invested_pct": 89.9,
+     "open_lots": 2,
+     "worst_open_lot_pct": -59.3
+    }
+   },
+   "best_roi": {
+    "settings": [
+     "deviation",
+     "none",
+     "candles",
+     false
+    ],
+    "is": {
+     "roi_pct": 108342.9,
+     "cagr_pct": 398.5,
+     "win_pct": 60.7,
+     "sells": 28,
+     "buys": 28,
+     "max_dd_pct": -63.6,
+     "hold_roi_pct": -30.1,
+     "hold_dd_pct": -99.4,
+     "invested_pct": 53.3,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    },
+    "oos": {
+     "roi_pct": -71.0,
+     "cagr_pct": -27.9,
+     "win_pct": 57.1,
+     "sells": 21,
+     "buys": 23,
+     "max_dd_pct": -91.8,
+     "hold_roi_pct": -43.1,
+     "hold_dd_pct": -96.2,
+     "invested_pct": 60.8,
+     "open_lots": 2,
+     "worst_open_lot_pct": -21.7
+    }
+   },
+   "default": {
+    "is": {
+     "roi_pct": -85.8,
+     "cagr_pct": -36.1,
+     "win_pct": 35.8,
+     "sells": 53,
+     "buys": 53,
+     "max_dd_pct": -86.4,
+     "hold_roi_pct": -30.1,
+     "hold_dd_pct": -99.4,
+     "invested_pct": 46.5,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    },
+    "oos": {
+     "roi_pct": -14.2,
+     "cagr_pct": -4.0,
+     "win_pct": 32.1,
+     "sells": 56,
+     "buys": 56,
+     "max_dd_pct": -75.9,
+     "hold_roi_pct": -43.1,
+     "hold_dd_pct": -96.2,
+     "invested_pct": 52.5,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    }
+   },
+   "oos_median_all_settings_roi": -43.75,
+   "rank_corr_is_oos": -0.32
+  },
+  "XRP-USD": {
+   "asset": "crypto",
+   "from": "2017-11-09",
+   "chosen": {
+    "settings": [
+     "trend",
+     "high",
+     "heikin-ashi",
+     true
+    ],
+    "is": {
+     "roi_pct": 68.0,
+     "cagr_pct": 11.0,
+     "win_pct": 100.0,
+     "sells": 5,
+     "buys": 7,
+     "max_dd_pct": -73.1,
+     "hold_roi_pct": -86.2,
+     "hold_dd_pct": -94.3,
+     "invested_pct": 89.1,
+     "open_lots": 2,
+     "worst_open_lot_pct": -75.8
+    },
+    "oos": {
+     "roi_pct": 135.9,
+     "cagr_pct": 25.5,
+     "win_pct": 100.0,
+     "sells": 6,
+     "buys": 8,
+     "max_dd_pct": -73.0,
+     "hold_roi_pct": 305.9,
+     "hold_dd_pct": -72.1,
+     "invested_pct": 99.1,
+     "open_lots": 2,
+     "worst_open_lot_pct": -58.3
+    }
+   },
+   "best_roi": {
+    "settings": [
+     "trend",
+     "high",
+     "heikin-ashi",
+     false
+    ],
+    "is": {
+     "roi_pct": 94.7,
+     "cagr_pct": 14.3,
+     "win_pct": 36.7,
+     "sells": 30,
+     "buys": 30,
+     "max_dd_pct": -46.8,
+     "hold_roi_pct": -86.2,
+     "hold_dd_pct": -94.3,
+     "invested_pct": 35.5,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    },
+    "oos": {
+     "roi_pct": 46.9,
+     "cagr_pct": 10.7,
+     "win_pct": 37.0,
+     "sells": 27,
+     "buys": 27,
+     "max_dd_pct": -49.1,
+     "hold_roi_pct": 305.9,
+     "hold_dd_pct": -72.1,
+     "invested_pct": 37.1,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    }
+   },
+   "default": {
+    "is": {
+     "roi_pct": 5.8,
+     "cagr_pct": 1.1,
+     "win_pct": 29.9,
+     "sells": 77,
+     "buys": 77,
+     "max_dd_pct": -47.2,
+     "hold_roi_pct": -86.2,
+     "hold_dd_pct": -94.3,
+     "invested_pct": 41.8,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    },
+    "oos": {
+     "roi_pct": 36.7,
+     "cagr_pct": 8.6,
+     "win_pct": 27.4,
+     "sells": 62,
+     "buys": 62,
+     "max_dd_pct": -40.6,
+     "hold_roi_pct": 305.9,
+     "hold_dd_pct": -72.1,
+     "invested_pct": 39.8,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    }
+   },
+   "oos_median_all_settings_roi": 131.3,
+   "rank_corr_is_oos": -0.54
+  },
+  "ADA-USD": {
+   "asset": "crypto",
+   "from": "2017-11-09",
+   "chosen": {
+    "settings": [
+     "trend",
+     "high",
+     "heikin-ashi",
+     true
+    ],
+    "is": {
+     "roi_pct": 117.7,
+     "cagr_pct": 16.9,
+     "win_pct": 100.0,
+     "sells": 6,
+     "buys": 8,
+     "max_dd_pct": -87.5,
+     "hold_roi_pct": -72.6,
+     "hold_dd_pct": -97.3,
+     "invested_pct": 90.9,
+     "open_lots": 2,
+     "worst_open_lot_pct": -89.2
+    },
+    "oos": {
+     "roi_pct": -28.4,
+     "cagr_pct": -8.5,
+     "win_pct": 100.0,
+     "sells": 5,
+     "buys": 7,
+     "max_dd_pct": -89.9,
+     "hold_roi_pct": -4.4,
+     "hold_dd_pct": -88.3,
+     "invested_pct": 99.2,
+     "open_lots": 2,
+     "worst_open_lot_pct": -79.0
+    }
+   },
+   "best_roi": {
+    "settings": [
+     "trend",
+     "high",
+     "heikin-ashi",
+     false
+    ],
+    "is": {
+     "roi_pct": 362.0,
+     "cagr_pct": 36.0,
+     "win_pct": 35.5,
+     "sells": 31,
+     "buys": 31,
+     "max_dd_pct": -54.3,
+     "hold_roi_pct": -72.6,
+     "hold_dd_pct": -97.3,
+     "invested_pct": 40.4,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    },
+    "oos": {
+     "roi_pct": 50.3,
+     "cagr_pct": 11.4,
+     "win_pct": 34.6,
+     "sells": 26,
+     "buys": 26,
+     "max_dd_pct": -53.9,
+     "hold_roi_pct": -4.4,
+     "hold_dd_pct": -88.3,
+     "invested_pct": 33.9,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    }
+   },
+   "default": {
+    "is": {
+     "roi_pct": -5.5,
+     "cagr_pct": -1.1,
+     "win_pct": 33.7,
+     "sells": 86,
+     "buys": 86,
+     "max_dd_pct": -53.8,
+     "hold_roi_pct": -72.6,
+     "hold_dd_pct": -97.3,
+     "invested_pct": 42.6,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    },
+    "oos": {
+     "roi_pct": -25.5,
+     "cagr_pct": -7.5,
+     "win_pct": 32.9,
+     "sells": 70,
+     "buys": 70,
+     "max_dd_pct": -58.3,
+     "hold_roi_pct": -4.4,
+     "hold_dd_pct": -88.3,
+     "invested_pct": 43.1,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    }
+   },
+   "oos_median_all_settings_roi": -11.75,
+   "rank_corr_is_oos": 0.14
+  },
+  "DOGE-USD": {
+   "asset": "crypto",
+   "from": "2017-11-09",
+   "chosen": {
+    "settings": [
+     "trend",
+     "medium",
+     "candles",
+     true
+    ],
+    "is": {
+     "roi_pct": 1182.9,
+     "cagr_pct": 67.0,
+     "win_pct": 100.0,
+     "sells": 13,
+     "buys": 15,
+     "max_dd_pct": -86.5,
+     "hold_roi_pct": 367.2,
+     "hold_dd_pct": -92.3,
+     "invested_pct": 98.0,
+     "open_lots": 2,
+     "worst_open_lot_pct": -89.8
+    },
+    "oos": {
+     "roi_pct": -3.9,
+     "cagr_pct": -1.0,
+     "win_pct": 100.0,
+     "sells": 11,
+     "buys": 13,
+     "max_dd_pct": -83.0,
+     "hold_roi_pct": 21.0,
+     "hold_dd_pct": -85.2,
+     "invested_pct": 98.4,
+     "open_lots": 2,
+     "worst_open_lot_pct": -80.1
+    }
+   },
+   "best_roi": {
+    "settings": [
+     "trend",
+     "none",
+     "heikin-ashi",
+     false
+    ],
+    "is": {
+     "roi_pct": 1274.6,
+     "cagr_pct": 69.3,
+     "win_pct": 37.9,
+     "sells": 66,
+     "buys": 66,
+     "max_dd_pct": -52.1,
+     "hold_roi_pct": 367.2,
+     "hold_dd_pct": -92.3,
+     "invested_pct": 36.7,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    },
+    "oos": {
+     "roi_pct": 12.4,
+     "cagr_pct": 3.1,
+     "win_pct": 34.3,
+     "sells": 67,
+     "buys": 67,
+     "max_dd_pct": -54.6,
+     "hold_roi_pct": 21.0,
+     "hold_dd_pct": -85.2,
+     "invested_pct": 38.4,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    }
+   },
+   "default": {
+    "is": {
+     "roi_pct": 495.2,
+     "cagr_pct": 43.1,
+     "win_pct": 33.8,
+     "sells": 71,
+     "buys": 71,
+     "max_dd_pct": -64.0,
+     "hold_roi_pct": 367.2,
+     "hold_dd_pct": -92.3,
+     "invested_pct": 35.3,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    },
+    "oos": {
+     "roi_pct": 41.9,
+     "cagr_pct": 9.7,
+     "win_pct": 36.9,
+     "sells": 65,
+     "buys": 65,
+     "max_dd_pct": -45.3,
+     "hold_roi_pct": 21.0,
+     "hold_dd_pct": -85.2,
+     "invested_pct": 37.5,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    }
+   },
+   "oos_median_all_settings_roi": 6.9,
+   "rank_corr_is_oos": 0.2
+  },
+  "LTC-USD": {
+   "asset": "crypto",
+   "from": "2016-10-14",
+   "chosen": {
+    "settings": [
+     "trend",
+     "low",
+     "candles",
+     true
+    ],
+    "is": {
+     "roi_pct": 2330.3,
+     "cagr_pct": 70.3,
+     "win_pct": 100.0,
+     "sells": 15,
+     "buys": 17,
+     "max_dd_pct": -89.0,
+     "hold_roi_pct": 1451.5,
+     "hold_dd_pct": -93.5,
+     "invested_pct": 100.0,
+     "open_lots": 2,
+     "worst_open_lot_pct": -72.7
+    },
+    "oos": {
+     "roi_pct": -42.8,
+     "cagr_pct": -13.7,
+     "win_pct": 100.0,
+     "sells": 7,
+     "buys": 9,
+     "max_dd_pct": -71.8,
+     "hold_roi_pct": -12.9,
+     "hold_dd_pct": -70.2,
+     "invested_pct": 98.4,
+     "open_lots": 2,
+     "worst_open_lot_pct": -52.7
+    }
+   },
+   "best_roi": {
+    "settings": [
+     "trend",
+     "medium",
+     "candles",
+     false
+    ],
+    "is": {
+     "roi_pct": 1272.7,
+     "cagr_pct": 54.8,
+     "win_pct": 42.9,
+     "sells": 98,
+     "buys": 98,
+     "max_dd_pct": -41.2,
+     "hold_roi_pct": 1451.5,
+     "hold_dd_pct": -93.5,
+     "invested_pct": 46.9,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    },
+    "oos": {
+     "roi_pct": -28.0,
+     "cagr_pct": -8.3,
+     "win_pct": 39.4,
+     "sells": 66,
+     "buys": 66,
+     "max_dd_pct": -48.9,
+     "hold_roi_pct": -12.9,
+     "hold_dd_pct": -70.2,
+     "invested_pct": 44.6,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    }
+   },
+   "default": {
+    "is": {
+     "roi_pct": 1272.7,
+     "cagr_pct": 54.8,
+     "win_pct": 42.9,
+     "sells": 98,
+     "buys": 98,
+     "max_dd_pct": -41.2,
+     "hold_roi_pct": 1451.5,
+     "hold_dd_pct": -93.5,
+     "invested_pct": 46.9,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    },
+    "oos": {
+     "roi_pct": -28.0,
+     "cagr_pct": -8.3,
+     "win_pct": 39.4,
+     "sells": 66,
+     "buys": 66,
+     "max_dd_pct": -48.9,
+     "hold_roi_pct": -12.9,
+     "hold_dd_pct": -70.2,
+     "invested_pct": 44.6,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    }
+   },
+   "oos_median_all_settings_roi": -10.65,
+   "rank_corr_is_oos": -0.75
+  },
+  "XLM-USD": {
+   "asset": "crypto",
+   "from": "2017-11-09",
+   "chosen": {
+    "settings": [
+     "deviation",
+     "medium",
+     "heikin-ashi",
+     true
+    ],
+    "is": {
+     "roi_pct": 50.4,
+     "cagr_pct": 8.5,
+     "win_pct": 100.0,
+     "sells": 7,
+     "buys": 9,
+     "max_dd_pct": -74.2,
+     "hold_roi_pct": -88.7,
+     "hold_dd_pct": -95.1,
+     "invested_pct": 85.4,
+     "open_lots": 2,
+     "worst_open_lot_pct": -74.6
+    },
+    "oos": {
+     "roi_pct": 219.8,
+     "cagr_pct": 36.0,
+     "win_pct": 100.0,
+     "sells": 6,
+     "buys": 8,
+     "max_dd_pct": -58.4,
+     "hold_roi_pct": 164.3,
+     "hold_dd_pct": -74.8,
+     "invested_pct": 77.7,
+     "open_lots": 2,
+     "worst_open_lot_pct": -46.3
+    }
+   },
+   "best_roi": {
+    "settings": [
+     "deviation",
+     "medium",
+     "heikin-ashi",
+     false
+    ],
+    "is": {
+     "roi_pct": 209.6,
+     "cagr_pct": 25.5,
+     "win_pct": 61.9,
+     "sells": 21,
+     "buys": 23,
+     "max_dd_pct": -68.2,
+     "hold_roi_pct": -88.7,
+     "hold_dd_pct": -95.1,
+     "invested_pct": 69.4,
+     "open_lots": 2,
+     "worst_open_lot_pct": -61.5
+    },
+    "oos": {
+     "roi_pct": 42.0,
+     "cagr_pct": 9.7,
+     "win_pct": 54.5,
+     "sells": 11,
+     "buys": 11,
+     "max_dd_pct": -65.3,
+     "hold_roi_pct": 164.3,
+     "hold_dd_pct": -74.8,
+     "invested_pct": 69.5,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    }
+   },
+   "default": {
+    "is": {
+     "roi_pct": 24.9,
+     "cagr_pct": 4.6,
+     "win_pct": 33.3,
+     "sells": 75,
+     "buys": 75,
+     "max_dd_pct": -53.9,
+     "hold_roi_pct": -88.7,
+     "hold_dd_pct": -95.1,
+     "invested_pct": 39.6,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    },
+    "oos": {
+     "roi_pct": 59.5,
+     "cagr_pct": 13.1,
+     "win_pct": 33.8,
+     "sells": 65,
+     "buys": 65,
+     "max_dd_pct": -38.5,
+     "hold_roi_pct": 164.3,
+     "hold_dd_pct": -74.8,
+     "invested_pct": 36.6,
+     "open_lots": 0,
+     "worst_open_lot_pct": 0.0
+    }
+   },
+   "oos_median_all_settings_roi": 92.0,
+   "rank_corr_is_oos": -0.38
+  }
+ },
+ "skipped_data": [
+  "PLTR: history starts 2020-09-30",
+  "CRDO: history starts 2022-01-27",
+  "ALAB: history starts 2024-03-20",
+  "HOOD: history starts 2021-07-29",
+  "SPCX: history starts 2026-06-12",
+  "SOL-USD: history starts 2020-04-10",
+  "AVAX-USD: history starts 2020-07-13",
+  "PUMP-USD: no data for PUMP-USD 1d",
+  "RAY-USD: history starts 2021-02-21",
+  "RENDER-USD: history starts 2020-06-11",
+  "HYPE-USD: no data for HYPE-USD 1d",
+  "NEAR-USD: history starts 2020-10-14",
+  "SUI-USD: no data for SUI-USD 1d",
+  "TAO-USD: no data for TAO-USD 1d",
+  "UNI-USD: no data for UNI-USD 1d",
+  "ONDO-USD: history starts 2024-01-18"
+ ]
+}
