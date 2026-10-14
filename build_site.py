@@ -42,6 +42,54 @@ def spark(d: dict, days: int = 30) -> dict:
             "spark_pct": round((closes[-1] / closes[0] - 1) * 100, 1)}
 
 
+def signal_since(d: dict) -> dict | None:
+    """When the current signal started (signal history only records changes) and the price then."""
+    hist, act = d.get("signals") or [], d.get("action")
+    j = len(hist) - 1
+    while j >= 0 and hist[j].get("action") != act:
+        j -= 1
+    if j < 0:
+        return None
+    while j > 0 and hist[j - 1].get("action") == act:
+        j -= 1
+    return {"ts": hist[j]["ts"], "price": hist[j].get("price")}
+
+
+def signal_detail(d: dict) -> dict:
+    """Extra detail for the Signals page (only tickers with a signal)."""
+    out = {"since": signal_since(d)}
+    r = d.get("risk")
+    if r:
+        out["risk"] = {k: r.get(k) for k in ("size", "vol_pct", "target_pct")}
+    lp = d.get("ladder") or {}
+    nxt = {}
+    for key, rungs in (("add", lp.get("buys") or []), ("trim", lp.get("sells") or [])):
+        rung = next((x for x in rungs if not x.get("reached")), None)
+        if rung:
+            nxt[key] = {"layer": rung["layer"], "price": rung["price"], "pct": rung.get("pct")}
+    out["next"] = nxt
+    iv = d.get("ia")
+    if iv:
+        out["ia"] = {"trend": iv.get("trend"), "stop_side": iv.get("stop_side"), "bars": iv.get("bars_since_flip")}
+    return out
+
+
+def tested_stats() -> dict:
+    """How each signal level did in the 2021+ test (research/strength.json), for the Signals page."""
+    try:
+        seg = json.loads((ROOT / "research" / "strength.json").read_text())["segments"]
+    except Exception:
+        return {}
+    out = {}
+    for asset, parts in seg.items():
+        test = parts.get("test", {})
+        out[asset] = {lv: {"x5": x.get("next_5d_excess_pct"), "win5": x.get("next_5d_win_pct"),
+                           "x1": round(x["next_day_excess_bp"] / 100, 2) if x.get("next_day_excess_bp") is not None else None,
+                           "t": x.get("t")}
+                      for lv, x in test.items() if isinstance(x, dict) and "t" in x}
+    return out
+
+
 def main() -> None:
     logging.basicConfig(level=logging.INFO, format="%(levelname)s %(name)s: %(message)s")
     cfg = settings.apply(load_config(), settings.load(load_config()))   # includes Telegram watchlist edits
@@ -88,6 +136,8 @@ def main() -> None:
                         item["congress"] = {"buys": sum(c["side"] == "buy" for c in recent),
                                             "sells": sum(c["side"] == "sell" for c in recent)}
                     item.update(spark(d))
+                    if d.get("rank"):             # the Signals page shows more about these
+                        item.update(signal_detail(d))
                 items.append(item)
     bot_name = ""
     token = os.environ.get("TELEGRAM_BOT_TOKEN", "")
@@ -106,6 +156,7 @@ def main() -> None:
         "timeframes": cfg["timeframes"],
         "disclaimer": DISCLAIMER,
         "ui": ui,
+        "stats": tested_stats(),
         "items": items,
     }
     (data / "index.json").write_text(json.dumps(index, separators=(",", ":")))

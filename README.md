@@ -103,11 +103,13 @@ on the main list and **Remove from watchlist** on each chart. Both open your bot
 Up to 60 tickers.
 
 **Charts on your phone:** every scan publishes a small website at
-`https://<your-github-username>.github.io/signal-desk`. Stocks and crypto are listed in separate panels (side by
-side on wide screens). Each row shows the daily signal (with a coloured stripe), a one-month mini chart, the
-price, and a dot per model (filled = that model says buy). The **Strong Buy** and **Buy** tiles at the top filter
-the list; on phones the bottom bar switches between Watchlist, Signals, Info and Settings. **Info** explains each
-model in plain English and summarises the backtests (method, Strong Buy vs Buy, and what was tested and left out).
+`https://<your-github-username>.github.io/signal-desk`, with four sections (bottom bar on phones, top bar on
+computers). **Watchlist** lists every ticker, stocks and crypto in separate panels: one dot per model (filled =
+says buy), the daily signal, a one-month mini chart and the price. **Signals** shows only tickers with a signal,
+one card each: when the signal started and the move since, every model's reading in words, the suggested
+size, the next add / trim prices from the layer plan, the IA view, and how that signal level did in testing
+(2021 on); the Strong Buy / Buy tiles filter it. **Info** explains each model in plain English and summarises
+the backtests. **Settings** is below.
 Tap a ticker for a candlestick chart with the Bollinger bands, ATR layers, EMAs, volume and past signal arrows,
 plus each model's reading. Switch Daily / 4H / 1H at the top. The site is dark by default; the sun/moon button
 (or Settings → Theme: Dark / Light / Auto) changes it, remembered per device. In Safari, use Share → **Add to Home Screen**

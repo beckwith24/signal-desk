@@ -3,7 +3,6 @@ if (window.top !== window.self) { document.documentElement.style.display = "none
 (() => {
   "use strict";
   const TF_LABEL = { "1d": "Daily", "4h": "4H", "1h": "1H", "1wk": "Weekly" };
-  const FILTERS = [["all", "All"], ["stock", "Stocks"], ["crypto", "Crypto"]];
   const LEVELS = { strong: (i) => i.rank >= 3, buy: (i) => i.rank === 2, sell: (i) => i.rank <= -2, signals: (i) => i.rank !== 0, all: () => true };
   const OVERLAYS = [
     ["ia", "IA view"], ["bands", "Bands"], ["layers", "ATR layers"], ["emas", "EMAs"], ["ma", "Long MA"], ["volume", "Volume"], ["markers", "Past signals"],
@@ -15,8 +14,8 @@ if (window.top !== window.self) { document.documentElement.style.display = "none
   const state = {
     index: null,
     tf: store.get("tf", "1d"),
-    filter: ["all", "stock", "crypto"].includes(store.get("filter", "all")) ? store.get("filter", "all") : "all",
-    level: "all",                       // all | strong | buy | sell | signals (tiles and the Signals tab)
+    view: "list",                       // list | signals: which list page is showing (or was, under a chart)
+    level: "signals",                   // Signals page filter: signals | strong | buy | sell
     overlays: Object.assign({ ia: true, bands: false, layers: true, emas: false, ma: false, volume: true, markers: true }, store.get("overlays", {}, "v2")),
     detail: null, chart: null,
   };
@@ -54,26 +53,20 @@ if (window.top !== window.self) { document.documentElement.style.display = "none
   function renderControls() {
     const seg = $("tfSeg"); seg.textContent = "";
     const tfs = state.index ? state.index.timeframes : ["1d", "4h", "1h"];
-    if (!state.detail) state.tf = "1d";                 // the list is daily only
+    if (!state.detail) state.tf = "1d";                 // the lists are daily only
     if (!tfs.includes(state.tf)) state.tf = tfs[0];
+    $("controls").hidden = !state.detail;
     seg.hidden = !state.detail || tfs.length < 2;
     for (const tf of tfs) {
       const b = el("button", null, TF_LABEL[tf] || tf);
       b.type = "button"; b.setAttribute("aria-pressed", String(tf === state.tf));
-      b.onclick = () => { state.tf = tf; store.set("tf", tf); if (state.detail) openDetail(state.detail.ticker, tf, true); else render(); renderControls(); };
+      b.onclick = () => { state.tf = tf; store.set("tf", tf); if (state.detail) openDetail(state.detail.ticker, tf, true); renderControls(); };
       seg.append(b);
     }
-    const f = $("filters"); f.textContent = "";
-    f.hidden = !!state.detail;
-    for (const [k, label] of FILTERS) {
-      const b = el("button", "chip", label);
-      b.type = "button"; b.setAttribute("aria-pressed", String(k === state.filter));
-      b.onclick = () => { state.filter = k; store.set("filter", k); renderControls(); render(); };
-      f.append(b);
-    }
   }
+  function setView(v) { document.body.dataset.view = v; }
 
-  // ---------------------------------------------------------------- list
+  // ---------------------------------------------------------------- shared bits
   const SVG = "http://www.w3.org/2000/svg";
   const svgEl = (tag, attrs) => { const e = document.createElementNS(SVG, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); return e; };
   let sparkId = 0;
@@ -96,87 +89,185 @@ if (window.top !== window.self) { document.documentElement.style.display = "none
   function stripe(rank) {
     return rank >= 3 ? "s-strong" : rank === 2 ? "s-buy" : rank === 1 ? "s-watch" : rank === -1 ? "s-watchd" : rank === -2 ? "s-sell" : rank <= -3 ? "s-strongsell" : "";
   }
-  function row(i) {
+  const hrefFor = (i) => "#" + (i.ticker + "_" + i.tf).replace(/[^A-Za-z0-9_.-]/g, "_");
+  const short = (t) => t.replace("-USD", "");
+  const pct = (x) => (x > 0 ? "+" : "") + x.toFixed(1) + "%";
+  function congressText(c) {
+    const parts = [];
+    if (c.buys) parts.push(c.buys + " buy" + (c.buys > 1 ? "s" : ""));
+    if (c.sells) parts.push(c.sells + " sell" + (c.sells > 1 ? "s" : ""));
+    return parts.join(", ");
+  }
+  const byStrength = (a, b) => b.rank - a.rank || Math.abs(b.score - 50) - Math.abs(a.score - 50) || a.ticker.localeCompare(b.ticker);
+  const GROUPS = [["stock", "Stocks"], ["crypto", "Crypto"]];
+
+  // ---------------------------------------------------------------- Watchlist: everything, one line each
+  function watchRow(i) {
     const li = el("li");
-    const b = el("button", "item " + stripe(i.rank)); b.type = "button";
-    const head = el("div", "head");
-    head.append(el("span", "tk", i.ticker.replace("-USD", "")));
-    if (i.rank) head.append(pill(i.action));                 // Hold rows stay quiet
+    const b = el("button", "item wrow " + stripe(i.rank)); b.type = "button";
+    const id = el("div", "id");
+    const st = el("div", "st");
+    if (i.models && i.models.length) {            // one dot per model: filled = says buy
+      const dots = el("span", "dots");
+      for (const m of i.models) dots.append(el("i", m.v > 0 ? "up" : m.v < 0 ? "down" : ""));
+      dots.title = i.models.map((m) => m.s + ": " + (m.v > 0 ? "buy" : m.v < 0 ? "sell" : "no")).join(" · ");
+      st.append(dots);
+    }
+    const cls = i.rank > 0 ? "up" : i.rank < 0 ? "down" : "hold";
+    st.append(el("span", "word " + cls, i.action));
+    if (i.congress) { const g = el("span", "gov", "🏛"); g.title = "Congress: " + congressText(i.congress) + " reported in the last 30 days"; st.append(g); }
+    id.append(el("span", "tk", short(i.ticker)), st);
     const px = el("div", "px"); px.append(el("div", "p", fmtPrice(i.price, i.decimals)), fmtChg(i.change_pct));
-    b.append(head, spark(i.spark, i.spark_pct), px);
-    const mods = el("div", "mods");
-    if (i.models && i.models.length) {          // what each model says today: filled dot = buy
-      const on = i.models.filter((m) => m.v > 0).length;
-      const n = el("span", "mods-n", on + "/" + i.models.length + " buy");
-      n.title = on + " of " + i.models.length + " models say buy";
-      mods.append(n);
-      for (const m of i.models) {
-        const c = el("span", "mod " + (m.v > 0 ? "up" : m.v < 0 ? "down" : "flat"));
-        c.append(el("i"), m.s); c.title = m.r; mods.append(c);
-      }
-    }
-    if (i.congress) {                           // congressional trades reported in the last 30 days
-      const c = i.congress, parts = [];
-      if (c.buys) parts.push(c.buys + " buy" + (c.buys > 1 ? "s" : ""));
-      if (c.sells) parts.push(c.sells + " sell" + (c.sells > 1 ? "s" : ""));
-      const tag = el("span", "mod gov", "🏛 Congress " + parts.join(", "));
-      tag.title = "Reported by members of Congress in the last 30 days (information only)";
-      mods.append(tag);
-    }
-    if (mods.childNodes.length) b.append(mods);
-    b.onclick = () => { state.fromList = true; location.hash = (i.ticker + "_" + i.tf).replace(/[^A-Za-z0-9_.-]/g, "_"); };
+    b.append(id, spark(i.spark, i.spark_pct), px);
+    b.onclick = () => { state.fromList = true; location.hash = hrefFor(i); };
     li.append(b);
     return li;
   }
-  function syncTabs() {
-    const cur = !$("settingsView").hidden ? "settings" : !$("infoView").hidden ? "info" : state.level === "all" ? "list" : "signals";
-    for (const b of $("tabbar").querySelectorAll("button")) {
-      if (b.dataset.tab === cur) b.setAttribute("aria-current", "page"); else b.removeAttribute("aria-current");
+  function renderWatchlist(all, box) {
+    $("pageTitle").textContent = "Watchlist";
+    const ns = all.filter((i) => i.asset === "stock").length, nc = all.length - ns;
+    $("pageSub").textContent = ns + " stocks · " + nc + " crypto · tap one for its chart";
+    const present = GROUPS.filter(([a]) => all.some((i) => i.asset === a));
+    if (present.length === 1) box.className = "single";
+    for (const [asset, title] of present) {
+      const items = all.filter((i) => i.asset === asset).sort(byStrength);
+      const sec = el("section", "group");
+      const h = el("h2", "group-h", title); h.append(el("span", "c", String(items.length)));
+      const ul = el("ul", "list");
+      for (const i of items) ul.append(watchRow(i));
+      if (present.length === 1 && items.length % 2) ul.append(el("li", "filler"));   // keeps the 2-column grid even on wide screens
+      sec.append(h, ul); box.append(sec);
     }
-    const items = ((state.index && state.index.items) || []).filter((i) => i.tf === "1d" && i.rank >= 2);
-    const badge = $("tabBadge"); badge.hidden = !items.length; badge.textContent = String(items.length);
+  }
+
+  // ---------------------------------------------------------------- Signals: only tickers with a signal, with the detail
+  function fact(box, k, v, sub) {
+    const d = el("div"); const val = el("span", "v", v);
+    if (sub) val.append(" ", el("small", null, sub));
+    d.append(el("span", "k", k), val); box.append(d);
+  }
+  function signalCard(i, stats) {
+    const li = el("li");
+    const a = el("a", "scard " + stripe(i.rank)); a.href = hrefFor(i);
+    a.onclick = () => { state.fromList = true; };
+    const top = el("div", "sc-top");
+    const left = el("div");
+    const idr = el("div", "sc-id"); idr.append(el("span", "tk", short(i.ticker)), pill(i.action));
+    left.append(idr);
+    const sinceEl = el("div", "sc-since");
+    if (i.since && i.since.ts) {
+      const t = Date.parse(i.since.ts.replace(" UTC", "Z").replace(" ", "T"));
+      const day = isNaN(t) ? i.since.ts : new Date(t).toLocaleDateString(LOC, { month: "short", day: "numeric" });
+      sinceEl.append("Since ", el("b", null, day));
+      if (i.since.price) {
+        const move = (i.price / i.since.price - 1) * 100;
+        sinceEl.append(" at " + fmtPrice(i.since.price, i.decimals) + " · ", el("b", null, pct(move)), " since");
+      }
+    } else sinceEl.textContent = (i.asset === "crypto" ? "Crypto" : "Stock") + " · daily signal";
+    left.append(sinceEl);
+    const px = el("div", "sc-px"); px.append(el("div", "p", fmtPrice(i.price, i.decimals)), fmtChg(i.change_pct));
+    top.append(left, px);
+    a.append(top, spark(i.spark, i.spark_pct));
+    if (i.models && i.models.length) {           // every model's reading, in words
+      const on = i.models.filter((m) => m.v > 0).length;
+      a.append(el("div", "sc-label", on + " of " + i.models.length + " models say buy"));
+      const ul = el("ul", "sc-models");
+      for (const m of i.models) {
+        const row = el("li", m.v > 0 ? "up" : m.v < 0 ? "down" : "flat");
+        const txt = el("div"); txt.append(el("b", null, m.s), el("span", null, m.r));
+        row.append(el("i"), txt); ul.append(row);
+      }
+      a.append(ul);
+    }
+    const facts = el("div", "sc-facts");
+    if (i.risk && i.risk.size != null) {
+      fact(facts, "Suggested size", i.risk.size >= 0.95 ? "Normal" : i.risk.size.toFixed(2).replace(/0$/, "") + "× normal",
+        "swings " + i.risk.vol_pct + "%/yr");
+    }
+    const nx = i.next || {};
+    if (nx.add) fact(facts, "Next add", fmtPrice(nx.add.price, i.decimals), pct((nx.add.price / i.price - 1) * 100));
+    else if (i.next) fact(facts, "Next add", "All layers hit");
+    if (nx.trim) fact(facts, "Next trim", fmtPrice(nx.trim.price, i.decimals), pct((nx.trim.price / i.price - 1) * 100));
+    if (i.ia) fact(facts, "IA view", (i.ia.trend === "up" ? "Blue" : "Orange") + " · ATR " + i.ia.stop_side);
+    if (facts.childNodes.length % 2) fact(facts, "Score", i.score + " / 100");
+    if (facts.childNodes.length) a.append(facts);
+    const st = stats && stats[i.asset] && stats[i.asset][i.action];
+    if (st && st.x5 != null) {                   // how this level did in testing (2021 on)
+      const n = el("p", "sc-note");
+      n.append("Past " + (i.asset === "crypto" ? "crypto" : "stock") + " " + i.action + "s (2021–26): ",
+        el("b", null, pct(st.x5)), " vs normal over 5 days; higher 5 days later ", el("b", null, Math.round(st.win5) + "%"), " of the time.");
+      a.append(n);
+    }
+    if (i.congress) a.append(el("p", "sc-note", "🏛 Congress: " + congressText(i.congress) + " reported in the last 30 days (information only)."));
+    a.append(el("span", "sc-open", "Open chart ›"));
+    li.append(a);
+    return li;
   }
   const EMPTY = { strong: "No Strong Buys", buy: "No Buys", sell: "No Sells", signals: "No signals" };
-  function render() {
-    const box = $("list"); box.textContent = ""; box.className = "";
-    const tiles = $("tiles"); tiles.textContent = "";
-    syncTabs();
-    const idx = state.index;
-    if (!idx || !idx.items.length) {
-      const e = el("div", "empty");
-      e.append(el("h2", null, "No charts yet"), el("div", null, "Charts appear after the next scan publishes them."));
-      box.append(e); return;
-    }
-    const all = idx.items.filter((i) => i.tf === "1d");
-    const shown = state.filter === "all" ? all : all.filter((i) => i.asset === state.filter);
-    const count = (k) => shown.filter(LEVELS[k]).length;
+  function renderSignals(all, box) {
+    $("pageTitle").textContent = "Signals";
+    const sig = all.filter(LEVELS.signals);
+    $("pageSub").textContent = sig.length ? "Each signal with the reasons behind it" : "Nothing is signalling today";
+    const tiles = $("tiles");
+    const count = (k) => all.filter(LEVELS[k]).length;
     const defs = [["strong", "Strong Buy", count("strong")], ["buy", "Buy", count("buy")]];
     if (count("sell")) defs.push(["sell", "Sell", count("sell")]);      // only shown when there are any
-    defs.push(["all", "All tickers", shown.length]);
+    defs.push(["signals", "All signals", sig.length]);
     tiles.style.setProperty("--n", defs.length);
     for (const [k, label, n] of defs) {
       const t = el("button", "tile " + k); t.type = "button";
       t.setAttribute("aria-pressed", String(state.level === k));
       t.append(el("span", "n", String(n)), el("span", "l", label));
-      t.onclick = () => { state.level = state.level === k && k !== "all" ? "all" : k; render(); };
+      t.onclick = () => { state.level = state.level === k ? "signals" : k; render(); };
       tiles.append(t);
     }
-    const keep = LEVELS[state.level] || LEVELS.all;
-    const groups = state.filter === "all" ? [["stock", "Stocks"], ["crypto", "Crypto"]] : [[state.filter, state.filter === "stock" ? "Stocks" : "Crypto"]];
-    const present = groups.filter(([a]) => all.some((i) => i.asset === a));
+    const keep = LEVELS[state.level] || LEVELS.signals;
+    const stats = (state.index && state.index.stats) || {};
+    const present = GROUPS.filter(([a]) => all.some((i) => i.asset === a));
     if (present.length === 1) box.className = "single";
     for (const [asset, title] of present) {
-      const pool = shown.filter((i) => i.asset === asset);
-      const items = pool.filter(keep).sort((a, b) => b.rank - a.rank || Math.abs(b.score - 50) - Math.abs(a.score - 50) || a.ticker.localeCompare(b.ticker));
+      const items = all.filter((i) => i.asset === asset && keep(i)).sort(byStrength);
       const sec = el("section", "group");
-      const h = el("h2", "group-h", title);
-      h.append(el("span", "c", items.length === pool.length ? String(pool.length) : items.length + " of " + pool.length));
-      const ul = el("ul", "list");
+      const h = el("h2", "group-h", title); h.append(el("span", "c", String(items.length)));
+      const ul = el("ul", "cards");
       if (!items.length) ul.append(el("li", "none", (EMPTY[state.level] || "Nothing") + " in " + title.toLowerCase() + " today."));
-      for (const i of items) ul.append(row(i));
-      if (present.length === 1 && items.length % 2) ul.append(el("li", "filler"));   // keeps the 2-column grid even on wide screens
+      for (const i of items) ul.append(signalCard(i, stats));
       sec.append(h, ul); box.append(sec);
     }
+  }
+
+  function render() {
+    const box = $("list"); box.textContent = ""; box.className = "";
+    $("tiles").textContent = "";
+    const sigView = state.view === "signals";
+    $("tiles").hidden = !sigView; $("keyBar").hidden = !sigView;
+    $("addToggle").hidden = sigView; if (sigView) $("addForm").hidden = true;
+    syncTabs();
+    const idx = state.index;
+    if (!idx || !idx.items.length) {
+      $("pageTitle").textContent = sigView ? "Signals" : "Watchlist"; $("pageSub").textContent = "";
+      const e = el("div", "empty");
+      e.append(el("h2", null, "No charts yet"), el("div", null, "Charts appear after the next scan publishes them."));
+      box.append(e); return;
+    }
+    const all = idx.items.filter((i) => i.tf === "1d");
+    if (sigView) renderSignals(all, box); else renderWatchlist(all, box);
+  }
+  function syncTabs() {
+    const cur = !$("settingsView").hidden ? "settings" : !$("infoView").hidden ? "info" : state.view;
+    for (const b of document.querySelectorAll("#tabbar button, #topnav button")) {
+      if (b.dataset.tab === cur) b.setAttribute("aria-current", "page"); else b.removeAttribute("aria-current");
+    }
+    const n = ((state.index && state.index.items) || []).filter((i) => i.tf === "1d" && i.rank >= 2).length;
+    for (const id of ["tabBadge", "navBadge"]) { const badge = $(id); badge.hidden = !n; badge.textContent = String(n); }
+  }
+  function showList(view) {              // Watchlist or Signals page
+    state.view = view;
+    if (onPage()) leaveSettings();
+    state.detail = null; if (state.chart) { state.chart.remove(); state.chart = null; }
+    $("detailView").hidden = true; $("listView").hidden = false;
+    $("back").hidden = true; $("brand").hidden = false;
+    setView(view); renderControls(); render();
   }
   $("addToggle").onclick = () => {
     const f = $("addForm"); f.hidden = !f.hidden;
@@ -188,12 +279,13 @@ if (window.top !== window.self) { document.documentElement.style.display = "none
       $("addInput").focus();
     }
   };
-  for (const b of $("tabbar").querySelectorAll("button")) {
+  const TAB_HASH = { list: "", signals: "signals", info: "info", settings: "settings" };
+  for (const b of document.querySelectorAll("#tabbar button, #topnav button")) {
     b.onclick = () => {
-      const t = b.dataset.tab;
-      if (t === "settings" || t === "info") { if (location.hash !== "#" + t) { state.fromList = true; location.hash = t; } return; }
-      state.level = t === "signals" ? "signals" : "all";
-      if (location.hash.length > 1) { state.fromList = false; location.hash = ""; } else { render(); }
+      const t = b.dataset.tab, want = TAB_HASH[t];
+      if (t === "signals" && state.view === "signals" && !state.detail && !onPage()) { state.level = "signals"; }
+      if (location.hash.slice(1) !== want) { state.fromList = t === "info" || t === "settings"; location.hash = want; }
+      else if (t === "list" || t === "signals") showList(t);
       window.scrollTo(0, 0);
     };
   }
@@ -213,8 +305,9 @@ if (window.top !== window.self) { document.documentElement.style.display = "none
     state.detail = d; state.tf = tf; store.set("tf", tf);
     leaveSettings();
     $("listView").hidden = true; $("detailView").hidden = false;
-    $("back").hidden = false; $("brand").hidden = true;
-    renderControls();
+    $("back").hidden = false; $("brand").hidden = true; setView("detail");
+    $("back").textContent = "‹ " + (state.view === "signals" ? "Signals" : "Watchlist");
+    renderControls(); syncTabs();
     $("dTitle").textContent = d.ticker.replace("-USD", "");
     $("dAsset").textContent = (d.asset === "crypto" ? "Crypto · " + d.ticker : "Stock") + " · " + (TF_LABEL[d.tf] || d.tf) + " bars";
     $("dPrice").textContent = fmtPrice(d.price, d.decimals);
@@ -348,21 +441,15 @@ if (window.top !== window.self) { document.documentElement.style.display = "none
   }
 
   function showDetailError(ticker, tf) {
+    if (onPage()) leaveSettings();
     state.detail = { ticker }; $("listView").hidden = true; $("detailView").hidden = false;
-    $("dRemove").hidden = true;
+    $("dRemove").hidden = true; setView("detail");
+    $("back").textContent = "‹ " + (state.view === "signals" ? "Signals" : "Watchlist");
     $("back").hidden = false; $("brand").hidden = true; renderControls();
     $("dTitle").textContent = ticker.replace("-USD", "");
     $("dAsset").innerHTML = ""; $("dAsset").append(el("span", "err", "No " + (TF_LABEL[tf] || tf) + " chart for this ticker yet."));
     for (const id of ["dPrice", "dChg", "dPill", "dStats", "dReasons", "dSize", "dCongress", "dCongressNote", "dIA", "dIANote", "dLadder", "dLadderNow", "dAbout", "dModels", "dHist", "dFoot", "legend"]) $(id).textContent = "";
     if (state.chart) { state.chart.remove(); state.chart = null; }
-  }
-
-  function closeDetail() {
-    state.detail = null;
-    if (state.chart) { state.chart.remove(); state.chart = null; }
-    $("detailView").hidden = true; $("listView").hidden = false;
-    $("back").hidden = true; $("brand").hidden = false;
-    renderControls(); render();
   }
 
   // ---------------------------------------------------------------- chart
@@ -713,8 +800,8 @@ if (window.top !== window.self) { document.documentElement.style.display = "none
     $("listView").hidden = true; $("detailView").hidden = true;
     $("settingsView").hidden = name !== "settings"; $("infoView").hidden = name !== "info";
     $("controls").hidden = true; $("back").hidden = false; $("brand").hidden = true;
-    $("gear").hidden = name === "settings"; $("infoBtn").hidden = name === "info";
-    syncTabs(); window.scrollTo(0, 0);
+    $("back").textContent = "‹ Back"; $("gear").hidden = name === "settings";
+    setView(name); syncTabs(); window.scrollTo(0, 0);
   }
   const onPage = () => !$("settingsView").hidden || !$("infoView").hidden;
   async function openSettings() {
@@ -727,19 +814,18 @@ if (window.top !== window.self) { document.documentElement.style.display = "none
   }
   function leaveSettings() {           // leaves settings or info
     $("settingsView").hidden = true; $("infoView").hidden = true;
-    $("controls").hidden = false; $("gear").hidden = false; $("infoBtn").hidden = false; syncTabs();
+    $("gear").hidden = false; renderControls(); syncTabs();
   }
   $("gear").onclick = () => { state.fromList = true; location.hash = "settings"; };
-  $("infoBtn").onclick = () => { state.fromList = true; location.hash = "info"; };
 
   // ---------------------------------------------------------------- routing & data
   function route() {
     const h = decodeURIComponent(location.hash.slice(1));
     if (h === "settings") { openSettings(); return; }
     if (h === "info") { openPage("info"); return; }
-    if (onPage()) { leaveSettings(); if (!h) { $("listView").hidden = false; $("back").hidden = true; $("brand").hidden = false; renderControls(); render(); return; } }
     const m = h.match(/^(.+)_(1d|4h|1h|1wk)$/);
-    if (m) openDetail(m[1], m[2], false); else if (state.detail) closeDetail(); else { renderControls(); render(); }
+    if (m) { openDetail(m[1], m[2], false); return; }
+    showList(h === "signals" ? "signals" : "list");
   }
   // A page left open (a phone tab, a home-screen app) only refreshes its data. When a newer version of the
   // page has been published, reload once to pick it up — but never while something is being typed.
@@ -768,9 +854,8 @@ if (window.top !== window.self) { document.documentElement.style.display = "none
   }
   $("back").onclick = () => {
     if (state.fromList) { state.fromList = false; history.back(); }
-    else { history.replaceState(null, "", location.pathname + location.search);
-           if (onPage()) { leaveSettings(); $("listView").hidden = false; $("back").hidden = true; $("brand").hidden = false; renderControls(); render(); }
-           else closeDetail(); }
+    else { history.replaceState(null, "", location.pathname + location.search + (state.view === "signals" ? "#signals" : ""));
+           showList(state.view); }
   };
   window.addEventListener("hashchange", route);
   // ---------------------------------------------------------------- theme (theme.js applies it before the page paints)

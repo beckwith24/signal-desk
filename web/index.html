@@ -152,8 +152,20 @@ header.top .wrap { padding-block: 0; }
 .key[open] summary { color: var(--ink); }
 .key p { margin: 2px 0 8px; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; line-height: 1.5; }
 
+/* page titles and the section nav for wide / sideways screens */
+.page-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 12px; padding-top: 16px; }
+.page-h { font: 800 28px/1 var(--f-display); font-stretch: 78%; margin: 0; color: var(--ink-strong); }
+.page-sub { font-size: 13px; color: var(--muted); margin-top: 5px; }
+.topnav { display: none; gap: 2px; margin-left: 18px; background: var(--seg-bg); border: 1px solid var(--line); border-radius: 10px; padding: 3px; }
+.topnav button { position: relative; border: 0; background: none; color: var(--muted); font-weight: 600; font-size: 13px;
+  padding: 6px 13px; border-radius: 7px; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; }
+.topnav button[aria-current="page"] { background: var(--raised); color: var(--ink-strong); box-shadow: var(--shadow); }
+.topnav .badge { min-width: 17px; height: 17px; border-radius: 9px; padding: 0 5px; background: var(--up); color: var(--on-solid);
+  font: 600 10px/17px var(--f-mono); text-align: center; }
+@media (min-width: 1100px), (max-height: 520px) { .topnav { display: inline-flex; } }
+
 /* list: one panel per asset class, never mixed */
-#list { display: grid; gap: 18px; margin-top: 8px; }
+#list { display: grid; gap: 18px; margin-top: 16px; }
 .group-h { display: flex; align-items: baseline; gap: 8px; margin: 0 2px 8px; font: 700 12px/1 var(--f-display);
   text-transform: uppercase; letter-spacing: .12em; color: var(--muted); }
 .group-h .c { font: 500 12px var(--f-mono); letter-spacing: 0; color: var(--faint); text-transform: none; }
@@ -197,6 +209,55 @@ header.top .wrap { padding-block: 0; }
 .mod.up { color: var(--ink); } .mod.up i { background: var(--up); border-color: var(--up); }
 .mod.down { color: var(--ink); } .mod.down i { background: var(--down); border-color: var(--down); }
 .mod.gov { color: var(--muted); }
+
+/* Watchlist rows: name + one-line status, mini chart, price */
+.item.wrow { grid-template-areas: "id spark px"; row-gap: 0; padding-block: 10px; }
+.wrow .id { grid-area: id; display: grid; gap: 4px; min-width: 0; }
+.wrow .st { display: flex; align-items: center; gap: 7px; font-size: 12px; color: var(--muted); white-space: nowrap; min-width: 0; }
+.dots { display: inline-flex; gap: 3px; }
+.dots i { width: 7px; height: 7px; border-radius: 50%; border: 1.5px solid var(--faint); }
+.dots i.up { background: var(--up); border-color: var(--up); } .dots i.down { background: var(--down); border-color: var(--down); }
+.word { font-weight: 600; }
+.word.up { color: var(--up); } .word.down { color: var(--down); } .word.hold { color: var(--muted); font-weight: 500; }
+.wrow .gov { color: var(--muted); }
+
+/* Signals page: one card per ticker with the detail behind the signal */
+.cards { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.cards > li.none { padding: 16px; color: var(--muted); font-size: 14px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; }
+.scard { position: relative; display: block; overflow: hidden; color: inherit; text-decoration: none; cursor: pointer;
+  background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 13px 14px 12px 17px; }
+.scard::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--stripe, transparent); }
+.scard.s-strong { --stripe: var(--up); } .scard.s-buy { --stripe: color-mix(in srgb, var(--up) 50%, transparent); }
+.scard.s-watch { --stripe: color-mix(in srgb, var(--up) 25%, transparent); } .scard.s-watchd { --stripe: color-mix(in srgb, var(--down) 25%, transparent); }
+.scard.s-sell { --stripe: color-mix(in srgb, var(--down) 55%, transparent); } .scard.s-strongsell { --stripe: var(--down); }
+@media (hover: hover) { .scard:hover { border-color: color-mix(in srgb, var(--accent) 45%, var(--line)); } }
+.sc-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+.sc-id { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.sc-id .tk { font-size: 20px; }
+.sc-since { font-size: 12px; color: var(--muted); margin-top: 5px; }
+.sc-since b { color: var(--ink); font-weight: 600; }
+.sc-px { text-align: right; flex: none; }
+.sc-px .p { font: 500 17px var(--f-mono); color: var(--ink-strong); font-variant-numeric: tabular-nums; }
+.sc-px .chg { display: inline-block; margin-top: 3px; padding: 1px 6px; border-radius: 6px; }
+.sc-px .chg.up { background: var(--up-soft); } .sc-px .chg.down { background: var(--down-soft); }
+.scard .spark { display: block; grid-area: auto; width: 100%; height: 46px; margin: 10px 0 4px; }
+.sc-label { font-size: 10.5px; text-transform: uppercase; letter-spacing: .08em; color: var(--faint); margin: 10px 0 6px; }
+.sc-models { list-style: none; margin: 0; padding: 0; display: grid; gap: 7px; }
+.sc-models li { display: grid; grid-template-columns: 8px minmax(0, 1fr); gap: 0 9px; font-size: 13px; line-height: 1.4; }
+.sc-models i { width: 8px; height: 8px; border-radius: 50%; border: 1.5px solid var(--faint); margin-top: .38em; }
+.sc-models li.up i { background: var(--up); border-color: var(--up); } .sc-models li.down i { background: var(--down); border-color: var(--down); }
+.sc-models b { color: var(--ink-strong); font-weight: 600; margin-right: 5px; }
+.sc-models li.flat b { color: var(--muted); font-weight: 500; }
+.sc-models span { color: var(--muted); }
+.sc-facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; background: var(--line);
+  border: 1px solid var(--line); border-radius: 10px; overflow: hidden; margin-top: 12px; }
+.sc-facts > div { background: var(--surface-2); padding: 7px 10px; min-width: 0; }
+.sc-facts .k { display: block; font-size: 10.5px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
+.sc-facts .v { display: block; font: 500 13px var(--f-mono); color: var(--ink-strong); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-top: 2px; }
+.sc-facts .v small { font-size: 11px; color: var(--muted); }
+.sc-note { font-size: 12.5px; color: var(--muted); margin: 10px 0 0; line-height: 1.45; }
+.sc-note b { color: var(--ink); font-weight: 600; }
+.sc-open { display: inline-block; margin-top: 10px; font-size: 13px; font-weight: 600; color: var(--accent-ink); }
 
 .pill {
   display: inline-flex; align-items: center; gap: 4px; white-space: nowrap;
@@ -354,7 +415,7 @@ h3.sec { font: 700 12px/1.2 var(--f-display); text-transform: uppercase; letter-
   background: var(--up); color: var(--on-solid); font: 600 10px/17px var(--f-mono); text-align: center; }
 @media (max-width: 1099px) and (min-height: 521px) {
   .tabbar { display: flex; }
-  #gear, #infoBtn { display: none; }
+  #gear { display: none; }
   body { padding-bottom: calc(64px + env(safe-area-inset-bottom, 0px)); }
 }
 
@@ -388,7 +449,9 @@ h3.sec { font: 700 12px/1.2 var(--f-display); text-transform: uppercase; letter-
   #back, #brand { order: 0; }
   .controls { order: 1; padding: 0; }
   .updated { order: 2; flex: 1 1 60px; min-width: 60px; }
-  #infoBtn, #themeBtn, #gear { order: 3; }
+  #topnav { order: 1; margin-left: 4px; }
+  #themeBtn, #gear { order: 3; }
+  body[data-view="detail"] #topnav { display: none; }
   .d-head { display: flex; flex-wrap: wrap; align-items: center; gap: 2px 16px; }
   .d-title { font-size: 26px; }
   .d-price { margin-top: 0; }
@@ -403,6 +466,7 @@ h3.sec { font: 700 12px/1.2 var(--f-display); text-transform: uppercase; letter-
   #list.single { grid-template-columns: minmax(0, 1fr); }
   #list.single .list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   #list.single .list > li.filler { display: block; }
+  #list.single .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; }
   .tiles { max-width: 720px; }
   #detailView { display: grid; grid-template-columns: minmax(0, 1.75fr) minmax(340px, 1fr); gap: 14px 20px; align-items: start; }
   .d-head, .d-foot { grid-column: 1 / -1; }
@@ -418,12 +482,14 @@ h3.sec { font: 700 12px/1.2 var(--f-display); text-transform: uppercase; letter-
 <header class="top">
   <div class="wrap">
     <div class="row">
-      <button class="back" id="back" hidden aria-label="Back to all tickers">‹ All tickers</button>
+      <button class="back" id="back" hidden aria-label="Back">‹ Back</button>
       <h1 class="brand" id="brand"><svg class="logo" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8"/><path d="M6 21l6-6 5 4 9-10"/></svg><span>Signal <b>Desk</b></span></h1>
+      <nav class="topnav" id="topnav" aria-label="Sections">
+        <button type="button" data-tab="list">Watchlist</button>
+        <button type="button" data-tab="signals">Signals<b class="badge" id="navBadge" hidden></b></button>
+        <button type="button" data-tab="info">Info</button>
+      </nav>
       <div class="updated" id="updated">Loading…</div>
-      <button class="iconbtn" id="infoBtn" type="button" aria-label="How it works" title="How it works">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.01"/></svg>
-      </button>
       <button class="iconbtn" id="themeBtn" type="button" aria-label="Switch between dark and light" title="Dark / light">
         <svg class="ic-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
         <svg class="ic-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.1A8.5 8.5 0 1 1 9.9 3.5a6.8 6.8 0 0 0 10.6 10.6z"/></svg>
@@ -434,22 +500,24 @@ h3.sec { font: 700 12px/1.2 var(--f-display); text-transform: uppercase; letter-
     </div>
     <div class="controls" id="controls">
       <div class="seg" id="tfSeg" role="group" aria-label="Timeframe"></div>
-      <div class="chips" id="filters" role="group" aria-label="Show"></div>
     </div>
   </div>
 </header>
 
 <main class="wrap">
   <section id="listView">
+    <div class="page-head">
+      <div><h2 class="page-h" id="pageTitle">Watchlist</h2><div class="page-sub" id="pageSub"></div></div>
+      <button class="btn ghost sm" id="addToggle" type="button">＋ Add ticker</button>
+    </div>
     <div class="tiles" id="tiles" role="group" aria-label="Show signals"></div>
-    <div class="listbar">
+    <div class="listbar" id="keyBar">
       <details class="key" id="key">
         <summary>What Buy and Strong Buy mean</summary>
         <p id="tfNote">Stocks: Buy = 1 of 3 dip signals, Strong Buy = 2 or more. Crypto: Buy = 3 of 4 trend signals with none
           against, Strong Buy = all 4. Tested over 10 years: Strong Buys did clearly better; single-signal Buys were close to random.
           Alerts go out for Strong Buys.</p>
       </details>
-      <button class="btn ghost sm" id="addToggle" type="button">＋ Add ticker</button>
     </div>
     <form class="addrow" id="addForm" hidden autocomplete="off">
       <input id="addInput" placeholder="e.g. TSM or DOGE-USD" aria-label="Ticker to add" maxlength="20">
