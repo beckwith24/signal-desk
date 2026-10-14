@@ -17,7 +17,7 @@ SYMBOL = re.compile(r"^[A-Z0-9.=^-]{1,20}$")       # anything else in settings.j
 def load(cfg: dict) -> dict:
     s = {"timeframes": {tf: True for tf in cfg["timeframes"]}, "paused": False,
          "ladder": bool(cfg["ladder"].get("enabled", True)),
-         "min_action": cfg["notifications"]["min_action"], "tg_offset": 0}
+         "min_action": cfg["notifications"]["min_action"], "tg_offset": 0, "trading": True}
     try:
         saved = json.loads(SETTINGS_PATH.read_text())
     except (FileNotFoundError, ValueError):
@@ -27,7 +27,7 @@ def load(cfg: dict) -> dict:
         ok = lambda xs: [x for x in xs if isinstance(x, str) and SYMBOL.match(x)][:60]
         s["watchlist"] = {"stocks": ok(saved["watchlist"].get("stocks", [])),
                           "crypto": ok(saved["watchlist"].get("crypto", []))}
-    for key in ("paused", "tg_offset", "ladder"):
+    for key in ("paused", "tg_offset", "ladder", "trading"):
         if key in saved:
             s[key] = saved[key]
     if saved.get("min_action") in LEVELS:

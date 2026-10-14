@@ -1,0 +1,50 @@
+# Auto-trading through Alpaca (paper account). Runs just after the US open; trader.py only acts in the
+# first ~2 hours after 9:30 ET and skips anything already ordered today, so two runs are safe.
+# Secrets: ALPACA_KEY_ID, ALPACA_SECRET_KEY (paper keys), TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID.
+# Off switch: Telegram /settings -> "Auto-trading" button.
+name: Auto-trade
+
+on:
+  schedule:
+    - cron: "50 13 * * 1-5"     # 9:50 ET in summer time
+    - cron: "50 14 * * 1-5"     # 9:50 ET in winter time (and a retry in summer)
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "check = test the connection, dry-run = show what it would trade, trade = normal"
+        type: choice
+        options: [check, dry-run, trade]
+        default: check
+
+permissions:
+  contents: read
+
+concurrency:
+  group: auto-trade
+  cancel-in-progress: false
+
+jobs:
+  trade:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Install
+        run: pip install -r requirements.txt
+      - name: Trade
+        env:
+          ALPACA_KEY_ID: ${{ secrets.ALPACA_KEY_ID }}
+          ALPACA_SECRET_KEY: ${{ secrets.ALPACA_SECRET_KEY }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          MODE: ${{ inputs.mode }}
+        run: |
+          case "$MODE" in
+            check) python trader.py --check ;;
+            dry-run) python trader.py --dry-run ;;
+            *) python trader.py ;;
+          esac

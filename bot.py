@@ -63,6 +63,7 @@ def settings_text(cfg: dict, s: dict) -> str:
         f"Alert level: {s['min_action']} and stronger (sells too)",
         f"Layer-in / layer-out alerts: {'on' if s.get('ladder', True) else 'off'} (daily)",
         "Status: ⏸ alerts paused" if s["paused"] else "Status: ▶️ alerts on",
+        f"Auto-trading (paper): {'on' if s.get('trading', True) else 'off'}",
         "",
         "Tap to change. Changes apply to the next scan.",
     ])
@@ -76,6 +77,8 @@ def keyboard(cfg: dict, s: dict) -> dict:
         [{"text": f"{'🔔 ' if s['min_action'] == lv else ''}{lv}", "callback_data": f"level:{lv}"} for lv in S.LEVELS],
         [{"text": f"🪜 Layer alerts: {'On' if s.get('ladder', True) else 'Off'}", "callback_data": "ladder"}],
         [{"text": "▶️ Resume alerts" if s["paused"] else "⏸ Pause all alerts", "callback_data": "pause"}],
+        [{"text": "🤖 Auto-trading: On (tap to stop)" if s.get("trading", True) else "🤖 Auto-trading: Off (tap to start)",
+          "callback_data": "trade"}],
     ]}
 
 
@@ -212,6 +215,9 @@ def handle_callback(data: str, cfg: dict, s: dict) -> str:
     elif data == "ladder":
         s["ladder"] = not s.get("ladder", True)
         return f"Layer alerts turned {'on' if s['ladder'] else 'off'}"
+    elif data == "trade":
+        s["trading"] = not s.get("trading", True)
+        return "Auto-trading turned on" if s["trading"] else "Auto-trading stopped: no new buys or sells"
     elif data == "pause":
         s["paused"] = not s["paused"]
         return "Alerts paused" if s["paused"] else "Alerts resumed"
