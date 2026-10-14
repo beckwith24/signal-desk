@@ -1,0 +1,41 @@
+# Saves a YouTube video's transcript and description to research/videos/ (to check model notes against it).
+name: Video transcript
+
+on:
+  workflow_dispatch:
+    inputs:
+      video:
+        description: "YouTube video id (the part after youtu.be/ or v=)"
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  transcript:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install
+        run: pip install youtube-transcript-api yt-dlp
+
+      - name: Fetch
+        env:
+          VIDEO: ${{ inputs.video }}
+        run: |
+          [[ "$VIDEO" =~ ^[A-Za-z0-9_-]{6,20}$ ]] || { echo "::error::not a video id"; exit 1; }
+          python video_transcript.py "$VIDEO"
+
+      - name: Save
+        run: |
+          git config user.name "signal-desk-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research/videos
+          git commit -m "Video transcript" || exit 0
+          ok=0; for i in 1 2 3; do git pull --rebase && git push && ok=1 && break; sleep 5; done; [ "$ok" = 1 ]
