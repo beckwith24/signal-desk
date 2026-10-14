@@ -75,7 +75,8 @@
   color-scheme: light;
 }
 * { box-sizing: border-box; }
-html { -webkit-text-size-adjust: 100%; background: var(--bg); }
+html { -webkit-text-size-adjust: 100%; background: var(--bg); touch-action: manipulation; }  /* no double-tap zoom; pinch still works */
+button, a, summary, input { touch-action: manipulation; }
 body {
   margin: 0; background: var(--bg); color: var(--ink);
   font: 15px/1.45 var(--f-body);
@@ -324,7 +325,7 @@ h3.sec { font: 700 12px/1.2 var(--f-display); text-transform: uppercase; letter-
 .disclaimer { color: var(--muted); font-size: 12px; padding: 10px 12px; border: 1px dashed var(--line); border-radius: 10px; margin-top: 22px; }
 .err { color: var(--down); }
 .addrow { display: flex; gap: 8px; align-items: center; margin: 4px 0 10px; flex-wrap: wrap; }
-.addrow input { flex: 1 1 140px; min-width: 0; font: 500 15px var(--f-mono); text-transform: uppercase; color: var(--ink-strong);
+.addrow input { flex: 1 1 140px; min-width: 0; font: 500 16px var(--f-mono);   /* 16px: iPhone doesn't zoom on focus */ text-transform: uppercase; color: var(--ink-strong);
   background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 9px 11px; }
 .addrow input::placeholder { color: var(--faint); }
 .addrow input:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
