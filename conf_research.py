@@ -38,19 +38,30 @@ TOL_H = 4                       # hours: how close a predicted signal must be to
 
 
 # ----------------------------------------------------------------------------- data
+FETCH_NOTES: dict = {}
+
+
 def hourly(ticker: str, prepost: bool = True) -> pd.DataFrame:
+    """Hourly bars from Yahoo. Tries ~2 years with pre/after-market hours, then regular hours, then shorter spans."""
     import yfinance as yf
-    for attempt in range(3):
-        try:
-            df = yf.Ticker(ticker).history(period="729d", interval="1h", prepost=prepost, auto_adjust=True)
-            if df is not None and len(df) > 200:
-                df = df.rename(columns=str.lower)[["open", "high", "low", "close", "volume"]].astype(float)
-                df.index = pd.DatetimeIndex(df.index).tz_convert("UTC")
-                return df[~df.index.duplicated(keep="last")].dropna(subset=["close"]).sort_index()
-        except Exception as e:
-            log.warning("%s attempt %d: %s", ticker, attempt + 1, e)
-        time.sleep(4 * (attempt + 1))
-    raise RuntimeError(f"no hourly data for {ticker}")
+    end = pd.Timestamp.now(tz="UTC").normalize() + pd.Timedelta(days=1)
+    tries = [(728, prepost), (728, False), (360, prepost), (59, prepost)] if prepost else [(728, False), (360, False)]
+    errs = []
+    for days, pp in tries:
+        for attempt in range(2):
+            try:
+                df = yf.Ticker(ticker).history(start=(end - pd.Timedelta(days=days)).date().isoformat(),
+                                               end=end.date().isoformat(), interval="1h", prepost=pp, auto_adjust=True)
+                if df is not None and len(df) > 200:
+                    df = df.rename(columns=str.lower)[["open", "high", "low", "close", "volume"]].astype(float)
+                    df.index = pd.DatetimeIndex(df.index).tz_convert("UTC")
+                    FETCH_NOTES[ticker] = f"{days} days, {'with' if pp else 'without'} pre/after-market hours"
+                    return df[~df.index.duplicated(keep="last")].dropna(subset=["close"]).sort_index()
+                errs.append(f"{days}d prepost={pp}: {0 if df is None else len(df)} rows")
+            except Exception as e:
+                errs.append(f"{days}d prepost={pp}: {type(e).__name__}: {str(e)[:120]}")
+            time.sleep(3 * (attempt + 1))
+    raise RuntimeError(f"no hourly data for {ticker}: " + " | ".join(errs[-4:]))
 
 
 def bar_at(df: pd.DataFrame, ts: pd.Timestamp, tol_min: int = 60) -> int | None:
@@ -273,7 +284,7 @@ def main() -> None:
     tgt = json.loads(TARGET.read_text())
     res = {"generated": datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC"), "conf_bt": tgt["conf_bt"]}
     um = hourly("UMAC")
-    res["data"] = {"bars": len(um), "from": str(um.index[0]), "to": str(um.index[-1]),
+    res["data"] = {"bars": len(um), "from": str(um.index[0]), "to": str(um.index[-1]), "source": FETCH_NOTES.get("UMAC"),
                    "bars_per_weekday": round(float(um.groupby(um.index.date).size().median()), 1)}
     res["alignment"] = al = align(um, tgt)
     log.info("alignment %s", al)
@@ -336,7 +347,8 @@ def _m(xs):
 def report(r: dict) -> str:
     al = r["alignment"]
     L = [f"# IA-Confluence-Model rebuild and test ({r['generated']})", "",
-         f"UMAC hourly from Yahoo: {r['data']['bars']} bars ({r['data']['bars_per_weekday']} a day; the screenshot's chart had 24). "
+         f"UMAC hourly from Yahoo ({r['data'].get('source')}): {r['data']['bars']} bars, {r['data']['bars_per_weekday']} a day "
+         f"(the screenshot's chart had 24). "
          f"Screenshot line vs real prices: correlation {al['corr']}, median error {al['median_err_pct']}% (time shift {al['shift_h']} h).", "",
          "## Envelope (grey lines)", "", "| Formula | Length (our bars) | Width | Upper err % | Lower err % |", "|---|---|---|---|---|"]
     for e in r["envelope_top"][:8]:
