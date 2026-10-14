@@ -108,6 +108,10 @@ def main() -> None:
     page = page.replace('content="__UI__"', f'content="{ui}"')
     (SITE_DIR / "index.html").write_text(page)
     (SITE_DIR / ".nojekyll").touch()
+    notes = ROOT / "narratives.json"                # "What's driving it" notes (narrative.py, refreshed daily)
+    if notes.exists():
+        (SITE_DIR / "data").mkdir(parents=True, exist_ok=True)
+        shutil.copy(notes, SITE_DIR / "data" / "notes.json")
 
     live = os.environ.get("PAGES_URL", "").rstrip("/")
     tickers = cfg["watchlist"]["stocks"] + cfg["watchlist"]["crypto"]

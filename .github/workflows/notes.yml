@@ -1,0 +1,42 @@
+# "What's driving it" notes for each ticker (business numbers vs price + headlines), refreshed every morning.
+# Actions tab -> "Ticker notes" -> Run workflow to refresh now (~2 min). The next scan publishes them.
+name: Ticker notes
+
+on:
+  schedule:
+    - cron: "37 11 * * *"          # about 6:37 am Central, before the US open
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: notes
+  cancel-in-progress: false
+
+jobs:
+  notes:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install
+        run: pip install -r requirements.txt
+
+      - name: Build notes
+        run: python narrative.py
+
+      - name: Save
+        run: |
+          git config user.name "signal-desk-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add narratives.json
+          git commit -m "Ticker notes" || exit 0
+          git checkout -- .
+          ok=0; for i in 1 2 3; do git pull --rebase && git push && ok=1 && break; sleep 5; done; [ "$ok" = 1 ]

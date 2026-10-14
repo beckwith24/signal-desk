@@ -233,6 +233,16 @@ header.top .wrap { padding-block: 0; }
 .word.up { color: var(--up); } .word.down { color: var(--down); } .word.hold { color: var(--muted); font-weight: 500; }
 .wrow .gov { color: var(--muted); }
 
+/* What's driving it */
+#dNote p { margin: 0 0 8px; }
+#dNote .read { color: var(--ink-strong); }
+#dNote .extra { color: var(--muted); font-size: 13px; }
+#dNote .news { list-style: none; margin: 10px 0 0; padding: 10px 0 0; border-top: 1px solid var(--line); display: grid; gap: 8px; }
+#dNote .news a { color: var(--ink); text-decoration: none; }
+#dNote .news a:hover { color: var(--accent-ink); }
+#dNote .news small { display: block; color: var(--muted); font-size: 12px; margin-top: 1px; }
+#dNote .asof { color: var(--faint); font-size: 11px; margin-top: 8px; }
+
 /* Signals page: one card per ticker with the detail behind the signal */
 .cards { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
 .cards > li.none { padding: 16px; color: var(--muted); font-size: 14px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; }
@@ -291,7 +301,7 @@ header.top .wrap { padding-block: 0; }
 #detailView { display: flex; flex-direction: column; gap: 12px; padding-top: 12px; }
 .d-main, .d-side { display: contents; }
 .d-head { order: 0; }
-#dStats { order: 1; } #cChart { order: 2; } #cWhy { order: 3; } #cSize { order: 4; } #dCongressBox { order: 5; }
+#dStats { order: 1; } #cChart { order: 2; } #cWhy { order: 3; } #cNote { order: 3; } #cSize { order: 4; } #dCongressBox { order: 5; }
 #cIA { order: 6; } #cLadder { order: 7; } #cModels { order: 8; } #cHist { order: 9; } .d-foot { order: 10; }
 .d-head { display: grid; gap: 4px; padding: 2px 2px 0; }
 .d-id { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
@@ -573,6 +583,10 @@ h3.sec { font: 700 12px/1.2 var(--f-display); text-transform: uppercase; letter-
         <h3 class="sec">Why</h3>
         <ul class="reasons" id="dReasons"></ul>
       </section>
+      <section class="card" id="cNote" hidden>
+        <h3 class="sec">What's driving it</h3>
+        <div id="dNote"></div>
+      </section>
       <section class="card" id="cSize">
         <h3 class="sec">Position size</h3>
         <p class="ladder-now" id="dSize"></p>
@@ -641,6 +655,9 @@ h3.sec { font: 700 12px/1.2 var(--f-display); text-transform: uppercase; letter-
             rebuilt from your TradingView screenshots.</li>
           <li><strong>Congress trades:</strong> stock trades members of Congress reported in official House and
             Senate filings.</li>
+          <li><strong>What's driving it:</strong> once a day, the latest quarter's sales and earnings growth, margins,
+            analyst targets and next earnings date are set against the price move, with the latest headlines. Built from
+            numbers only, so it shows what changed but can't know every reason.</li>
           <li><strong>Long-term (weekly) trend:</strong> Uptrend when the weekly ribbon is blue and the price is above its
             40-week average, Downtrend when both point down. On the S&amp;P 500 since 2005, staying out during weekly
             downtrends cut the worst drop from −55% to about −21%, for roughly 3% a year less return. On single stocks it

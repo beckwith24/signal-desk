@@ -365,6 +365,7 @@ if (window.top !== window.self) { document.documentElement.style.display = "none
     for (const r of d.reasons) rs.append(el("li", null, r));
     for (const n of d.notes || []) rs.append(el("li", "note", n));
     renderLadder(d);
+    renderNote(d);
     renderIA(d);
     renderSize(d);
     renderCongress(d);
@@ -424,6 +425,32 @@ if (window.top !== window.self) { document.documentElement.style.display = "none
     box.append(col("in", "Layer in", L.buys, "add"), col("out", "Layer out", L.sells, "trim"));
   }
 
+  let notesP = null;
+  function loadNotes() {
+    if (!notesP) notesP = fetch("data/notes.json?v=" + new Date().toISOString().slice(0, 13)).then((r) => r.ok ? r.json() : null).catch(() => null);
+    return notesP;
+  }
+  async function renderNote(d) {
+    const box = $("dNote"), card = $("cNote"); box.textContent = ""; card.hidden = true;
+    const all = await loadNotes();
+    if (!state.detail || state.detail.ticker !== d.ticker) return;          // user moved on
+    const n = all && all.notes && all.notes[d.ticker];
+    if (!n || !(n.text && n.text.length)) return;
+    n.text.forEach((s, k) => box.append(el("p", k === 2 ? "read" : null, s)));
+    if (n.extra) box.append(el("p", "extra", n.extra.charAt(0).toUpperCase() + n.extra.slice(1) + "."));
+    if (n.news && n.news.length) {
+      const ul = el("ul", "news");
+      for (const h of n.news) {
+        if (!/^https?:\/\//.test(h.url)) continue;
+        const li = el("li"), a = el("a", null, h.title); a.href = h.url; a.target = "_blank"; a.rel = "noopener noreferrer";
+        li.append(a, el("small", null, [h.source, h.date].filter(Boolean).join(" · "))); ul.append(li);
+      }
+      if (ul.childNodes.length) box.append(ul);
+    }
+    box.append(el("div", "asof", "Built from Yahoo Finance data and headlines, " + since(all.generated) + ". Not advice."));
+    card.hidden = false;
+  }
+
   function renderCongress(d) {
     const boxWrap = $("dCongressBox"), list = $("dCongress"), note = $("dCongressNote");
     list.textContent = ""; note.textContent = "";
@@ -476,7 +503,7 @@ if (window.top !== window.self) { document.documentElement.style.display = "none
   function showDetailError(ticker, tf) {
     if (onPage()) leaveSettings();
     state.detail = { ticker }; $("listView").hidden = true; $("detailView").hidden = false;
-    $("dRemove").hidden = true; setView("detail");
+    $("dRemove").hidden = true; $("cNote").hidden = true; setView("detail");
     $("back").textContent = "‹ " + (state.view === "signals" ? "Signals" : "Watchlist");
     $("back").hidden = false; $("brand").hidden = true; renderControls();
     $("dTitle").textContent = ticker.replace("-USD", "");
