@@ -15,6 +15,7 @@ from __future__ import annotations
 import json
 import logging
 import math
+import re
 import time
 from datetime import datetime, timezone
 from pathlib import Path
@@ -44,21 +45,39 @@ def pct(x, nd=0, sign=True):
 NEWS_DEBUG: list[str] = []
 
 
-def headlines(tk, days: int = 21, n: int = 3) -> list[dict]:
-    out = []
+def company_word(t: str, info: dict) -> str | None:
+    """The word a headline about this company would use: 'Nvidia', 'Astera', 'Exxon', 'Bitcoin', 'Solana'..."""
+    name = (info.get("shortName") or info.get("longName") or "").replace(",", " ")
+    for w in name.split():
+        w = re.sub(r"[^A-Za-z0-9&.-]", "", w)
+        if len(w) >= 3 and w.lower() not in {"the", "inc", "corp", "usd", "class", "holdings", "group", "technologies", "co"}:
+            return w
+    return None
+
+
+def headlines(tk, info: dict, days: int = 21, n: int = 3) -> list[dict]:
+    """Recent headlines that actually name the company or ticker (Yahoo's search is loose)."""
+    t = tk.ticker
+    word = company_word(t, info)
+    base = t.split("-")[0]
+    pats = [re.compile(rf"\b{re.escape(base)}\b")] if len(base) >= 2 else []
+    if word:
+        pats.append(re.compile(re.escape(word), re.I))
     items = []
     try:
         items = list(tk.news or [])
-    except Exception as e:
-        NEWS_DEBUG.append(f"{tk.ticker} news: {type(e).__name__} {str(e)[:80]}")
-    if not items:
+    except Exception:
+        pass
+    import yfinance as yf
+    for q in dict.fromkeys([q for q in (word if t.endswith("-USD") else None, t, word) if q]):
+        if len(items) >= 20:
+            break
         try:
-            import yfinance as yf
-            items = list(yf.Search(tk.ticker, news_count=8).news or [])
+            items += list(yf.Search(q, news_count=20).news or [])
         except Exception as e:
-            NEWS_DEBUG.append(f"{tk.ticker} search: {type(e).__name__} {str(e)[:80]}")
-    NEWS_DEBUG.append(f"{tk.ticker}: {len(items)} raw" + (f", keys {sorted(items[0].keys())[:6]}" if items else ""))
+            NEWS_DEBUG.append(f"{t} search {q}: {type(e).__name__}")
     cut = time.time() - days * 86400
+    out, seen = [], set()
     for it in items:
         c = it.get("content", it)                          # newer yfinance nests the story under "content"
         title = c.get("title")
@@ -70,12 +89,20 @@ def headlines(tk, days: int = 21, n: int = 3) -> list[dict]:
             ts = ts.tz_localize("UTC") if ts.tzinfo is None else ts
         except Exception:
             ts = None
-        if not title or not url or not str(url).startswith("http") or (ts is not None and ts.timestamp() < cut):
+        if not title or not url or not str(url).startswith("http") or title in seen:
             continue
-        out.append({"title": str(title)[:160], "url": str(url), "source": src, "date": ts.date().isoformat() if ts is not None else None})
-        if len(out) >= n:
-            break
-    return out
+        if ts is not None and ts.timestamp() < cut:
+            continue
+        if not any(p.search(title) for p in pats):
+            continue
+        seen.add(title)
+        out.append({"title": str(title)[:160], "url": str(url), "source": src, "date": ts.date().isoformat() if ts is not None else None,
+                    "_ts": ts.timestamp() if ts is not None else 0})
+    out.sort(key=lambda h: -h["_ts"])
+    for h in out:
+        h.pop("_ts")
+    NEWS_DEBUG.append(f"{t}: {len(items)} raw, {len(out)} kept (word {word})")
+    return out[:n]
 
 
 def price_facts(h: pd.DataFrame, bench: pd.Series | None) -> dict:
@@ -142,7 +169,7 @@ def stock_note(t: str, spy: pd.Series | None) -> dict:
     tgt, px, n = _f(info.get("targetMeanPrice")), _f(info.get("currentPrice") or info.get("regularMarketPrice")), info.get("numberOfAnalystOpinions")
     if tgt and px and n:
         extra.append(f"analysts' average target {pct((tgt / px - 1) * 100)} away ({n} analysts, '{info.get('recommendationKey', '?')}')")
-    return {"text": parts, "extra": "; ".join(extra), "news": headlines(tk),
+    return {"text": parts, "extra": "; ".join(extra), "news": headlines(tk, info),
             "data": {"rev_growth": g_rev, "eps_growth": g_eps, "gross_margin": gm, "op_margin": om, **p}}
 
 
@@ -161,7 +188,11 @@ def crypto_note(t: str, btc: pd.Series | None) -> dict:
             s += f"; {'ahead of' if p['vs_bench_3m'] >= 0 else 'behind'} Bitcoin by {abs(p['vs_bench_3m']):.0f} points over 3 months"
         parts.append(s + ".")
         parts.append("Coins have no sales or earnings to compare; the headlines below are the best guide to what's moving it.")
-    return {"text": parts, "extra": "", "news": headlines(tk)}
+    try:
+        info = tk.info or {}
+    except Exception:
+        info = {}
+    return {"text": parts, "extra": "", "news": headlines(tk, info)}
 
 
 def clean(x):
@@ -200,7 +231,7 @@ def main() -> None:
         except Exception as e:
             log.warning("%s: %s", t, e)
         time.sleep(0.3)
-    OUT.write_text(json.dumps(clean({"generated": datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC"), "notes": notes, "news_debug": NEWS_DEBUG[:12]}),
+    OUT.write_text(json.dumps(clean({"generated": datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC"), "notes": notes, "news_debug": NEWS_DEBUG[-70:]}),
                               indent=1, default=str, allow_nan=False))
     log.info("notes for %d tickers", len(notes))
 
