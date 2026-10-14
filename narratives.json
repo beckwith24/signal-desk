@@ -1,0 +1,884 @@
+{
+ "generated": "2026-10-14 01:45 UTC",
+ "notes": {
+  "NVDA": {
+   "text": [
+    "Business: latest quarter sales +106%, earnings +128% vs a year ago; operating margin 66%.",
+    "Stock: +8% this month, +25% over a year, 6% below its 52-week high; ahead of the S&P 500 by 4 points over 3 months.",
+    "No clear gap between the latest results and the price move."
+   ],
+   "extra": "Next earnings: Nov 17; analysts' average target +44% away (59 analysts, 'strong_buy')",
+   "news": [],
+   "data": {
+    "rev_growth": 105.9,
+    "eps_growth": 127.8,
+    "gross_margin": 0.75,
+    "op_margin": 0.66,
+    "m1": 8.32,
+    "m3": 7.66,
+    "y1": 25.06,
+    "from_high": -6.1,
+    "vs_bench_3m": 4.33
+   }
+  },
+  "AMD": {
+   "text": [
+    "Business: latest quarter sales +50%, earnings +160% vs a year ago; operating margin 17%.",
+    "Stock: +23% this month, +182% over a year, 8% below its 52-week high; ahead of the S&P 500 by 11 points over 3 months.",
+    "No clear gap between the latest results and the price move."
+   ],
+   "extra": "Next earnings: Nov 3; analysts' average target +5% away (50 analysts, 'strong_buy')",
+   "news": [],
+   "data": {
+    "rev_growth": 50.1,
+    "eps_growth": 159.5,
+    "gross_margin": 0.56,
+    "op_margin": 0.17,
+    "m1": 22.72,
+    "m3": 14.44,
+    "y1": 181.77,
+    "from_high": -8.05,
+    "vs_bench_3m": 11.11
+   }
+  },
+  "AVGO": {
+   "text": [
+    "Business: latest quarter sales +86%, earnings +215% vs a year ago; operating margin 54%.",
+    "Stock: +4% this month, +11% over a year, 28% below its 52-week high; behind the S&P 500 by 13 points over 3 months.",
+    "The latest results were strong, so the drop from the high isn't explained by the last report: it's coming from outlook, valuation or the wider market."
+   ],
+   "extra": "Next earnings: Dec 9; analysts' average target +49% away (47 analysts, 'strong_buy')",
+   "news": [],
+   "data": {
+    "rev_growth": 85.5,
+    "eps_growth": 215.3,
+    "gross_margin": 0.76,
+    "op_margin": 0.54,
+    "m1": 3.84,
+    "m3": -9.21,
+    "y1": 10.89,
+    "from_high": -27.57,
+    "vs_bench_3m": -12.54
+   }
+  },
+  "PLTR": {
+   "text": [
+    "Business: latest quarter sales +93%, earnings +215% vs a year ago; operating margin 47%.",
+    "Stock: +20% this month, +19% over a year, 2% below its 52-week high; ahead of the S&P 500 by 53 points over 3 months.",
+    "Strong results and a price near its high: business and stock are moving together."
+   ],
+   "extra": "Next earnings: Nov 2; analysts' average target -2% away (26 analysts, 'buy')",
+   "news": [],
+   "data": {
+    "rev_growth": 92.8,
+    "eps_growth": 215.4,
+    "gross_margin": 0.85,
+    "op_margin": 0.47,
+    "m1": 20.4,
+    "m3": 56.0,
+    "y1": 18.94,
+    "from_high": -2.01,
+    "vs_bench_3m": 52.67
+   }
+  },
+  "TSLA": {
+   "text": [
+    "Business: latest quarter sales +26%, earnings -3% vs a year ago; operating margin 1%.",
+    "Stock: +5% this month, -9% over a year, 25% below its 52-week high; behind the S&P 500 by 8 points over 3 months.",
+    "The latest results were strong, so the drop from the high isn't explained by the last report: it's coming from outlook, valuation or the wider market."
+   ],
+   "extra": "Next earnings: Oct 21; analysts' average target +6% away (38 analysts, 'buy')",
+   "news": [],
+   "data": {
+    "rev_growth": 25.5,
+    "eps_growth": -3.0,
+    "gross_margin": 0.19,
+    "op_margin": 0.01,
+    "m1": 4.53,
+    "m3": -4.88,
+    "y1": -9.25,
+    "from_high": -24.78,
+    "vs_bench_3m": -8.2
+   }
+  },
+  "MRVL": {
+   "text": [
+    "Business: latest quarter sales +36%, earnings +50% vs a year ago; operating margin 17%.",
+    "Stock: +23% this month, +214% over a year, 18% below its 52-week high; ahead of the S&P 500 by 27 points over 3 months.",
+    "The latest results were strong, so the drop from the high isn't explained by the last report: it's coming from outlook, valuation or the wider market."
+   ],
+   "extra": "analysts' average target +26% away (44 analysts, 'strong_buy')",
+   "news": [],
+   "data": {
+    "rev_growth": 36.5,
+    "eps_growth": 50.0,
+    "gross_margin": 0.52,
+    "op_margin": 0.17,
+    "m1": 22.84,
+    "m3": 30.32,
+    "y1": 214.43,
+    "from_high": -18.5,
+    "vs_bench_3m": 26.99
+   }
+  },
+  "MU": {
+   "text": [
+    "Business: latest quarter sales +379%, earnings +1060% vs a year ago; operating margin 81%.",
+    "Stock: +3% this month, +425% over a year, 24% below its 52-week high; ahead of the S&P 500 by 2 points over 3 months.",
+    "The latest results were strong, so the drop from the high isn't explained by the last report: it's coming from outlook, valuation or the wider market."
+   ],
+   "extra": "analysts' average target +64% away (46 analysts, 'strong_buy')",
+   "news": [],
+   "data": {
+    "rev_growth": 379.3,
+    "eps_growth": 1059.5,
+    "gross_margin": 0.81,
+    "op_margin": 0.81,
+    "m1": 3.16,
+    "m3": 5.41,
+    "y1": 425.4,
+    "from_high": -24.04,
+    "vs_bench_3m": 2.08
+   }
+  },
+  "GOOGL": {
+   "text": [
+    "Business: latest quarter sales +24%, earnings +294% vs a year ago; operating margin 34%.",
+    "Stock: +1% this month, +50% over a year, 13% below its 52-week high; behind the S&P 500 by 8 points over 3 months.",
+    "No clear gap between the latest results and the price move."
+   ],
+   "extra": "Next earnings: Oct 28; analysts' average target +22% away (54 analysts, 'strong_buy')",
+   "news": [],
+   "data": {
+    "rev_growth": 24.2,
+    "eps_growth": 294.0,
+    "gross_margin": 0.61,
+    "op_margin": 0.34,
+    "m1": 1.26,
+    "m3": -4.56,
+    "y1": 49.93,
+    "from_high": -13.31,
+    "vs_bench_3m": -7.89
+   }
+  },
+  "AAPL": {
+   "text": [
+    "Business: latest quarter sales +16%, earnings +29% vs a year ago; operating margin 33%.",
+    "Stock: +2% this month, +40% over a year, 2% below its 52-week high; ahead of the S&P 500 by 1 points over 3 months.",
+    "Strong results and a price near its high: business and stock are moving together."
+   ],
+   "extra": "Next earnings: Nov 2; analysts' average target -3% away (39 analysts, 'buy')",
+   "news": [],
+   "data": {
+    "rev_growth": 16.4,
+    "eps_growth": 28.7,
+    "gross_margin": 0.49,
+    "op_margin": 0.33,
+    "m1": 2.46,
+    "m3": 4.29,
+    "y1": 39.65,
+    "from_high": -1.98,
+    "vs_bench_3m": 0.96
+   }
+  },
+  "MSFT": {
+   "text": [
+    "Business: latest quarter sales +18%, earnings +32% vs a year ago; operating margin 45%.",
+    "Stock: +8% this month, +7% over a year, 1% below its 52-week high; ahead of the S&P 500 by 34 points over 3 months.",
+    "Strong results and a price near its high: business and stock are moving together."
+   ],
+   "extra": "Next earnings: Oct 28; analysts' average target +8% away (53 analysts, 'strong_buy')",
+   "news": [],
+   "data": {
+    "rev_growth": 17.7,
+    "eps_growth": 31.7,
+    "gross_margin": 0.68,
+    "op_margin": 0.45,
+    "m1": 7.53,
+    "m3": 37.62,
+    "y1": 7.23,
+    "from_high": -1.4,
+    "vs_bench_3m": 34.29
+   }
+  },
+  "META": {
+   "text": [
+    "Business: latest quarter sales +28%, earnings -13% vs a year ago; operating margin 35%.",
+    "Stock: +15% this month, +8% over a year, 2% below its 52-week high; ahead of the S&P 500 by 9 points over 3 months.",
+    "The price is near its high even though the latest results slowed: the market is looking past them."
+   ],
+   "extra": "Next earnings: Oct 21; analysts' average target +6% away (58 analysts, 'strong_buy')",
+   "news": [],
+   "data": {
+    "rev_growth": 28.0,
+    "eps_growth": -13.4,
+    "gross_margin": 0.82,
+    "op_margin": 0.35,
+    "m1": 14.65,
+    "m3": 12.01,
+    "y1": 8.48,
+    "from_high": -2.22,
+    "vs_bench_3m": 8.68
+   }
+  },
+  "QQQ": {
+   "text": [
+    "Stock: +5% this month, +27% over a year, 3% below its 52-week high; ahead of the S&P 500 by 0 points over 3 months."
+   ],
+   "extra": "",
+   "news": [],
+   "data": {
+    "rev_growth": null,
+    "eps_growth": null,
+    "gross_margin": null,
+    "op_margin": null,
+    "m1": 4.96,
+    "m3": 3.71,
+    "y1": 26.73,
+    "from_high": -2.53,
+    "vs_bench_3m": 0.38
+   }
+  },
+  "SPY": {
+   "text": [
+    "Stock: +3% this month, +20% over a year, 0% below its 52-week high; ahead of the S&P 500 by 0 points over 3 months."
+   ],
+   "extra": "",
+   "news": [],
+   "data": {
+    "rev_growth": null,
+    "eps_growth": null,
+    "gross_margin": null,
+    "op_margin": null,
+    "m1": 2.51,
+    "m3": 3.33,
+    "y1": 20.43,
+    "from_high": -0.46,
+    "vs_bench_3m": 0.0
+   }
+  },
+  "TSM": {
+   "text": [
+    "Business: latest quarter sales +36%, earnings +77% vs a year ago; operating margin 60%.",
+    "Stock: +7% this month, +60% over a year, 9% below its 52-week high; ahead of the S&P 500 by 3 points over 3 months.",
+    "No clear gap between the latest results and the price move."
+   ],
+   "extra": "Next earnings: Oct 15; analysts' average target +30% away (20 analysts, 'strong_buy')",
+   "news": [],
+   "data": {
+    "rev_growth": 36.0,
+    "eps_growth": 77.4,
+    "gross_margin": 0.64,
+    "op_margin": 0.6,
+    "m1": 6.77,
+    "m3": 6.4,
+    "y1": 60.28,
+    "from_high": -8.69,
+    "vs_bench_3m": 3.07
+   }
+  },
+  "CRDO": {
+   "text": [
+    "Business: latest quarter sales +115%, earnings +97% vs a year ago; operating margin 25%.",
+    "Stock: +32% this month, +43% over a year, 36% below its 52-week high; behind the S&P 500 by 16 points over 3 months.",
+    "The latest results were strong, so the drop from the high isn't explained by the last report: it's coming from outlook, valuation or the wider market."
+   ],
+   "extra": "analysts' average target +41% away (20 analysts, 'strong_buy')",
+   "news": [],
+   "data": {
+    "rev_growth": 114.7,
+    "eps_growth": 97.1,
+    "gross_margin": 0.67,
+    "op_margin": 0.25,
+    "m1": 32.13,
+    "m3": -12.54,
+    "y1": 42.84,
+    "from_high": -35.75,
+    "vs_bench_3m": -15.87
+   }
+  },
+  "ALAB": {
+   "text": [
+    "Business: latest quarter sales +104%, earnings +186% vs a year ago; operating margin 23%.",
+    "Stock: +27% this month, +58% over a year, 35% below its 52-week high; behind the S&P 500 by 11 points over 3 months.",
+    "The latest results were strong, so the drop from the high isn't explained by the last report: it's coming from outlook, valuation or the wider market."
+   ],
+   "extra": "Next earnings: Nov 3; analysts' average target +20% away (22 analysts, 'buy')",
+   "news": [],
+   "data": {
+    "rev_growth": 104.5,
+    "eps_growth": 186.2,
+    "gross_margin": 0.75,
+    "op_margin": 0.23,
+    "m1": 26.6,
+    "m3": -7.19,
+    "y1": 57.81,
+    "from_high": -34.85,
+    "vs_bench_3m": -10.52
+   }
+  },
+  "LITE": {
+   "text": [
+    "Business: latest quarter sales +109% vs a year ago; operating margin 28%.",
+    "Stock: +18% this month, +560% over a year, 14% below its 52-week high; ahead of the S&P 500 by 28 points over 3 months.",
+    "No clear gap between the latest results and the price move."
+   ],
+   "extra": "Next earnings: Nov 5; analysts' average target +19% away (26 analysts, 'strong_buy')",
+   "news": [],
+   "data": {
+    "rev_growth": 109.3,
+    "eps_growth": null,
+    "gross_margin": 0.44,
+    "op_margin": 0.28,
+    "m1": 18.32,
+    "m3": 31.38,
+    "y1": 560.38,
+    "from_high": -13.56,
+    "vs_bench_3m": 28.05
+   }
+  },
+  "DELL": {
+   "text": [
+    "Business: latest quarter sales +58%, earnings +273% vs a year ago; operating margin 12%.",
+    "Stock: +7% this month, +285% over a year, 4% below its 52-week high; ahead of the S&P 500 by 36 points over 3 months.",
+    "Strong results and a price near its high: business and stock are moving together."
+   ],
+   "extra": "analysts' average target +4% away (25 analysts, 'buy')",
+   "news": [],
+   "data": {
+    "rev_growth": 57.7,
+    "eps_growth": 272.9,
+    "gross_margin": 0.2,
+    "op_margin": 0.12,
+    "m1": 7.15,
+    "m3": 38.95,
+    "y1": 285.05,
+    "from_high": -3.87,
+    "vs_bench_3m": 35.62
+   }
+  },
+  "BE": {
+   "text": [
+    "Business: latest quarter sales +166% vs a year ago; operating margin 17%.",
+    "Stock: +2% this month, +203% over a year, 25% below its 52-week high; ahead of the S&P 500 by 7 points over 3 months.",
+    "The latest results were strong, so the drop from the high isn't explained by the last report: it's coming from outlook, valuation or the wider market."
+   ],
+   "extra": "Next earnings: Oct 22; analysts' average target +7% away (26 analysts, 'buy')",
+   "news": [],
+   "data": {
+    "rev_growth": 165.5,
+    "eps_growth": null,
+    "gross_margin": 0.32,
+    "op_margin": 0.17,
+    "m1": 2.49,
+    "m3": 10.06,
+    "y1": 203.27,
+    "from_high": -25.0,
+    "vs_bench_3m": 6.73
+   }
+  },
+  "LLY": {
+   "text": [
+    "Business: latest quarter sales +48%, earnings +26% vs a year ago; operating margin 54%.",
+    "Stock: +2% this month, +41% over a year, 10% below its 52-week high; behind the S&P 500 by 2 points over 3 months.",
+    "No clear gap between the latest results and the price move."
+   ],
+   "extra": "Next earnings: Oct 29; analysts' average target +14% away (29 analysts, 'buy')",
+   "news": [],
+   "data": {
+    "rev_growth": 47.7,
+    "eps_growth": 26.2,
+    "gross_margin": 0.83,
+    "op_margin": 0.54,
+    "m1": 2.48,
+    "m3": 1.0,
+    "y1": 40.84,
+    "from_high": -9.76,
+    "vs_bench_3m": -2.33
+   }
+  },
+  "HOOD": {
+   "text": [
+    "Business: latest quarter sales +32%, earnings +48% vs a year ago; operating margin 44%.",
+    "Stock: -3% this month, -20% over a year, 27% below its 52-week high; behind the S&P 500 by 8 points over 3 months.",
+    "The latest results were strong, so the drop from the high isn't explained by the last report: it's coming from outlook, valuation or the wider market."
+   ],
+   "extra": "Next earnings: Oct 27; analysts' average target +22% away (29 analysts, 'buy')",
+   "news": [],
+   "data": {
+    "rev_growth": 32.3,
+    "eps_growth": 47.6,
+    "gross_margin": 0.92,
+    "op_margin": 0.44,
+    "m1": -3.33,
+    "m3": -4.34,
+    "y1": -20.47,
+    "from_high": -26.55,
+    "vs_bench_3m": -7.67
+   }
+  },
+  "SPCX": {
+   "text": [
+    "Business: latest quarter sales +92% vs a year ago; operating margin -2%.",
+    "Stock: +6% this month, \u2013 over a year, 31% below its 52-week high; ahead of the S&P 500 by 12 points over 3 months.",
+    "The latest results were strong, so the drop from the high isn't explained by the last report: it's coming from outlook, valuation or the wider market."
+   ],
+   "extra": "analysts' average target +41% away (31 analysts, 'buy')",
+   "news": [],
+   "data": {
+    "rev_growth": 91.9,
+    "eps_growth": null,
+    "gross_margin": 0.52,
+    "op_margin": -0.02,
+    "m1": 5.66,
+    "m3": 15.72,
+    "y1": null,
+    "from_high": -30.62,
+    "vs_bench_3m": 12.39
+   }
+  },
+  "PANW": {
+   "text": [
+    "Business: latest quarter sales +34% vs a year ago; operating margin 5%.",
+    "Stock: +6% this month, +90% over a year, 8% below its 52-week high; ahead of the S&P 500 by 9 points over 3 months.",
+    "No clear gap between the latest results and the price move."
+   ],
+   "extra": "analysts' average target +0% away (50 analysts, 'buy')",
+   "news": [],
+   "data": {
+    "rev_growth": 34.5,
+    "eps_growth": null,
+    "gross_margin": 0.7,
+    "op_margin": 0.05,
+    "m1": 6.17,
+    "m3": 12.15,
+    "y1": 90.38,
+    "from_high": -8.17,
+    "vs_bench_3m": 8.82
+   }
+  },
+  "INTC": {
+   "text": [
+    "Business: latest quarter sales +25% vs a year ago; operating margin 12%.",
+    "Stock: +6% this month, +183% over a year, 28% below its 52-week high; behind the S&P 500 by 4 points over 3 months.",
+    "The latest results were strong, so the drop from the high isn't explained by the last report: it's coming from outlook, valuation or the wider market."
+   ],
+   "extra": "Next earnings: Oct 29; analysts' average target +15% away (43 analysts, 'buy')",
+   "news": [],
+   "data": {
+    "rev_growth": 25.4,
+    "eps_growth": null,
+    "gross_margin": 0.39,
+    "op_margin": 0.12,
+    "m1": 5.78,
+    "m3": -0.17,
+    "y1": 182.68,
+    "from_high": -27.78,
+    "vs_bench_3m": -3.5
+   }
+  },
+  "NOW": {
+   "text": [
+    "Business: latest quarter sales +24%, earnings -22% vs a year ago; operating margin 4%.",
+    "Stock: -3% this month, -22% over a year, 28% below its 52-week high; ahead of the S&P 500 by 29 points over 3 months.",
+    "The latest results were strong, so the drop from the high isn't explained by the last report: it's coming from outlook, valuation or the wider market."
+   ],
+   "extra": "Next earnings: Oct 28; analysts' average target +8% away (46 analysts, 'strong_buy')",
+   "news": [],
+   "data": {
+    "rev_growth": 24.0,
+    "eps_growth": -21.9,
+    "gross_margin": 0.75,
+    "op_margin": 0.04,
+    "m1": -2.63,
+    "m3": 32.35,
+    "y1": -22.02,
+    "from_high": -28.17,
+    "vs_bench_3m": 29.02
+   }
+  },
+  "CSCO": {
+   "text": [
+    "Business: latest quarter sales +18%, earnings +52% vs a year ago; operating margin 28%.",
+    "Stock: +5% this month, +73% over a year, 11% below its 52-week high; ahead of the S&P 500 by 0 points over 3 months.",
+    "No clear gap between the latest results and the price move."
+   ],
+   "extra": "Next earnings: Nov 12; analysts' average target +18% away (25 analysts, 'buy')",
+   "news": [],
+   "data": {
+    "rev_growth": 17.6,
+    "eps_growth": 52.1,
+    "gross_margin": 0.65,
+    "op_margin": 0.28,
+    "m1": 4.96,
+    "m3": 3.35,
+    "y1": 72.51,
+    "from_high": -11.06,
+    "vs_bench_3m": 0.02
+   }
+  },
+  "CRM": {
+   "text": [
+    "Business: latest quarter sales +11%, earnings +119% vs a year ago; operating margin 21%.",
+    "Stock: -8% this month, -1% over a year, 11% below its 52-week high; ahead of the S&P 500 by 39 points over 3 months.",
+    "No clear gap between the latest results and the price move."
+   ],
+   "extra": "analysts' average target +20% away (54 analysts, 'buy')",
+   "news": [],
+   "data": {
+    "rev_growth": 10.8,
+    "eps_growth": 118.9,
+    "gross_margin": 0.77,
+    "op_margin": 0.21,
+    "m1": -8.1,
+    "m3": 42.77,
+    "y1": -0.68,
+    "from_high": -11.12,
+    "vs_bench_3m": 39.44
+   }
+  },
+  "TXN": {
+   "text": [
+    "Business: latest quarter sales +23%, earnings +52% vs a year ago; operating margin 43%.",
+    "Stock: +9% this month, +72% over a year, 13% below its 52-week high; behind the S&P 500 by 7 points over 3 months.",
+    "No clear gap between the latest results and the price move."
+   ],
+   "extra": "Next earnings: Oct 21; analysts' average target +13% away (31 analysts, 'buy')",
+   "news": [],
+   "data": {
+    "rev_growth": 22.8,
+    "eps_growth": 51.8,
+    "gross_margin": 0.58,
+    "op_margin": 0.43,
+    "m1": 9.27,
+    "m3": -3.94,
+    "y1": 71.99,
+    "from_high": -13.38,
+    "vs_bench_3m": -7.27
+   }
+  },
+  "ANET": {
+   "text": [
+    "Business: latest quarter sales +38%, earnings +36% vs a year ago; operating margin 45%.",
+    "Stock: +9% this month, +33% over a year, 6% below its 52-week high; ahead of the S&P 500 by 16 points over 3 months.",
+    "No clear gap between the latest results and the price move."
+   ],
+   "extra": "Next earnings: Nov 3; analysts' average target +19% away (29 analysts, 'strong_buy')",
+   "news": [],
+   "data": {
+    "rev_growth": 37.7,
+    "eps_growth": 35.7,
+    "gross_margin": 0.63,
+    "op_margin": 0.45,
+    "m1": 8.9,
+    "m3": 18.96,
+    "y1": 32.72,
+    "from_high": -5.93,
+    "vs_bench_3m": 15.63
+   }
+  },
+  "V": {
+   "text": [
+    "Business: latest quarter sales +14%, earnings +10% vs a year ago; operating margin 66%.",
+    "Stock: +6% this month, +16% over a year, 0% below its 52-week high; ahead of the S&P 500 by 8 points over 3 months.",
+    "No clear gap between the latest results and the price move."
+   ],
+   "extra": "Next earnings: Oct 27; analysts' average target +6% away (37 analysts, 'strong_buy')",
+   "news": [],
+   "data": {
+    "rev_growth": 14.4,
+    "eps_growth": 10.2,
+    "gross_margin": 0.98,
+    "op_margin": 0.66,
+    "m1": 5.54,
+    "m3": 11.73,
+    "y1": 16.17,
+    "from_high": -0.07,
+    "vs_bench_3m": 8.4
+   }
+  },
+  "ABBV": {
+   "text": [
+    "Business: latest quarter sales +10%, earnings +290% vs a year ago; operating margin 40%.",
+    "Stock: +5% this month, +23% over a year, 3% below its 52-week high; ahead of the S&P 500 by 9 points over 3 months.",
+    "Strong results and a price near its high: business and stock are moving together."
+   ],
+   "extra": "Next earnings: Oct 30; analysts' average target +3% away (28 analysts, 'buy')",
+   "news": [],
+   "data": {
+    "rev_growth": 10.2,
+    "eps_growth": 290.4,
+    "gross_margin": 0.73,
+    "op_margin": 0.4,
+    "m1": 4.81,
+    "m3": 12.39,
+    "y1": 22.72,
+    "from_high": -3.2,
+    "vs_bench_3m": 9.06
+   }
+  },
+  "XOM": {
+   "text": [
+    "Business: latest quarter sales +44%, earnings +113% vs a year ago; operating margin 16%.",
+    "Stock: +5% this month, +62% over a year, 0% below its 52-week high; ahead of the S&P 500 by 18 points over 3 months.",
+    "Strong results and a price near its high: business and stock are moving together."
+   ],
+   "extra": "analysts' average target -0% away (22 analysts, 'buy')",
+   "news": [],
+   "data": {
+    "rev_growth": 44.1,
+    "eps_growth": 112.8,
+    "gross_margin": 0.3,
+    "op_margin": 0.16,
+    "m1": 5.45,
+    "m3": 21.24,
+    "y1": 61.77,
+    "from_high": -0.46,
+    "vs_bench_3m": 17.91
+   }
+  },
+  "AMAT": {
+   "text": [
+    "Business: latest quarter sales +25%, earnings +43% vs a year ago; operating margin 34%.",
+    "Stock: +9% this month, +122% over a year, 37% below its 52-week high; behind the S&P 500 by 23 points over 3 months.",
+    "The latest results were strong, so the drop from the high isn't explained by the last report: it's coming from outlook, valuation or the wider market."
+   ],
+   "extra": "Next earnings: Nov 12; analysts' average target +37% away (36 analysts, 'strong_buy')",
+   "news": [],
+   "data": {
+    "rev_growth": 24.8,
+    "eps_growth": 42.8,
+    "gross_margin": 0.49,
+    "op_margin": 0.34,
+    "m1": 9.44,
+    "m3": -19.79,
+    "y1": 122.34,
+    "from_high": -37.17,
+    "vs_bench_3m": -23.12
+   }
+  },
+  "TMO": {
+   "text": [
+    "Business: latest quarter sales +10%, earnings +9% vs a year ago; operating margin 19%.",
+    "Stock: +8% this month, +27% over a year, 5% below its 52-week high; ahead of the S&P 500 by 21 points over 3 months.",
+    "No clear gap between the latest results and the price move."
+   ],
+   "extra": "Next earnings: Oct 21; analysts' average target +3% away (25 analysts, 'strong_buy')",
+   "news": [],
+   "data": {
+    "rev_growth": 10.5,
+    "eps_growth": 9.4,
+    "gross_margin": 0.41,
+    "op_margin": 0.19,
+    "m1": 8.14,
+    "m3": 23.96,
+    "y1": 26.79,
+    "from_high": -4.51,
+    "vs_bench_3m": 20.63
+   }
+  },
+  "BTC-USD": {
+   "text": [
+    "Price: -3% this month, +10% over a year, 5% below its 52-week high.",
+    "Coins have no sales or earnings to compare; the headlines below are the best guide to what's moving it."
+   ],
+   "extra": "",
+   "news": []
+  },
+  "ETH-USD": {
+   "text": [
+    "Price: -9% this month, +12% over a year, 11% below its 52-week high; ahead of Bitcoin by 2 points over 3 months.",
+    "Coins have no sales or earnings to compare; the headlines below are the best guide to what's moving it."
+   ],
+   "extra": "",
+   "news": []
+  },
+  "SOL-USD": {
+   "text": [
+    "Price: -10% this month, +10% over a year, 14% below its 52-week high; ahead of Bitcoin by 10 points over 3 months.",
+    "Coins have no sales or earnings to compare; the headlines below are the best guide to what's moving it."
+   ],
+   "extra": "",
+   "news": []
+  },
+  "LINK-USD": {
+   "text": [
+    "Price: -1% this month, +37% over a year, 18% below its 52-week high; ahead of Bitcoin by 16 points over 3 months.",
+    "Coins have no sales or earnings to compare; the headlines below are the best guide to what's moving it."
+   ],
+   "extra": "",
+   "news": []
+  },
+  "AVAX-USD": {
+   "text": [
+    "Price: -9% this month, +4% over a year, 14% below its 52-week high; ahead of Bitcoin by 32 points over 3 months.",
+    "Coins have no sales or earnings to compare; the headlines below are the best guide to what's moving it."
+   ],
+   "extra": "",
+   "news": []
+  },
+  "JUP-USD": {
+   "text": [
+    "Price: -35% this month, -47% over a year, 100% below its 52-week high; behind Bitcoin by 29 points over 3 months.",
+    "Coins have no sales or earnings to compare; the headlines below are the best guide to what's moving it."
+   ],
+   "extra": "",
+   "news": []
+  },
+  "PUMP-USD": {
+   "text": [],
+   "extra": "",
+   "news": []
+  },
+  "RAY-USD": {
+   "text": [
+    "Price: +13% this month, +205% over a year, 19% below its 52-week high; ahead of Bitcoin by 193 points over 3 months.",
+    "Coins have no sales or earnings to compare; the headlines below are the best guide to what's moving it."
+   ],
+   "extra": "",
+   "news": []
+  },
+  "RENDER-USD": {
+   "text": [
+    "Price: +11% this month, +33% over a year, 16% below its 52-week high; ahead of Bitcoin by 31 points over 3 months.",
+    "Coins have no sales or earnings to compare; the headlines below are the best guide to what's moving it."
+   ],
+   "extra": "",
+   "news": []
+  },
+  "MET-USD": {
+   "text": [
+    "Price: -17% this month, +24% over a year, 52% below its 52-week high; behind Bitcoin by 28 points over 3 months.",
+    "Coins have no sales or earnings to compare; the headlines below are the best guide to what's moving it."
+   ],
+   "extra": "",
+   "news": []
+  },
+  "HYPE-USD": {
+   "text": [],
+   "extra": "",
+   "news": []
+  },
+  "XRP-USD": {
+   "text": [
+    "Price: -13% this month, -13% over a year, 19% below its 52-week high; ahead of Bitcoin by 3 points over 3 months.",
+    "Coins have no sales or earnings to compare; the headlines below are the best guide to what's moving it."
+   ],
+   "extra": "",
+   "news": []
+  },
+  "NEAR-USD": {
+   "text": [
+    "Price: +16% this month, +336% over a year, 14% below its 52-week high; ahead of Bitcoin by 185 points over 3 months.",
+    "Coins have no sales or earnings to compare; the headlines below are the best guide to what's moving it."
+   ],
+   "extra": "",
+   "news": []
+  },
+  "SUI-USD": {
+   "text": [],
+   "extra": "",
+   "news": []
+  },
+  "TAO-USD": {
+   "text": [],
+   "extra": "",
+   "news": []
+  },
+  "ADA-USD": {
+   "text": [
+    "Price: -7% this month, -19% over a year, 24% below its 52-week high; behind Bitcoin by 4 points over 3 months.",
+    "Coins have no sales or earnings to compare; the headlines below are the best guide to what's moving it."
+   ],
+   "extra": "",
+   "news": []
+  },
+  "DOGE-USD": {
+   "text": [
+    "Price: -16% this month, -20% over a year, 29% below its 52-week high; behind Bitcoin by 13 points over 3 months.",
+    "Coins have no sales or earnings to compare; the headlines below are the best guide to what's moving it."
+   ],
+   "extra": "",
+   "news": []
+  },
+  "LTC-USD": {
+   "text": [
+    "Price: -2% this month, +4% over a year, 18% below its 52-week high; ahead of Bitcoin by 4 points over 3 months.",
+    "Coins have no sales or earnings to compare; the headlines below are the best guide to what's moving it."
+   ],
+   "extra": "",
+   "news": []
+  },
+  "UNI-USD": {
+   "text": [],
+   "extra": "",
+   "news": []
+  },
+  "XLM-USD": {
+   "text": [
+    "Price: -12% this month, +8% over a year, 36% below its 52-week high; behind Bitcoin by 14 points over 3 months.",
+    "Coins have no sales or earnings to compare; the headlines below are the best guide to what's moving it."
+   ],
+   "extra": "",
+   "news": []
+  },
+  "ONDO-USD": {
+   "text": [
+    "Price: +6% this month, +69% over a year, 23% below its 52-week high; ahead of Bitcoin by 9 points over 3 months.",
+    "Coins have no sales or earnings to compare; the headlines below are the best guide to what's moving it."
+   ],
+   "extra": "",
+   "news": []
+  },
+  "KMNO-USD": {
+   "text": [
+    "Price: +16% this month, +14% over a year, 24% below its 52-week high; ahead of Bitcoin by 85 points over 3 months.",
+    "Coins have no sales or earnings to compare; the headlines below are the best guide to what's moving it."
+   ],
+   "extra": "",
+   "news": []
+  },
+  "PYTH-USD": {
+   "text": [
+    "Price: +18% this month, +59% over a year, 12% below its 52-week high; ahead of Bitcoin by 58 points over 3 months.",
+    "Coins have no sales or earnings to compare; the headlines below are the best guide to what's moving it."
+   ],
+   "extra": "",
+   "news": []
+  },
+  "GRASS-USD": {
+   "text": [],
+   "extra": "",
+   "news": []
+  },
+  "ENA-USD": {
+   "text": [
+    "Price: -3% this month, +54% over a year, 28% below its 52-week high; ahead of Bitcoin by 103 points over 3 months.",
+    "Coins have no sales or earnings to compare; the headlines below are the best guide to what's moving it."
+   ],
+   "extra": "",
+   "news": []
+  },
+  "APT-USD": {
+   "text": [],
+   "extra": "",
+   "news": []
+  },
+  "SEI-USD": {
+   "text": [
+    "Price: +5% this month, -25% over a year, 26% below its 52-week high; ahead of Bitcoin by 30 points over 3 months.",
+    "Coins have no sales or earnings to compare; the headlines below are the best guide to what's moving it."
+   ],
+   "extra": "",
+   "news": []
+  },
+  "MON-USD": {
+   "text": [
+    "Price: -10% this month, +41% over a year, 34% below its 52-week high; behind Bitcoin by 16 points over 3 months.",
+    "Coins have no sales or earnings to compare; the headlines below are the best guide to what's moving it."
+   ],
+   "extra": "",
+   "news": []
+  }
+ }
+}
