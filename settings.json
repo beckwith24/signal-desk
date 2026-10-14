@@ -1,6 +1,7 @@
 {
   "timeframes": {
     "1d": true,
+    "1wk": true,
     "4h": true,
     "1h": true
   },
