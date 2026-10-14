@@ -118,6 +118,7 @@ def build_payload(res: dict, cfg: dict) -> dict:
         },
         "ia": ia_out,
         "risk": ov.get("risk"),
+        "long_term": ov.get("long_term"),
         "congress": congress.recent_for(res["ticker"]) if not is_crypto(res["ticker"], cfg) else None,
         "signals": [{"t": _ts(s["ts"]), "ts": s["ts"], "action": s["action"], "rank": s["rank"],
                      "score": s["score"], "price": _num(s["price"], nd)}

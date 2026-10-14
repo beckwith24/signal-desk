@@ -52,8 +52,8 @@ def risk_size(df: pd.DataFrame) -> dict | None:
     Tested on 29 coins with the trend rule (research/factors.md): roughly halved the worst drops and
     gave up a similar share of the gains, so it's a risk choice, not an edge.
     """
-    if ia.is_intraday(df) or len(df) < 40:
-        return None
+    if ia.is_intraday(df) or len(df) < 40 or pd.Series(df.index).diff().median() > pd.Timedelta(days=3):
+        return None                                               # daily bars only
     crypto = bool((df.index[-30:].dayofweek >= 5).any())       # trades on weekends
     per_year = 365 if crypto else 252
     vol = float(np.log(df["close"]).diff().iloc[-30:].std() * np.sqrt(per_year))
@@ -62,6 +62,27 @@ def risk_size(df: pd.DataFrame) -> dict | None:
     target = RISK_TARGET["crypto" if crypto else "stock"]
     size = min(1.0, target / vol)
     return {"vol_pct": round(vol * 100), "target_pct": round(target * 100), "size": round(size * 20) / 20}
+
+
+def long_term(df: pd.DataFrame) -> dict | None:
+    """Weekly bars only: the long-term trend. Uptrend = weekly IA ribbon blue AND price above its 40-week
+    average; downtrend = both down; otherwise mixed. Tested (research/weekly.md): on the S&P 500 and Nasdaq,
+    being out while it was down roughly halved the worst crashes since 2005; on single stocks it mostly cost
+    return, so it's shown as information, not a signal."""
+    if len(df) < 45 or pd.Series(df.index).diff().median() < pd.Timedelta(days=5):
+        return None
+    c = df["close"]
+    fast, slow = ia.ribbon(df)
+    up = (fast > slow).fillna(False)
+    s40 = sma(c, 40)
+    flips = up.ne(up.shift()).cumsum()
+    weeks = None if flips.iat[-1] == 1 else int((flips == flips.iat[-1]).sum()) - 1   # None: no flip in the data
+    above = bool(c.iat[-1] > s40.iat[-1]) if s40.iat[-1] == s40.iat[-1] else None
+    ribbon_up = bool(up.iat[-1])
+    state = "up" if ribbon_up and above else "down" if (not ribbon_up and above is False) else "mixed"
+    return {"state": state, "ribbon_up": ribbon_up, "above_40w": above, "weeks": weeks,
+            "sma40": float(s40.iat[-1]) if above is not None else None,
+            "mom52_pct": round(float(c.iat[-1] / c.iat[-53] - 1) * 100, 1) if len(c) > 53 else None}
 
 
 def compute(df: pd.DataFrame, cfg: dict, ath_known: tuple[float, str] | None = None) -> dict:
@@ -74,10 +95,13 @@ def compute(df: pd.DataFrame, cfg: dict, ath_known: tuple[float, str] | None = N
     s_last = float(step.iat[-1])
     dist = float((c.iat[-1] - a_last) / s_last) if s_last else 0.0
     mx = lp["max_layers"]
+    lt = long_term(df)
+    ma_long, ma_label = (sma(c, 40), "40-week average") if lt else (sma(c, MA_LONG), f"{MA_LONG} MA")
     return {
-        "ema_fast": ema(c, EMA_FAST), "ema_slow": ema(c, EMA_SLOW), "ma_long": sma(c, MA_LONG),
+        "long_term": lt,
+        "ema_fast": ema(c, EMA_FAST), "ema_slow": ema(c, EMA_SLOW), "ma_long": ma_long,
         "bb_up": m + BB_SD * sd, "bb_mid": m, "bb_lo": m - BB_SD * sd, "anchor": anchor,
-        "labels": {"ema_fast": f"EMA {EMA_FAST}", "ema_slow": f"EMA {EMA_SLOW}", "ma_long": f"{MA_LONG} MA",
+        "labels": {"ema_fast": f"EMA {EMA_FAST}", "ema_slow": f"EMA {EMA_SLOW}", "ma_long": ma_label,
                    "anchor": f"{lp['anchor_ma']} MA (layer anchor)"},
         "anchor_last": float(a_last), "step_last": s_last, "distance": dist,
         "layer": int(np.clip(np.trunc(dist), -mx, mx)),

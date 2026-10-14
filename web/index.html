@@ -211,6 +211,17 @@ header.top .wrap { padding-block: 0; }
 .mod.down { color: var(--ink); } .mod.down i { background: var(--down); border-color: var(--down); }
 .mod.gov { color: var(--muted); }
 
+/* long-term (weekly) trend: market banner and row tags */
+.market { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; margin-top: 12px; padding: 9px 12px;
+  border: 1px solid var(--line); border-left-width: 3px; border-radius: 10px; background: var(--surface); font-size: 13px; }
+.market.up { border-left-color: var(--up); } .market.down { border-left-color: var(--down); } .market.mixed { border-left-color: var(--watch); }
+.mk-k { color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: .08em; }
+.mk-v { font-weight: 600; text-decoration: none; }
+.mk-v.up { color: var(--up); } .mk-v.down { color: var(--down); } .mk-v.mixed { color: var(--watch); }
+.mk-note { flex-basis: 100%; color: var(--muted); font-size: 12px; }
+.ltag { font-size: 11px; font-weight: 600; padding: 1px 6px; border-radius: 6px; border: 1px solid var(--line); }
+.ltag.up { color: var(--up); } .ltag.down { color: var(--down); } .ltag.mixed { color: var(--muted); }
+
 /* Watchlist rows: name + one-line status, mini chart, price */
 .item.wrow { grid-template-areas: "id spark px"; row-gap: 0; padding-block: 10px; }
 .wrow .id { grid-area: id; display: grid; gap: 4px; min-width: 0; }
@@ -511,6 +522,7 @@ h3.sec { font: 700 12px/1.2 var(--f-display); text-transform: uppercase; letter-
       <div><h2 class="page-h" id="pageTitle">Watchlist</h2><div class="page-sub" id="pageSub"></div></div>
       <button class="btn ghost sm" id="addToggle" type="button">＋ Add ticker</button>
     </div>
+    <div class="market" id="market" hidden></div>
     <div class="tiles" id="tiles" role="group" aria-label="Show signals"></div>
     <div class="listbar" id="keyBar">
       <details class="key" id="key">
@@ -629,6 +641,11 @@ h3.sec { font: 700 12px/1.2 var(--f-display); text-transform: uppercase; letter-
             rebuilt from your TradingView screenshots.</li>
           <li><strong>Congress trades:</strong> stock trades members of Congress reported in official House and
             Senate filings.</li>
+          <li><strong>Long-term (weekly) trend:</strong> Uptrend when the weekly ribbon is blue and the price is above its
+            40-week average, Downtrend when both point down. On the S&amp;P 500 since 2005, staying out during weekly
+            downtrends cut the worst drop from −55% to about −21%, for roughly 3% a year less return. On single stocks it
+            mostly cost return, so it's shown as information (the "Weekly ↑/↓" tags, the market bar and the Weekly chart),
+            not as a buy/sell signal.</li>
         </ul>
       </section>
     </div>
@@ -759,7 +776,7 @@ h3.sec { font: 700 12px/1.2 var(--f-display); text-transform: uppercase; letter-
       </div>
       <div class="card">
         <h3 class="sec">Alerts</h3>
-        <div class="setrow"><div><div class="lbl">Alert me for</div><div class="sub2">4H and 1H have no Buy/Sell signals of their own</div></div>
+        <div class="setrow"><div><div class="lbl">Alert me for</div><div class="sub2">Weekly, 4H and 1H have no Buy/Sell signals of their own</div></div>
           <div class="chips" id="sTfs"></div></div>
         <div class="setrow"><div class="lbl">Alert level</div><div class="seg" id="sLevel"></div></div>
         <div class="setrow"><div><div class="lbl">Layer-in / layer-out alerts</div><div class="sub2">Daily charts</div></div>

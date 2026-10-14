@@ -92,7 +92,7 @@ def _ccxt_symbol(ex, ticker: str, quote: str) -> str:
 def fetch_ccxt(ticker: str, tf: str, cfg: dict) -> pd.DataFrame:
     ex = _exchange(cfg["crypto"]["exchange"])
     sym = _ccxt_symbol(ex, ticker, cfg["crypto"]["quote"])
-    raw = ex.fetch_ohlcv(sym, timeframe=tf, limit=500)
+    raw = ex.fetch_ohlcv(sym, timeframe={"1wk": "1w"}.get(tf, tf), limit=500)
     if not raw:
         raise ValueError(f"{ex.id} returned no candles for {sym}")
     df = pd.DataFrame(raw, columns=["ts", "open", "high", "low", "close", "volume"])

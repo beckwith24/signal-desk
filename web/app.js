@@ -98,6 +98,31 @@ if (window.top !== window.self) { document.documentElement.style.display = "none
     if (c.sells) parts.push(c.sells + " sell" + (c.sells > 1 ? "s" : ""));
     return parts.join(", ");
   }
+  const LT = { up: ["Uptrend", "↑"], down: ["Downtrend", "↓"], mixed: ["Mixed", "↔"] };
+  const ltWord = (lt) => lt && LT[lt.state] ? LT[lt.state][0] : null;
+  const ltWeeks = (lt) => !lt ? "" : lt.weeks != null ? lt.weeks + " wk" + (lt.weeks === 1 ? "" : "s") : "2+ yrs";
+  function ltTag(lt) {
+    if (!lt || !LT[lt.state]) return null;
+    const s = el("span", "ltag " + lt.state, "Weekly " + LT[lt.state][1]);
+    s.title = "Long-term (weekly) trend: " + LT[lt.state][0] + (lt.state !== "mixed" ? " for " + ltWeeks(lt) : "");
+    return s;
+  }
+  function renderMarket(all) {          // S&P 500 / Nasdaq long-term trend, from SPY and QQQ's weekly view
+    const m = $("market"); m.textContent = "";
+    const parts = [["SPY", "S&P 500"], ["QQQ", "Nasdaq"]].map(([t, n]) => [t, n, all.find((i) => i.ticker === t)]).filter((p) => p[2] && p[2].lt);
+    m.hidden = !parts.length;
+    if (!parts.length) return;
+    const states = parts.map((p) => p[2].lt.state);
+    m.className = "market " + (states.includes("down") ? "down" : states.every((s) => s === "up") ? "up" : "mixed");
+    m.append(el("span", "mk-k", "Market, long-term (weekly)"));
+    for (const [t, n, i] of parts) {
+      const a = el("a", "mk-v " + i.lt.state, n + " " + LT[i.lt.state][1] + " " + LT[i.lt.state][0].toLowerCase() +
+        (i.lt.state !== "mixed" ? " · " + ltWeeks(i.lt) : ""));
+      a.href = "#" + t + "_1wk"; a.onclick = () => { state.fromList = true; };
+      m.append(a);
+    }
+    if (states.includes("down")) m.append(el("span", "mk-note", "Past long-term downtrends held the worst crashes; dip-buys were riskier then."));
+  }
   const byStrength = (a, b) => b.rank - a.rank || Math.abs(b.score - 50) - Math.abs(a.score - 50) || a.ticker.localeCompare(b.ticker);
   const GROUPS = [["stock", "Stocks"], ["crypto", "Crypto"]];
 
@@ -115,6 +140,7 @@ if (window.top !== window.self) { document.documentElement.style.display = "none
     }
     const cls = i.rank > 0 ? "up" : i.rank < 0 ? "down" : "hold";
     st.append(el("span", "word " + cls, i.action));
+    const lt = ltTag(i.lt); if (lt) st.append(lt);
     if (i.congress) { const g = el("span", "gov", "🏛"); g.title = "Congress: " + congressText(i.congress) + " reported in the last 30 days"; st.append(g); }
     id.append(el("span", "tk", short(i.ticker)), st);
     const px = el("div", "px"); px.append(el("div", "p", fmtPrice(i.price, i.decimals)), fmtChg(i.change_pct));
@@ -189,6 +215,7 @@ if (window.top !== window.self) { document.documentElement.style.display = "none
     else if (i.next) fact(facts, "Next add", "All layers hit");
     if (nx.trim) fact(facts, "Next trim", fmtPrice(nx.trim.price, i.decimals), pct((nx.trim.price / i.price - 1) * 100));
     if (i.ia) fact(facts, "IA view", (i.ia.trend === "up" ? "Blue" : "Orange") + " · ATR " + i.ia.stop_side);
+    if (i.lt) fact(facts, "Long-term (weekly)", ltWord(i.lt), i.lt.state !== "mixed" ? ltWeeks(i.lt) : "");
     if (facts.childNodes.length % 2) fact(facts, "Score", i.score + " / 100");
     if (facts.childNodes.length) a.append(facts);
     const st = stats && stats[i.asset] && stats[i.asset][i.action];
@@ -251,6 +278,7 @@ if (window.top !== window.self) { document.documentElement.style.display = "none
       box.append(e); return;
     }
     const all = idx.items.filter((i) => i.tf === "1d");
+    renderMarket(all);
     if (sigView) renderSignals(all, box); else renderWatchlist(all, box);
   }
   function syncTabs() {
@@ -319,9 +347,14 @@ if (window.top !== window.self) { document.documentElement.style.display = "none
     const stats = $("dStats"); stats.textContent = "";
     const statBox = (k, node) => { const s = el("div", "stat"); const v = el("div", "val"); v.append(node); s.append(el("div", "k", k), v); stats.append(s); };
     const txt = (x) => document.createTextNode(x);
+    const dailyItem = ((state.index && state.index.items) || []).find((i) => i.ticker === d.ticker && i.tf === "1d");
+    const lt = d.long_term || (dailyItem && dailyItem.lt);
     if (d.tf === "1d") {
       statBox("Models", txt(d.bull + " buy · " + d.bear + " sell"));
-      statBox("Score", txt(d.score + " / 100"));
+      statBox("Weekly trend", txt(lt && LT[lt.state] ? LT[lt.state][1] + " " + (lt.state === "mixed" ? "Mixed" : ltWord(lt) === "Uptrend" ? "Up · " + ltWeeks(lt) : "Down · " + ltWeeks(lt)) : "–"));
+    } else if (d.tf === "1wk") {
+      statBox("Long-term", txt(lt && LT[lt.state] ? LT[lt.state][1] + " " + (lt.state === "mixed" ? "Mixed" : ltWord(lt) === "Uptrend" ? "Up · " + ltWeeks(lt) : "Down · " + ltWeeks(lt)) : "–"));
+      statBox("40-week avg", txt(lt && lt.above_40w != null ? (lt.above_40w ? "Price above" : "Price below") : "–"));
     } else {
       statBox("This chart", txt((TF_LABEL[d.tf] || d.tf) + " view only"));
       statBox("IA view", txt(d.ia ? (d.ia.trend === "up" ? "Blue" : "Orange") + " · ATR " + d.ia.stop_side : "–"));

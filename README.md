@@ -108,7 +108,10 @@ computers). **Watchlist** lists every ticker, stocks and crypto in separate pane
 says buy), the daily signal, a one-month mini chart and the price. **Signals** shows only tickers with a signal,
 one card each: when the signal started and the move since, every model's reading in words, the suggested
 size, the next add / trim prices from the layer plan, the IA view, and how that signal level did in testing
-(2021 on); the Strong Buy / Buy tiles filter it. **Info** explains each model in plain English and summarises
+(2021 on); the Strong Buy / Buy tiles filter it. A **Weekly** chart and a long-term trend ("Weekly ↑/↓" on each row, plus an S&P 500 / Nasdaq bar at the
+top) show the bigger picture: uptrend = weekly ribbon blue and price above its 40-week average. Tested in
+`research/weekly.md`: on SPY since 2005, staying out in weekly downtrends cut the worst drop from −55% to about −21%
+for ~3%/yr less return; on single stocks it mostly cost return, so it's information, not a signal. **Info** explains each model in plain English and summarises
 the backtests. **Settings** is below.
 Tap a ticker for a candlestick chart with the Bollinger bands, ATR layers, EMAs, volume and past signal arrows,
 plus each model's reading. Switch Daily / 4H / 1H at the top. The site is dark by default; the sun/moon button

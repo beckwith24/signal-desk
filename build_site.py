@@ -111,7 +111,7 @@ def main() -> None:
 
     live = os.environ.get("PAGES_URL", "").rstrip("/")
     tickers = cfg["watchlist"]["stocks"] + cfg["watchlist"]["crypto"]
-    items, kept = [], 0
+    items, kept, lt_map = [], 0, {}
     for t in tickers:
         for tf in cfg["timeframes"]:
             path = data / f"{file_id(t, tf)}.json"
@@ -138,7 +138,12 @@ def main() -> None:
                     item.update(spark(d))
                     if d.get("rank"):             # the Signals page shows more about these
                         item.update(signal_detail(d))
+                if tf == "1wk" and d.get("long_term"):
+                    lt_map[t] = {k: d["long_term"].get(k) for k in ("state", "weeks", "above_40w", "ribbon_up", "mom52_pct")}
                 items.append(item)
+    for item in items:                            # long-term (weekly) trend on each daily row
+        if item["tf"] == "1d" and item["ticker"] in lt_map:
+            item["lt"] = lt_map[item["ticker"]]
     bot_name = ""
     token = os.environ.get("TELEGRAM_BOT_TOKEN", "")
     if token:   # the bot's @username, so the site can open it to add/remove tickers

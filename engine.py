@@ -30,6 +30,8 @@ DEFAULT_SEGMENTS = {
     "crypto-1h": {"models": [], "about": "No tested edge on 1h crypto bars: charts and timing only"},
     "stock-4h": {"models": [], "about": "No tested edge on 4h stock bars: charts and timing only"},
     "stock-1h": {"models": [], "about": "No tested edge on 1h stock bars: charts and timing only"},
+    "stock-1wk": {"models": [], "about": "Weekly: the long-term trend. Shown as information, no buy/sell signals"},
+    "crypto-1wk": {"models": [], "about": "Weekly: the long-term trend. Shown as information, no buy/sell signals"},
 }
 
 
