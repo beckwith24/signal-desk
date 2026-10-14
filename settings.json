@@ -44,7 +44,15 @@
       "ABBV",
       "XOM",
       "AMAT",
-      "TMO"
+      "TMO",
+      "ASML",
+      "ARM",
+      "KLAC",
+      "BNY",
+      "TER",
+      "GRMN",
+      "INCY",
+      "SWKS"
     ],
     "crypto": [
       "BTC-USD",
