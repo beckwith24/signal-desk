@@ -31,6 +31,7 @@ ACTION_RANK = {
     "Watch ↑": 1,
     "Buy": 2,
     "Strong Buy": 3,
+    "Panic Buy": 4,       # stocks: RSI(2) under 5 in a 200-day uptrend while the VIX is spiking (the best-tested setup)
 }
 
 

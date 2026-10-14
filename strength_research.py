@@ -44,13 +44,16 @@ def clustered(x: pd.Series, day: pd.Series) -> tuple[float, float, int]:
 
 
 def levels(bars: pd.DataFrame, asset: str, cfg: dict) -> pd.Series:
+    """The live engine's levels, replayed over history (same rules as engine.evaluate)."""
     sc = engine.segment_config(cfg, f"{asset}-1d")
     v = bars[sc["models"]]
     if asset == "stock":
         n = (v > 0).sum(axis=1)
-        return pd.Series(np.select([n >= 2, n == 1], ["Strong Buy", "Buy"], "Hold"), index=bars.index)
+        panic = bars[sc["panic"]] > 0 if sc.get("panic") in bars else pd.Series(False, index=bars.index)
+        return pd.Series(np.select([panic, n >= 2, n == 1], ["Panic Buy", "Strong Buy", "Buy"], "Hold"), index=bars.index)
     m = v.mean(axis=1)
-    return pd.Series(np.select([m >= 1.0, m > 0.5], ["Strong Buy", "Buy"], "Hold"), index=bars.index)
+    gate = bars[sc["gate"]] > 0 if sc.get("gate") in bars else pd.Series(True, index=bars.index)
+    return pd.Series(np.select([(m >= 1.0) & gate, m > 0.5], ["Strong Buy", "Buy"], "Hold"), index=bars.index)
 
 
 def summarize(bars: pd.DataFrame) -> dict:
@@ -59,7 +62,7 @@ def summarize(bars: pd.DataFrame) -> dict:
     b["x5"] = b["r5"] - b.groupby("ticker")["r5"].transform("mean")
     day = pd.Series(b.index.floor("D"), index=b.index)
     out = {}
-    for lv in ("Hold", "Buy", "Strong Buy"):
+    for lv in ("Hold", "Buy", "Strong Buy", "Panic Buy"):
         m = b["level"] == lv
         if m.sum() < 20:
             out[lv] = {"days": int(m.sum())}
@@ -108,7 +111,7 @@ def main() -> None:
         L += [f"## {asset}", "", "| Period | Level | Ticker-days | Next day (bp) | t | Next 5 days | t | 5-day winners |",
               "|---|---|---|---|---|---|---|---|"]
         for part in ("train", "test", "all"):
-            for lv in ("Hold", "Buy", "Strong Buy"):
+            for lv in ("Hold", "Buy", "Strong Buy", "Panic Buy"):
                 x = seg[part].get(lv, {})
                 if "t" not in x:
                     L.append(f"| {part} | {lv} | {x.get('days', 0)} | – | – | – | – | – |"); continue

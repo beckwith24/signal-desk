@@ -52,9 +52,9 @@ WARMUP = 250
 ORIGINAL = ["trend_classic", "meanrev_z", "confluence", "atr_layers", "momentum_classic"]
 IA = ["ia_ribbon", "ia_atr_stop", "ia_ath_discount"]   # InvestAnswers-style, from the screenshots
 SEGMENT_MODELS = {   # which models make sense to test where (gates need their outside data)
-    "stock": ["rsi2_pullback", "ibs_reversal", "turn_of_month", "market_regime", "vix_backwardation",
+    "stock": ["rsi2_pullback", "ibs_reversal", "turn_of_month", "market_regime", "vix_backwardation", "panic_dip",
               "tsmom28", "sma_ensemble", "donchian_ensemble", "high_breakout_trail"] + ORIGINAL + IA,
-    "crypto": ["tsmom28", "sma_ensemble", "donchian_ensemble", "btc_trend_gate", "high_breakout_trail",
+    "crypto": ["tsmom28", "sma_ensemble", "donchian_ensemble", "btc_trend_gate", "btc_weekly_gate", "high_breakout_trail",
                "rsi2_pullback", "ibs_reversal", "turn_of_month"] + ORIGINAL + IA,
 }
 

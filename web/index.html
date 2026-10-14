@@ -134,7 +134,8 @@ header.top .wrap { padding-block: 0; }
   border: 1px solid var(--line); background: var(--surface); border-radius: 12px; padding: 10px 12px 9px 14px;
 }
 .tile::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: transparent; }
-.tile.strong::before { background: var(--up); }
+.tile.strong::before, .tile.panic::before { background: var(--up); }
+.tile.panic .n { color: var(--up); }
 .tile.buy::before { background: color-mix(in srgb, var(--up) 45%, transparent); }
 .tile.sell::before { background: var(--down); }
 .tile .n { font: 600 26px/1.1 var(--f-mono); color: var(--ink-strong); font-variant-numeric: tabular-nums; }
@@ -181,7 +182,7 @@ header.top .wrap { padding-block: 0; }
   column-gap: 12px; row-gap: 6px; align-items: center; padding: 11px 14px 11px 17px;
 }
 .item::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--stripe, transparent); }
-.item.s-strong { --stripe: var(--up); }
+.item.s-strong, .item.s-panic { --stripe: var(--up); }
 .item.s-buy { --stripe: color-mix(in srgb, var(--up) 50%, transparent); }
 .item.s-watch { --stripe: color-mix(in srgb, var(--up) 25%, transparent); }
 .item.s-watchd { --stripe: color-mix(in srgb, var(--down) 25%, transparent); }
@@ -249,7 +250,7 @@ header.top .wrap { padding-block: 0; }
 .scard { position: relative; display: block; overflow: hidden; color: inherit; text-decoration: none; cursor: pointer;
   background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 13px 14px 12px 17px; }
 .scard::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--stripe, transparent); }
-.scard.s-strong { --stripe: var(--up); } .scard.s-buy { --stripe: color-mix(in srgb, var(--up) 50%, transparent); }
+.scard.s-strong, .scard.s-panic { --stripe: var(--up); } .scard.s-buy { --stripe: color-mix(in srgb, var(--up) 50%, transparent); }
 .scard.s-watch { --stripe: color-mix(in srgb, var(--up) 25%, transparent); } .scard.s-watchd { --stripe: color-mix(in srgb, var(--down) 25%, transparent); }
 .scard.s-sell { --stripe: color-mix(in srgb, var(--down) 55%, transparent); } .scard.s-strongsell { --stripe: var(--down); }
 @media (hover: hover) { .scard:hover { border-color: color-mix(in srgb, var(--accent) 45%, var(--line)); } }
@@ -287,6 +288,7 @@ header.top .wrap { padding-block: 0; }
   border: 1px solid transparent; line-height: 1.35;
 }
 .pill.strong-up { background: var(--up); color: var(--on-solid); }
+.pill.panic-up { background: var(--up); color: var(--on-solid); box-shadow: 0 0 0 2px color-mix(in srgb, var(--up) 45%, transparent); }
 .pill.up { background: var(--up-soft); color: var(--up); border-color: color-mix(in srgb, var(--up) 35%, transparent); }
 .pill.watch-up { border-color: var(--up); color: var(--up); }
 .pill.hold { background: var(--flat-soft); color: var(--muted); }
@@ -537,9 +539,10 @@ h3.sec { font: 700 12px/1.2 var(--f-display); text-transform: uppercase; letter-
     <div class="listbar" id="keyBar">
       <details class="key" id="key">
         <summary>What Buy and Strong Buy mean</summary>
-        <p id="tfNote">Stocks: Buy = 1 of 3 dip signals, Strong Buy = 2 or more. Crypto: Buy = 3 of 4 trend signals with none
-          against, Strong Buy = all 4. Tested over 10 years: Strong Buys did clearly better; single-signal Buys were close to random.
-          Alerts go out for Strong Buys.</p>
+        <p id="tfNote">Stocks: Buy = 1 of 3 dip signals, Strong Buy = 2 or more, Panic Buy = a deep dip (RSI(2) under 5) in an
+          uptrend while the VIX is spiking: rare, and the best-tested setup (+2% over 5 days, 70% winners since 2021).
+          Crypto: Buy = 3 of 4 trend signals with none against, Strong Buy = all 4 plus Bitcoin's weekly trend up.
+          Alerts go out for Strong Buys and Panic Buys.</p>
       </details>
     </div>
     <form class="addrow" id="addForm" hidden autocomplete="off">
@@ -626,8 +629,9 @@ h3.sec { font: 700 12px/1.2 var(--f-display); text-transform: uppercase; letter-
           <dt>VIX panic</dt><dd>The market's 1-month fear gauge (VIX) is above its 3-month version, which happens in
             sell-offs. It applies to every stock at once.</dd>
         </dl>
-        <p class="rule"><b>Buy</b> = 1 of 3 · <b>Strong Buy</b> = 2 or 3. These models only say when to buy, so
-          stocks never show Sell.</p>
+        <p class="rule"><b>Buy</b> = 1 of 3 · <b>Strong Buy</b> = 2 or 3 · <b>Panic Buy</b> = the 2-day RSI is under 5, the
+          stock is above its 200-day average, and the VIX is above its 3-month version (a market-wide scare). These models
+          only say when to buy, so stocks never show Sell.</p>
       </section>
       <section class="card">
         <h3 class="sec">Crypto: ride the trend</h3>
@@ -639,8 +643,10 @@ h3.sec { font: 700 12px/1.2 var(--f-display); text-transform: uppercase; letter-
           <dt>Breakout</dt><dd>At least half of nine breakout systems (looking back 5 to 360 days) are in an
             uptrend.</dd>
           <dt>BTC</dt><dd>Bitcoin is above its 50-day average. When Bitcoin is weak, most coins are.</dd>
+          <dt>BTC weekly</dt><dd>Bitcoin's weekly trend (ribbon blue and above its 40-week average). Not a vote: it decides
+            whether an all-4 reading counts as Strong Buy or just Buy.</dd>
         </dl>
-        <p class="rule"><b>Buy</b> = 3 of 4 and none pointing down · <b>Strong Buy</b> = all 4 · <b>Sell</b> =
+        <p class="rule"><b>Buy</b> = 3 of 4 and none pointing down · <b>Strong Buy</b> = all 4 with Bitcoin's weekly trend up · <b>Sell</b> =
           most point down (can't happen while Bitcoin is above its 50-day average).</p>
       </section>
       <section class="card">
@@ -685,14 +691,17 @@ h3.sec { font: 700 12px/1.2 var(--f-display); text-transform: uppercase; letter-
         <table class="itab">
           <thead><tr><th></th><th>Next day</th><th>Next 5 days</th><th>t</th></tr></thead>
           <tbody>
+            <tr><th>Stocks · Panic Buy</th><td class="up">—</td><td class="up">+2.01%</td><td>5.5</td></tr>
             <tr><th>Stocks · Strong Buy</th><td class="up">+0.54%</td><td class="up">+0.91%</td><td>2.8</td></tr>
             <tr><th>Stocks · Buy</th><td>+0.04%</td><td>+0.30%</td><td>0.3</td></tr>
-            <tr><th>Crypto · Strong Buy</th><td class="up">+0.41%</td><td class="up">+1.66%</td><td>2.8</td></tr>
+            <tr><th>Crypto · Strong Buy (with BTC weekly up)</th><td class="up">—</td><td class="up">+2.63%</td><td>6.4</td></tr>
+            <tr><th>Crypto · all 4 trend models</th><td class="up">+0.41%</td><td class="up">+1.66%</td><td>2.8</td></tr>
             <tr><th>Crypto · Buy</th><td>+0.13%</td><td>+0.71%</td><td>0.8</td></tr>
           </tbody>
         </table>
-        <p class="note">Return above that ticker's own normal average. t is for the next day. Strong Buys did
-          clearly better; single-model Buys were close to random. That's why alerts go out for Strong Buys only.</p>
+        <p class="note">Return above that ticker's own normal average. Strong Buys did clearly better; single-model Buys
+          were close to random. The Panic Buy and Bitcoin-weekly rows come from a later test (S&amp;P 100 and 29 coins,
+          research/combo.md); t there is for the 5-day return. Alerts go out for Strong Buys and Panic Buys.</p>
       </section>
       <section class="card">
         <h3 class="sec">Following the rules on their own (2021–2026)</h3>

@@ -145,6 +145,40 @@ def regime_describe(row, p):
     return "Market regime unknown"
 
 
+def panic_dip(df, ctx, p):
+    """RSI(2) deeply oversold, above the 200-day average, while VIX is above 3-month VIX (market-wide panic).
+    research/combo.md: +2.0% vs normal over the next 5 days since 2021 (t 5.5, 70% winners); +0.56% before."""
+    if "vix" not in ctx or "vix3m" not in ctx:
+        return _frame(df, 0, 0, rsi2=np.nan)
+    c = df["close"]
+    r = rsi(c, 2)
+    panic = (ctx["vix"] > ctx["vix3m"]).fillna(False)
+    vote = np.where((r < p["entry"]) & (c > sma(c, p["trend_ma"])) & panic, 1, 0)
+    return _frame(df, vote, np.where(vote > 0, 1.0, 0), rsi2=r)
+
+
+def panic_describe(row, p):
+    if row.vote > 0:
+        return f"Panic dip: RSI(2) {row.rsi2:.0f} (under {p['entry']}) in a 200-day uptrend while the VIX is spiking"
+    return f"No panic dip (RSI(2) {row.rsi2:.0f})" if row.rsi2 == row.rsi2 else "No VIX data"
+
+
+def btc_weekly_gate(df, ctx, p):
+    """Bitcoin's weekly trend: weekly IA ribbon blue and close above its 40-week average, known at the week's close.
+    research/combo.md: the crypto trend rule only while this is up beat the plain rule out of sample."""
+    if "btc_wk_up" not in ctx:
+        return _frame(df, 0, 0, btc_wk=np.nan)
+    up = ctx["btc_wk_up"].reindex(df.index).ffill()
+    vote = np.where(up.isna(), 0, np.where(up.astype(bool), 1, -1))
+    return _frame(df, vote, np.where(vote != 0, 0.7, 0), btc_wk=up)
+
+
+def btc_weekly_describe(row, p):
+    if row.vote == 0:
+        return "Bitcoin weekly trend unavailable"
+    return "Bitcoin's weekly trend is " + ("up (ribbon blue, above its 40-week average)" if row.vote > 0 else "down")
+
+
 def vix_backwardation(df, ctx, p):
     if "vix" not in ctx or "vix3m" not in ctx:
         return _frame(df, 0, 0, vix_ratio=np.nan)
@@ -425,6 +459,8 @@ MODELS: dict[str, Model] = {m.key: m for m in [
     Model("turn_of_month", "Turn of month", "calendar", turn_of_month, tom_describe, {"first_days": 3}),
     Model("market_regime", "Market regime (SPY)", "regime", market_regime, regime_describe, {}),
     Model("vix_backwardation", "VIX panic", "regime", vix_backwardation, vix_describe, {"threshold": 1.0}),
+    Model("panic_dip", "Panic dip", "pullback", panic_dip, panic_describe, {"entry": 5, "trend_ma": 200}),
+    Model("btc_weekly_gate", "Bitcoin weekly trend", "trend", btc_weekly_gate, btc_weekly_describe, {}),
     Model("tsmom28", "28-bar momentum", "trend", tsmom28, tsmom_describe, {"lookback": 28, "full": 0.3}),
     Model("sma_ensemble", "Above 20/50/100 MAs", "trend", sma_ensemble, sma_ens_describe,
           {"lengths": [20, 50, 100], "bull": 0.66, "bear": 0.0}),
@@ -454,7 +490,8 @@ MODELS: dict[str, Model] = {m.key: m for m in [
 
 
 # Short labels for the home page (one chip per model)
-SHORT = {"rsi2_pullback": "RSI dip", "ibs_reversal": "Low close", "vix_backwardation": "VIX panic",
+SHORT = {"rsi2_pullback": "RSI dip", "ibs_reversal": "Low close", "vix_backwardation": "VIX panic", "panic_dip": "Panic dip",
+         "btc_weekly_gate": "BTC weekly",
          "tsmom28": "Momentum", "sma_ensemble": "MAs", "donchian_ensemble": "Breakout",
          "btc_trend_gate": "BTC", "turn_of_month": "Month turn", "market_regime": "Market",
          "high_breakout_trail": "New high", "ia_ribbon": "IA ribbon", "ia_atr_stop": "IA ATR",

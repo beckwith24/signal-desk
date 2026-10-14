@@ -228,6 +228,15 @@ holding, with the same drawdowns. The Confluence Model rebuilt from a screenshot
 days, 2 standard deviations; re-entries match 9 of 24 of its triangles) also trailed holding on stocks; on
 crypto, its "sell only above cost" version left coins ~50% under cost. None of this is used for signals.
 
+**Panic Buy and the Bitcoin weekly gate** (`combo_research.py`, results in `research/combo.md`): of four ideas tested
+walk-forward against the current signals, two held up. Stocks: a deep dip (RSI(2) under 5) above the 200-day average
+while the VIX is above its 3-month version made +2.0% vs normal over the next 5 days since 2021 (t 5.5, 70% winners;
++0.56% before 2021), so it's a level above Strong Buy, "Panic Buy", with its own alert. Crypto: the trend rule only while
+Bitcoin's weekly trend is up (weekly ribbon blue and above its 40-week average) made +2.6% over 5 days vs +1.7%, with a
+smaller worst drop (−38% vs −47%), so Strong Buy now also requires that gate; without it an all-4 reading is a Buy.
+Didn't help: the stock's own or the S&P's weekly trend as a gate, volatility sizing as the default (halves drops but
+also returns), the crypto rule on weekly bars.
+
 **Strong Buy vs Buy** (`strength_research.py`, results in `research/strength.md`, ~10 years): on stocks,
 Strong Buy days (2+ dip signals) beat the stock's normal next day by 0.44% (t 2.8) and its normal 5 days by
 0.76%; single-signal Buys were close to random (+0.01% next day). On crypto, all-4 Strong Buys beat normal

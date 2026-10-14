@@ -3,7 +3,7 @@ if (window.top !== window.self) { document.documentElement.style.display = "none
 (() => {
   "use strict";
   const TF_LABEL = { "1d": "Daily", "4h": "4H", "1h": "1H", "1wk": "Weekly" };
-  const LEVELS = { strong: (i) => i.rank >= 3, buy: (i) => i.rank === 2, sell: (i) => i.rank <= -2, signals: (i) => i.rank !== 0, all: () => true };
+  const LEVELS = { panic: (i) => i.rank >= 4, strong: (i) => i.rank === 3, buy: (i) => i.rank === 2, sell: (i) => i.rank <= -2, signals: (i) => i.rank !== 0, all: () => true };
   const OVERLAYS = [
     ["ia", "IA view"], ["bands", "Bands"], ["layers", "ATR layers"], ["emas", "EMAs"], ["ma", "Long MA"], ["volume", "Volume"], ["markers", "Past signals"],
   ];
@@ -25,7 +25,7 @@ if (window.top !== window.self) { document.documentElement.style.display = "none
   const css = (name) => getComputedStyle(document.documentElement).getPropertyValue(name).trim();
 
   function actionClass(a) {
-    return { "Strong Buy": "strong-up", "Buy": "up", "Watch ↑": "watch-up", "Hold": "hold",
+    return { "Panic Buy": "panic-up", "Strong Buy": "strong-up", "Buy": "up", "Watch ↑": "watch-up", "Hold": "hold",
              "Watch ↓": "watch-down", "Sell": "down", "Strong Sell": "strong-down" }[a] || "hold";
   }
   function pill(a) { return el("span", "pill " + actionClass(a), a); }
@@ -87,7 +87,7 @@ if (window.top !== window.self) { document.documentElement.style.display = "none
     return svg;
   }
   function stripe(rank) {
-    return rank >= 3 ? "s-strong" : rank === 2 ? "s-buy" : rank === 1 ? "s-watch" : rank === -1 ? "s-watchd" : rank === -2 ? "s-sell" : rank <= -3 ? "s-strongsell" : "";
+    return rank >= 4 ? "s-panic" : rank === 3 ? "s-strong" : rank === 2 ? "s-buy" : rank === 1 ? "s-watch" : rank === -1 ? "s-watchd" : rank === -2 ? "s-sell" : rank <= -3 ? "s-strongsell" : "";
   }
   const hrefFor = (i) => "#" + (i.ticker + "_" + i.tf).replace(/[^A-Za-z0-9_.-]/g, "_");
   const short = (t) => t.replace("-USD", "");
@@ -230,7 +230,7 @@ if (window.top !== window.self) { document.documentElement.style.display = "none
     li.append(a);
     return li;
   }
-  const EMPTY = { strong: "No Strong Buys", buy: "No Buys", sell: "No Sells", signals: "No signals" };
+  const EMPTY = { panic: "No Panic Buys", strong: "No Strong Buys", buy: "No Buys", sell: "No Sells", signals: "No signals" };
   function renderSignals(all, box) {
     $("pageTitle").textContent = "Signals";
     const sig = all.filter(LEVELS.signals);
@@ -238,6 +238,7 @@ if (window.top !== window.self) { document.documentElement.style.display = "none
     const tiles = $("tiles");
     const count = (k) => all.filter(LEVELS[k]).length;
     const defs = [["strong", "Strong Buy", count("strong")], ["buy", "Buy", count("buy")]];
+    if (count("panic")) defs.unshift(["panic", "Panic Buy", count("panic")]);   // rare: only shown when there are any
     if (count("sell")) defs.push(["sell", "Sell", count("sell")]);      // only shown when there are any
     defs.push(["signals", "All signals", sig.length]);
     tiles.style.setProperty("--n", defs.length);

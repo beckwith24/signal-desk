@@ -16,7 +16,7 @@ from notify import format_exit, format_message, send_all
 from signals import evaluate, volume_note
 
 log = logging.getLogger(__name__)
-MIN_RANK = {"Watch": 1, "Buy": 2, "Strong Buy": 3}
+MIN_RANK = {"Watch": 1, "Buy": 2, "Strong Buy": 3, "Panic Buy": 4}
 _CTX: dict = {}      # asset -> (fetched_at, daily context series); refreshed every 30 minutes
 TF_NAMES = {"1d": "daily", "4h": "4-hour", "1h": "hourly", "1wk": "weekly"}
 

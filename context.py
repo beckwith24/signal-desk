@@ -48,6 +48,7 @@ def align(daily: dict[str, pd.Series], index: pd.DatetimeIndex, asset: str, tf: 
         feats["vix3m"] = daily["vix3m"]
     if "btc" in daily:
         feats["btc_close"], feats["btc_sma"] = daily["btc"], sma(daily["btc"], 50)
+        feats["btc_wk_up"] = btc_weekly_up(daily["btc"])
     out = {}
     if tf in ("1d", "1wk"):
         tz = "America/New_York" if asset == "stock" else "UTC"
@@ -64,6 +65,17 @@ def align(daily: dict[str, pd.Series], index: pd.DatetimeIndex, asset: str, tf: 
             vals = s.asof(lagged.tz_convert("UTC"))
             out[k] = pd.Series(vals.values, index=index)
     return out
+
+
+def btc_weekly_up(close: pd.Series) -> pd.Series:
+    """Bitcoin's weekly trend (ribbon blue and above its 40-week average), as a daily series that only changes after
+    a week closes, so nothing from the current week leaks in."""
+    import ia
+    w = close.resample("W-SUN").agg(["first", "max", "min", "last"]).dropna()
+    w.columns = ["open", "high", "low", "close"]
+    fast, slow = ia.ribbon(w)
+    up = ((fast > slow) & (w["close"] > w["close"].rolling(40, min_periods=40).mean())).where(fast.notna() & slow.notna())
+    return up.reindex(close.index, method="ffill").shift(1)
 
 
 def needs(asset: str) -> set[str]:

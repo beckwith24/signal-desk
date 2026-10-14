@@ -12,7 +12,7 @@ import requests
 log = logging.getLogger(__name__)
 
 DISCLAIMER = "Personal research tool only. Not financial advice. Signals can be wrong. Do your own research."
-ICONS = {"Strong Buy": "🟢🟢", "Buy": "🟢", "Watch ↑": "👀", "Hold": "⚪",
+ICONS = {"Panic Buy": "🟢🟢🟢", "Strong Buy": "🟢🟢", "Buy": "🟢", "Watch ↑": "👀", "Hold": "⚪",
          "Watch ↓": "👀", "Sell": "🔴", "Strong Sell": "🔴🔴"}
 
 

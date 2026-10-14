@@ -20,12 +20,13 @@ import models
 from signals import ACTION_RANK, ModelResult
 
 DEFAULT_SEGMENTS = {
-    "crypto-1d": {"models": ["tsmom28", "sma_ensemble", "donchian_ensemble", "btc_trend_gate"],
+    "crypto-1d": {"models": ["tsmom28", "sma_ensemble", "donchian_ensemble", "btc_trend_gate"], "gate": "btc_weekly_gate",
                   "buy": 0.5, "strong": 1.0, "sell": -0.5, "exit_alerts": True,
-                  "about": "Trend following: Buy when 3 of 4 trend models are bullish and none bearish"},
-    "stock-1d": {"models": ["rsi2_pullback", "ibs_reversal", "vix_backwardation"],
+                  "about": "Trend following: Buy when 3 of 4 trend models are bullish and none bearish; Strong Buy needs all 4 "
+                           "plus Bitcoin's weekly trend up"},
+    "stock-1d": {"models": ["rsi2_pullback", "ibs_reversal", "vix_backwardation"], "panic": "panic_dip",
                  "buy_count": 1, "strong_count": 2, "sell": None, "exit_alerts": False,
-                 "about": "Dip-buy entries in an uptrend (RSI(2), close near low, VIX panic)"},
+                 "about": "Dip-buy entries in an uptrend (RSI(2), close near low, VIX panic); Panic Buy = a deep dip during a VIX spike"},
     "crypto-4h": {"models": [], "about": "No tested edge on 4h crypto bars: charts and timing only"},
     "crypto-1h": {"models": [], "about": "No tested edge on 1h crypto bars: charts and timing only"},
     "stock-4h": {"models": [], "about": "No tested edge on 4h stock bars: charts and timing only"},
@@ -44,13 +45,15 @@ def evaluate(df: pd.DataFrame, cfg: dict, asset: str, tf: str, ctx: dict) -> dic
     sc = segment_config(cfg, seg)
     overrides = cfg.get("model_params", {})
     results: dict[str, ModelResult] = {}
-    for key in sc["models"]:
+    extra = [k for k in (sc.get("gate"), sc.get("panic")) if k]       # shown with the models, not part of the vote count
+    for key in sc["models"] + extra:
         m = models.MODELS[key]
         out = models.run(key, df, ctx, overrides)
         row = out.iloc[-1]
         results[key] = ModelResult(m.name, int(row["vote"]), round(float(row["strength"]), 2),
                                    m.describe(row, models.params(key, overrides)))
-    votes = np.array([r.vote for r in results.values()]) if results else np.array([0])
+    core = {k: r for k, r in results.items() if k in sc["models"]}
+    votes = np.array([r.vote for r in core.values()]) if core else np.array([0])
     bull, bear = int((votes > 0).sum()), int((votes < 0).sum())
     mean = float(votes.mean()) if results else 0.0
     score = int(round(50 + 50 * mean))
@@ -59,9 +62,14 @@ def evaluate(df: pd.DataFrame, cfg: dict, asset: str, tf: str, ctx: dict) -> dic
         action = "Hold"
     elif "buy_count" in sc:                              # entry-signal segments (stocks)
         action = "Strong Buy" if bull >= sc["strong_count"] else "Buy" if bull >= sc["buy_count"] else "Hold"
+        if sc.get("panic") and results[sc["panic"]].vote > 0:
+            action = "Panic Buy"
     else:                                                # trend segments (crypto)
-        if mean >= sc["strong"]:
+        gate_ok = not sc.get("gate") or results[sc["gate"]].vote > 0
+        if mean >= sc["strong"] and gate_ok:
             action = "Strong Buy"
+        elif mean >= sc["strong"]:
+            action = "Buy"
         elif mean > sc["buy"]:
             action = "Buy"
         elif sc.get("sell") is not None and mean <= -sc["strong"]:
