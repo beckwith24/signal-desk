@@ -181,24 +181,32 @@ def main() -> None:
     log.info("done")
 
 
-def _mean(xs):
+YAHOO_OTHER_COIN = {"JUP-USD", "MET-USD"}     # Yahoo's symbol is an older, different token than the one we track
+
+
+def _mean(xs):                              # medians: one runaway ticker shouldn't decide the summary
     xs = [x for x in xs if x is not None and not (isinstance(x, float) and math.isnan(x))]
-    return round(float(np.mean(xs)), 1) if xs else None
+    return round(float(np.median(xs)), 1) if xs else None
 
 
 def report(res: dict) -> str:
     A = res["assets"]
     L = [f"# Tuning the IA ATR Model per asset: does it hold up? ({res['generated']})", "",
          f"Settings picked on 2017–2022 (the demo's way: 80%+ wins, then highest ROI), then run on "
-         f"{res['split']} to now. Fills at next open, with costs. Our rebuild of the model, not IA's code.", ""]
+         f"{res['split']} to now. Fills at next open, with costs. Our rebuild of the model, not IA's code. "
+         f"Summary rows are medians across tickers. Left out: {', '.join(sorted(YAHOO_OTHER_COIN))} "
+         f"(Yahoo's symbol is a different, older coin).", ""]
     for asset in ("stock", "crypto"):
-        names = [t for t, a in A.items() if a["asset"] == asset]
+        names = [t for t, a in A.items() if a["asset"] == asset and t not in YAHOO_OTHER_COIN]
         picked = [t for t in names if A[t]["chosen"]]
         L += [f"## {asset.title()}s ({len(names)} tickers; {len(picked)} passed the 80%-win screen, "
               f"{len(names) - len(picked)} would be skipped)", ""]
         if picked:
             ch = [A[t]["chosen"] for t in picked]
-            L += ["| | Win % | ROI % | Worst drop % | Trades (sells) |", "|---|---|---|---|---|",
+            L += [f"Settings picked: 'sells only in profit' on {sum(c['settings'][3] for c in ch)} of {len(ch)}; "
+                  f"time invested after 2022: {_mean([c['oos']['invested_pct'] for c in ch])}%. Still holding a lot "
+                  f"down more than 25% today: {sum(c['oos']['worst_open_lot_pct'] < -25 for c in ch)} of {len(ch)}.", "",
+                  "| | Win % | ROI % | Worst drop % | Trades (sells) |", "|---|---|---|---|---|",
                   f"| Picked settings, 2017–2022 (in-sample) | {_mean([c['is']['win_pct'] for c in ch])} | "
                   f"{_mean([c['is']['roi_pct'] for c in ch])} | {_mean([c['is']['max_dd_pct'] for c in ch])} | "
                   f"{_mean([c['is']['sells'] for c in ch])} |",
@@ -221,7 +229,7 @@ def report(res: dict) -> str:
                   f"{_mean([c['oos']['hold_dd_pct'] for c in ch])} | – |", ""]
             beat = sum(c["oos"]["roi_pct"] > c["oos"]["hold_roi_pct"] for c in ch)
             L += [f"Picked settings beat holding on {beat} of {len(ch)} tickers after 2022. "
-                  f"Average rank correlation between in-sample and later ROI across all {len(GRID)} settings: "
+                  f"Typical rank correlation between in-sample and later ROI across all {len(GRID)} settings: "
                   f"{_mean([A[t]['rank_corr_is_oos'] for t in names])} (1 = the best in-sample stay best; 0 = no link).", ""]
         L += ["| Ticker | Picked settings | Win % then → after | ROI % then → after | Hold % after | Open lots / worst open lot % |",
               "|---|---|---|---|---|---|"]

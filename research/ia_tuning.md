@@ -1,19 +1,21 @@
 # Tuning the IA ATR Model per asset: does it hold up? (2026-10-14 00:43 UTC)
 
-Settings picked on 2017–2022 (the demo's way: 80%+ wins, then highest ROI), then run on 2023-01-01 to now. Fills at next open, with costs. Our rebuild of the model, not IA's code.
+Settings picked on 2017–2022 (the demo's way: 80%+ wins, then highest ROI), then run on 2023-01-01 to now. Fills at next open, with costs. Our rebuild of the model, not IA's code. Summary rows are medians across tickers. Left out: JUP-USD, MET-USD (Yahoo's symbol is a different, older coin).
 
 ## Stocks (29 tickers; 29 passed the 80%-win screen, 0 would be skipped)
 
+Settings picked: 'sells only in profit' on 29 of 29; time invested after 2022: 98.4%. Still holding a lot down more than 25% today: 3 of 29.
+
 | | Win % | ROI % | Worst drop % | Trades (sells) |
 |---|---|---|---|---|
-| Picked settings, 2017–2022 (in-sample) | 100.0 | 199.2 | -47.7 | 33.5 |
-| Same settings, 2023–now (unseen) | 100.0 | 214.2 | -39.2 | 22.4 |
-| Best in-sample ROI with normal sells, 2017–2022 | 74.8 | 134.6 | -29.5 | 32.7 |
-| Same, 2023–now (unseen) | 74.9 | 78.6 | -27.3 | 20.7 |
-| Default settings, 2023–now | 43.5 | 58.2 | -19.5 | 52.7 |
-| Just holding, 2023–now | – | 512.0 | -41.7 | – |
+| Picked settings, 2017–2022 (in-sample) | 100.0 | 190.6 | -49.0 | 35.0 |
+| Same settings, 2023–now (unseen) | 100.0 | 144.3 | -38.4 | 20.0 |
+| Best in-sample ROI with normal sells, 2017–2022 | 78.9 | 108.9 | -28.4 | 28.0 |
+| Same, 2023–now (unseen) | 83.3 | 66.6 | -26.5 | 15.0 |
+| Default settings, 2023–now | 42.9 | 40.3 | -19.2 | 52.0 |
+| Just holding, 2023–now | – | 293.2 | -36.9 | – |
 
-Picked settings beat holding on 1 of 29 tickers after 2022. Average rank correlation between in-sample and later ROI across all 32 settings: 0.5 (1 = the best in-sample stay best; 0 = no link).
+Picked settings beat holding on 1 of 29 tickers after 2022. Typical rank correlation between in-sample and later ROI across all 32 settings: 0.6 (1 = the best in-sample stay best; 0 = no link).
 
 | Ticker | Picked settings | Win % then → after | ROI % then → after | Hold % after | Open lots / worst open lot % |
 |---|---|---|---|---|---|
@@ -47,26 +49,26 @@ Picked settings beat holding on 1 of 29 tickers after 2022. Average rank correla
 | AMAT | trend, none noise, candles, sells only in profit | 100.0 → 100.0 | 184.0 → 261.0 | 430.3 | 2 / -28.6 |
 | TMO | trend, none noise, candles, sells only in profit | 100.0 → 100.0 | 223.3 → 22.4 | 21.1 | 1 / -3.1 |
 
-## Cryptos (10 tickers; 10 passed the 80%-win screen, 0 would be skipped)
+## Cryptos (8 tickers; 8 passed the 80%-win screen, 0 would be skipped)
+
+Settings picked: 'sells only in profit' on 8 of 8; time invested after 2022: 98.8%. Still holding a lot down more than 25% today: 7 of 8.
 
 | | Win % | ROI % | Worst drop % | Trades (sells) |
 |---|---|---|---|---|
-| Picked settings, 2017–2022 (in-sample) | 100.0 | 1205.8 | -84.5 | 12.1 |
-| Same settings, 2023–now (unseen) | 100.0 | 121304.1 | -72.0 | 9.1 |
-| Best in-sample ROI with normal sells, 2017–2022 | 49.7 | 14053.0 | -52.4 | 42.8 |
-| Same, 2023–now (unseen) | 43.9 | 482.4 | -56.9 | 32.2 |
-| Default settings, 2023–now | 32.1 | 5.8 | -52.0 | 64.0 |
-| Just holding, 2023–now | – | 98.0 | -78.3 | – |
+| Picked settings, 2017–2022 (in-sample) | 100.0 | 650.3 | -82.8 | 10.0 |
+| Same settings, 2023–now (unseen) | 100.0 | 62.9 | -71.9 | 6.5 |
+| Best in-sample ROI with normal sells, 2017–2022 | 45.8 | 489.4 | -44.0 | 36.5 |
+| Same, 2023–now (unseen) | 38.5 | 39.2 | -49.0 | 26.5 |
+| Default settings, 2023–now | 35.5 | 36.6 | -43.0 | 65.0 |
+| Just holding, 2023–now | – | 120.3 | -73.4 | – |
 
-Picked settings beat holding on 3 of 10 tickers after 2022. Average rank correlation between in-sample and later ROI across all 32 settings: 0.0 (1 = the best in-sample stay best; 0 = no link).
+Picked settings beat holding on 1 of 8 tickers after 2022. Typical rank correlation between in-sample and later ROI across all 32 settings: 0.2 (1 = the best in-sample stay best; 0 = no link).
 
 | Ticker | Picked settings | Win % then → after | ROI % then → after | Hold % after | Open lots / worst open lot % |
 |---|---|---|---|---|---|
 | BTC-USD | trend, none noise, candles, sells only in profit | 100.0 → 100.0 | 1621.9 → 247.9 | 402.5 | 2 / -27.6 |
 | ETH-USD | deviation, high noise, heikin-ashi, sells only in profit | 100.0 → 100.0 | 102.4 → 53.6 | 109.4 | 2 / -9.3 |
 | LINK-USD | trend, none noise, heikin-ashi, sells only in profit | 100.0 → 100.0 | 1310.6 → 72.2 | 131.2 | 2 / -55.7 |
-| JUP-USD | deviation, medium noise, candles, sells only in profit | 100.0 → 100.0 | 5259.2 → 1212411.1 | -93.9 | 0 / 0.0 |
-| MET-USD | deviation, none noise, heikin-ashi, sells only in profit | 100.0 → 100.0 | 14.6 → -24.7 | -43.1 | 2 / -59.3 |
 | XRP-USD | trend, high noise, heikin-ashi, sells only in profit | 100.0 → 100.0 | 68.0 → 135.9 | 305.9 | 2 / -58.3 |
 | ADA-USD | trend, high noise, heikin-ashi, sells only in profit | 100.0 → 100.0 | 117.7 → -28.4 | -4.4 | 2 / -79.0 |
 | DOGE-USD | trend, medium noise, candles, sells only in profit | 100.0 → 100.0 | 1182.9 → -3.9 | 21.0 | 2 / -80.1 |
