@@ -5,7 +5,7 @@ watchlist:
   stocks: [NVDA, AMD, AVGO, PLTR, TSLA, MRVL, MU, GOOGL, AAPL, MSFT, META, QQQ, SPY]
   crypto: [BTC-USD, ETH-USD, SOL-USD, LINK-USD, AVAX-USD]
 
-timeframes: ["1d", "1wk", "4h", "1h"]   # 1wk = long-term trend view (no signals). Turn each on/off from Telegram with /settings
+timeframes: ["1d", "1wk", "4h", "2h", "1h"]   # 1wk = long-term trend view (no signals). Turn each on/off from Telegram with /settings
 
 crypto:
   source: ccxt                  # ccxt (exchange data) or yfinance

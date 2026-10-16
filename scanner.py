@@ -5,6 +5,7 @@ import logging
 import time
 from datetime import datetime, timezone
 
+import confluence
 import context
 import engine
 import ia
@@ -18,7 +19,7 @@ from signals import evaluate, volume_note
 log = logging.getLogger(__name__)
 MIN_RANK = {"Watch": 1, "Buy": 2, "Strong Buy": 3, "Panic Buy": 4}
 _CTX: dict = {}      # asset -> (fetched_at, daily context series); refreshed every 30 minutes
-TF_NAMES = {"1d": "daily", "4h": "4-hour", "1h": "hourly", "1wk": "weekly"}
+TF_NAMES = {"1d": "daily", "4h": "4-hour", "2h": "2-hour", "1h": "hourly", "1wk": "weekly"}
 
 
 def daily_context(asset: str, cfg: dict) -> dict:
@@ -41,6 +42,11 @@ def scan_one(ticker: str, tf: str, cfg: dict) -> dict:
     else:
         res = evaluate(df, cfg)
     res["overlays"] = overlays.compute(df, cfg, ath_known)
+    if tf in ("1h", "2h", "4h"):
+        try:
+            res["conf"] = confluence.compute(df)
+        except Exception as e:
+            log.warning("%s %s confluence: %s", ticker, tf, e)
     res["asset"] = asset
     price, prev = float(df["close"].iat[-1]), float(df["close"].iat[-2])
     notes = []

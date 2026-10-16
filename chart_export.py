@@ -21,7 +21,7 @@ from data import is_crypto
 
 log = logging.getLogger(__name__)
 SITE_DIR = Path(os.environ.get("SIGNAL_DESK_SITE", Path(__file__).with_name("site")))
-BARS = {"1d": 250, "4h": 300, "1h": 300, "1wk": 200}
+BARS = {"1d": 250, "4h": 300, "2h": 300, "1h": 300, "1wk": 200}
 
 
 def file_id(ticker: str, tf: str) -> str:
@@ -62,6 +62,7 @@ def build_payload(res: dict, cfg: dict) -> dict:
         tier["price"] = _num(tier["price"], nd)
     lp["anchor"], lp["step"], lp["distance"] = _num(lp["anchor"], nd), _num(lp["step"], nd), round(lp["distance"], 2)
     iv = ov["ia"]
+    cf = res.get("conf")
     start = idx[0]
     ia_out = {
         "trend": iv["trend"], "stop_side": iv["stop_side"], "stop": _num(iv["stop_last"], nd),
@@ -115,7 +116,11 @@ def build_payload(res: dict, cfg: dict) -> dict:
             "ia_fast": series(iv["fast"]),
             "ia_slow": series(iv["slow"]),
             "ia_stop": series(iv["stop"]),
+            **({"conf_up": series(cf["up"]), "conf_lo": series(cf["lo"])} if cf else {}),
         },
+        "conf": ({"days": cf["days"], "width": cf["width"], "n": cf["n"], "bt": cf["bt"],
+                  "marks": [{"t": int(res["_df"].index[m["i"]].timestamp()), "side": m["side"]}
+                            for m in cf["marks"] if res["_df"].index[m["i"]] >= idx[0]]} if cf else None),
         "ia": ia_out,
         "risk": ov.get("risk"),
         "long_term": ov.get("long_term"),

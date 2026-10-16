@@ -15,7 +15,7 @@ DEFAULTS = {
                    "AAPL", "MSFT", "META", "QQQ", "SPY"],
         "crypto": ["BTC-USD", "ETH-USD", "SOL-USD", "LINK-USD", "AVAX-USD"],
     },
-    "timeframes": ["1d", "1wk", "4h", "1h"],
+    "timeframes": ["1d", "1wk", "4h", "2h", "1h"],
     # v2 = per-segment models from engine.py (crypto/stock x daily/4h/1h). v1 = the original five-model vote.
     "engine": "v2",
     # Optional per-segment overrides of engine.DEFAULT_SEGMENTS, e.g. {"stock-1d": {"strong_count": 3}}

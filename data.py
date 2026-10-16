@@ -42,6 +42,29 @@ def session_4h(df: pd.DataFrame) -> pd.DataFrame:
     return out
 
 
+def session_2h(df: pd.DataFrame) -> pd.DataFrame:
+    """2h bars for US stocks in regular hours, starting 09:30, 11:30, 13:30, 15:30 New York time."""
+    from datetime import time as _t
+
+    ny = df.tz_convert("America/New_York")
+    t = ny.index.time
+    ny = ny[(t >= _t(9, 30)) & (t < _t(16, 0))]
+    mins = (ny.index.hour * 60 + ny.index.minute - 570) // 120
+    start = ny.index.normalize() + pd.to_timedelta(570 + mins * 120, unit="m")
+    agg = {"open": "first", "high": "max", "low": "min", "close": "last", "volume": "sum"}
+    out = ny.groupby(start).agg(agg).dropna(subset=["close"])
+    out.index = pd.DatetimeIndex(out.index).tz_convert("UTC")
+    return out
+
+
+def _us_stock(ticker: str) -> bool:
+    return "." not in ticker and not ticker.upper().endswith(("-USD", "-USDT")) and not ticker.startswith("^")
+
+
+def to_2h(df: pd.DataFrame, ticker: str) -> pd.DataFrame:
+    return session_2h(df) if _us_stock(ticker) else _resample(df, "2h")
+
+
 def to_4h(df: pd.DataFrame, ticker: str) -> pd.DataFrame:
     """US stocks get session bars (like TradingView); everything else clock bins."""
     us_stock = "." not in ticker and not ticker.upper().endswith(("-USD", "-USDT")) and not ticker.startswith("^")
@@ -57,7 +80,7 @@ def fetch_yfinance(ticker: str, tf: str) -> pd.DataFrame:
 
     # yfinance has no 4h interval: pull 1h and resample.
     period, interval = {"1d": ("2y", "1d"), "1wk": ("5y", "1wk"),
-                        "1h": ("360d", "1h"), "4h": ("360d", "1h")}[tf]
+                        "1h": ("360d", "1h"), "2h": ("360d", "1h"), "4h": ("360d", "1h")}[tf]
     key = (ticker, period, interval)
     hit = _YF_CACHE.get(key)
     if hit and time.time() - hit[0] < _YF_TTL:
@@ -68,7 +91,11 @@ def fetch_yfinance(ticker: str, tf: str) -> pd.DataFrame:
             raise ValueError(f"yfinance returned no data for {ticker} {tf}")
         df = _normalize(df)
         _YF_CACHE[key] = (time.time(), df)
-    return to_4h(df, ticker) if tf == "4h" else df.copy()
+    if tf == "4h":
+        return to_4h(df, ticker)
+    if tf == "2h":
+        return to_2h(df, ticker)
+    return df.copy()
 
 
 def _exchange(name: str):
@@ -92,12 +119,13 @@ def _ccxt_symbol(ex, ticker: str, quote: str) -> str:
 def fetch_ccxt(ticker: str, tf: str, cfg: dict) -> pd.DataFrame:
     ex = _exchange(cfg["crypto"]["exchange"])
     sym = _ccxt_symbol(ex, ticker, cfg["crypto"]["quote"])
-    raw = ex.fetch_ohlcv(sym, timeframe={"1wk": "1w"}.get(tf, tf), limit=500)
+    raw = ex.fetch_ohlcv(sym, timeframe={"1wk": "1w", "2h": "1h"}.get(tf, tf), limit=720 if tf == "2h" else 500)
     if not raw:
         raise ValueError(f"{ex.id} returned no candles for {sym}")
     df = pd.DataFrame(raw, columns=["ts", "open", "high", "low", "close", "volume"])
     df.index = pd.to_datetime(df.pop("ts"), unit="ms", utc=True)
-    return _normalize(df)
+    df = _normalize(df)
+    return _resample(df, "2h") if tf == "2h" else df
 
 
 def fetch_ohlcv(ticker: str, tf: str, cfg: dict, retries: int = 2) -> pd.DataFrame:

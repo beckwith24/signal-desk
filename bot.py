@@ -29,7 +29,7 @@ from config import load_config
 from notify import ICONS
 
 log = logging.getLogger("bot")
-LABEL = {"1d": "Daily", "4h": "4-hour", "1h": "Hourly", "1wk": "Weekly"}
+LABEL = {"1d": "Daily", "4h": "4-hour", "2h": "2-hour", "1h": "Hourly", "1wk": "Weekly"}
 HELP = ("Signal Desk commands:\n"
         "/settings — turn timeframes on or off, change the alert level, pause alerts\n"
         "/signals — current Buy and Sell signals\n"

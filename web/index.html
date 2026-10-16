@@ -322,6 +322,13 @@ header.top .wrap { padding-block: 0; }
 .legend { display: flex; flex-wrap: wrap; gap: 6px; padding: 10px; border-top: 1px solid var(--line); }
 .legend .chip { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; padding: 4px 10px; }
 .sw { width: 12px; height: 3px; border-radius: 2px; display: inline-block; }
+.conf-bt { flex-basis: 100%; margin-top: 10px; padding: 10px 12px; border: 1px solid var(--line); border-radius: 10px; font-size: 13px; }
+.conf-h { font-weight: 600; margin-bottom: 6px; }
+.conf-grid { display: grid; grid-template-columns: 1fr auto; gap: 3px 12px; max-width: 320px; }
+.conf-grid .k { color: var(--muted); }
+.conf-grid .num { text-align: right; font-variant-numeric: tabular-nums; }
+.conf-grid .down { color: var(--down); }
+.conf-note { color: var(--muted); font-size: 12px; margin: 8px 0 0; }
 .hover { padding: 8px 12px 0; font-size: 12px; color: var(--muted); min-height: 26px; }
 .hover .num { color: var(--ink-strong); }
 .card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; }
@@ -741,7 +748,11 @@ h3.sec { font: 700 12px/1.2 var(--f-display); text-transform: uppercase; letter-
             always picks "only sell in profit". That keeps a 100% win rate, but from 2023 it made +144% vs +293% for
             just holding (median of 29 stocks), with the same drops. Losing positions aren't sold, they're held.</li>
           <li><strong>Confluence model</strong> (rebuilt from your UMAC chart: Bollinger-band re-entries): trailed
-            holding on stocks; on crypto its "only sell above cost" version left coins about 50% under cost.</li>
+            holding on stocks; on crypto its "only sell above cost" version left coins about 50% under cost.
+            It's on the 1H, 2H and 4H charts as "Confluence (rebuilt)" so you can compare it with his: an 8-day,
+            2σ Bollinger band (within ~0.2% of his lines on your AVGO 2h chart), "C buy / C sell" when price closes
+            back inside it (about 3 of his 8 AVGO triangles land within a few hours), and his results table with
+            the open position and plain holding added. Information only.</li>
           <li><strong>Ranking stocks by recent strength:</strong> about +3% a year, but not reliable (t 0.8).</li>
           <li><strong>Buying after strong earnings:</strong> too weak to use.</li>
           <li><strong>Sell-off → base → breakout → buy the pullback</strong> (Weinstein "Stage 2" / Wyckoff): about

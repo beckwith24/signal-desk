@@ -2,10 +2,10 @@
 if (window.top !== window.self) { document.documentElement.style.display = "none"; throw new Error("framed"); }
 (() => {
   "use strict";
-  const TF_LABEL = { "1d": "Daily", "4h": "4H", "1h": "1H", "1wk": "Weekly" };
+  const TF_LABEL = { "1d": "Daily", "4h": "4H", "2h": "2H", "1h": "1H", "1wk": "Weekly" };
   const LEVELS = { panic: (i) => i.rank >= 4, strong: (i) => i.rank === 3, buy: (i) => i.rank === 2, sell: (i) => i.rank <= -2, signals: (i) => i.rank !== 0, all: () => true };
   const OVERLAYS = [
-    ["ia", "IA view"], ["bands", "Bands"], ["layers", "ATR layers"], ["emas", "EMAs"], ["ma", "Long MA"], ["volume", "Volume"], ["markers", "Past signals"],
+    ["ia", "IA view"], ["bands", "Bands"], ["layers", "ATR layers"], ["emas", "EMAs"], ["ma", "Long MA"], ["volume", "Volume"], ["markers", "Past signals"], ["conf", "Confluence"],
   ];
   const store = {
     get(k, d, ver) { try { const v = localStorage.getItem("sd." + k + (ver ? "." + ver : "")); return v == null ? d : JSON.parse(v); } catch { return d; } },
@@ -16,7 +16,7 @@ if (window.top !== window.self) { document.documentElement.style.display = "none
     tf: store.get("tf", "1d"),
     view: "list",                       // list | signals: which list page is showing (or was, under a chart)
     level: "signals",                   // Signals page filter: signals | strong | buy | sell
-    overlays: Object.assign({ ia: true, bands: false, layers: true, emas: false, ma: false, volume: true, markers: true }, store.get("overlays", {}, "v2")),
+    overlays: Object.assign({ ia: true, bands: false, layers: true, emas: false, ma: false, volume: true, markers: true, conf: true }, store.get("overlays", {}, "v2")),
     detail: null, chart: null,
   };
   const LOC = (() => { try { const l = navigator.language || "en-US"; new Intl.NumberFormat(l); new Intl.DateTimeFormat(l); return l; } catch { return "en-US"; } })();
@@ -52,7 +52,7 @@ if (window.top !== window.self) { document.documentElement.style.display = "none
   // ---------------------------------------------------------------- controls
   function renderControls() {
     const seg = $("tfSeg"); seg.textContent = "";
-    const tfs = state.index ? state.index.timeframes : ["1d", "4h", "1h"];
+    const tfs = state.index ? state.index.timeframes : ["1d", "4h", "2h", "1h"];
     if (!state.detail) state.tf = "1d";                 // the lists are daily only
     if (!tfs.includes(state.tf)) state.tf = tfs[0];
     $("controls").hidden = !state.detail;
@@ -514,6 +514,28 @@ if (window.top !== window.self) { document.documentElement.style.display = "none
   }
 
   // ---------------------------------------------------------------- chart
+  // "Confluence (rebuilt)" results, laid out like his Conf-BT table, plus what his table leaves out.
+  function confTable(cf) {
+    const b = cf.bt, money = (x) => "$" + Math.round(x).toLocaleString(LOC);
+    const box = el("div", "conf-bt");
+    box.append(el("div", "conf-h", "Confluence (rebuilt) · since " + b.since));
+    const rows = [["Profit (closed)", money(b.profit)], ["ROI (closed)", b.roi_pct.toFixed(2) + "%"],
+      ["Win %", b.win_pct == null ? "–" : b.win_pct.toFixed(0) + "%"], ["Buys", b.buys], ["Sells", b.sells],
+      ["Open", money(b.open)], ["Capital", money(b.capital)], ["Total", money(b.total)],
+      ["Total return", (b.total_pct >= 0 ? "+" : "") + b.total_pct + "%"],
+      ["Open vs cost", b.open_vs_cost_pct == null ? "–" : (b.open_vs_cost_pct >= 0 ? "+" : "") + b.open_vs_cost_pct + "%"],
+      ["Just holding", (b.hold_pct >= 0 ? "+" : "") + b.hold_pct + "%"]];
+    const g = el("div", "conf-grid");
+    for (const [k, v] of rows) {
+      const cls = (k === "Open vs cost" && b.open_vs_cost_pct < 0) || (k === "Total return" && b.total_pct < b.hold_pct) ? "num down" : "num";
+      g.append(el("span", "k", k), el("span", cls, String(v)));
+    }
+    box.append(g, el("p", "conf-note",
+      "His rules: $100k, each buy spends half the cash, each sell sells half and only above the average cost, so every " +
+      "closed trade wins. Band: " + cf.days + "-day Bollinger, " + cf.width + "σ. Info only; no alerts or auto-trades."));
+    return box;
+  }
+
   function drawChart() {
     const d = state.detail; if (!d || !d.t) return;
     const box = $("chart");
@@ -594,7 +616,18 @@ if (window.top !== window.self) { document.documentElement.style.display = "none
           axisLabelVisible: Math.abs(n) <= 2, title: "L" + (n > 0 ? "+" : "") + n });
       }
     }
+    const CONF_GREY = "#7C8091";
+    const confOn = ov.conf && d.conf && d.ov.conf_up;
+    if (confOn) { line("conf_up", CONF_GREY, 1); line("conf_lo", CONF_GREY, 1); }
     const marks = []; const times = bars.map((b) => b.time);
+    if (confOn) {
+      for (const m of d.conf.marks || []) {
+        if (m.t < times[0]) continue;
+        const buy = m.side === "buy";
+        marks.push({ time: m.t, position: buy ? "belowBar" : "aboveBar", color: buy ? "#2FA36B" : "#D2455E",
+                     shape: buy ? "arrowUp" : "arrowDown", text: buy ? "C buy" : "C sell" });
+      }
+    }
     if (ov.ia && d.ia && d.ia.flips) {
       for (const fl of d.ia.flips) {
         if (fl.t < times[0]) continue;
@@ -617,15 +650,17 @@ if (window.top !== window.self) { document.documentElement.style.display = "none
     marks.sort((a, b) => a.time - b.time);
     if (marks.length) candles.setMarkers(marks);
     // legend / overlay toggles
-    const swatch = { ia: IA_BLUE, bands: C.accent, layers: C.up, emas: C.watch, ma: C.muted, volume: C.faint, markers: C.down };
-    const labelFor = { ia: "IA ribbon · ATR buy/sell · levels", bands: "Bands (2σ)", layers: "ATR layers", emas: d.labels.ema_fast + " / " + d.labels.ema_slow.replace("EMA ", ""), ma: d.labels.ma_long, volume: "Volume", markers: "Past signals" };
+    const swatch = { conf: CONF_GREY, ia: IA_BLUE, bands: C.accent, layers: C.up, emas: C.watch, ma: C.muted, volume: C.faint, markers: C.down };
+    const labelFor = { ia: "IA ribbon · ATR buy/sell · levels", bands: "Bands (2σ)", layers: "ATR layers", emas: d.labels.ema_fast + " / " + d.labels.ema_slow.replace("EMA ", ""), ma: d.labels.ma_long, volume: "Volume", markers: "Past signals", conf: "Confluence (rebuilt)" };
     for (const [k] of OVERLAYS) {
+      if (k === "conf" && !d.conf) continue;
       const b = el("button", "chip"); b.type = "button"; b.setAttribute("aria-pressed", String(!!ov[k]));
       const sw = el("span", "sw"); sw.style.background = swatch[k];
       b.append(sw, labelFor[k]);
       b.onclick = () => { ov[k] = !ov[k]; store.set("overlays", ov, "v2"); drawChart(); };
       legend.append(b);
     }
+    if (confOn) legend.append(confTable(d.conf));
     // touch readout
     const hover = $("hover");
     const byTime = new Map(bars.map((b) => [b.time, b]));
@@ -697,7 +732,7 @@ if (window.top !== window.self) { document.documentElement.style.display = "none
 
   function normalize(s) {
     const idx = state.index || {};
-    const tfs = idx.timeframes || ["1d", "4h", "1h"];
+    const tfs = idx.timeframes || ["1d", "4h", "2h", "1h"];
     s.timeframes = Object.assign(Object.fromEntries(tfs.map((t) => [t, true])), s.timeframes || {});
     if (!["Watch", "Buy", "Strong Buy"].includes(s.min_action)) s.min_action = "Buy";
     if (typeof s.ladder !== "boolean") s.ladder = true;
@@ -887,7 +922,7 @@ if (window.top !== window.self) { document.documentElement.style.display = "none
     const h = decodeURIComponent(location.hash.slice(1));
     if (h === "settings") { openSettings(); return; }
     if (h === "info") { openPage("info"); return; }
-    const m = h.match(/^(.+)_(1d|4h|1h|1wk)$/);
+    const m = h.match(/^(.+)_(1d|4h|2h|1h|1wk)$/);
     if (m) { openDetail(m[1], m[2], false); return; }
     showList(h === "signals" ? "signals" : "list");
   }
