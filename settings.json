@@ -3,6 +3,7 @@
     "1d": true,
     "1wk": true,
     "4h": true,
+    "2h": true,
     "1h": true
   },
   "paused": false,
