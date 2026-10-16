@@ -45,15 +45,15 @@ def per_day(df: pd.DataFrame) -> float:
 
 
 def at(series: pd.Series, times: pd.DatetimeIndex) -> np.ndarray:
-    s = series.copy(); s.index = s.index.tz_convert("UTC")
-    return s.asof(times).to_numpy(float)
+    s = series.copy(); s.index = s.index.tz_convert("UTC").as_unit("ns")
+    return s.asof(pd.DatetimeIndex(times).round("s").as_unit("ns")).to_numpy(float)
 
 
 def main() -> None:
     tgt = json.loads((ROOT / "research/ia_targets/avgo_conf.json").read_text())
     up = pd.DataFrame(tgt["upper"]); lo = pd.DataFrame(tgt["lower"]); ln = pd.DataFrame(tgt["line"])
     for d in (up, lo, ln):
-        d["time"] = pd.to_datetime(d["time"], utc=True, format="ISO8601")
+        d["time"] = pd.to_datetime(d["time"], utc=True, format="ISO8601").dt.round("s")
     L = ["# Confluence rebuild vs the AVGO 2h screenshot", "",
          "Screenshot: 24x5 session (overnight included); Yahoo has no overnight bars, so these are the closest sets.", ""]
     best_all = []
