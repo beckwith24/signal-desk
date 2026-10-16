@@ -542,7 +542,9 @@ h3.sec { font: 700 12px/1.2 var(--f-display); text-transform: uppercase; letter-
         <p id="tfNote">Stocks: Buy = 1 of 3 dip signals, Strong Buy = 2 or more, Panic Buy = a deep dip (RSI(2) under 5) in an
           uptrend while the VIX is spiking: rare, and the best-tested setup (+2% over 5 days, 70% winners since 2021).
           Crypto: Buy = 3 of 4 trend signals with none against, Strong Buy = all 4 plus Bitcoin's weekly trend up.
-          Alerts go out for Strong Buys and Panic Buys.</p>
+          Stock Sell = the exit after a Strong/Panic Buy (a close above the 5-day average, or 20 days; always alerted) or a
+          short-term overbought top (shown, not alerted).
+          Alerts go out for Strong Buys, Panic Buys and their exits.</p>
       </details>
     </div>
     <form class="addrow" id="addForm" hidden autocomplete="off">
@@ -630,8 +632,14 @@ h3.sec { font: 700 12px/1.2 var(--f-display); text-transform: uppercase; letter-
             sell-offs. It applies to every stock at once.</dd>
         </dl>
         <p class="rule"><b>Buy</b> = 1 of 3 · <b>Strong Buy</b> = 2 or 3 · <b>Panic Buy</b> = the 2-day RSI is under 5, the
-          stock is above its 200-day average, and the VIX is above its 3-month version (a market-wide scare). These models
-          only say when to buy, so stocks never show Sell.</p>
+          stock is above its 200-day average, and the VIX is above its 3-month version (a market-wide scare).<br>
+          <b>Sell</b> appears two ways. <b>Exit:</b> after a Strong Buy or Panic Buy, the first close above the 5-day
+          average (or 20 trading days, whichever comes first); this is the exit the backtests used, and the auto-trader
+          sells on the same rule. <b>Overbought:</b> no buy needed; the 2-day RSI is over 90 and the stock closed at the top
+          of its day. Of 7 sell rules tested (research/sell.md) it was the only one still working after 2021, and only
+          mildly (the next 5 days ran about 0.2% below normal), so read it as "trim or don't chase". Trend breaks such as
+          falling under the 200-day average didn't predict lower returns; sitting them out halved the worst drop but cut
+          returns by about a third, so they're shown as the weekly trend, not as Sell.</p>
       </section>
       <section class="card">
         <h3 class="sec">Crypto: ride the trend</h3>

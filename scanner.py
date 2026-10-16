@@ -71,6 +71,10 @@ def should_alert(res: dict, prev: dict | None, cfg: dict) -> bool:
     doesn't alert again within REPEAT_HOURS.
     """
     n = cfg["notifications"]
+    if res.get("exit_trade"):                  # the tested exit of a stock dip-buy trade always alerts once
+        if prev is not None and prev["action"] == res["action"]:
+            return False
+        return not storage.recently_notified(res["ticker"], res["timeframe"], res["action"], REPEAT_HOURS)
     min_rank = MIN_RANK.get(n["min_action"], 2)
     rank = res["rank"]
     if abs(rank) < min_rank:
