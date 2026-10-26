@@ -295,6 +295,32 @@ So the IA view is for reading the chart the way you're used to. Alerts still com
 
 ---
 
+## Auto-trading (Alpaca paper account)
+
+`trader.py` (rules in `strategy.py`) runs from `.github/workflows/trade.yml`:
+
+| Part | Rule | Why |
+|---|---|---|
+| **80% SPY** | Held. Rebalanced when it drifts more than 5% of the account from target. | Holding beat every stock-timing rule tested (`research/portfolio.md`, `research/weekly.md`). |
+| **20% crypto** | BTC, ETH, SOL, LINK, AVAX, 4% slot each. Buy 1/3 when the crypto trend rule (3 of 4 votes) turns on, add 1/3 each time it closes 1 ATR above the last add, sell all when it turns off. Unused slots stay in cash. | Trend rule: worst drop about half of holding's. Pyramid entries were the only layering that helped in both periods (`research/active.md`). |
+
+Backtest 2021 → Oct 2026 (next-day fills, costs in): about 24%/yr, Sharpe 1.38, worst drop −23%, vs SPY alone
+15%/yr, 0.93, −24.5%. Before 2021: Sharpe 1.61 vs 0.74. Expect live results to be lower than any backtest.
+
+Tested and **not** used: day trading (hourly rules lose after 3 bp costs; most stock gains come overnight),
+averaging down, selling into strength, pair switching and long/short pairs (none beat simply holding both),
+and the old dip-buying rule (good trades, but the money sat in cash ~85% of the time).
+
+How it runs: every day at 00:35 UTC (crypto) and at 9:50 ET on weekdays (crypto + SPY). Each run rebuilds the
+targets from completed daily bars, compares them with the account, and trades only the difference, so extra
+runs never double up. Sells first; buys use cash only (never margin); no new buys after a 3% down day; symbols
+with an open order are skipped. Positions left by the old dip strategy are closed with its old exit rule.
+`test_trader.py` runs before every trade and stops the run if the live rules stop matching the backtest.
+
+Manual runs: **Actions → Auto-trade → Run workflow**, mode `dry-run` to see the plan in Telegram without trading.
+
+---
+
 ## Notes and limits
 
 - **Data:** yfinance is unofficial and occasionally rate-limits or breaks; the app retries and shows any failed
