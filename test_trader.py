@@ -186,6 +186,14 @@ def test_dry_run_places_nothing(monkeypatch):
     assert "Dry run" in sent[0] and "SPY is only traded" in sent[0]
 
 
+def test_public_logs_hide_account_numbers():
+    msg = ("🟢 Buy SPY $8,000.00 (core)\n🔴 Sell BTC/USD 0.00123 units (trend on, 1/3 layers)\n"
+           "🔴 Sell ETH/USD 1.2e-05 units (x)\nAccount $10,234.56 (-1.4% today)")
+    out = T.redact(msg)
+    assert "8,000" not in out and "10,234" not in out and "0.00123" not in out and "1.2e-05" not in out
+    assert "1.4%" not in out and "SPY" in out and "1/3 layers" in out
+
+
 if __name__ == "__main__":
     import sys
 

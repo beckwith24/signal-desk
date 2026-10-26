@@ -32,6 +32,7 @@ import argparse
 import logging
 import math
 import os
+import re
 
 import pandas as pd
 import requests
@@ -78,9 +79,16 @@ class Alpaca:
         return self.req("GET", path, **kw)
 
 
+def redact(text: str) -> str:
+    """Public repo = public Actions logs: strip dollar amounts, unit counts and account % before printing."""
+    text = re.sub(r"\$[\d,]+(\.\d+)?", "$•••", text)
+    text = re.sub(r"[\d.]+(e-?\d+)? units", "••• units", text)
+    return re.sub(r"[+-]?[\d.]+% today", "•••% today", text)
+
+
 def telegram(text: str) -> None:
     tok, chat = os.environ.get("TELEGRAM_BOT_TOKEN"), os.environ.get("TELEGRAM_CHAT_ID")
-    print(text)
+    print(redact(text) if os.environ.get("GITHUB_ACTIONS") else text)
     if tok and chat:
         try:
             requests.post(f"https://api.telegram.org/bot{tok}/sendMessage",
