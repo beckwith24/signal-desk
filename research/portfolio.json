@@ -1,0 +1,772 @@
+{
+ "stocks": [
+  {
+   "name": "Stocks: hold basket (equal weight)",
+   "train": {
+    "cagr": 42.9,
+    "vol": 31.4,
+    "sharpe": 1.3,
+    "max_dd": -35.1,
+    "calmar": 1.22,
+    "invested": 100.0
+   },
+   "test": {
+    "cagr": 38.1,
+    "vol": 31.2,
+    "sharpe": 1.19,
+    "max_dd": -46.6,
+    "calmar": 0.82,
+    "invested": 100.0
+   },
+   "all": {
+    "cagr": 39.8,
+    "vol": 31.2,
+    "sharpe": 1.23,
+    "max_dd": -46.6,
+    "calmar": 0.85,
+    "invested": 100.0
+   }
+  },
+  {
+   "name": "Stocks: basket, cash when SPY < 200-day",
+   "train": {
+    "cagr": 26.2,
+    "vol": 23.1,
+    "sharpe": 1.12,
+    "max_dd": -26.1,
+    "calmar": 1.0,
+    "invested": 82.0
+   },
+   "test": {
+    "cagr": 24.6,
+    "vol": 25.0,
+    "sharpe": 1.01,
+    "max_dd": -41.6,
+    "calmar": 0.59,
+    "invested": 81.0
+   },
+   "all": {
+    "cagr": 25.2,
+    "vol": 24.3,
+    "sharpe": 1.05,
+    "max_dd": -41.6,
+    "calmar": 0.61,
+    "invested": 81.0
+   }
+  },
+  {
+   "name": "Stocks: top third by 6-month strength",
+   "train": {
+    "cagr": 75.5,
+    "vol": 39.5,
+    "sharpe": 1.62,
+    "max_dd": -39.6,
+    "calmar": 1.91,
+    "invested": 100.0
+   },
+   "test": {
+    "cagr": 52.2,
+    "vol": 41.1,
+    "sharpe": 1.23,
+    "max_dd": -53.3,
+    "calmar": 0.98,
+    "invested": 100.0
+   },
+   "all": {
+    "cagr": 59.3,
+    "vol": 40.6,
+    "sharpe": 1.35,
+    "max_dd": -53.3,
+    "calmar": 1.11,
+    "invested": 100.0
+   }
+  },
+  {
+   "name": "Stocks: basket, inverse-volatility weights",
+   "train": {
+    "cagr": 37.3,
+    "vol": 29.5,
+    "sharpe": 1.23,
+    "max_dd": -32.2,
+    "calmar": 1.16,
+    "invested": 100.0
+   },
+   "test": {
+    "cagr": 30.8,
+    "vol": 26.5,
+    "sharpe": 1.15,
+    "max_dd": -42.3,
+    "calmar": 0.73,
+    "invested": 100.0
+   },
+   "all": {
+    "cagr": 33.0,
+    "vol": 27.5,
+    "sharpe": 1.17,
+    "max_dd": -42.3,
+    "calmar": 0.78,
+    "invested": 100.0
+   }
+  },
+  {
+   "name": "Bot today: buy dips (RSI2 proxy), 10% slots",
+   "train": {
+    "cagr": -0.9,
+    "vol": 11.5,
+    "sharpe": -0.02,
+    "max_dd": -15.1,
+    "calmar": -0.06,
+    "invested": 13.0
+   },
+   "test": {
+    "cagr": 11.1,
+    "vol": 10.3,
+    "sharpe": 1.08,
+    "max_dd": -11.6,
+    "calmar": 0.96,
+    "invested": 15.0
+   },
+   "all": {
+    "cagr": 7.4,
+    "vol": 10.6,
+    "sharpe": 0.73,
+    "max_dd": -15.1,
+    "calmar": 0.49,
+    "invested": 14.0
+   }
+  },
+  {
+   "name": "Stocks: hold SPY",
+   "train": {
+    "cagr": 14.8,
+    "vol": 22.1,
+    "sharpe": 0.74,
+    "max_dd": -33.7,
+    "calmar": 0.44,
+    "invested": 100.0
+   },
+   "test": {
+    "cagr": 15.1,
+    "vol": 16.6,
+    "sharpe": 0.93,
+    "max_dd": -24.5,
+    "calmar": 0.62,
+    "invested": 100.0
+   },
+   "all": {
+    "cagr": 15.0,
+    "vol": 18.8,
+    "sharpe": 0.84,
+    "max_dd": -33.7,
+    "calmar": 0.45,
+    "invested": 100.0
+   }
+  }
+ ],
+ "crypto": [
+  {
+   "name": "Crypto: hold all 5 (equal weight)",
+   "train": {
+    "cagr": 146.5,
+    "vol": 89.5,
+    "sharpe": 1.46,
+    "max_dd": -83.9,
+    "calmar": 1.75,
+    "invested": 100.0
+   },
+   "test": {
+    "cagr": 45.4,
+    "vol": 76.4,
+    "sharpe": 0.88,
+    "max_dd": -84.8,
+    "calmar": 0.54,
+    "invested": 100.0
+   },
+   "all": {
+    "cagr": 77.6,
+    "vol": 81.6,
+    "sharpe": 1.12,
+    "max_dd": -84.8,
+    "calmar": 0.92,
+    "invested": 100.0
+   }
+  },
+  {
+   "name": "Crypto: hold Bitcoin only",
+   "train": {
+    "cagr": 95.9,
+    "vol": 80.7,
+    "sharpe": 1.24,
+    "max_dd": -83.4,
+    "calmar": 1.15,
+    "invested": 100.0
+   },
+   "test": {
+    "cagr": 19.8,
+    "vol": 56.9,
+    "sharpe": 0.6,
+    "max_dd": -76.6,
+    "calmar": 0.26,
+    "invested": 100.0
+   },
+   "all": {
+    "cagr": 44.4,
+    "vol": 66.9,
+    "sharpe": 0.89,
+    "max_dd": -83.4,
+    "calmar": 0.53,
+    "invested": 100.0
+   }
+  },
+  {
+   "name": "Crypto: trend rule (3 of 4)",
+   "train": {
+    "cagr": 157.0,
+    "vol": 56.7,
+    "sharpe": 1.94,
+    "max_dd": -48.8,
+    "calmar": 3.22,
+    "invested": 43.0
+   },
+   "test": {
+    "cagr": 51.8,
+    "vol": 40.9,
+    "sharpe": 1.23,
+    "max_dd": -52.8,
+    "calmar": 0.98,
+    "invested": 39.0
+   },
+   "all": {
+    "cagr": 84.5,
+    "vol": 47.4,
+    "sharpe": 1.53,
+    "max_dd": -52.8,
+    "calmar": 1.6,
+    "invested": 40.0
+   }
+  },
+  {
+   "name": "Crypto: trend rule + BTC weekly up",
+   "train": {
+    "cagr": 118.0,
+    "vol": 52.8,
+    "sharpe": 1.73,
+    "max_dd": -37.2,
+    "calmar": 3.17,
+    "invested": 31.0
+   },
+   "test": {
+    "cagr": 49.4,
+    "vol": 38.1,
+    "sharpe": 1.25,
+    "max_dd": -38.7,
+    "calmar": 1.28,
+    "invested": 32.0
+   },
+   "all": {
+    "cagr": 70.7,
+    "vol": 43.8,
+    "sharpe": 1.44,
+    "max_dd": -38.7,
+    "calmar": 1.83,
+    "invested": 32.0
+   }
+  }
+ ],
+ "portfolio": [
+  {
+   "name": "Hold SPY only",
+   "train": {
+    "cagr": 14.8,
+    "vol": 22.1,
+    "sharpe": 0.74,
+    "max_dd": -33.7,
+    "calmar": 0.44,
+    "invested": 100.0
+   },
+   "test": {
+    "cagr": 15.0,
+    "vol": 16.6,
+    "sharpe": 0.93,
+    "max_dd": -24.5,
+    "calmar": 0.61,
+    "invested": 100.0
+   },
+   "all": {
+    "cagr": 14.9,
+    "vol": 18.7,
+    "sharpe": 0.84,
+    "max_dd": -33.7,
+    "calmar": 0.44,
+    "invested": 100.0
+   }
+  },
+  {
+   "name": "SPY-based: 80% SPY / 20% crypto held",
+   "train": {
+    "cagr": 41.0,
+    "vol": 28.1,
+    "sharpe": 1.36,
+    "max_dd": -36.3,
+    "calmar": 1.13,
+    "invested": 100.0
+   },
+   "test": {
+    "cagr": 26.8,
+    "vol": 23.8,
+    "sharpe": 1.12,
+    "max_dd": -38.3,
+    "calmar": 0.7,
+    "invested": 100.0
+   },
+   "all": {
+    "cagr": 31.7,
+    "vol": 25.5,
+    "sharpe": 1.21,
+    "max_dd": -38.3,
+    "calmar": 0.83,
+    "invested": 100.0
+   }
+  },
+  {
+   "name": "SPY-based: 80% SPY / 20% crypto trend",
+   "train": {
+    "cagr": 34.1,
+    "vol": 21.8,
+    "sharpe": 1.46,
+    "max_dd": -29.9,
+    "calmar": 1.14,
+    "invested": 86.0
+   },
+   "test": {
+    "cagr": 23.0,
+    "vol": 16.6,
+    "sharpe": 1.33,
+    "max_dd": -21.6,
+    "calmar": 1.07,
+    "invested": 86.0
+   },
+   "all": {
+    "cagr": 26.9,
+    "vol": 18.6,
+    "sharpe": 1.37,
+    "max_dd": -29.9,
+    "calmar": 0.9,
+    "invested": 86.0
+   }
+  },
+  {
+   "name": "SPY-based: same, 12% vol target",
+   "train": {
+    "cagr": 24.6,
+    "vol": 12.5,
+    "sharpe": 1.83,
+    "max_dd": -15.5,
+    "calmar": 1.59
+   },
+   "test": {
+    "cagr": 16.4,
+    "vol": 12.3,
+    "sharpe": 1.3,
+    "max_dd": -16.2,
+    "calmar": 1.02
+   },
+   "all": {
+    "cagr": 19.3,
+    "vol": 12.4,
+    "sharpe": 1.49,
+    "max_dd": -16.2,
+    "calmar": 1.19
+   }
+  },
+  {
+   "name": "Hold: 80% stock basket / 20% crypto",
+   "train": {
+    "cagr": 67.2,
+    "vol": 33.9,
+    "sharpe": 1.69,
+    "max_dd": -38.3,
+    "calmar": 1.75,
+    "invested": 99.0
+   },
+   "test": {
+    "cagr": 46.2,
+    "vol": 33.8,
+    "sharpe": 1.29,
+    "max_dd": -55.3,
+    "calmar": 0.84,
+    "invested": 100.0
+   },
+   "all": {
+    "cagr": 53.4,
+    "vol": 33.8,
+    "sharpe": 1.44,
+    "max_dd": -55.3,
+    "calmar": 0.97,
+    "invested": 100.0
+   }
+  },
+  {
+   "name": "Bot today (dips only, no crypto)",
+   "train": {
+    "cagr": -0.9,
+    "vol": 11.5,
+    "sharpe": -0.02,
+    "max_dd": -15.1,
+    "calmar": -0.06,
+    "invested": 13.0
+   },
+   "test": {
+    "cagr": 11.1,
+    "vol": 10.3,
+    "sharpe": 1.07,
+    "max_dd": -11.6,
+    "calmar": 0.96,
+    "invested": 15.0
+   },
+   "all": {
+    "cagr": 7.4,
+    "vol": 10.6,
+    "sharpe": 0.72,
+    "max_dd": -15.1,
+    "calmar": 0.49,
+    "invested": 14.0
+   }
+  },
+  {
+   "name": "NEW: 80% stocks (basket) / 20% crypto trend",
+   "train": {
+    "cagr": 60.4,
+    "vol": 28.4,
+    "sharpe": 1.81,
+    "max_dd": -30.2,
+    "calmar": 2.0,
+    "invested": 86.0
+   },
+   "test": {
+    "cagr": 42.7,
+    "vol": 27.3,
+    "sharpe": 1.44,
+    "max_dd": -41.8,
+    "calmar": 1.02,
+    "invested": 86.0
+   },
+   "all": {
+    "cagr": 48.7,
+    "vol": 27.6,
+    "sharpe": 1.58,
+    "max_dd": -41.8,
+    "calmar": 1.17,
+    "invested": 86.0
+   }
+  },
+  {
+   "name": "NEW: 80% stocks (top-third strength) / 20% crypto trend",
+   "train": {
+    "cagr": 77.0,
+    "vol": 31.9,
+    "sharpe": 1.95,
+    "max_dd": -34.1,
+    "calmar": 2.26,
+    "invested": 74.0
+   },
+   "test": {
+    "cagr": 54.8,
+    "vol": 34.6,
+    "sharpe": 1.44,
+    "max_dd": -47.7,
+    "calmar": 1.15,
+    "invested": 86.0
+   },
+   "all": {
+    "cagr": 62.3,
+    "vol": 33.7,
+    "sharpe": 1.61,
+    "max_dd": -47.7,
+    "calmar": 1.3,
+    "invested": 82.0
+   }
+  },
+  {
+   "name": "NEW: 80% stocks (basket + SPY filter) / 20% crypto trend",
+   "train": {
+    "cagr": 45.5,
+    "vol": 23.0,
+    "sharpe": 1.75,
+    "max_dd": -20.8,
+    "calmar": 2.19,
+    "invested": 72.0
+   },
+   "test": {
+    "cagr": 31.3,
+    "vol": 22.6,
+    "sharpe": 1.32,
+    "max_dd": -38.2,
+    "calmar": 0.82,
+    "invested": 71.0
+   },
+   "all": {
+    "cagr": 36.2,
+    "vol": 22.8,
+    "sharpe": 1.47,
+    "max_dd": -38.2,
+    "calmar": 0.95,
+    "invested": 71.0
+   }
+  },
+  {
+   "name": "NEW + 15% vol target",
+   "train": {
+    "cagr": 47.4,
+    "vol": 16.4,
+    "sharpe": 2.45,
+    "max_dd": -19.5,
+    "calmar": 2.43
+   },
+   "test": {
+    "cagr": 27.6,
+    "vol": 16.2,
+    "sharpe": 1.59,
+    "max_dd": -25.1,
+    "calmar": 1.1
+   },
+   "all": {
+    "cagr": 34.3,
+    "vol": 16.3,
+    "sharpe": 1.89,
+    "max_dd": -25.1,
+    "calmar": 1.37
+   }
+  }
+ ],
+ "robust": [
+  {
+   "tsmom": 14,
+   "btc_sma": 30,
+   "cost_bp": 30,
+   "lag": 2,
+   "cagr": 27.2,
+   "vol": 34.5,
+   "sharpe": 0.87,
+   "max_dd": -41.1,
+   "calmar": 0.66,
+   "invested": 27.0
+  },
+  {
+   "tsmom": 14,
+   "btc_sma": 50,
+   "cost_bp": 30,
+   "lag": 2,
+   "cagr": 35.0,
+   "vol": 35.5,
+   "sharpe": 1.02,
+   "max_dd": -37.4,
+   "calmar": 0.94,
+   "invested": 29.0
+  },
+  {
+   "tsmom": 14,
+   "btc_sma": 100,
+   "cost_bp": 30,
+   "lag": 2,
+   "cagr": 42.3,
+   "vol": 36.1,
+   "sharpe": 1.16,
+   "max_dd": -33.5,
+   "calmar": 1.26,
+   "invested": 30.0
+  },
+  {
+   "tsmom": 21,
+   "btc_sma": 30,
+   "cost_bp": 30,
+   "lag": 2,
+   "cagr": 34.9,
+   "vol": 35.7,
+   "sharpe": 1.02,
+   "max_dd": -38.7,
+   "calmar": 0.9,
+   "invested": 28.0
+  },
+  {
+   "tsmom": 21,
+   "btc_sma": 50,
+   "cost_bp": 30,
+   "lag": 2,
+   "cagr": 45.1,
+   "vol": 37.0,
+   "sharpe": 1.19,
+   "max_dd": -37.3,
+   "calmar": 1.21,
+   "invested": 30.0
+  },
+  {
+   "tsmom": 21,
+   "btc_sma": 100,
+   "cost_bp": 30,
+   "lag": 2,
+   "cagr": 55.6,
+   "vol": 37.8,
+   "sharpe": 1.36,
+   "max_dd": -36.0,
+   "calmar": 1.54,
+   "invested": 32.0
+  },
+  {
+   "tsmom": 28,
+   "btc_sma": 30,
+   "cost_bp": 30,
+   "lag": 2,
+   "cagr": 34.3,
+   "vol": 36.2,
+   "sharpe": 1.0,
+   "max_dd": -40.8,
+   "calmar": 0.84,
+   "invested": 29.0
+  },
+  {
+   "tsmom": 28,
+   "btc_sma": 50,
+   "cost_bp": 30,
+   "lag": 2,
+   "cagr": 49.4,
+   "vol": 38.1,
+   "sharpe": 1.25,
+   "max_dd": -38.7,
+   "calmar": 1.28,
+   "invested": 32.0
+  },
+  {
+   "tsmom": 28,
+   "btc_sma": 100,
+   "cost_bp": 30,
+   "lag": 2,
+   "cagr": 61.1,
+   "vol": 38.7,
+   "sharpe": 1.43,
+   "max_dd": -32.7,
+   "calmar": 1.87,
+   "invested": 33.0
+  },
+  {
+   "tsmom": 42,
+   "btc_sma": 30,
+   "cost_bp": 30,
+   "lag": 2,
+   "cagr": 21.8,
+   "vol": 36.6,
+   "sharpe": 0.72,
+   "max_dd": -54.2,
+   "calmar": 0.4,
+   "invested": 29.0
+  },
+  {
+   "tsmom": 42,
+   "btc_sma": 50,
+   "cost_bp": 30,
+   "lag": 2,
+   "cagr": 36.8,
+   "vol": 38.7,
+   "sharpe": 1.0,
+   "max_dd": -44.0,
+   "calmar": 0.84,
+   "invested": 33.0
+  },
+  {
+   "tsmom": 42,
+   "btc_sma": 100,
+   "cost_bp": 30,
+   "lag": 2,
+   "cagr": 48.3,
+   "vol": 39.6,
+   "sharpe": 1.19,
+   "max_dd": -40.7,
+   "calmar": 1.19,
+   "invested": 35.0
+  },
+  {
+   "tsmom": 56,
+   "btc_sma": 30,
+   "cost_bp": 30,
+   "lag": 2,
+   "cagr": 30.2,
+   "vol": 35.8,
+   "sharpe": 0.92,
+   "max_dd": -52.7,
+   "calmar": 0.57,
+   "invested": 28.0
+  },
+  {
+   "tsmom": 56,
+   "btc_sma": 50,
+   "cost_bp": 30,
+   "lag": 2,
+   "cagr": 42.9,
+   "vol": 37.7,
+   "sharpe": 1.13,
+   "max_dd": -43.6,
+   "calmar": 0.98,
+   "invested": 32.0
+  },
+  {
+   "tsmom": 56,
+   "btc_sma": 100,
+   "cost_bp": 30,
+   "lag": 2,
+   "cagr": 50.2,
+   "vol": 39.3,
+   "sharpe": 1.23,
+   "max_dd": -39.5,
+   "calmar": 1.27,
+   "invested": 35.0
+  },
+  {
+   "tsmom": 28,
+   "btc_sma": 50,
+   "cost_bp": 60,
+   "lag": 2,
+   "cagr": 41.9,
+   "vol": 38.1,
+   "sharpe": 1.11,
+   "max_dd": -43.1,
+   "calmar": 0.97,
+   "invested": 32.0
+  },
+  {
+   "tsmom": 28,
+   "btc_sma": 50,
+   "cost_bp": 120,
+   "lag": 2,
+   "cagr": 27.9,
+   "vol": 38.2,
+   "sharpe": 0.84,
+   "max_dd": -52.6,
+   "calmar": 0.53,
+   "invested": 32.0
+  },
+  {
+   "tsmom": 28,
+   "btc_sma": 50,
+   "cost_bp": 30,
+   "lag": 1,
+   "cagr": 54.8,
+   "vol": 37.4,
+   "sharpe": 1.36,
+   "max_dd": -32.2,
+   "calmar": 1.7,
+   "invested": 32.0
+  },
+  {
+   "tsmom": 28,
+   "btc_sma": 50,
+   "cost_bp": 30,
+   "lag": 3,
+   "cagr": 56.4,
+   "vol": 38.0,
+   "sharpe": 1.37,
+   "max_dd": -32.1,
+   "calmar": 1.76,
+   "invested": 32.0
+  }
+ ]
+}

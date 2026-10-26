@@ -1,11 +1,14 @@
-# Auto-trading through Alpaca (paper account). Runs just after the US open; trader.py only acts in the
-# first ~2 hours after 9:30 ET and skips anything already ordered today, so two runs are safe.
+# Auto-trading through Alpaca (paper account): 80% SPY + 20% crypto trend sleeve with pyramid entries.
+# trader.py rebuilds its targets from completed daily bars and only trades the difference from what the
+# account holds, so extra runs are harmless. Crypto is handled on every run; SPY only in the first ~2 hours
+# after 9:30 ET. The tests run first: if any fails, nothing is traded.
 # Secrets: ALPACA_KEY_ID, ALPACA_SECRET_KEY (paper keys), TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID.
 # Off switch: Telegram /settings -> "Auto-trading" button.
 name: Auto-trade
 
 on:
   schedule:
+    - cron: "35 0 * * *"        # every day, 35 min after the daily crypto candle closes (00:00 UTC)
     - cron: "50 13 * * 1-5"     # 9:50 ET in summer time
     - cron: "50 14 * * 1-5"     # 9:50 ET in winter time (and a retry in summer)
   workflow_dispatch:
@@ -34,7 +37,9 @@ jobs:
           python-version: "3.12"
           cache: pip
       - name: Install
-        run: pip install -r requirements.txt
+        run: pip install -r requirements.txt pytest
+      - name: Safety checks (live rules match the backtest, no double orders)
+        run: python -m pytest test_trader.py -q
       - name: Trade
         env:
           ALPACA_KEY_ID: ${{ secrets.ALPACA_KEY_ID }}
