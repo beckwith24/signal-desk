@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-08 12:13 UTC",
+ "generated": "2026-11-09 12:33 UTC",
  "notes": {
   "NVDA": {
    "text": [
@@ -8,7 +8,26 @@
     "The latest results were strong, so the drop from the high isn't explained by the last report: it's coming from outlook, valuation or the wider market."
    ],
    "extra": "Next earnings: Nov 17; analysts' average target +75% away (58 analysts, 'strong_buy')",
-   "news": [],
+   "news": [
+    {
+     "title": "Only One Analyst Rates Nvidia a Sell. Is the Lone Bear Onto Something?",
+     "url": "https://247wallst.com/investing/2026/11/09/only-one-analyst-rates-nvidia-a-sell-is-the-lone-bear-onto-something/",
+     "source": "24/7 Wall St.",
+     "date": "2026-11-09"
+    },
+    {
+     "title": "Nvidia Board Launches Probe In CEO Jensen Huang Spying Case. The Stock Is Falling.",
+     "url": "https://www.investors.com/news/technology/nvidia-board-launches-probe-in-ceo-jensen-huang-spying-case/?src=A00220&yptr=yahoo",
+     "source": "Investor's Business Daily",
+     "date": "2026-11-09"
+    },
+    {
+     "title": "Taiwan Just Rebounded. Nvidia Didn\u2019t. The Market Is Pricing a Discount on Jensen Huang",
+     "url": "https://247wallst.com/investing/2026/11/09/taiwan-just-rebounded-nvidia-didnt-the-market-is-pricing-a-discount-on-jensen-huang/",
+     "source": "24/7 Wall St.",
+     "date": "2026-11-09"
+    }
+   ],
    "data": {
     "rev_growth": 105.9,
     "eps_growth": 127.8,
@@ -30,22 +49,22 @@
    "extra": "analysts' average target +47% away (47 analysts, 'strong_buy')",
    "news": [
     {
-     "title": "AMD Stock Has More Than Doubled in 2026. Here's How Its Last 8 Doubles Played Out the Next Year.",
-     "url": "https://www.fool.com/investing/2026/11/08/amd-stock-has-more-than-doubled-in-2026-here-s-how-its-last-8-doubles-played-out-the-next-year/",
-     "source": "Motley Fool",
-     "date": "2026-11-08"
+     "title": "AMD Shed Nearly 30% in 30 Days: This Respected Wall Street Team Expects 75% Gains For Those Who Act Now",
+     "url": "https://247wallst.com/investing/2026/11/09/amd-shed-nearly-30-in-30-days-this-respected-wall-street-team-expects-75-gains-for-those-who-act-now/",
+     "source": "24/7 Wall St.",
+     "date": "2026-11-09"
     },
     {
-     "title": "AMD Is Up 110% in 2026, but Down Sharply From Its High. Time to Sell, or Load Up?",
-     "url": "https://www.tikr.com/blog/amd-is-up-110-in-2026-but-down-sharply-from-its-high-time-to-sell-or-load-up?ref=yahoofinance&tlnk=yf-261108-6rjg7vp8",
-     "source": "TIKR",
-     "date": "2026-11-08"
+     "title": "Social Buzz: Wallstreetbets Stocks Mixed Premarket Monday; AMD to Advance, Nvidia to Decline",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/social-buzz-wallstreetbets-stocks-mixed-113341176.html",
+     "source": "MT Newswires",
+     "date": "2026-11-09"
     },
     {
-     "title": "AMD Stock Just Fell Below the Price I Said I'd Pay for It.",
-     "url": "https://www.fool.com/investing/2026/11/07/amd-stock-just-fell-below-the-price-i-said-i-d-pay-for-it/",
-     "source": "Motley Fool",
-     "date": "2026-11-08"
+     "title": "AMD's $100 billion AI opportunity raises a Wall Street question",
+     "url": "https://finance.yahoo.com/technology/ai/articles/amds-100-billion-ai-opportunity-113024576.html",
+     "source": "GuruFocus.com",
+     "date": "2026-11-09"
     }
    ],
    "data": {
@@ -69,22 +88,22 @@
    "extra": "Next earnings: Dec 9; analysts' average target +82% away (47 analysts, 'strong_buy')",
    "news": [
     {
-     "title": "Broadcom Just Dropped 15% in a Week. Is It Time to Sell, or Load Up?",
-     "url": "https://www.tikr.com/blog/broadcom-just-dropped-15-in-a-week-is-it-time-to-sell-or-load-up?ref=yahoofinance&tlnk=yf-261108-84fh59r2",
-     "source": "TIKR",
-     "date": "2026-11-08"
+     "title": "AMD, AVGO, INTC, MU: Chip Stocks Inch Higher As Investors Look Past Midterms-Led Selloff, Nvidia Controversy",
+     "url": "https://stocktwits.com/news-articles/markets/equity/amd-avgo-intc-mu-chip-stocks-inch-higher-as-investors-look-past-midterms-led-selloff-nvidia-controversy/cNGAD0CR9eR",
+     "source": "Stocktwits",
+     "date": "2026-11-09"
     },
     {
-     "title": "Is Broadcom a Buy After Falling 9% in One Day?",
-     "url": "https://www.fool.com/investing/2026/11/08/is-broadcom-a-buy-after-falling-9-in-one-day/",
+     "title": "Broadcom Stock Has Lost Nearly 40% From Its Record. I'd Buy It Now.",
+     "url": "https://www.fool.com/investing/2026/11/08/broadcom-stock-has-lost-nearly-40-from-its-record-i-d-buy-it-now/",
      "source": "Motley Fool",
      "date": "2026-11-08"
     },
     {
-     "title": "Cathie Wood-Led Ark Loads Up On GOOG, AMD, NVDA And Biotech Stocks \u2014 But Sells CRWV, AVGO, LLY",
-     "url": "https://finance.yahoo.com/markets/stocks/articles/cathie-wood-led-ark-loads-060020729.html",
-     "source": "Stocktwits",
-     "date": "2026-11-07"
+     "title": "Broadcom Just Dropped 15% in a Week. Is It Time to Sell, or Load Up?",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/broadcom-just-dropped-15-week-090703801.html",
+     "source": "TIKR",
+     "date": "2026-11-08"
     }
    ],
    "data": {
@@ -108,22 +127,22 @@
    "extra": "analysts' average target +39% away (28 analysts, 'buy')",
    "news": [
     {
-     "title": "Palantir Technologies (PLTR) Lands Enterprise AI Partnership For Insurance And Retirement Rollout",
-     "url": "https://finance.yahoo.com/technology/ai/articles/palantir-technologies-pltr-lands-enterprise-111205834.html",
-     "source": "Simply Wall St.",
-     "date": "2026-11-08"
+     "title": "Palantir vs. Snowflake: The AI Sell-Off Is Exposing a Critical Difference for 2027",
+     "url": "https://www.fool.com/coverage/better-buy/2026/11/08/palantir-vs-snowflake-the-ai-sell-off-is-exposing-a-critical-difference-for-2027/",
+     "source": "Motley Fool",
+     "date": "2026-11-09"
     },
     {
-     "title": "Palantir Stock Just Fell 8 Days in a Row. History Says What Followed Its Only 2 Longer Losing Streaks.",
-     "url": "https://www.fool.com/investing/2026/11/07/palantir-stock-just-fell-8-days-in-a-row-history-says-what-followed-its-only-2-longer-losing-streaks/",
-     "source": "Motley Fool",
-     "date": "2026-11-07"
+     "title": "NVDA, PLTR, QCOM, SPCX, MRVL: Why Retail Traders Couldn\u2019t Take Their Eyes Off These Stocks Last Week",
+     "url": "https://stocktwits.com/news-articles/markets/equity/nvda-pltr-qcom-spcx-mrvl-why-retail-traders-couldn-t-take-their-eyes-off-these-stocks-last-week/cNGAH2tR9Ix",
+     "source": "Stocktwits",
+     "date": "2026-11-09"
     },
     {
-     "title": "Palantir Stock Investors Just Got Great News From a Wall Street Analyst (Hint: The Stock Could Soar)",
-     "url": "https://www.fool.com/investing/2026/11/07/palantir-stock-investors-great-news-wall-street-stock-soar/",
+     "title": "Could Buying Palantir Stock Today Set You Up for Life?",
+     "url": "https://www.fool.com/investing/2026/11/08/could-buying-palantir-stock-today-set-you-up-for-l/",
      "source": "Motley Fool",
-     "date": "2026-11-07"
+     "date": "2026-11-09"
     }
    ],
    "data": {
@@ -147,22 +166,22 @@
    "extra": "analysts' average target +15% away (40 analysts, 'buy')",
    "news": [
     {
-     "title": "Tesla Stock Hasn't Closed at a Record in Nearly 11 Months. Here's How Its Past Record Droughts Ended.",
-     "url": "https://www.fool.com/investing/2026/11/08/tesla-stock-hasn-t-closed-at-a-record-in-nearly-11-months-here-s-how-its-past-record-droughts-ended/",
-     "source": "Motley Fool",
-     "date": "2026-11-08"
-    },
-    {
-     "title": "Ron Baron Has Made $30B Betting On Elon Musk \u2014 Now He Sees \u2018Hundreds Of Billions\u2019 More Coming From His TSLA, SPCX Investments",
-     "url": "https://stocktwits.com/news-articles/markets/equity/ron-baron-30b-betting-on-elon-musk-hundreds-billions-more-tsla-spcx-merger/cNGoz1vR9It",
+     "title": "US Stock Futures Rise, Dow Futures Lead Gains As Wall Street Eyes Inflation Data, AI Earnings \u2014 NVDA, TSLA, CRWV In Focus",
+     "url": "https://stocktwits.com/news-articles/markets/equity/us-stock-futures-rise-dow-futures-lead-gains-as-wall-street-eyes-inflation-data-ai-earnings-nvda-tsla-crwv-in-focus/cNGr7iLR9eF",
      "source": "Stocktwits",
-     "date": "2026-11-08"
+     "date": "2026-11-09"
     },
     {
-     "title": "ON Semiconductor (ON) Is Jeff Brown\u2019s Chip Play on Tesla\u2019s Optimus Robot",
-     "url": "https://finance.yahoo.com/technology/ai/articles/semiconductor-jeff-brown-chip-play-124140081.html",
-     "source": "Insider Monkey",
-     "date": "2026-11-07"
+     "title": "Elon Musk Says Tesla Will Refund Deposits To A \u2018Lot Of People\u2019 As Cybertruck Production Winds Down \u2013 Robotaxi Makes San Antonio Debut",
+     "url": "https://stocktwits.com/news-articles/markets/equity/elon-musk-says-tesla-will-refund-deposits-to-lot-of-people-as-cybertruck-production-winds-down/cNGr7JrR9en",
+     "source": "Stocktwits",
+     "date": "2026-11-09"
+    },
+    {
+     "title": "Tesla expands robotaxi service to San Antonio",
+     "url": "https://finance.yahoo.com/technology/ai/articles/tesla-expands-robotaxi-san-antonio-113024061.html",
+     "source": "TechCrunch",
+     "date": "2026-11-09"
     }
    ],
    "data": {
@@ -186,22 +205,22 @@
    "extra": "Next earnings: Dec 1; analysts' average target +120% away (41 analysts, 'strong_buy')",
    "news": [
     {
-     "title": "Intel, Arm, and Marvell Have Each Been Cut in Half Since June. Only 1 Is a Stock I'd Buy Now.",
-     "url": "https://www.fool.com/investing/2026/11/08/intel-arm-and-marvell-have-each-been-cut-in-half-since-june-only-1-is-a-stock-i-d-buy-now/",
-     "source": "Motley Fool",
-     "date": "2026-11-08"
+     "title": "ETFs Bought $13.1 Million of Marvell (MRVL) on Thursday",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/etfs-bought-13-1-million-110211994.html",
+     "source": "GuruFocus.com",
+     "date": "2026-11-09"
     },
     {
-     "title": "Here\u2019s Why Bank of America and TD Cowen Backed Away From Marvell (MRVL)",
-     "url": "https://finance.yahoo.com/markets/stocks/articles/why-bank-america-td-cowen-184337011.html",
-     "source": "Insider Monkey",
-     "date": "2026-11-07"
+     "title": "Marvell Stock Fell 58% From Its Record. History Says What Followed Its Last 4 Drops This Deep.",
+     "url": "https://www.fool.com/investing/2026/11/09/marvell-stock-fell-58-from-its-record-history-says-what-followed-its-last-4-drops-this-deep/",
+     "source": "Motley Fool",
+     "date": "2026-11-09"
     },
     {
-     "title": "Why Marvell Technology Stock Plunged 28.1% This Week",
-     "url": "https://www.fool.com/coverage/market-movers/2026/11/07/why-marvell-technology-stock-plunged-28-1-this-week/",
-     "source": "Motley Fool",
-     "date": "2026-11-07"
+     "title": "NVDA, PLTR, QCOM, SPCX, MRVL: Why Retail Traders Couldn\u2019t Take Their Eyes Off These Stocks Last Week",
+     "url": "https://stocktwits.com/news-articles/markets/equity/nvda-pltr-qcom-spcx-mrvl-why-retail-traders-couldn-t-take-their-eyes-off-these-stocks-last-week/cNGAH2tR9Ix",
+     "source": "Stocktwits",
+     "date": "2026-11-09"
     }
    ],
    "data": {
@@ -225,22 +244,22 @@
    "extra": "analysts' average target +126% away (45 analysts, 'strong_buy')",
    "news": [
     {
-     "title": "Is Micron Stock a Buy Right Now?",
-     "url": "https://www.fool.com/investing/2026/11/08/is-micron-stock-a-buy-right-now/",
-     "source": "Motley Fool",
-     "date": "2026-11-08"
+     "title": "Zacks Value Investor Highlights: MU, SNDK, SANM, STRL and FIX",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/zacks-value-investor-highlights-mu-090700409.html",
+     "source": "Zacks",
+     "date": "2026-11-09"
     },
     {
-     "title": "Micron and Sandisk Lead the Memory Market. 1 Stock Has Far Greater Upside.",
-     "url": "https://www.fool.com/investing/2026/11/07/micron-and-sandisk-lead-the-memory-market-1-stock/",
-     "source": "Motley Fool",
-     "date": "2026-11-07"
+     "title": "Applied Materials, Cisco, Berkshire Hathaway, Nvidia, Micron and Alphabet are part of Zacks Earnings Preview",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/applied-materials-cisco-berkshire-hathaway-070000795.html",
+     "source": "Zacks",
+     "date": "2026-11-09"
     },
     {
-     "title": "Not Nvidia. Not Micron. After the Chip Sell-Off, I'd Buy This AI Stock and Hold It Forever.",
-     "url": "https://finance.yahoo.com/markets/stocks/articles/not-nvidia-not-micron-chip-143600041.html",
-     "source": "Motley Fool",
-     "date": "2026-11-07"
+     "title": "Micron Technology And 2 High Growth Stocks To Watch",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/micron-technology-2-high-growth-042757242.html",
+     "source": "Simply Wall St.",
+     "date": "2026-11-09"
     }
    ],
    "data": {
@@ -264,22 +283,22 @@
    "extra": "analysts' average target +41% away (53 analysts, 'strong_buy')",
    "news": [
     {
-     "title": "Alphabet's $15 Billion Investment in Malaysia Data Centers Shows That Midterm Results Won't Stop the AI Boom",
-     "url": "https://www.fool.com/investing/2026/11/07/alphabets-15-billion-investment-in-malaysia-data-c/",
-     "source": "Motley Fool",
-     "date": "2026-11-08"
+     "title": "How Will Amazon and Alphabet Handle Custom Silicon Efficiency and Grid Access Now?",
+     "url": "https://247wallst.com/investing/2026/11/09/how-will-amazon-and-alphabet-handle-custom-silicon-efficiency-and-grid-access-now/",
+     "source": "24/7 Wall St.",
+     "date": "2026-11-09"
     },
     {
-     "title": "Alphabet (GOOGL) Expands SpaceX Stake to $69 Billion and Deepens AI Ties",
-     "url": "https://finance.yahoo.com/technology/ai/articles/alphabet-googl-expands-spacex-stake-191144041.html",
-     "source": "Simply Wall St.",
-     "date": "2026-11-07"
+     "title": "Alphabet's Waymo Faces US Review of School Bus Recall Fix",
+     "url": "https://finance.yahoo.com/technology/ai/articles/alphabet-apos-waymo-faces-us-113225432.html",
+     "source": "MT Newswires",
+     "date": "2026-11-09"
     },
     {
-     "title": "Why Billionaire Armitage Trims but Still Keeps Alphabet (GOOGL) as a Core Hyperscaler Exposure",
-     "url": "https://finance.yahoo.com/markets/stocks/articles/why-billionaire-armitage-trims-still-185518940.html",
-     "source": "Insider Monkey",
-     "date": "2026-11-07"
+     "title": "Alphabet Keeps Its Massive SpaceX Bet. Now It's Making a $548 Million Qualcomm Move",
+     "url": "https://finance.yahoo.com/technology/ai/articles/alphabet-keeps-massive-spacex-bet-111823968.html",
+     "source": "GuruFocus.com",
+     "date": "2026-11-09"
     }
    ],
    "data": {
@@ -303,22 +322,22 @@
    "extra": "analysts' average target -1% away (39 analysts, 'buy')",
    "news": [
     {
-     "title": "Dow Jones Futures: Market Damaged, Big Winners Broken; Apple, Amazon, Microsoft Strong",
-     "url": "https://www.investors.com/market-trend/stock-market-today/dow-jones-futures-sandisk-micron-broken-apple-amazon-microsoft-strong-berkshire-earnings/?src=A00220&yptr=yahoo",
-     "source": "Investor's Business Daily",
-     "date": "2026-11-08"
+     "title": "Apple is a Triple Threat in Terms of Positive Catalysts",
+     "url": "https://247wallst.com/investing/2026/11/09/apple-is-a-triple-threat-in-terms-of-positive-catalysts/",
+     "source": "24/7 Wall St.",
+     "date": "2026-11-09"
     },
     {
-     "title": "Did Apple Just Get a Boost From Democrats? Data Center Moratoriums Could Benefit the iPhone Maker",
-     "url": "https://www.fool.com/investing/2026/11/07/apple-get-boost-democrats-data-center-iphone/",
-     "source": "Motley Fool",
-     "date": "2026-11-07"
+     "title": "iShares Expanded Tech Sector ETF (IGM) Sells Apple and Microsoft on Nov. 5",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/ishares-expanded-tech-sector-etf-110648130.html",
+     "source": "GuruFocus.com",
+     "date": "2026-11-09"
     },
     {
-     "title": "Apple Completes the Set: Every Magnificent Seven Stock Opts Out of OKX-ICE Venue",
-     "url": "https://decrypt.co/382768/apple-meta-every-magnificent-seven-stock-opts-out-okx-ice-venue",
-     "source": "decrypt",
-     "date": "2026-11-07"
+     "title": "What iShares Core S&P 500 ETF (IVV) Bought: Apple Leads on Nov. 5",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/ishares-core-p-500-etf-110623906.html",
+     "source": "GuruFocus.com",
+     "date": "2026-11-09"
     }
    ],
    "data": {
@@ -342,22 +361,16 @@
    "extra": "analysts' average target +20% away (54 analysts, 'strong_buy')",
    "news": [
     {
-     "title": "Dow Jones Futures: Market Damaged, Big Winners Broken; Apple, Amazon, Microsoft Strong",
-     "url": "https://www.investors.com/market-trend/stock-market-today/dow-jones-futures-sandisk-micron-broken-apple-amazon-microsoft-strong-berkshire-earnings/?src=A00220&yptr=yahoo",
-     "source": "Investor's Business Daily",
-     "date": "2026-11-08"
+     "title": "iShares Expanded Tech Sector ETF (IGM) Sells Apple and Microsoft on Nov. 5",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/ishares-expanded-tech-sector-etf-110648130.html",
+     "source": "GuruFocus.com",
+     "date": "2026-11-09"
     },
     {
-     "title": "Older Nvidia Chips Just Cost Oracle Its Microsoft AI Deal",
-     "url": "https://247wallst.com/investing/2026/11/07/older-nvidia-chips-just-cost-oracle-its-microsoft-ai-deal/",
-     "source": "24/7 Wall St.",
-     "date": "2026-11-07"
-    },
-    {
-     "title": "Why AGI\u2019s Fuzzy Definition Matters for Investors Betting on Google, Meta, and Microsoft",
-     "url": "https://finance.yahoo.com/technology/ai/articles/why-agi-fuzzy-definition-matters-153003175.html",
-     "source": "Barchart",
-     "date": "2026-11-07"
+     "title": "ETFs Are Net Sellers of Microsoft (MSFT) on Nov. 5",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/etfs-net-sellers-microsoft-msft-110243773.html",
+     "source": "GuruFocus.com",
+     "date": "2026-11-09"
     }
    ],
    "data": {
@@ -381,22 +394,22 @@
    "extra": "analysts' average target +39% away (57 analysts, 'strong_buy')",
    "news": [
     {
-     "title": "Meta\u2019s Bond Sale Shows New Reality for Tech Debt",
-     "url": "https://finance.yahoo.com/technology/articles/meta-bond-sale-shows-reality-200000968.html",
-     "source": "Bloomberg",
-     "date": "2026-11-07"
+     "title": "State Street Comm Services SPDR (XLC) Sells Meta and Alphabet on Nov. 5",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/state-street-comm-services-spdr-110634674.html",
+     "source": "GuruFocus.com",
+     "date": "2026-11-09"
     },
     {
-     "title": "Here\u2019s Why Morgan Stanley Analyst Meta Marshall Trimmed Cisco (CSCO) to Equal-weight",
-     "url": "https://finance.yahoo.com/markets/stocks/articles/why-morgan-stanley-analyst-meta-184215687.html",
-     "source": "Insider Monkey",
-     "date": "2026-11-07"
+     "title": "ETFs Are Net Sellers of Meta Platforms (META) on Nov. 5",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/etfs-net-sellers-meta-platforms-110313800.html",
+     "source": "GuruFocus.com",
+     "date": "2026-11-09"
     },
     {
-     "title": "Why AGI\u2019s Fuzzy Definition Matters for Investors Betting on Google, Meta, and Microsoft",
-     "url": "https://finance.yahoo.com/technology/ai/articles/why-agi-fuzzy-definition-matters-153003175.html",
-     "source": "Barchart",
-     "date": "2026-11-07"
+     "title": "A Retiree Who Bought 1,000 Meta Shares at $38 Just Watched Zuckerberg Top $200 Billion",
+     "url": "https://247wallst.com/investing/2026/11/08/a-retiree-who-bought-1000-meta-shares-at-38-just-watched-zuckerberg-top-200-billion/",
+     "source": "24/7 Wall St.",
+     "date": "2026-11-09"
     }
    ],
    "data": {
@@ -416,7 +429,26 @@
     "Stock: -12% this month, +6% over a year, 14% below its 52-week high; behind the S&P 500 by 4 points over 3 months."
    ],
    "extra": "",
-   "news": [],
+   "news": [
+    {
+     "title": "Invesco QQQ (QQQ) Sells Apple and Nvidia on Nov. 5",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/invesco-qqq-qqq-sells-apple-110438229.html",
+     "source": "GuruFocus.com",
+     "date": "2026-11-09"
+    },
+    {
+     "title": "Retail Therapy: Defensive Bets Extend Streak, Trounce SPY, QQQ As EVgo, Helen Of Troy, Magnite Lead Weekly Consumer Gains",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/retail-therapy-defensive-bets-extend-075122938.html",
+     "source": "Stocktwits",
+     "date": "2026-11-09"
+    },
+    {
+     "title": "If You'd Invested $5,000 in QQQ the Day It Launched, Here's What You'd Have Today",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/youd-invested-5-000-qqq-072000375.html",
+     "source": "Motley Fool",
+     "date": "2026-11-09"
+    }
+   ],
    "data": {
     "rev_growth": null,
     "eps_growth": null,
@@ -434,7 +466,14 @@
     "Stock: -5% this month, +10% over a year, 6% below its 52-week high; ahead of the S&P 500 by 0 points over 3 months."
    ],
    "extra": "",
-   "news": [],
+   "news": [
+    {
+     "title": "SPDR S&P 500 ETF (SPY) Sells $182.9 Million of Apple on Nov. 5",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/spdr-p-500-etf-spy-110431430.html",
+     "source": "GuruFocus.com",
+     "date": "2026-11-09"
+    }
+   ],
    "data": {
     "rev_growth": null,
     "eps_growth": null,
@@ -456,15 +495,21 @@
    "extra": "analysts' average target +56% away (20 analysts, 'strong_buy')",
    "news": [
     {
+     "title": "Taiwan Just Rebounded. Nvidia Didn\u2019t. The Market Is Pricing a Discount on Jensen Huang",
+     "url": "https://247wallst.com/investing/2026/11/09/taiwan-just-rebounded-nvidia-didnt-the-market-is-pricing-a-discount-on-jensen-huang/",
+     "source": "24/7 Wall St.",
+     "date": "2026-11-09"
+    },
+    {
+     "title": "11 ETFs Add to Taiwan Semiconductor (TSM) on Thursday",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/11-etfs-add-taiwan-semiconductor-110059682.html",
+     "source": "GuruFocus.com",
+     "date": "2026-11-09"
+    },
+    {
      "title": "Taiwan Semiconductor Stocks Jump 7.45% as Taiwan Slashes Short Selling After Rout",
      "url": "https://finance.yahoo.com/markets/stocks/articles/taiwan-semiconductor-stocks-jump-7-163218378.html",
      "source": "GuruFocus.com",
-     "date": "2026-11-06"
-    },
-    {
-     "title": "Taiwan Semiconductor Just Won Big in The Midterms",
-     "url": "https://finance.yahoo.com/markets/stocks/articles/taiwan-semiconductor-just-won-big-154525045.html",
-     "source": "24/7 Wall St.",
      "date": "2026-11-06"
     }
    ],
@@ -486,7 +531,7 @@
     "Stock: -43% this month, -30% over a year, 61% below its 52-week high; behind the S&P 500 by 45 points over 3 months.",
     "The latest results were strong, so the drop from the high isn't explained by the last report: it's coming from outlook, valuation or the wider market."
    ],
-   "extra": "analysts' average target +136% away (19 analysts, 'none')",
+   "extra": "analysts' average target +136% away (19 analysts, 'strong_buy')",
    "news": [
     {
      "title": "Credo Just Dropped 32% in a Week. Is It Time to Sell, or Load Up?",
@@ -534,16 +579,16 @@
      "date": "2026-11-08"
     },
     {
+     "title": "Astera Labs Just Crushed Earnings\u2014So Why Are Analysts Cutting Price Targets?",
+     "url": "https://www.marketbeat.com/articles/astera-labs-just-crushed-earnings-so-why-are-analysts-cutting-price-targets/?utm_source=yahoofinance&utm_medium=yahoofinance",
+     "source": "MarketBeat",
+     "date": "2026-11-07"
+    },
+    {
      "title": "Astera Labs (ALAB) Stock Dropped, What Is Driving Attention Now?",
      "url": "https://finance.yahoo.com/markets/stocks/articles/astera-labs-alab-stock-dropped-191430073.html",
      "source": "Simply Wall St.",
      "date": "2026-11-06"
-    },
-    {
-     "title": "BMO Makes Major Bullish Call on Astera Labs",
-     "url": "https://finance.yahoo.com/markets/stocks/articles/bmo-makes-major-bullish-call-190450089.html",
-     "source": "GuruFocus.com",
-     "date": "2026-11-05"
     }
    ],
    "data": {
@@ -567,6 +612,12 @@
    "extra": "analysts' average target +104% away (26 analysts, 'buy')",
    "news": [
     {
+     "title": "Bernstein Adjusts Price Target on Lumentum Holdings to $635 From $900",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/bernstein-adjusts-price-target-lumentum-105642142.html",
+     "source": "MT Newswires",
+     "date": "2026-11-09"
+    },
+    {
      "title": "Here\u2019s Why Lumentum (LITE) Was Downgraded",
      "url": "https://finance.yahoo.com/markets/stocks/articles/why-lumentum-lite-downgraded-184016295.html",
      "source": "Insider Monkey",
@@ -577,12 +628,6 @@
      "url": "https://finance.yahoo.com/technology/ai/articles/lumentum-holdings-2-ai-infrastructure-061430152.html",
      "source": "Simply Wall St.",
      "date": "2026-11-07"
-    },
-    {
-     "title": "Lumentum Holdings (LITE) Could Be 90% Undervalued Following The Marvell Deal",
-     "url": "https://finance.yahoo.com/markets/stocks/articles/lumentum-holdings-lite-could-90-201301513.html",
-     "source": "Simply Wall St.",
-     "date": "2026-11-06"
     }
    ],
    "data": {
@@ -606,21 +651,21 @@
    "extra": "Next earnings: Nov 24; analysts' average target +80% away (25 analysts, 'buy')",
    "news": [
     {
+     "title": "The Zacks Analyst Blog Highlights Shell, Dell and Amphenol and Versus Systems",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/zacks-analyst-blog-highlights-shell-095700368.html",
+     "source": "Zacks",
+     "date": "2026-11-09"
+    },
+    {
+     "title": "Celestica and Dell Just Dropped 22% in a Week. Is It Time to Sell, or Load Up?",
+     "url": "https://www.tikr.com/blog/celestica-and-dell-just-dropped-22-in-a-week-is-it-time-to-sell-or-load-up?ref=yahoofinance&tlnk=yf-261108-cwqh6ppg",
+     "source": "TIKR",
+     "date": "2026-11-08"
+    },
+    {
      "title": "Dell Sinks 16% in a Week on Intel\u2019s PC Warning. Its CFO Already Saw \u201cMinus Double Digit\u201d",
      "url": "https://www.tikr.com/blog/dell-sinks-16-in-a-week-on-intels-pc-warning-its-cfo-already-saw-minus-double-digit?ref=yahoofinance&tlnk=yf-261106-w68j2ggg",
      "source": "TIKR",
-     "date": "2026-11-06"
-    },
-    {
-     "title": "Dell Technologies (DELL) Pushes Deeper Into Latin American AI Megaprojects",
-     "url": "https://finance.yahoo.com/technology/ai/articles/dell-technologies-dell-pushes-deeper-201706666.html",
-     "source": "Simply Wall St.",
-     "date": "2026-11-06"
-    },
-    {
-     "title": "Top Analyst Reports for Shell, Dell & Amphenol",
-     "url": "https://finance.yahoo.com/markets/stocks/articles/top-analyst-reports-shell-dell-200700415.html",
-     "source": "Zacks",
      "date": "2026-11-06"
     }
    ],
@@ -645,22 +690,22 @@
    "extra": "analysts' average target +64% away (26 analysts, 'buy')",
    "news": [
     {
-     "title": "Here's What $10,000 Invested in Bloom Energy (BE) Stock Could Be Worth in 3 Years",
-     "url": "https://www.fool.com/investing/2026/11/07/heres-what-10000-invested-in-bloom-energy-be-stock/",
+     "title": "The On-Site Power Duel: Bloom Energy vs. GE Vernova",
+     "url": "https://247wallst.com/investing/2026/11/09/the-on-site-power-duel-bloom-energy-vs-ge-vernova/",
+     "source": "24/7 Wall St.",
+     "date": "2026-11-09"
+    },
+    {
+     "title": "Zacks Investment Ideas feature highlights: Bloom Energy, Skyworks Solutions and Quanta Services",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/zacks-investment-ideas-feature-highlights-091400948.html",
+     "source": "Zacks",
+     "date": "2026-11-09"
+    },
+    {
+     "title": "Bloom Energy Stock Fell 16% on the Same Day 2 Giant Data Center Deals Named It. Is It a Buy?",
+     "url": "https://www.fool.com/investing/2026/11/08/bloom-energy-stock-fell-16-on-the-same-day-2-giant-data-center-deals-named-it-is-it-a-buy/",
      "source": "Motley Fool",
-     "date": "2026-11-07"
-    },
-    {
-     "title": "Bloom Energy wins abroad while Texas turns against data centers",
-     "url": "https://www.thestreet.com/investing/bloom-energy-be-stock-texas-data-centers-ban",
-     "source": "TheStreet",
-     "date": "2026-11-07"
-    },
-    {
-     "title": "Bloom Energy Stock Rallies as Barclays Turns Bullish on California Power Partnership",
-     "url": "https://www.barchart.com/story/news/8716866/bloom-energy-stock-rallies-as-barclays-turns-bullish-on-california-power-partnership",
-     "source": "Barchart",
-     "date": "2026-11-07"
+     "date": "2026-11-09"
     }
    ],
    "data": {
@@ -684,22 +729,22 @@
    "extra": "analysts' average target +7% away (29 analysts, 'buy')",
    "news": [
     {
-     "title": "Eli Lilly Just Raised Its 2026 Revenue Forecast by $5.5 Billion. Is the Stock Still a Buy?",
-     "url": "https://www.fool.com/investing/2026/11/07/eli-lilly-just-raised-its-2026-revenue-forecast-by/",
+     "title": "Eli Lilly Is Now Worth Nearly 9 Novo Nordisks. Here's How the Gap Got So Wide.",
+     "url": "https://www.fool.com/investing/2026/11/09/eli-lilly-is-now-worth-nearly-9-novo-nordisks-here/",
      "source": "Motley Fool",
-     "date": "2026-11-07"
+     "date": "2026-11-09"
     },
     {
-     "title": "Cathie Wood-Led Ark Loads Up On GOOG, AMD, NVDA And Biotech Stocks \u2014 But Sells CRWV, AVGO, LLY",
-     "url": "https://stocktwits.com/news-articles/markets/equity/cathie-wood-ark-invest-buys-goog-amd-nvda-biotech-stocks-sell-crwv-avgo-lly/cNGVV2wR9Ii",
-     "source": "Stocktwits",
-     "date": "2026-11-07"
+     "title": "What State Street Health Care SPDR (XLV) Sold: Eli Lilly Leads on Nov. 5",
+     "url": "https://finance.yahoo.com/healthcare/articles/state-street-health-care-spdr-110630949.html",
+     "source": "GuruFocus.com",
+     "date": "2026-11-09"
     },
     {
-     "title": "Eli Lilly Is Much More Than a Weight-Loss Drug Company. Here's the Evidence",
-     "url": "https://www.fool.com/investing/2026/11/06/eli-lilly-is-much-more-than-a-weight-loss-drug-company-here-s-the-evidence/",
-     "source": "Motley Fool",
-     "date": "2026-11-07"
+     "title": "Zacks Investment Ideas feature highlights: Moderna, AbbVie, Eli Lilly and Merck",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/zacks-investment-ideas-feature-highlights-092000899.html",
+     "source": "Zacks",
+     "date": "2026-11-09"
     }
    ],
    "data": {
@@ -762,22 +807,22 @@
    "extra": "analysts' average target +90% away (37 analysts, 'buy')",
    "news": [
     {
-     "title": "Ron Baron Has Made $30B Betting On Elon Musk \u2014 Now He Sees \u2018Hundreds Of Billions\u2019 More Coming From His TSLA, SPCX Investments",
-     "url": "https://stocktwits.com/news-articles/markets/equity/ron-baron-30b-betting-on-elon-musk-hundreds-billions-more-tsla-spcx-merger/cNGoz1vR9It",
+     "title": "Alphabet Keeps Its Massive SpaceX Bet. Now It's Making a $548 Million Qualcomm Move",
+     "url": "https://finance.yahoo.com/technology/ai/articles/alphabet-keeps-massive-spacex-bet-111823968.html",
+     "source": "GuruFocus.com",
+     "date": "2026-11-09"
+    },
+    {
+     "title": "SpaceX Stock Fell to Its Lowest Level Since August After the Midterms. Is It Time to Buy?",
+     "url": "https://www.fool.com/investing/2026/11/09/spacex-stock-fell-to-its-lowest-level-since-august/",
+     "source": "Motley Fool",
+     "date": "2026-11-09"
+    },
+    {
+     "title": "Elon Musk Blasts California\u2019s \u2018Extreme Taxes,\u2019 Offers To Axe SpaceX Govt Deals \u2014 Analysts See A Political Dip-Buy",
+     "url": "https://stocktwits.com/news-articles/markets/equity/elon-musk-california-taxes-axe-spacex-govt-deals-analysts-political-dip-buy/cNGrT3TR9e9",
      "source": "Stocktwits",
-     "date": "2026-11-08"
-    },
-    {
-     "title": "Jim Cramer reveals why he won't buy SpaceX stock",
-     "url": "https://www.thestreet.com/investing/stocks/jim-cramer-reveals-why-he-wont-buy-spacex-stock",
-     "source": "TheStreet",
-     "date": "2026-11-08"
-    },
-    {
-     "title": "Quantum Space Part of Team Awarded $185 Million NASA Contract for Moon Base Transportation Program",
-     "url": "https://finance.yahoo.com/technology/articles/quantum-space-part-team-awarded-230000902.html",
-     "source": "PR Newswire",
-     "date": "2026-11-07"
+     "date": "2026-11-09"
     }
    ],
    "data": {
@@ -840,22 +885,22 @@
    "extra": "analysts' average target +62% away (43 analysts, 'hold')",
    "news": [
     {
-     "title": "Intel, Arm, and Marvell Have Each Been Cut in Half Since June. Only 1 Is a Stock I'd Buy Now.",
-     "url": "https://www.fool.com/investing/2026/11/08/intel-arm-and-marvell-have-each-been-cut-in-half-since-june-only-1-is-a-stock-i-d-buy-now/",
+     "title": "AMD vs. Intel: Which Is the Better AI Chip Stock to Own for the Next 3 Years Following the Semiconductor Crash?",
+     "url": "https://www.fool.com/investing/2026/11/09/amd-vs-intel-which-is-the-better-ai-chip-stock-to/",
      "source": "Motley Fool",
+     "date": "2026-11-09"
+    },
+    {
+     "title": "AMD, AVGO, INTC, MU: Chip Stocks Inch Higher As Investors Look Past Midterms-Led Selloff, Nvidia Controversy",
+     "url": "https://stocktwits.com/news-articles/markets/equity/amd-avgo-intc-mu-chip-stocks-inch-higher-as-investors-look-past-midterms-led-selloff-nvidia-controversy/cNGAD0CR9eR",
+     "source": "Stocktwits",
+     "date": "2026-11-09"
+    },
+    {
+     "title": "The Government\u2019s $37 Billion Intel Round Trip Is a Warning for Anyone Who Still Holds the Stock",
+     "url": "https://247wallst.com/investing/2026/11/08/the-governments-37-billion-intel-round-trip-is-a-warning-for-anyone-who-still-holds-the-stock/",
+     "source": "24/7 Wall St.",
      "date": "2026-11-08"
-    },
-    {
-     "title": "Here's Where I Think Intel Stock Will Be at the End of 2030",
-     "url": "https://www.fool.com/investing/2026/11/07/here-s-where-i-think-intel-stock-will-be-at-the-end-of-2030/",
-     "source": "Motley Fool",
-     "date": "2026-11-07"
-    },
-    {
-     "title": "Dell Sinks 16% in a Week on Intel\u2019s PC Warning. Its CFO Already Saw \u201cMinus Double Digit\u201d",
-     "url": "https://www.tikr.com/blog/dell-sinks-16-in-a-week-on-intels-pc-warning-its-cfo-already-saw-minus-double-digit?ref=yahoofinance&tlnk=yf-261106-w68j2ggg",
-     "source": "TIKR",
-     "date": "2026-11-06"
     }
    ],
    "data": {
@@ -918,22 +963,22 @@
    "extra": "Next earnings: Nov 12; analysts' average target +44% away (25 analysts, 'buy')",
    "news": [
     {
-     "title": "What To Expect In Markets This Week: CRWV, CSCO, NBIS, LUNR, ONDS, CBRS Earnings, CPI, Fed Speeches And More",
-     "url": "https://stocktwits.com/news-articles/markets/equity/what-to-expect-markets-this-week-nov-8-2026/cNGYG4ZR9Iu",
-     "source": "Stocktwits",
-     "date": "2026-11-08"
+     "title": "Cisco Stock Faces a Massive Earnings Test -- Options Traders Expect 8% Swing",
+     "url": "https://finance.yahoo.com/markets/options/articles/cisco-stock-faces-massive-earnings-111259518.html",
+     "source": "GuruFocus.com",
+     "date": "2026-11-09"
     },
     {
-     "title": "Here\u2019s Why Morgan Stanley Analyst Meta Marshall Trimmed Cisco (CSCO) to Equal-weight",
-     "url": "https://finance.yahoo.com/markets/stocks/articles/why-morgan-stanley-analyst-meta-184215687.html",
-     "source": "Insider Monkey",
-     "date": "2026-11-07"
+     "title": "ETFs Are Net Sellers of Cisco Systems (CSCO) on Nov. 5",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/etfs-net-sellers-cisco-systems-110404484.html",
+     "source": "GuruFocus.com",
+     "date": "2026-11-09"
     },
     {
-     "title": "Morgan Stanley resets Cisco stock price target before earnings",
-     "url": "https://www.thestreet.com/investing/csco-cisco-stock-morgan-stanley-downgrades-price-target-by-11-before-earnings",
-     "source": "TheStreet",
-     "date": "2026-11-06"
+     "title": "Applied Materials, Cisco, Berkshire Hathaway, Nvidia, Micron and Alphabet are part of Zacks Earnings Preview",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/applied-materials-cisco-berkshire-hathaway-070000795.html",
+     "source": "Zacks",
+     "date": "2026-11-09"
     }
    ],
    "data": {
@@ -957,6 +1002,12 @@
    "extra": "analysts' average target +34% away (53 analysts, 'buy')",
    "news": [
     {
+     "title": "Leverate Announces Advanced CRM Bringing Intelligent Automation to MT4 and MT5 Brokers",
+     "url": "https://finance.yahoo.com/technology/articles/leverate-announces-advanced-crm-bringing-100800544.html",
+     "source": "GlobeNewswire",
+     "date": "2026-11-09"
+    },
+    {
      "title": "CRM or ADSK: Which Is the Better Value Stock Right Now?",
      "url": "https://finance.yahoo.com/markets/stocks/articles/crm-adsk-better-value-stock-154003835.html",
      "source": "Zacks",
@@ -966,12 +1017,6 @@
      "title": "Veeva Systems (VEEV) Becomes Core CRM Choice For Major Biopharma AI Rollout",
      "url": "https://finance.yahoo.com/healthcare/articles/veeva-systems-veev-becomes-core-211829755.html",
      "source": "Simply Wall St.",
-     "date": "2026-11-05"
-    },
-    {
-     "title": "Field Service Management Software, CRM and Marketplace on One Platform: 285,000+ U.S. Service Providers in ServiceJan\u2019s Network",
-     "url": "https://finance.yahoo.com/small-business/articles/field-management-software-crm-marketplace-210000277.html",
-     "source": "GlobeNewswire",
      "date": "2026-11-05"
     }
    ],
@@ -996,21 +1041,21 @@
    "extra": "analysts' average target +21% away (29 analysts, 'buy')",
    "news": [
     {
-     "title": "Better Dividend Stock: Texas Instruments vs. Cisco",
-     "url": "https://www.tikr.com/blog/better-dividend-stock-texas-instruments-vs-cisco?ref=yahoofinancedividend&tlnk=yf-261107-frm3vjw5",
+     "title": "ETFs Are Buying Texas Instruments (TXN) on Nov. 5",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/etfs-buying-texas-instruments-txn-110111681.html",
+     "source": "GuruFocus.com",
+     "date": "2026-11-09"
+    },
+    {
+     "title": "Better Dividend Stock: HP Inc. vs. Texas Instruments",
+     "url": "https://www.tikr.com/blog/better-dividend-stock-hp-inc-vs-texas-instruments?ref=yahoofinancedividend&tlnk=yf-261108-m5rhr8h9",
      "source": "TIKR",
      "date": "2026-11-06"
     },
     {
-     "title": "Global Embedded Microcontroller Unit Market Report 2026: Forecast to 2030 | Capitalize on AI, IoT and 32-Bit Demand with Texas Instruments, Infineon, NXP and ST",
-     "url": "https://finance.yahoo.com/technology/articles/global-embedded-microcontroller-unit-market-140200472.html",
-     "source": "GlobeNewswire",
-     "date": "2026-11-06"
-    },
-    {
-     "title": "Is Wall Street Bullish or Bearish on Texas Instruments Stock?",
-     "url": "https://www.barchart.com/story/news/8695749/is-wall-street-bullish-or-bearish-on-texas-instruments-stock",
-     "source": "Barchart",
+     "title": "Better Dividend Stock: Texas Instruments vs. Cisco",
+     "url": "https://www.tikr.com/blog/better-dividend-stock-texas-instruments-vs-cisco?ref=yahoofinancedividend&tlnk=yf-261107-frm3vjw5",
+     "source": "TIKR",
      "date": "2026-11-06"
     }
    ],
@@ -1035,6 +1080,12 @@
    "extra": "analysts' average target +46% away (28 analysts, 'strong_buy')",
    "news": [
     {
+     "title": "Arista Networks Is Tapping a $200 Billion AI Opportunity. Here\u2019s Why Wall Street Sees 70% Upside.",
+     "url": "https://www.barchart.com/story/news/8724352/arista-networks-is-tapping-a-200-billion-ai-opportunity-heres-why-wall-street-sees-70-upside",
+     "source": "Barchart",
+     "date": "2026-11-08"
+    },
+    {
      "title": "Arista Networks (ANET) Stock Sees Modest Fair Value Lift After Analyst Revisions",
      "url": "https://finance.yahoo.com/markets/stocks/articles/arista-networks-anet-stock-sees-011141471.html",
      "source": "Simply Wall St.",
@@ -1044,12 +1095,6 @@
      "title": "Arista Networks vs. Okta: Which Technology Stock Is a Better Buy for 2027?",
      "url": "https://www.fool.com/coverage/better-buy/2026/11/07/arista-networks-vs-okta-which-technology-stock-is-a-better-buy-for-2027/",
      "source": "Motley Fool",
-     "date": "2026-11-07"
-    },
-    {
-     "title": "What Is Behind The Move In Arista Stock?",
-     "url": "https://www.trefis.com/stock/anet/articles/623737/what-is-behind-the-move-in-arista-stock/2026-11-07",
-     "source": "Trefis",
      "date": "2026-11-07"
     }
    ],
@@ -1074,22 +1119,22 @@
    "extra": "analysts' average target +6% away (37 analysts, 'strong_buy')",
    "news": [
     {
+     "title": "ETFs Are Net Sellers of Visa (V) on Nov. 5",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/etfs-net-sellers-visa-v-110239420.html",
+     "source": "GuruFocus.com",
+     "date": "2026-11-09"
+    },
+    {
+     "title": "Visa (V): A 15% Revenue Gain at Scale, With 7% Average Analyst Upside",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/visa-v-15-revenue-gain-173201141.html",
+     "source": "Insider Monkey",
+     "date": "2026-11-08"
+    },
+    {
      "title": "Visa (V) Q4 Earnings Justified Strong Growth But Left Valuation Questions",
      "url": "https://finance.yahoo.com/markets/stocks/articles/visa-v-q4-earnings-justified-011321208.html",
      "source": "Simply Wall St.",
      "date": "2026-11-07"
-    },
-    {
-     "title": "Mastercard Hit a Record as Visa Raised Its Dividend 16%. Here\u2019s Where Mastercard\u2019s Cash Goes",
-     "url": "https://www.tikr.com/blog/mastercard-hit-a-record-as-visa-raised-its-dividend-16-heres-where-mastercards-cash-goes?ref=yahoofinance&tlnk=yf-261106-5r2fpvj2",
-     "source": "TIKR",
-     "date": "2026-11-06"
-    },
-    {
-     "title": "Visa Just Raised Its Dividend 16%. Free Cash Flow Shows Whether the Buybacks Can Keep Pace",
-     "url": "https://www.tikr.com/blog/visa-just-raised-its-dividend-16-free-cash-flow-shows-whether-the-buybacks-can-keep-pace?ref=yahoofinance&tlnk=yf-261106-j7xqw334",
-     "source": "TIKR",
-     "date": "2026-11-06"
     }
    ],
    "data": {
@@ -1113,22 +1158,22 @@
    "extra": "analysts' average target +7% away (26 analysts, 'buy')",
    "news": [
     {
-     "title": "What Could Stall AbbVie Stock's Run?",
-     "url": "https://www.trefis.com/stock/abbv/articles/623624/what-could-stall-abbvie-stocks-run/2026-11-07",
-     "source": "Trefis",
-     "date": "2026-11-07"
+     "title": "AbbVie Unit Says GLP-1 Patients Report Improved Satisfaction With Facial Appearance in 2 Studies",
+     "url": "https://finance.yahoo.com/healthcare/articles/abbvie-unit-says-glp-1-122239398.html",
+     "source": "MT Newswires",
+     "date": "2026-11-09"
     },
     {
-     "title": "Why Is AbbVie (ABBV) Spending $1.37 Billion On Pipeline And UK Research?",
-     "url": "https://finance.yahoo.com/healthcare/articles/why-abbvie-abbv-spending-1-071141631.html",
-     "source": "Simply Wall St.",
-     "date": "2026-11-07"
+     "title": "Zacks Investment Ideas feature highlights: Moderna, AbbVie, Eli Lilly and Merck",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/zacks-investment-ideas-feature-highlights-092000899.html",
+     "source": "Zacks",
+     "date": "2026-11-09"
     },
     {
-     "title": "Pfizer vs. AbbVie: Higher Yield and Cheaper Valuation Give One the Clear Edge",
-     "url": "https://www.barchart.com/story/news/8711001/pfizer-vs-abbvie-higher-yield-and-cheaper-valuation-give-one-the-clear-edge",
-     "source": "Barchart",
-     "date": "2026-11-07"
+     "title": "Is AbbVie Inc. (ABBV) the Best Healthcare Stock to Buy Following the 2026 Democratic Midterm Sweep?",
+     "url": "https://finance.yahoo.com/healthcare/articles/abbvie-inc-abbv-best-healthcare-154313924.html",
+     "source": "Insider Monkey",
+     "date": "2026-11-08"
     }
    ],
    "data": {
@@ -1191,22 +1236,22 @@
    "extra": "Next earnings: Nov 12; analysts' average target +88% away (37 analysts, 'strong_buy')",
    "news": [
     {
-     "title": "Applied Materials Stocks Rise 4.7% as Chip Equipment Rallies Ahead of Earnings",
-     "url": "https://finance.yahoo.com/markets/stocks/articles/applied-materials-stocks-rise-4-190310933.html",
+     "title": "Applied Materials (AMAT) Sees $18.9 Million in Net ETF Buying on Thursday",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/applied-materials-amat-sees-18-110152447.html",
      "source": "GuruFocus.com",
-     "date": "2026-11-06"
+     "date": "2026-11-09"
     },
     {
-     "title": "Why Did Applied Materials Stock Fall?",
-     "url": "https://finance.yahoo.com/markets/stocks/articles/why-did-applied-materials-stock-144158587.html",
-     "source": "Trefis",
-     "date": "2026-11-06"
+     "title": "Applied Materials, Cisco, Berkshire Hathaway, Nvidia, Micron and Alphabet are part of Zacks Earnings Preview",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/applied-materials-cisco-berkshire-hathaway-070000795.html",
+     "source": "Zacks",
+     "date": "2026-11-09"
     },
     {
-     "title": "Applied Materials Stocks Fall 12% Before a $10.25 Billion Revenue Test",
-     "url": "https://finance.yahoo.com/markets/stocks/articles/applied-materials-stocks-fall-12-193128121.html",
-     "source": "GuruFocus.com",
-     "date": "2026-11-05"
+     "title": "Dear Applied Materials Stock Fans, Mark Your Calendars for November 12",
+     "url": "https://www.barchart.com/story/news/8725655/dear-applied-materials-stock-fans-mark-your-calendars-for-november-12",
+     "source": "Barchart",
+     "date": "2026-11-08"
     }
    ],
    "data": {
@@ -1266,25 +1311,25 @@
     "Stock: -19% this month, +37% over a year, 29% below its 52-week high; behind the S&P 500 by 13 points over 3 months.",
     "The latest results were strong, so the drop from the high isn't explained by the last report: it's coming from outlook, valuation or the wider market."
    ],
-   "extra": "Next earnings: Jan 27; analysts' average target +50% away (17 analysts, 'strong_buy')",
+   "extra": "Next earnings: Jan 27; analysts' average target +51% away (17 analysts, 'strong_buy')",
    "news": [
+    {
+     "title": "14 ETFs Add to ASML (ASML) Holdings on Nov. 5",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/14-etfs-add-asml-asml-110126676.html",
+     "source": "GuruFocus.com",
+     "date": "2026-11-09"
+    },
+    {
+     "title": "Why ASML Holdings Fell in October",
+     "url": "https://www.fool.com/investing/2026/11/08/why-asml-holdings-fell-in-october/",
+     "source": "Motley Fool",
+     "date": "2026-11-08"
+    },
     {
      "title": "ASML Stock In Focus As EUV Machine Orders Stretch Into 2030",
      "url": "https://finance.yahoo.com/markets/stocks/articles/asml-stock-focus-euv-machine-091813711.html",
      "source": "Simply Wall St.",
      "date": "2026-11-06"
-    },
-    {
-     "title": "ASML Sinks 8% as Post-Election Chip Rout Deepens",
-     "url": "https://www.tikr.com/blog/asml-sinks-8-as-post-election-chip-rout-deepens?ref=yahoofinance&tlnk=yf-261105-h6q36m9v",
-     "source": "TIKR",
-     "date": "2026-11-05"
-    },
-    {
-     "title": "ASML Stocks Fall 7.36% as Investors Question the Next Spending Cycle",
-     "url": "https://finance.yahoo.com/markets/stocks/articles/asml-stocks-fall-7-36-185954738.html",
-     "source": "GuruFocus.com",
-     "date": "2026-11-05"
     }
    ],
    "data": {
@@ -1308,22 +1353,22 @@
    "extra": "Next earnings: Feb 3; analysts' average target +57% away (40 analysts, 'buy')",
    "news": [
     {
-     "title": "Intel, Arm, and Marvell Have Each Been Cut in Half Since June. Only 1 Is a Stock I'd Buy Now.",
-     "url": "https://www.fool.com/investing/2026/11/08/intel-arm-and-marvell-have-each-been-cut-in-half-since-june-only-1-is-a-stock-i-d-buy-now/",
+     "title": "Is Arm Stock a Buy on the Dip as Agentic AI Opportunity Emerges?",
+     "url": "https://www.fool.com/investing/2026/11/09/arm-stock-buy-on-dip-agentic-ai-opportunity/",
      "source": "Motley Fool",
-     "date": "2026-11-08"
+     "date": "2026-11-09"
     },
     {
-     "title": "Arm (ARM) Stock Sees Modest Fair Value Cut As Analysts Trim Multiples",
-     "url": "https://finance.yahoo.com/markets/stocks/articles/arm-arm-stock-sees-modest-021256821.html",
-     "source": "Simply Wall St.",
-     "date": "2026-11-08"
+     "title": "Standard Chartered hires HDFC executive to lead India private banking arm",
+     "url": "https://finance.yahoo.com/news/standard-chartered-hires-hdfc-executive-115753321.html",
+     "source": "Private Banker International",
+     "date": "2026-11-09"
     },
     {
-     "title": "AI Wants \u201cEvery Scrap of RAM.\u201d Qualcomm and Arm Just Showed Who Pays the Bill",
-     "url": "https://www.tikr.com/blog/ai-wants-every-scrap-of-ram-qualcomm-and-arm-just-showed-who-pays-the-bill?ref=yahoofinance&tlnk=yf-261107-72q2vv83",
-     "source": "TIKR",
-     "date": "2026-11-07"
+     "title": "SoftBank's Mobile Arm Braces for Possible AI Correction in US",
+     "url": "https://finance.yahoo.com/technology/ai/articles/softbank-mobile-arm-braces-possible-091252468.html",
+     "source": "Bloomberg",
+     "date": "2026-11-09"
     }
    ],
    "data": {
@@ -1425,22 +1470,22 @@
    "extra": "analysts' average target +95% away (15 analysts, 'buy')",
    "news": [
     {
+     "title": "Teradyne Launches Testing Platform for Physical, Edge AI Boards",
+     "url": "https://finance.yahoo.com/technology/ai/articles/teradyne-launches-testing-platform-physical-091827037.html",
+     "source": "MT Newswires",
+     "date": "2026-11-09"
+    },
+    {
+     "title": "Teradyne Introduces Omnyx Edge, Inline Board Test for Physical and Edge AI",
+     "url": "https://finance.yahoo.com/technology/ai/articles/teradyne-introduces-omnyx-edge-inline-080000675.html",
+     "source": "Business Wire",
+     "date": "2026-11-09"
+    },
+    {
      "title": "FormFactor\u2019s $300 Million Vote of Confidence from Teradyne Suggests Billionaires Are Right",
      "url": "https://finance.yahoo.com/markets/stocks/articles/formfactor-300-million-vote-confidence-191822668.html",
      "source": "Insider Monkey",
      "date": "2026-11-07"
-    },
-    {
-     "title": "4 Strong Buy AI Stocks to Consider Amid the Tech Selloff: CLS, DELL, TER & AXTI",
-     "url": "https://finance.yahoo.com/markets/stocks/articles/4-strong-buy-ai-stocks-202000643.html",
-     "source": "Zacks",
-     "date": "2026-11-05"
-    },
-    {
-     "title": "Teradyne, Inc. (TER) is Attracting Investor Attention: Here is What You Should Know",
-     "url": "https://finance.yahoo.com/markets/stocks/articles/teradyne-inc-ter-attracting-investor-130004916.html",
-     "source": "Zacks",
-     "date": "2026-11-05"
     }
    ],
    "data": {
@@ -1542,6 +1587,12 @@
    "extra": "analysts' average target -5% away (18 analysts, 'hold')",
    "news": [
     {
+     "title": "Zacks Investment Ideas feature highlights: Bloom Energy, Skyworks Solutions and Quanta Services",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/zacks-investment-ideas-feature-highlights-091400948.html",
+     "source": "Zacks",
+     "date": "2026-11-09"
+    },
+    {
      "title": "Earnings Estimate Upgrade Could Be A Game Changer For Skyworks Solutions (SWKS)",
      "url": "https://finance.yahoo.com/markets/stocks/articles/earnings-estimate-upgrade-could-game-171255963.html",
      "source": "Simply Wall St.",
@@ -1551,12 +1602,6 @@
      "title": "All You Need to Know About Skyworks (SWKS) Rating Upgrade to Strong Buy",
      "url": "https://finance.yahoo.com/markets/stocks/articles/know-skyworks-swks-rating-upgrade-160003911.html",
      "source": "Zacks",
-     "date": "2026-11-05"
-    },
-    {
-     "title": "Barclays Downgrades Skyworks Solutions to Equalweight From Overweight, Price Target is $79",
-     "url": "https://finance.yahoo.com/markets/stocks/articles/barclays-downgrades-skyworks-solutions-equalweight-155121276.html",
-     "source": "MT Newswires",
      "date": "2026-11-05"
     }
    ],
@@ -1574,65 +1619,71 @@
   },
   "BTC-USD": {
    "text": [
-    "Price: -8% this month, +15% over a year, 13% below its 52-week high.",
+    "Price: -9% this month, +9% over a year, 14% below its 52-week high.",
     "Coins have no sales or earnings to compare; the headlines below are the best guide to what's moving it."
    ],
    "extra": "",
    "news": [
     {
-     "title": "A Top Silicon Valley Investor Predicts a Bitcoin Crash to $57,000 Within the Next 12 Months. Here's Why He's Wrong.",
-     "url": "https://www.fool.com/investing/2026/11/08/top-silicon-valley-investor-predicts-a-bitcoin-cra/",
+     "title": "Bitcoin Dominance \u2018Crash\u2019 Sparks Altcoin Frenzy, But Traders Spot One Major Problem",
+     "url": "https://beincrypto.com/bitcoin-dominance-crash-tradingview-glitch-altcoins/",
+     "source": "BeInCrypto",
+     "date": "2026-11-09"
+    },
+    {
+     "title": "Digital Asset Treasury Firms Continue to Buy Bitcoin and Ethereum. That's Why I'm Bullish on These Two Cryptocurrencies.",
+     "url": "https://www.fool.com/investing/2026/11/09/digital-asset-treasury-firms-continue-to-buy-bitco/",
      "source": "Motley Fool",
-     "date": "2026-11-08"
+     "date": "2026-11-09"
     },
     {
-     "title": "Bitcoin holds below $76K as Binance EU closures add to crypto market pressure",
-     "url": "https://finance.yahoo.com/markets/crypto/articles/bitcoin-holds-below-76k-binance-063007720.html",
-     "source": "Investing.com",
-     "date": "2026-11-08"
-    },
-    {
-     "title": "Robert Kiyosaki Says 'Why Worry?' as He Eyes Buying Bitcoin, Gold, Silver in Next Crash",
-     "url": "https://finance.yahoo.com/markets/crypto/articles/robert-kiyosaki-says-why-worry-223009735.html",
-     "source": "Benzinga",
-     "date": "2026-11-07"
+     "title": "BTC USD Breaks Below 50-Week Average After $1.28B ETF Outflows: Is The Selling Finally Over?",
+     "url": "https://99bitcoins.com/news/bitcoin-btc/btc-usd-breaks-below-50-week-average-after-1-28b-etf-outflows/",
+     "source": "99bitcoins",
+     "date": "2026-11-09"
     }
    ]
   },
   "ETH-USD": {
    "text": [
-    "Price: -7% this month, +15% over a year, 20% below its 52-week high; behind Bitcoin by 5 points over 3 months.",
+    "Price: -12% this month, +5% over a year, 24% below its 52-week high; behind Bitcoin by 9 points over 3 months.",
     "Coins have no sales or earnings to compare; the headlines below are the best guide to what's moving it."
    ],
    "extra": "",
    "news": [
     {
-     "title": "Zcash Price Is Flashing a Warning Sign for Bitcoin and Ethereum",
-     "url": "https://beincrypto.com/ansem-zcash-price-weakness-bitcoin/",
-     "source": "BeInCrypto",
-     "date": "2026-11-07"
-    },
-    {
-     "title": "A $15 ethereum permission led to a $2.5B Binance drain",
-     "url": "https://finance.yahoo.com/video/15-ethereum-permission-led-2-190000365.html",
-     "source": "Yahoo Finance Video",
-     "date": "2026-11-06"
-    },
-    {
-     "title": "Where Will Ethereum Be in 3 Years?",
-     "url": "https://finance.yahoo.com/markets/crypto/articles/where-ethereum-3-years-190100780.html",
+     "title": "Digital Asset Treasury Firms Continue to Buy Bitcoin and Ethereum. That's Why I'm Bullish on These Two Cryptocurrencies.",
+     "url": "https://www.fool.com/investing/2026/11/09/digital-asset-treasury-firms-continue-to-buy-bitco/",
      "source": "Motley Fool",
-     "date": "2026-11-05"
+     "date": "2026-11-09"
+    },
+    {
+     "title": "Pewdiepie Odysseus AI Predicts a Wild Ethereum Price Target For 2027",
+     "url": "https://99bitcoins.com/news/altcoins/pewdiepie-odysseus-ai-predicts-a-wild-ethereum-price-target-for-2027/",
+     "source": "99bitcoins",
+     "date": "2026-11-09"
+    },
+    {
+     "title": "Bitcoin, Ethereum, XRP Whipsaw On Nvidia Scandal, Iran Tensions: Crypto Sell-Off Sparks $1B Liquidation Wave",
+     "url": "https://stocktwits.com/news-articles/markets/cryptocurrency/bitcoin-ethereum-xrp-whipsaw-on-nvidia-scandal-iran-tensions/cNGr4kAR9ej",
+     "source": "Stocktwits",
+     "date": "2026-11-09"
     }
    ]
   },
   "SOL-USD": {
    "text": [
-    "Price: -14% this month, +7% over a year, 28% below its 52-week high; behind Bitcoin by 10 points over 3 months.",
+    "Price: -17% this month, +0% over a year, 30% below its 52-week high; behind Bitcoin by 11 points over 3 months.",
     "Coins have no sales or earnings to compare; the headlines below are the best guide to what's moving it."
    ],
    "extra": "",
    "news": [
+    {
+     "title": "XRP and Solana Both Hit 30-Day Lows This Week. Is It Better to Buy XRP or SOL Right Now?",
+     "url": "https://247wallst.com/investing/cryptocurrency/2026/11/08/xrp-and-solana-both-hit-30-day-lows-this-week-is-it-better-to-buy-xrp-or-sol-right-now/",
+     "source": "24/7 Wall St.",
+     "date": "2026-11-08"
+    },
     {
      "title": "The Price of Solana Just Dropped Below $100. Time to Buy the Dip?",
      "url": "https://www.fool.com/investing/2026/11/06/the-price-of-solana-just-dropped-below-100-time-to/",
@@ -1644,18 +1695,12 @@
      "url": "https://www.cryptoprowl.com/releases/solana-company-to-expand-hong-kong-presence-7743",
      "source": "CryptoProwl",
      "date": "2026-11-06"
-    },
-    {
-     "title": "Solana Price Prediction: SOL Eyes Drop to $80 as ETFs Book First Major Net Outflow in 12 Months",
-     "url": "https://finance.yahoo.com/markets/crypto/articles/solana-price-prediction-sol-eyes-140821629.html",
-     "source": "FX Empire",
-     "date": "2026-11-06"
     }
    ]
   },
   "LINK-USD": {
    "text": [
-    "Price: -11% this month, +24% over a year, 32% below its 52-week high; behind Bitcoin by 13 points over 3 months.",
+    "Price: -11% this month, +19% over a year, 32% below its 52-week high; behind Bitcoin by 11 points over 3 months.",
     "Coins have no sales or earnings to compare; the headlines below are the best guide to what's moving it."
    ],
    "extra": "",
@@ -1682,7 +1727,7 @@
   },
   "AVAX-USD": {
    "text": [
-    "Price: -16% this month, -9% over a year, 32% below its 52-week high; ahead of Bitcoin by 9 points over 3 months.",
+    "Price: -12% this month, -8% over a year, 30% below its 52-week high; ahead of Bitcoin by 10 points over 3 months.",
     "Coins have no sales or earnings to compare; the headlines below are the best guide to what's moving it."
    ],
    "extra": "",
@@ -1709,7 +1754,7 @@
   },
   "JUP-USD": {
    "text": [
-    "Price: -6% this month, +10% over a year, 100% below its 52-week high; behind Bitcoin by 20 points over 3 months.",
+    "Price: -12% this month, +2% over a year, 100% below its 52-week high; behind Bitcoin by 23 points over 3 months.",
     "Coins have no sales or earnings to compare; the headlines below are the best guide to what's moving it."
    ],
    "extra": "",
@@ -1741,7 +1786,7 @@
   },
   "RAY-USD": {
    "text": [
-    "Price: -1% this month, +203% over a year, 30% below its 52-week high; ahead of Bitcoin by 45 points over 3 months.",
+    "Price: -7% this month, +189% over a year, 31% below its 52-week high; ahead of Bitcoin by 55 points over 3 months.",
     "Coins have no sales or earnings to compare; the headlines below are the best guide to what's moving it."
    ],
    "extra": "",
@@ -1749,7 +1794,7 @@
   },
   "RENDER-USD": {
    "text": [
-    "Price: -13% this month, +18% over a year, 35% below its 52-week high; ahead of Bitcoin by 7 points over 3 months.",
+    "Price: -11% this month, +18% over a year, 34% below its 52-week high; ahead of Bitcoin by 10 points over 3 months.",
     "Coins have no sales or earnings to compare; the headlines below are the best guide to what's moving it."
    ],
    "extra": "",
@@ -1764,7 +1809,7 @@
   },
   "MET-USD": {
    "text": [
-    "Price: -0% this month, -6% over a year, 55% below its 52-week high; ahead of Bitcoin by 3 points over 3 months.",
+    "Price: -4% this month, -12% over a year, 56% below its 52-week high; ahead of Bitcoin by 3 points over 3 months.",
     "Coins have no sales or earnings to compare; the headlines below are the best guide to what's moving it."
    ],
    "extra": "",
@@ -1777,55 +1822,55 @@
   },
   "XRP-USD": {
    "text": [
-    "Price: -11% this month, -14% over a year, 31% below its 52-week high; behind Bitcoin by 13 points over 3 months.",
+    "Price: -16% this month, -21% over a year, 35% below its 52-week high; behind Bitcoin by 16 points over 3 months.",
     "Coins have no sales or earnings to compare; the headlines below are the best guide to what's moving it."
    ],
    "extra": "",
    "news": [
     {
-     "title": "$1,000 in Bitcoin or XRP: Which Is Worth More by 2030?",
-     "url": "https://247wallst.com/investing/cryptocurrency/2026/11/07/1000-in-bitcoin-or-xrp-which-is-worth-more-by-2030/",
-     "source": "24/7 Wall St.",
-     "date": "2026-11-07"
+     "title": "David Schwartz Fires Back Against 'Spammers' as Wild $10 XRP Call Gains Traction",
+     "url": "https://www.ccn.com/news/crypto/david-schwartz-fires-back-against-spam-as-wild-10-xrp-call-gains-traction/",
+     "source": "CCN",
+     "date": "2026-11-09"
     },
     {
-     "title": "XRP Price Prediction: XRP May Revisit $1 as Negative Momentum Hits Extreme Levels",
-     "url": "https://finance.yahoo.com/markets/crypto/articles/xrp-price-prediction-xrp-may-160419232.html",
-     "source": "FX Empire",
-     "date": "2026-11-07"
+     "title": "Bitcoin, Ethereum, XRP Whipsaw On Nvidia Scandal, Iran Tensions: Crypto Sell-Off Sparks $1B Liquidation Wave",
+     "url": "https://stocktwits.com/news-articles/markets/cryptocurrency/bitcoin-ethereum-xrp-whipsaw-on-nvidia-scandal-iran-tensions/cNGr4kAR9ej",
+     "source": "Stocktwits",
+     "date": "2026-11-09"
     },
     {
-     "title": "What Will 10,000 XRP Be Worth by 2030?",
-     "url": "https://247wallst.com/investing/cryptocurrency/2026/11/07/what-will-10000-xrp-be-worth-by-2030/",
-     "source": "24/7 Wall St.",
-     "date": "2026-11-07"
+     "title": "Meta AI Predicts How Secure is XRP Following Recent Ripple Security Incident",
+     "url": "https://99bitcoins.com/news/altcoins/meta-ai-predicts-how-secure-xrp-following-security-scare/",
+     "source": "99bitcoins",
+     "date": "2026-11-08"
     }
    ]
   },
   "NEAR-USD": {
    "text": [
-    "Price: -26% this month, +223% over a year, 38% below its 52-week high; ahead of Bitcoin by 58 points over 3 months.",
+    "Price: -27% this month, +161% over a year, 40% below its 52-week high; ahead of Bitcoin by 60 points over 3 months.",
     "Coins have no sales or earnings to compare; the headlines below are the best guide to what's moving it."
    ],
    "extra": "",
    "news": [
     {
-     "title": "EU, UK near post-Brexit carbon market linkage deal - Bloomberg",
-     "url": "https://finance.yahoo.com/economy/policy/articles/eu-uk-near-post-brexit-100900504.html",
-     "source": "Investing.com",
-     "date": "2026-11-08"
+     "title": "FPX Nickel Defines Significant Near-Surface High-Grade Awaruite Nickel Zone in First Drill Holes at Advocate Nickel Property in Newfoundland; Expands Drill Prog",
+     "url": "https://finance.yahoo.com/news/fpx-nickel-defines-significant-near-120000439.html",
+     "source": "CNW Group",
+     "date": "2026-11-09"
     },
     {
-     "title": "She Prepaid for Her Funeral in Ohio, Then Moved to Florida to Be Near Her Kids. Getting That Money to Follow Her Wasn\u2019t Simple",
-     "url": "https://finance.yahoo.com/real-estate/articles/she-prepaid-her-funeral-ohio-091322112.html",
-     "source": "24/7 Wall St.",
-     "date": "2026-11-08"
+     "title": "Oil Prices Decline as Trump Signals Restraint on Iran Despite Shipping Attacks Near Strait of Hormuz",
+     "url": "https://finance.yahoo.com/energy/articles/oil-prices-decline-trump-signals-100337079.html",
+     "source": "InvestorsHub",
+     "date": "2026-11-09"
     },
     {
-     "title": "Does TORM (CPSE:TRMD A) Stock Sit Near Fair Value Now?",
-     "url": "https://finance.yahoo.com/markets/stocks/articles/does-torm-cpse-trmd-stock-081351343.html",
-     "source": "Simply Wall St.",
-     "date": "2026-11-08"
+     "title": "Should You Avoid McDonald's Stock, Even Near a 4-Year Low?",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/avoid-mcdonalds-stock-even-near-080500259.html",
+     "source": "Motley Fool",
+     "date": "2026-11-09"
     }
    ]
   },
@@ -1848,11 +1893,17 @@
   },
   "ADA-USD": {
    "text": [
-    "Price: -18% this month, -34% over a year, 39% below its 52-week high; behind Bitcoin by 13 points over 3 months.",
+    "Price: -18% this month, -35% over a year, 39% below its 52-week high; behind Bitcoin by 14 points over 3 months.",
     "Coins have no sales or earnings to compare; the headlines below are the best guide to what's moving it."
    ],
    "extra": "",
    "news": [
+    {
+     "title": "Sam Altman ChatGPT AI Predicts an Insane Move for Cardano (ADA)",
+     "url": "https://www.coinspeaker.com/sam-altman-chatgpt-ai-predicts-an-insane-move-for-cardano-ada/",
+     "source": "Coinspeaker",
+     "date": "2026-11-08"
+    },
     {
      "title": "Cardano Bulls Predict a 2,000% Rally, But Analysts Are Not Convinced",
      "url": "https://beincrypto.com/cardano-ada-2000-percent-rally-analysts/",
@@ -1864,18 +1915,12 @@
      "url": "https://247wallst.com/investing/cryptocurrency/2026/11/03/if-bitcoin-falls-below-75000-which-drops-harder-dogecoin-cardano-or-litecoin/",
      "source": "24/7 Wall St.",
      "date": "2026-11-03"
-    },
-    {
-     "title": "Google Gemini AI Predicts Parabolic Rally for Cardano (ADA)",
-     "url": "https://www.coinspeaker.com/google-gemini-ai-predicts-parabolic-rally-cardano-ada/",
-     "source": "Coinspeaker",
-     "date": "2026-11-03"
     }
    ]
   },
   "DOGE-USD": {
    "text": [
-    "Price: -10% this month, -22% over a year, 40% below its 52-week high; behind Bitcoin by 16 points over 3 months.",
+    "Price: -13% this month, -26% over a year, 41% below its 52-week high; behind Bitcoin by 18 points over 3 months.",
     "Coins have no sales or earnings to compare; the headlines below are the best guide to what's moving it."
    ],
    "extra": "",
@@ -1902,7 +1947,7 @@
   },
   "LTC-USD": {
    "text": [
-    "Price: -12% this month, -2% over a year, 31% below its 52-week high; ahead of Bitcoin by 0 points over 3 months.",
+    "Price: -14% this month, -6% over a year, 32% below its 52-week high; behind Bitcoin by 2 points over 3 months.",
     "Coins have no sales or earnings to compare; the headlines below are the best guide to what's moving it."
    ],
    "extra": "",
@@ -1936,45 +1981,39 @@
      "url": "https://247wallst.com/investing/cryptocurrency/2026/10/22/can-uniswap-uni-get-back-to-10-after-a-21-monthly-drop/",
      "source": "24/7 Wall St.",
      "date": "2026-10-22"
-    },
-    {
-     "title": "Wall Street Is About to Get Uniswap Futures. Why Is UNI Down 21% in Two Weeks?",
-     "url": "https://247wallst.com/investing/cryptocurrency/2026/10/18/wall-street-is-about-to-get-uniswap-futures-why-is-uni-down-21-in-two-weeks/",
-     "source": "24/7 Wall St.",
-     "date": "2026-10-18"
     }
    ]
   },
   "XLM-USD": {
    "text": [
-    "Price: -15% this month, -2% over a year, 49% below its 52-week high; behind Bitcoin by 14 points over 3 months.",
+    "Price: -17% this month, -5% over a year, 50% below its 52-week high; behind Bitcoin by 18 points over 3 months.",
     "Coins have no sales or earnings to compare; the headlines below are the best guide to what's moving it."
    ],
    "extra": "",
    "news": [
     {
-     "title": "Encore Capital Stock Jumps 26% on Stellar Q3 Earnings: Is ECPG a Buy?",
-     "url": "https://finance.yahoo.com/markets/stocks/articles/encore-capital-stock-jumps-26-141400111.html",
-     "source": "Zacks",
-     "date": "2026-11-06"
+     "title": "Stellar Lands Securitize as It Climbs the Tokenized-Asset Rankings",
+     "url": "https://unchainedcrypto.com/stellar-lands-securitize-as-it-climbs-the-tokenized-asset-rankings/",
+     "source": "Unchained",
+     "date": "2026-10-28"
     },
     {
-     "title": "Dollar sees best day since June after stellar jobs report, set for weekly gain",
-     "url": "https://finance.yahoo.com/markets/currencies/articles/asian-fx-mixed-yen-gains-043840964.html",
-     "source": "Investing.com",
-     "date": "2026-11-06"
+     "title": "$500B Asset Manager Brings Nasdaq-100 to Blockchain Through Stellar and Centrifuge",
+     "url": "https://www.ccn.com/news/crypto/500b-asset-manager-launches-nasdaq-100-token-stellar/",
+     "source": "CCN",
+     "date": "2026-10-28"
     },
     {
-     "title": "Stellar Snacks Caps Its Biggest Year Yet with the Launch of Baked with Olive Oil Pretzel Braids",
-     "url": "https://finance.yahoo.com/small-business/articles/stellar-snacks-caps-biggest-yet-135100110.html",
-     "source": "PR Newswire",
-     "date": "2026-11-04"
+     "title": "What Could $1,000 in XRP, Stellar and Hedera Be Worth by 2030?",
+     "url": "https://247wallst.com/investing/cryptocurrency/2026/10/27/what-could-1000-in-xrp-stellar-and-hedera-be-worth-by-2030/",
+     "source": "24/7 Wall St.",
+     "date": "2026-10-27"
     }
    ]
   },
   "ONDO-USD": {
    "text": [
-    "Price: -16% this month, +44% over a year, 40% below its 52-week high; behind Bitcoin by 0 points over 3 months.",
+    "Price: -18% this month, +39% over a year, 41% below its 52-week high; behind Bitcoin by 1 points over 3 months.",
     "Coins have no sales or earnings to compare; the headlines below are the best guide to what's moving it."
    ],
    "extra": "",
@@ -2001,7 +2040,7 @@
   },
   "KMNO-USD": {
    "text": [
-    "Price: -15% this month, +57% over a year, 34% below its 52-week high; ahead of Bitcoin by 40 points over 3 months.",
+    "Price: -16% this month, +46% over a year, 35% below its 52-week high; ahead of Bitcoin by 40 points over 3 months.",
     "Coins have no sales or earnings to compare; the headlines below are the best guide to what's moving it."
    ],
    "extra": "",
@@ -2009,7 +2048,7 @@
   },
   "PYTH-USD": {
    "text": [
-    "Price: -15% this month, +32% over a year, 37% below its 52-week high; ahead of Bitcoin by 18 points over 3 months.",
+    "Price: -15% this month, +28% over a year, 37% below its 52-week high; ahead of Bitcoin by 21 points over 3 months.",
     "Coins have no sales or earnings to compare; the headlines below are the best guide to what's moving it."
    ],
    "extra": "",
@@ -2022,7 +2061,7 @@
   },
   "ENA-USD": {
    "text": [
-    "Price: -18% this month, +49% over a year, 47% below its 52-week high; behind Bitcoin by 7 points over 3 months.",
+    "Price: -19% this month, +34% over a year, 48% below its 52-week high; behind Bitcoin by 1 points over 3 months.",
     "Coins have no sales or earnings to compare; the headlines below are the best guide to what's moving it."
    ],
    "extra": "",
@@ -2048,7 +2087,7 @@
   },
   "SEI-USD": {
    "text": [
-    "Price: -27% this month, -34% over a year, 48% below its 52-week high; behind Bitcoin by 3 points over 3 months.",
+    "Price: -27% this month, -36% over a year, 49% below its 52-week high; behind Bitcoin by 4 points over 3 months.",
     "Coins have no sales or earnings to compare; the headlines below are the best guide to what's moving it."
    ],
    "extra": "",
@@ -2075,7 +2114,7 @@
   },
   "MON-USD": {
    "text": [
-    "Price: -21% this month, -21% over a year, 56% below its 52-week high; behind Bitcoin by 33 points over 3 months.",
+    "Price: -22% this month, -23% over a year, 56% below its 52-week high; behind Bitcoin by 34 points over 3 months.",
     "Coins have no sales or earnings to compare; the headlines below are the best guide to what's moving it."
    ],
    "extra": "",
@@ -2083,75 +2122,75 @@
   }
  },
  "news_debug": [
-  "NVDA: 30 raw, 0 kept (word NVIDIA)",
-  "AMD: 30 raw, 8 kept (word Advanced)",
-  "AVGO: 30 raw, 6 kept (word Broadcom)",
-  "PLTR: 29 raw, 10 kept (word Palantir)",
-  "TSLA: 30 raw, 9 kept (word Tesla)",
-  "MRVL: 30 raw, 6 kept (word Marvell)",
-  "MU: 30 raw, 7 kept (word Micron)",
-  "GOOGL: 30 raw, 3 kept (word Alphabet)",
-  "AAPL: 30 raw, 4 kept (word Apple)",
-  "MSFT: 30 raw, 3 kept (word Microsoft)",
-  "META: 29 raw, 3 kept (word Meta)",
-  "QQQ: 30 raw, 0 kept (word Invesco)",
-  "SPY: 30 raw, 0 kept (word State)",
-  "TSM: 29 raw, 2 kept (word Taiwan)",
-  "CRDO: 30 raw, 13 kept (word Credo)",
+  "NVDA: 30 raw, 16 kept (word NVIDIA)",
+  "AMD: 30 raw, 13 kept (word Advanced)",
+  "AVGO: 30 raw, 4 kept (word Broadcom)",
+  "PLTR: 30 raw, 11 kept (word Palantir)",
+  "TSLA: 30 raw, 12 kept (word Tesla)",
+  "MRVL: 30 raw, 9 kept (word Marvell)",
+  "MU: 30 raw, 6 kept (word Micron)",
+  "GOOGL: 29 raw, 8 kept (word Alphabet)",
+  "AAPL: 30 raw, 12 kept (word Apple)",
+  "MSFT: 29 raw, 2 kept (word Microsoft)",
+  "META: 30 raw, 9 kept (word Meta)",
+  "QQQ: 30 raw, 4 kept (word Invesco)",
+  "SPY: 30 raw, 1 kept (word State)",
+  "TSM: 30 raw, 3 kept (word Taiwan)",
+  "CRDO: 30 raw, 12 kept (word Credo)",
   "ALAB: 30 raw, 8 kept (word Astera)",
-  "LITE: 29 raw, 7 kept (word Lumentum)",
-  "DELL: 30 raw, 9 kept (word Dell)",
-  "BE: 30 raw, 12 kept (word Bloom)",
-  "LLY: 30 raw, 9 kept (word Eli)",
+  "LITE: 30 raw, 4 kept (word Lumentum)",
+  "DELL: 30 raw, 10 kept (word Dell)",
+  "BE: 30 raw, 15 kept (word Bloom)",
+  "LLY: 30 raw, 10 kept (word Eli)",
   "HOOD: 30 raw, 6 kept (word Robinhood)",
   "SPCX: 30 raw, 11 kept (word Space)",
   "PANW: 30 raw, 11 kept (word Palo)",
-  "INTC: 30 raw, 6 kept (word Intel)",
+  "INTC: 30 raw, 9 kept (word Intel)",
   "NOW: 30 raw, 4 kept (word ServiceNow)",
-  "CSCO: 29 raw, 6 kept (word Cisco)",
+  "CSCO: 29 raw, 8 kept (word Cisco)",
   "CRM: 30 raw, 5 kept (word Salesforce)",
-  "TXN: 30 raw, 6 kept (word Texas)",
+  "TXN: 30 raw, 7 kept (word Texas)",
   "ANET: 30 raw, 14 kept (word Arista)",
-  "V: 30 raw, 8 kept (word Visa)",
-  "ABBV: 30 raw, 7 kept (word AbbVie)",
-  "XOM: 30 raw, 8 kept (word ExxonMobil)",
-  "AMAT: 30 raw, 3 kept (word Applied)",
-  "TMO: 30 raw, 14 kept (word Thermo)",
-  "ASML: 30 raw, 8 kept (word ASML)",
-  "ARM: 30 raw, 12 kept (word Arm)",
-  "KLAC: 30 raw, 8 kept (word KLA)",
+  "V: 30 raw, 7 kept (word Visa)",
+  "ABBV: 30 raw, 9 kept (word AbbVie)",
+  "XOM: 30 raw, 7 kept (word ExxonMobil)",
+  "AMAT: 30 raw, 6 kept (word Applied)",
+  "TMO: 30 raw, 13 kept (word Thermo)",
+  "ASML: 29 raw, 8 kept (word ASML)",
+  "ARM: 30 raw, 13 kept (word Arm)",
+  "KLAC: 30 raw, 7 kept (word KLA)",
   "BNY: 29 raw, 10 kept (word Bank)",
-  "TER: 30 raw, 8 kept (word Teradyne)",
+  "TER: 30 raw, 10 kept (word Teradyne)",
   "GRMN: 30 raw, 19 kept (word Garmin)",
   "INCY: 30 raw, 19 kept (word Incyte)",
-  "SWKS: 30 raw, 15 kept (word Skyworks)",
-  "BTC-USD: 30 raw, 20 kept (word Bitcoin)",
-  "ETH-USD: 28 raw, 17 kept (word Ethereum)",
+  "SWKS: 30 raw, 14 kept (word Skyworks)",
+  "BTC-USD: 30 raw, 21 kept (word Bitcoin)",
+  "ETH-USD: 28 raw, 18 kept (word Ethereum)",
   "SOL-USD: 30 raw, 20 kept (word Solana)",
   "LINK-USD: 30 raw, 15 kept (word Chainlink)",
   "AVAX-USD: 26 raw, 5 kept (word Avalanche)",
-  "JUP-USD: 20 raw, 13 kept (word Jupiter)",
+  "JUP-USD: 20 raw, 12 kept (word Jupiter)",
   "PUMP-USD: 0 raw, 0 kept (word None)",
   "RAY-USD: 11 raw, 0 kept (word Raydium)",
-  "RENDER-USD: 6 raw, 1 kept (word Render)",
+  "RENDER-USD: 5 raw, 1 kept (word Render)",
   "MET-USD: 4 raw, 0 kept (word Metronome)",
   "HYPE-USD: 0 raw, 0 kept (word None)",
   "XRP-USD: 30 raw, 20 kept (word XRP)",
   "NEAR-USD: 30 raw, 25 kept (word NEAR)",
   "SUI-USD: 10 raw, 0 kept (word None)",
   "TAO-USD: 2 raw, 1 kept (word None)",
-  "ADA-USD: 30 raw, 11 kept (word Cardano)",
+  "ADA-USD: 30 raw, 10 kept (word Cardano)",
   "DOGE-USD: 30 raw, 13 kept (word Dogecoin)",
   "LTC-USD: 25 raw, 5 kept (word Litecoin)",
-  "UNI-USD: 14 raw, 2 kept (word None)",
-  "XLM-USD: 30 raw, 20 kept (word Stellar)",
-  "ONDO-USD: 30 raw, 4 kept (word Ondo)",
+  "UNI-USD: 14 raw, 1 kept (word None)",
+  "XLM-USD: 10 raw, 6 kept (word Stellar)",
+  "ONDO-USD: 30 raw, 3 kept (word Ondo)",
   "KMNO-USD: 3 raw, 0 kept (word Kamino)",
   "PYTH-USD: 9 raw, 0 kept (word Pyth)",
   "GRASS-USD: 0 raw, 0 kept (word None)",
   "ENA-USD: 25 raw, 2 kept (word Ethena)",
   "APT-USD: 1 raw, 0 kept (word None)",
-  "SEI-USD: 29 raw, 9 kept (word Sei)",
+  "SEI-USD: 29 raw, 7 kept (word Sei)",
   "MON-USD: 0 raw, 0 kept (word MoneyByte)"
  ]
 }
